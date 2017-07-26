@@ -93,15 +93,15 @@
 
 
 
-<meta name="description" content="����">
+<meta name="description" content="Nothing  is  impossible !">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Big Elephant">
 <meta property="og:url" content="http://yoursite.com/page/6/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="����">
+<meta property="og:description" content="Nothing  is  impossible !">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Big Elephant">
-<meta name="twitter:description" content="����">
+<meta name="twitter:description" content="Nothing  is  impossible !">
 
 
 
@@ -400,140 +400,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/15/JDBCUtils/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/08/15/JDBCUtils/" itemprop="url">JDBCUtils</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-15T00:00:00+08:00">
-                2015-08-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/简单工具类/" itemprop="url" rel="index">
-                    <span itemprop="name">简单工具类</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast.jdbc.utils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.DriverManager;</div><div class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</div><div class="line"><span class="keyword">import</span> java.sql.ResultSet;</div><div class="line"><span class="keyword">import</span> java.util.Properties;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 使用配置文件的方式类抽取工具类(ClassLoader)</div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> Never Say Never</div><div class="line"> * <span class="doctag">@date</span> 2017年3月25日</div><div class="line"> * <span class="doctag">@version</span> V1.0</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtils_v3</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String driver;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String url;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String username;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String password;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        <span class="comment">// 1.获得一个类加载ClassLoader（负责将class文件加载到内存生成对应Class对象！）</span></div><div class="line">        ClassLoader classLoader = JDBCUtils_v3.class.getClassLoader();</div><div class="line">        <span class="comment">// 2.通过类加载器加载配置文件(必须是全名：名字+扩展名)得到一个输入流</span></div><div class="line">        InputStream is = classLoader.getResourceAsStream(<span class="string">"db.properties"</span>);</div><div class="line">        <span class="comment">// 3.创建一个properties对象</span></div><div class="line">        Properties properties = <span class="keyword">new</span> Properties();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 4.从输入流中读取属性列表(键值对)</span></div><div class="line">            properties.load(is);</div><div class="line">            <span class="comment">// 5.用指定的键在此属性列表中搜索属性</span></div><div class="line">            driver = properties.getProperty(<span class="string">"driver"</span>);</div><div class="line">            url = properties.getProperty(<span class="string">"url"</span>);</div><div class="line">            username = properties.getProperty(<span class="string">"username"</span>);</div><div class="line">            password = properties.getProperty(<span class="string">"password"</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获得连接方法</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> </span>&#123;</div><div class="line">        Connection conn = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 1.注册驱动</span></div><div class="line">            Class.forName(driver);</div><div class="line">            <span class="comment">// 2.获得连接</span></div><div class="line">            conn = DriverManager.getConnection(url, username, password);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> conn;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 释放资源</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">(Connection conn, PreparedStatement pstmt, ResultSet rs)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (rs != <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                rs.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">            &#125;</div><div class="line">        <span class="keyword">if</span> (pstmt != <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                pstmt.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">            &#125;</div><div class="line">        <span class="keyword">if</span> (conn != <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                conn.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/15/pageBean/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -668,7 +534,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/15/Md5Utils/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/15/JDBCUtils/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -687,7 +553,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/08/15/Md5Utils/" itemprop="url">Md5Utils</a></h1>
+                <a class="post-title-link" href="/2015/08/15/JDBCUtils/" itemprop="url">JDBCUtils</a></h1>
         
 
         <div class="post-meta">
@@ -758,7 +624,7 @@
       
         
           
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast.crm.utils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.math.BigInteger;</div><div class="line"><span class="keyword">import</span> java.security.MessageDigest;</div><div class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> sun.misc.BASE64Encoder;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Md5Util</span> </span>&#123;</div><div class="line"></div><div class="line">	</div><div class="line">	<span class="comment">/*public static String encode(String oldStr)&#123;</span></div><div class="line">		try &#123;</div><div class="line">			MessageDigest md5 = MessageDigest.getInstance("md5");</div><div class="line">			byte []afterStr = md5.digest(oldStr.getBytes());</div><div class="line">			</div><div class="line">			BASE64Encoder b64 = new BASE64Encoder();</div><div class="line">			return b64.encode(afterStr);</div><div class="line">		&#125; catch (NoSuchAlgorithmException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			throw new RuntimeException(e);</div><div class="line">		&#125;</div><div class="line">	&#125;*/</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encode</span><span class="params">(String oldStr)</span></span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			MessageDigest md5 = MessageDigest.getInstance(<span class="string">"md5"</span>);</div><div class="line">			<span class="keyword">byte</span> []afterStr = md5.digest(oldStr.getBytes());</div><div class="line">			</div><div class="line">			BigInteger bigInt = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, afterStr);</div><div class="line">			<span class="keyword">return</span> bigInt.toString(<span class="number">16</span>);</div><div class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(encode(<span class="string">"itcast123"</span>));</div><div class="line"><span class="comment">//		21232f297a57a5a743894a0e4a801fc3</span></div><div class="line"><span class="comment">//		21232f297a57a5a743894a0e4a801fc3</span></div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast.jdbc.utils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.DriverManager;</div><div class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</div><div class="line"><span class="keyword">import</span> java.sql.ResultSet;</div><div class="line"><span class="keyword">import</span> java.util.Properties;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 使用配置文件的方式类抽取工具类(ClassLoader)</div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> Never Say Never</div><div class="line"> * <span class="doctag">@date</span> 2017年3月25日</div><div class="line"> * <span class="doctag">@version</span> V1.0</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtils_v3</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String driver;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String url;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String username;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String password;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        <span class="comment">// 1.获得一个类加载ClassLoader（负责将class文件加载到内存生成对应Class对象！）</span></div><div class="line">        ClassLoader classLoader = JDBCUtils_v3.class.getClassLoader();</div><div class="line">        <span class="comment">// 2.通过类加载器加载配置文件(必须是全名：名字+扩展名)得到一个输入流</span></div><div class="line">        InputStream is = classLoader.getResourceAsStream(<span class="string">"db.properties"</span>);</div><div class="line">        <span class="comment">// 3.创建一个properties对象</span></div><div class="line">        Properties properties = <span class="keyword">new</span> Properties();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 4.从输入流中读取属性列表(键值对)</span></div><div class="line">            properties.load(is);</div><div class="line">            <span class="comment">// 5.用指定的键在此属性列表中搜索属性</span></div><div class="line">            driver = properties.getProperty(<span class="string">"driver"</span>);</div><div class="line">            url = properties.getProperty(<span class="string">"url"</span>);</div><div class="line">            username = properties.getProperty(<span class="string">"username"</span>);</div><div class="line">            password = properties.getProperty(<span class="string">"password"</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获得连接方法</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> </span>&#123;</div><div class="line">        Connection conn = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 1.注册驱动</span></div><div class="line">            Class.forName(driver);</div><div class="line">            <span class="comment">// 2.获得连接</span></div><div class="line">            conn = DriverManager.getConnection(url, username, password);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> conn;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 释放资源</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">(Connection conn, PreparedStatement pstmt, ResultSet rs)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (rs != <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                rs.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">            &#125;</div><div class="line">        <span class="keyword">if</span> (pstmt != <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                pstmt.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">            &#125;</div><div class="line">        <span class="keyword">if</span> (conn != <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                conn.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -1027,6 +893,140 @@
         
           
             <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast.crm.interceptor;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.struts2.ServletActionContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.opensymphony.xwork2.ActionInvocation;</div><div class="line"><span class="keyword">import</span> com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMethodFilterInterceptor</span> <span class="keyword">extends</span> <span class="title">MethodFilterInterceptor</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> String <span class="title">doIntercept</span><span class="params">(ActionInvocation invocation)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"><span class="comment">//		判断是否有当前登录人，从session获取对象，如果对象为null，代表没有登录人，跳转到登录页面，如果有对象，直接放过</span></div><div class="line">		Object user = ServletActionContext.getRequest().getSession().getAttribute(<span class="string">"user"</span>);</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(user!=<span class="keyword">null</span>)&#123;</div><div class="line">			invocation.invoke();  <span class="comment">//直接放过</span></div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> <span class="string">"login"</span>;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/15/Md5Utils/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/15/Md5Utils/" itemprop="url">Md5Utils</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-15T00:00:00+08:00">
+                2015-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/简单工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">简单工具类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast.crm.utils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.math.BigInteger;</div><div class="line"><span class="keyword">import</span> java.security.MessageDigest;</div><div class="line"><span class="keyword">import</span> java.security.NoSuchAlgorithmException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> sun.misc.BASE64Encoder;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Md5Util</span> </span>&#123;</div><div class="line"></div><div class="line">	</div><div class="line">	<span class="comment">/*public static String encode(String oldStr)&#123;</span></div><div class="line">		try &#123;</div><div class="line">			MessageDigest md5 = MessageDigest.getInstance("md5");</div><div class="line">			byte []afterStr = md5.digest(oldStr.getBytes());</div><div class="line">			</div><div class="line">			BASE64Encoder b64 = new BASE64Encoder();</div><div class="line">			return b64.encode(afterStr);</div><div class="line">		&#125; catch (NoSuchAlgorithmException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			throw new RuntimeException(e);</div><div class="line">		&#125;</div><div class="line">	&#125;*/</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encode</span><span class="params">(String oldStr)</span></span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			MessageDigest md5 = MessageDigest.getInstance(<span class="string">"md5"</span>);</div><div class="line">			<span class="keyword">byte</span> []afterStr = md5.digest(oldStr.getBytes());</div><div class="line">			</div><div class="line">			BigInteger bigInt = <span class="keyword">new</span> BigInteger(<span class="number">1</span>, afterStr);</div><div class="line">			<span class="keyword">return</span> bigInt.toString(<span class="number">16</span>);</div><div class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(encode(<span class="string">"itcast123"</span>));</div><div class="line"><span class="comment">//		21232f297a57a5a743894a0e4a801fc3</span></div><div class="line"><span class="comment">//		21232f297a57a5a743894a0e4a801fc3</span></div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
@@ -2106,7 +2106,7 @@
                alt="Cuidx" />
           <p class="site-author-name" itemprop="name">Cuidx</p>
            
-              <p class="site-description motion-element" itemprop="description">����</p>
+              <p class="site-description motion-element" itemprop="description">Nothing  is  impossible !</p>
           
         </div>
         <nav class="site-state motion-element">
