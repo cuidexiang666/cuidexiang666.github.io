@@ -1,0 +1,724 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="linux 常用命令Linux安装123456789101112bin（binaries）：存放可执行的二进制文件sbin（super user binaries）：存放可执行的二进制文件，只有root用户才能访问boot：存放用于系统引导时使用的的各种文件dev（devices）：用于存放设备文件etc（etcetera）：存放系统配置文件【重要】root：超级用户（管理员）目录home：存放用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用命令">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/linux常用命令/index.html">
+<meta property="og:site_name" content="Big Elephant">
+<meta property="og:description" content="linux 常用命令Linux安装123456789101112bin（binaries）：存放可执行的二进制文件sbin（super user binaries）：存放可执行的二进制文件，只有root用户才能访问boot：存放用于系统引导时使用的的各种文件dev（devices）：用于存放设备文件etc（etcetera）：存放系统配置文件【重要】root：超级用户（管理员）目录home：存放用">
+<meta property="og:updated_time" content="2017-07-26T09:41:18.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux常用命令">
+<meta name="twitter:description" content="linux 常用命令Linux安装123456789101112bin（binaries）：存放可执行的二进制文件sbin（super user binaries）：存放可执行的二进制文件，只有root用户才能访问boot：存放用于系统引导时使用的的各种文件dev（devices）：用于存放设备文件etc（etcetera）：存放系统配置文件【重要】root：超级用户（管理员）目录home：存放用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/02/linux常用命令/"/>
+
+
+
+
+
+  <title>linux常用命令 | Big Elephant</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Big Elephant</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/02/linux常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux常用命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-02T00:00:00+08:00">
+                2016-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="linux-常用命令"><a href="#linux-常用命令" class="headerlink" title="linux 常用命令"></a>linux 常用命令</h1><h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">bin（binaries）：存放可执行的二进制文件</div><div class="line">sbin（<span class="keyword">super</span> user binaries）：存放可执行的二进制文件，只有root用户才能访问</div><div class="line">boot：存放用于系统引导时使用的的各种文件</div><div class="line">dev（devices）：用于存放设备文件</div><div class="line">etc（etcetera）：存放系统配置文件【重要】</div><div class="line">root：超级用户（管理员）目录</div><div class="line">home：存放用户文件的根目录</div><div class="line">lib（library）：存放根文件系统中的程序运行所需要的共享库及内核模块</div><div class="line">mnt（mount）：系统管理员安装临时文件系统的安装点</div><div class="line">tmp（temporary）：用于存放各种临时文件</div><div class="line">usr（Unix share resource）：用于存放共享的的系统资源【重要】，一般我们都会把文件安装在该目录下</div><div class="line">var（variable）：用于存放运行时需要改变数据的文件</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">内部命令：属于shell解析器的一部分，例如：cd、pwd、help</div><div class="line">外部命令：独立与shell解析器之外的文件程序，例如：ls、mkdir、cp</div><div class="line">查看帮助文档</div><div class="line">内部命令：help + 命令，例如help cd</div><div class="line">外部命令：man + 命令，例如 man ls</div></pre></td></tr></table></figure>
+<h2 id="操作文件或目录常用命令"><a href="#操作文件或目录常用命令" class="headerlink" title="操作文件或目录常用命令"></a>操作文件或目录常用命令</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">cd ~：进入到用户的根目录，cd -：返回到原来目录</div><div class="line">pwd：print working directory，显示当前工作目录</div><div class="line">ls：查看当前目录下的所有文件，ls –la或者ll</div><div class="line">touch：创建空文件</div><div class="line">echo：向指定的文件中添加内容，例如：echo “content” &gt; x.txt；向指定的文件中追加数据：echo “content” &gt;&gt; x.txt</div><div class="line">mkdir：make directory，创建目录</div><div class="line">cp：copy，复制文件或者目录</div><div class="line">mv：move，移动文件或者目录、文件或者目录改名（同一目录下就是改名）</div><div class="line">rm：remove，删除文件</div><div class="line">-r：recursive，同时删除该目录下的所有文件</div><div class="line">-f：force，强制删除文件或目录</div><div class="line">rmdir：remove directory，删除空目录</div><div class="line">cat：catenate，显示文件文件内容</div><div class="line">more、less：分页显示文本文件内容  空格：翻页</div><div class="line">head、tail：查看文本中开头或者结尾部分的内容</div><div class="line">head –n 5 a.log：查看a.log的前5行数据</div><div class="line">tail –f b.log：循环读取</div><div class="line">stat：查看文件详情</div></pre></td></tr></table></figure>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">wc：word count，统计文本的字符个数、单词个数、行数</div><div class="line">-m：统计该文本的字符个数</div><div class="line">-w：统计该文本的单词个数</div><div class="line">-l：统计该文本的行数</div><div class="line">find：在文件系统中查找指定的文件，例：find /usr/ -name “xxx.txt”</div><div class="line">grep：在指定的文本文件中查找指定的字符串，例如：grep “hello” x.txt</div><div class="line">du：显示指定的文件（目录）已使用的磁盘空间的总数</div><div class="line">free：显示当前内存和交换空间的使用情况</div><div class="line">netstat：显示网络状态信息</div><div class="line">ifconfig：网卡的网络配置信息</div><div class="line">ping：测试网络的连通性</div><div class="line">ps：显示瞬间的进程状态</div><div class="line">kill：杀死一个进程，kill -<span class="number">9</span> pid</div><div class="line">df：显示文件系统磁盘空间的使用情况</div><div class="line">ln：link，建立连接文件（link），例如：ln –s family/son lnson</div></pre></td></tr></table></figure>
+<h2 id="解压缩命令"><a href="#解压缩命令" class="headerlink" title="解压缩命令"></a>解压缩命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">gzip：压缩文件（xxx.gz），例：gzip <span class="number">1</span>.txt；解压：gzip –d xxx.gz或者gunzip xxx.gz</div><div class="line">bzip2：压缩文件（xxx.bz2）例如：bzip2 <span class="number">1</span>.txt；解压：bzip2 –d xxx.bz2或者bunzip2 xxx.bz2</div><div class="line">tar：</div><div class="line">-c 建立一个压缩文件的参数指令（create）</div><div class="line">-x 解开一个压缩文件的参数指令（extract）</div><div class="line">-z 是否需要用 gzip 压缩</div><div class="line">-j 是否需要用 bzip2 压缩</div><div class="line">-v 压缩的过程中显示文件（verbose）</div><div class="line">-f 使用档名，在 f 之后要立即接档名（file）</div><div class="line"></div><div class="line"><span class="number">1</span>、将当前目录打包： tar –cvf bak.tar bak/</div><div class="line"><span class="number">2</span>、解压：tar –xvf bak.tar </div><div class="line"><span class="number">3</span>、打包并压缩成gzip：tar –zcvf bak.tar.gz bak.tar</div><div class="line"><span class="number">4</span>、解压gzip：tar –zxvf bak.tar.gz [-C /usr  解压到该目录下]</div><div class="line"><span class="number">5</span>、打包并压缩成bz2：tar -jcvf a.tar.bz2</div><div class="line"><span class="number">6</span>、解压bz2：tar -jxvf a.tar.bz2</div></pre></td></tr></table></figure>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">shutdown：系统关机</div><div class="line">-r：关机后立即重启</div><div class="line">-h：关机后不启动</div><div class="line">halt：关机后关闭电源</div><div class="line">reboot：重启</div><div class="line">学习Linux的好习惯：善于使用帮助命令、善用tab键、掌握一些快捷键：Ctrl+c（停止当前进程）、history（查看历史命令）、Ctrl+l（清屏，与clear命令作用相同）、Ctrl+r（搜索历史命令）</div></pre></td></tr></table></figure>
+<h1 id="vim编辑器"><a href="#vim编辑器" class="headerlink" title="vim编辑器"></a>vim编辑器</h1><h2 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">i：在当前光标前插入</div><div class="line">I：在当前光标行首插入</div><div class="line">a：在当前光标后插入</div><div class="line">A：在当前光标行尾插入</div><div class="line">o：在当前光标的下一行插入新行</div><div class="line">O：在当前光标的上一行插入新行</div></pre></td></tr></table></figure>
+<h2 id="定位命令"><a href="#定位命令" class="headerlink" title="定位命令"></a>定位命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:set nu：显示行号</div><div class="line">:set nonu：取消行号</div><div class="line">gg：到文本第一行</div><div class="line">G：到文本的最后一行</div><div class="line">:n：到文本的第n行</div></pre></td></tr></table></figure>
+<h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x：删除光标所在处的字符</div><div class="line">nx：删除光标所在处的n个字符</div><div class="line">dd：删除光标所在行，ndd删除n行</div><div class="line">dG：删除光标所在行到末尾行的所有内容</div><div class="line">D：删除光标所在处到行尾的内容</div><div class="line">:n1,n2d：删除指定范围的行</div></pre></td></tr></table></figure>
+<h2 id="复制粘贴命令"><a href="#复制粘贴命令" class="headerlink" title="复制粘贴命令"></a>复制粘贴命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yy：复制当前光标行；nyy复制n行</div><div class="line">p：粘贴到该行下</div><div class="line">P：粘贴到该行上</div></pre></td></tr></table></figure>
+<h2 id="替换和取消命令"><a href="#替换和取消命令" class="headerlink" title="替换和取消命令"></a>替换和取消命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">u：undo，取消上一步操作</div><div class="line">ctrl+r：redo，返回到undo之前</div><div class="line">r：替换光标所在处的字符</div><div class="line">R：从光标所在处开始替换，按Esc键结束</div></pre></td></tr></table></figure>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ZZ（Shift+zz）：保存并退出，与”:wq”作用相同</div><div class="line">Ctrl+c：结束当前进程</div><div class="line">Ctrl+r：搜索历史命令</div><div class="line">Tab键：自动补全</div></pre></td></tr></table></figure>
+<h1 id="关于Linux的配置"><a href="#关于Linux的配置" class="headerlink" title="关于Linux的配置"></a>关于Linux的配置</h1><h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network</div><div class="line"></div><div class="line">修改hostname=master即可，需要注意的是：主机名不能包含下划线或者中划线</div></pre></td></tr></table></figure>
+<h2 id="修改IP"><a href="#修改IP" class="headerlink" title="修改IP"></a>修改IP</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line"></div><div class="line">DEVICE="eth0"</div><div class="line">BOOTPROTO="static"          #修改</div><div class="line">HWADDR="00:0C:29:7D:A4:4E"</div><div class="line">IPV6INIT="yes"</div><div class="line">NM_CONTROLLED="yes"</div><div class="line">ONBOOT="yes"</div><div class="line">TYPE="Ethernet"</div><div class="line">UUID="f804bacc-f3e8-452b-ae55-3f97d3bf5108"</div><div class="line">IPADDR="192.168.31.251"      #添加</div><div class="line">NETMASK="255.255.255.0"     #添加</div><div class="line">GATEWAY="193.168.31.250"    #添加</div></pre></td></tr></table></figure>
+<h2 id="修改主机和IP的映射关系"><a href="#修改主机和IP的映射关系" class="headerlink" title="修改主机和IP的映射关系"></a>修改主机和IP的映射关系</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div><div class="line">最后一行添加 <span class="number">192.168</span>.31.251	master</div></pre></td></tr></table></figure>
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、查看防火墙强状态：service iptables status</div><div class="line"><span class="number">2</span>、关闭防火墙：service iptables stop</div><div class="line"><span class="number">3</span>、查看防火墙是否开机启动：chkconfig iptables --list</div><div class="line"><span class="number">4</span>、查看该系统已哪种方式启动：vim /etc/inittab   <span class="number">1</span>：单用户启动  <span class="number">3</span>：多用户启动，server版  <span class="number">5</span>：图形界面方式启动</div><div class="line"><span class="number">5</span>、关闭防火墙开机关闭：chkconfig iptables off</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/17/git常用命令/" rel="next" title="git常用命令">
+                <i class="fa fa-chevron-left"></i> git常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Cuidx" />
+          <p class="site-author-name" itemprop="name">Cuidx</p>
+           
+              <p class="site-description motion-element" itemprop="description">�޵���</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux-常用命令"><span class="nav-number">1.</span> <span class="nav-text">linux 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux安装"><span class="nav-number">1.1.</span> <span class="nav-text">Linux安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作文件或目录常用命令"><span class="nav-number">1.2.</span> <span class="nav-text">操作文件或目录常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">1.3.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压缩命令"><span class="nav-number">1.4.</span> <span class="nav-text">解压缩命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他命令"><span class="nav-number">1.5.</span> <span class="nav-text">其他命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim编辑器"><span class="nav-number">2.</span> <span class="nav-text">vim编辑器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入命令"><span class="nav-number">2.1.</span> <span class="nav-text">插入命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位命令"><span class="nav-number">2.2.</span> <span class="nav-text">定位命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除命令"><span class="nav-number">2.3.</span> <span class="nav-text">删除命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制粘贴命令"><span class="nav-number">2.4.</span> <span class="nav-text">复制粘贴命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换和取消命令"><span class="nav-number">2.5.</span> <span class="nav-text">替换和取消命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用快捷键"><span class="nav-number">2.6.</span> <span class="nav-text">常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Linux的配置"><span class="nav-number">3.</span> <span class="nav-text">关于Linux的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改主机名"><span class="nav-number">3.1.</span> <span class="nav-text">修改主机名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改IP"><span class="nav-number">3.2.</span> <span class="nav-text">修改IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改主机和IP的映射关系"><span class="nav-number">3.3.</span> <span class="nav-text">修改主机和IP的映射关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭防火墙"><span class="nav-number">3.4.</span> <span class="nav-text">关闭防火墙</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cuidx</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

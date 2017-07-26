@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/02/02/java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/23/过滤器、监听器、拦截器的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -285,7 +285,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/02/02/java/" itemprop="url">java</a></h1>
+                <a class="post-title-link" href="/2015/11/23/过滤器、监听器、拦截器的区别/" itemprop="url">过滤，监听，拦截器</a></h1>
         
 
         <div class="post-meta">
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-02T00:00:00+08:00">
-                2016-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-23T00:00:00+08:00">
+                2015-11-23
               </time>
             
 
@@ -320,8 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
                   </a>
                 </span>
 
@@ -356,9 +356,39 @@
       
         
           
-            <h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><ul>
-<li>sdkajsbkj</li>
+            <h1 id="过滤器、监听器、拦截器的区别"><a href="#过滤器、监听器、拦截器的区别" class="headerlink" title="过滤器、监听器、拦截器的区别"></a>过滤器、监听器、拦截器的区别</h1><p>1.过滤器</p>
+<p>Servlet中的过滤器Filter是实现了javax.servlet.Filter接口的服务器端程序，主要的用途是过滤字符编码、做一些业务逻辑判断等。其工作原理是，只要你在web.xml文件配置好要拦截的客户端请求，它都会帮你拦截到请求，此时你就可以对请求或响应(Request、Response)统一设置编码，简化操作；同时还可进行逻辑判断，如用户是否已经登陆、有没有权限访问该页面等等工作。它是随你的web应用启动而启动的，只初始化一次，以后就可以拦截相关请求，只有当你的web应用停止或重新部署的时候才销毁，以下通过过滤编码的代码示例来了解它的使用：</p>
+<p>[c-sharp] view plain copy<br> MyCharsetFilter.Java 编码过滤器<br>package …;<br>import …;<br>// 主要目的：过滤字符编码；其次，做一些应用逻辑判断等.<br>// Filter跟web应用一起启动<br>// 当web应用重新启动或销毁时，Filter也被销毁<br>public class MyCharsetFilter implements Filter {<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> FilterConfig config = <span class="keyword">null</span>;   </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;   </div><div class="line">    System.out.println(<span class="string">"MyCharsetFilter准备销毁..."</span>);   </div><div class="line">&#125;   </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest arg0, ServletResponse arg1, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;   </div><div class="line">    <span class="comment">// 强制类型转换   </span></div><div class="line">    HttpServletRequest request = (HttpServletRequest)arg0;   </div><div class="line">    HttpServletResponse response = (HttpServletResponse)arg1;   </div><div class="line">    <span class="comment">// 获取web.xm设置的编码集，设置到Request、Response中         request.setCharacterEncoding(config.getInitParameter("charset"));          response.setContentType(config.getInitParameter("contentType"));          response.setCharacterEncoding(config.getInitParameter("charset"));            </span></div><div class="line">   <span class="comment">// 将请求转发到目的地   </span></div><div class="line">    chain.doFilter(request, response);   </div><div class="line">&#125;   </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException </span>&#123;   </div><div class="line">    <span class="keyword">this</span>.config = arg0;   </div><div class="line">    System.out.println(<span class="string">"MyCharsetFilter初始化..."</span>);   </div><div class="line">&#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以下是 MyCharsetFilter.java 在web.xml 中配置: </p>
+<p>[c-sharp] view plain copy</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;filter&gt;   </div><div class="line">&lt;filter-name&gt;filter&lt;/filter-name&gt;   </div><div class="line">  &lt;filter-class&gt;dc.gz.filters.MyCharsetFilter&lt;/filter-class&gt;   </div><div class="line">  &lt;init-param&gt;   </div><div class="line">      &lt;param-name&gt;charset&lt;/param-name&gt;   </div><div class="line">      &lt;param-value&gt;UTF-8&lt;/param-value&gt;   </div><div class="line">  &lt;/init-param&gt;   </div><div class="line">  &lt;init-param&gt;   </div><div class="line">      &lt;param-name&gt;contentType&lt;/param-name&gt;   </div><div class="line">      &lt;param-value&gt;text/html;charset=UTF-8&lt;/param-value&gt;   </div><div class="line">  &lt;/init-param&gt;   </div><div class="line">&lt;/filter&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;filter-mapping&gt;   </div><div class="line">   &lt;filter-name&gt;filter&lt;/filter-name&gt;   </div><div class="line">     &lt;!-- * 代表截获所有的请求  或指定请求/test.do  /xxx.do --&gt;   </div><div class="line">     &lt;url-pattern&gt;/*&lt;/url-pattern&gt;  </div><div class="line">&lt;/filter-mapping&gt;</div></pre></td></tr></table></figure>
+<p>​    </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">以上的例子简单的说明了Filter的使用，具体其他的应用可以看具体的场景。</div></pre></td></tr></table></figure>
+<p>2.监听器</p>
+<p>现在来说说Servlet的监听器Listener，它是实现了javax.servlet.ServletContextListener 接口的服务器端程序，它也是随web应用的启动而启动，只初始化一次，随web应用的停止而销毁。主要作用是： 做一些初始化的内容添加工作、设置一些基本的内容、比如一些参数或者是一些固定的对象等等。下面利用监听器对数据库连接池DataSource的初始化演示它的使用： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[c-sharp] view plain copy</div><div class="line"></div><div class="line">MyServletContextListener.java   </div><div class="line"></div><div class="line"> <span class="keyword">package</span> dc.gz.listeners;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContext;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContextEvent;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContextListener;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> org.apache.commons.dbcp.BasicDataSource;</div></pre></td></tr></table></figure>
+<p>​<br>  /**  </p>
+<ul>
+<li><p>Web应用监听器<br>*/<br> public class MyServletContextListener implements ServletContextListener {<br> // 应用监听器的销毁方法<br> public void contextDestroyed(ServletContextEvent event) {   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> ServletContext sc = event.getServletContext();   </div><div class="line"> <span class="comment">// 在整个web应用销毁之前调用，将所有应用空间所设置的内容清空   </span></div><div class="line"> sc.removeAttribute(<span class="string">"dataSource"</span>);   </div><div class="line">System.out.println(<span class="string">"销毁工作完成..."</span>);</div></pre></td></tr></table></figure>
+<p> }   </p>
+<p> // 应用监听器的初始化方法<br> public void contextInitialized(ServletContextEvent event) {   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过这个事件可以获取整个应用的空间   </span></div><div class="line"><span class="comment">// 在整个web应用下面启动的时候做一些初始化的内容添加工作   </span></div><div class="line">ServletContext sc = event.getServletContext();   </div><div class="line"><span class="comment">// 设置一些基本的内容；比如一些参数或者是一些固定的对象   </span></div><div class="line"><span class="comment">// 创建DataSource对象，连接池技术 dbcp   </span></div><div class="line">BasicDataSource bds = <span class="keyword">new</span> BasicDataSource();   </div><div class="line">bds.setDriverClassName(<span class="string">"com.MySQL.jdbc.Driver"</span>);                       bds.setUrl(<span class="string">"jdbc:mysql://localhost:3306/hibernate"</span>);   </div><div class="line">bds.setUsername(<span class="string">"root"</span>);   </div><div class="line">bds.setPassword(<span class="string">"root"</span>);   </div><div class="line">bds.setMaxActive(<span class="number">10</span>);<span class="comment">//最大连接数   </span></div><div class="line">bds.setMaxIdle(<span class="number">5</span>);<span class="comment">//最大管理数   </span></div><div class="line"><span class="comment">//bds.setMaxWait(maxWait); 最大等待时间   </span></div><div class="line"><span class="comment">// 把 DataSource 放入ServletContext空间中，   </span></div><div class="line"><span class="comment">// 供整个web应用的使用(获取数据库连接)   </span></div><div class="line">sc.setAttribute(<span class="string">"dataSource"</span>, bds);   </div><div class="line">System.out.println(<span class="string">"应用监听器初始化工作完成..."</span>);   </div><div class="line">System.out.println(<span class="string">"已经创建DataSource..."</span>);</div></pre></td></tr></table></figure>
+<p> }<br> }   </p>
+</li>
 </ul>
+<p>web.xml中配置如下，很简单：</p>
+<p>[c-sharp] view plain copy<br><!-- 配置应用监听器  --><br>  <listener><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;listener-<span class="class"><span class="keyword">class</span>&gt;<span class="title">dc</span>.<span class="title">gz</span>.<span class="title">listeners</span>.<span class="title">MyServletContextListener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></div></pre></td></tr></table></figure></listener></p>
+<p>     </p>
+<p>这样配置好了之后，以后在web应用中就可以通过ServletContext取得BasicDataSource对象，从而获取与数据库的连接，提高性能，方便使用。</p>
+<p>3.拦截器</p>
+<p>拦截器是在面向切面编程中应用的，就是在你的service或者一个方法前调用一个方法，或者在方法后调用一个方法。是基于JAVA的反射机制。拦截器不是在web.xml，比如struts在struts.xml中配置，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[c-sharp] <span class="function">view plain copy</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable  </div><div class="line"></div><div class="line">&#123;  </div><div class="line"></div><div class="line">Object result = <span class="keyword">null</span>;  </div><div class="line"></div><div class="line">System.out.println(<span class="string">"before invoke method :"</span> + method.getName());  </div><div class="line"></div><div class="line">result = method.invoke(<span class="keyword">this</span>.targetObj, args);  </div><div class="line"></div><div class="line">System.out.println(<span class="string">"after invoke method : "</span> + method.getName());  </div><div class="line"></div><div class="line"><span class="keyword">return</span> result;  </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>总结：</p>
+<p>1.过滤器：所谓过滤器顾名思义是用来过滤的，在Java web中，你传入的request,response提前过滤掉一些信息，或者提前设置一些参数，然后再传入servlet或者struts的action进行业务逻辑，比如过滤掉非法url（不是login.do的地址请求，如果用户没有登陆都过滤掉）,或者在传入servlet或者struts的action前统一设置字符集，或者去除掉一些非法字符（聊天室经常用到的，一些骂人的话）。filter 流程是线性的， url传来之后，检查之后，可保持原来的流程继续向下执行，被下一个filter, servlet接收等.</p>
+<p>2.监听器：这个东西在c/s模式里面经常用到，他会对特定的事件产生产生一个处理。监听在很多模式下用到。比如说观察者模式，就是一个监听来的。又比如struts可以用监听来启动。Servlet监听器用于监听一些重要事件的发生，监听器对象可以在事情发生前、发生后可以做一些必要的处理。</p>
+<p>3.java的拦截器 主要是用在插件上，扩展件上比如 hivernate spring struts2等 有点类似面向切片的技术，在用之前先要在配置文件即xml文件里声明一段的那个东西。</p>
 
           
         
@@ -402,7 +432,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/02/01/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/08/多对一实体类配置文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -421,7 +451,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/02/01/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2015/11/08/多对一实体类配置文件/" itemprop="url">entity</a></h1>
         
 
         <div class="post-meta">
@@ -433,8 +463,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-01T00:00:00+08:00">
-                2016-02-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-08T00:00:00+08:00">
+                2015-11-08
               </time>
             
 
@@ -443,6 +473,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -470,16 +522,1120 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC </div><div class="line">    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"</div><div class="line">    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;</div><div class="line">&lt;hibernate-mapping&gt;</div><div class="line">   &lt;!-- 类与表的映射   name指的是类名     table指的是表名 --&gt;</div><div class="line">   &lt;class name="cn.itcast.crm.domain.Customer" table="customer"&gt;</div><div class="line">		&lt;id name="custId"&gt;</div><div class="line">			&lt;generator class="native"&gt;&lt;/generator&gt;</div><div class="line">		&lt;/id&gt;</div><div class="line">		&lt;property name="custName"&gt;&lt;/property&gt;</div><div class="line">		&lt;property name="custLinkman"&gt;&lt;/property&gt;</div><div class="line">		&lt;property name="custPhone"&gt;&lt;/property&gt;</div><div class="line">		&lt;property name="custMobile"&gt;&lt;/property&gt;</div><div class="line">		&lt;property name="filePath"&gt;&lt;/property&gt;</div><div class="line">		</div><div class="line">		&lt;many-to-one name="levelBaseDict"  column="custLevel" class="cn.itcast.crm.domain.BaseDict"&gt;&lt;/many-to-one&gt;</div><div class="line">		&lt;many-to-one name="sourceBaseDict"   column="custSource" class="cn.itcast.crm.domain.BaseDict"&gt;&lt;/many-to-one&gt;</div><div class="line">		</div><div class="line">&lt;!-- 		private BaseDict levelBaseDict;  //级别 --&gt;</div><div class="line">&lt;!-- 	private BaseDict sourceBaseDict ; //来源 --&gt;</div><div class="line">   &lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
 
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/16/application.xml配置文件（非注解式开发)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/16/application.xml配置文件（非注解式开发)/" itemprop="url">applicationContext.xml</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-16T00:00:00+08:00">
+                2015-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop"</div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">	http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">	http://www.springframework.org/schema/context</div><div class="line">	http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">	http://www.springframework.org/schema/aop</div><div class="line">	http://www.springframework.org/schema/aop/spring-aop.xsd</div><div class="line">	http://www.springframework.org/schema/tx</div><div class="line">	http://www.springframework.org/schema/tx/spring-tx.xsd"&gt;</div><div class="line">	</div><div class="line">&lt;!-- 	数据源 --&gt;</div><div class="line">&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;</div><div class="line"> &lt;property name="driverClass" value="com.mysql.jdbc.Driver"&gt;&lt;/property&gt;</div><div class="line"> &lt;property name="jdbcUrl" value="jdbc:mysql:///crm_253"&gt;&lt;/property&gt;</div><div class="line"> &lt;property name="user" value="root"&gt;&lt;/property&gt;</div><div class="line"> &lt;property name="password" value="root"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;!--sessionFactory --&gt;</div><div class="line">&lt;bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"&gt;</div><div class="line">&lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;</div><div class="line">&lt;property name="configLocations" value="classpath:hibernate.cfg.xml"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;!-- 	声明式事务管理 --&gt;</div><div class="line">&lt;bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"&gt;</div><div class="line"> &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;!-- 	配置通知 --&gt;</div><div class="line">&lt;tx:advice id="advice" transaction-manager="transactionManager"&gt;</div><div class="line"> &lt;tx:attributes&gt;</div><div class="line">  &lt;tx:method name="save*"/&gt;</div><div class="line">  &lt;tx:method name="update*"/&gt;</div><div class="line">  &lt;tx:method name="delete*"/&gt;</div><div class="line">  &lt;tx:method name="find*" read-only="true"/&gt;</div><div class="line">  &lt;tx:method name="*"/&gt;</div><div class="line"> &lt;/tx:attributes&gt;</div><div class="line">&lt;/tx:advice&gt;</div><div class="line"></div><div class="line">&lt;!-- 	切面 --&gt;</div><div class="line">&lt;aop:config&gt;</div><div class="line"> &lt;aop:pointcut expression="execution(* cn.itcast.crm.service.impl.*.*(..))" id="mycut"/&gt;</div><div class="line"> &lt;aop:advisor advice-ref="advice" pointcut-ref="mycut"/&gt;</div><div class="line">&lt;/aop:config&gt;	</div><div class="line">	</div><div class="line">	</div><div class="line">&lt;bean id="userDao" class="cn.itcast.crm.dao.impl.UserDaoImpl"&gt;</div><div class="line"> &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;bean id="userService" class="cn.itcast.crm.service.impl.UserServiceImpl"&gt;</div><div class="line"> &lt;property name="userDao" ref="userDao"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line"></div><div class="line">&lt;bean id="userAction" class="cn.itcast.crm.action.UserAction" scope="prototype"&gt;</div><div class="line"> &lt;property name="userService" ref="userService"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;bean id="baseDictDao" class="cn.itcast.crm.dao.impl.BaseDictDaoImpl"&gt;</div><div class="line"> &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;bean id="baseDictService" class="cn.itcast.crm.service.impl.BaseDictServiceImpl"&gt;</div><div class="line"> &lt;property name="baseDictDao" ref="baseDictDao"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;bean id="customerDao" class="cn.itcast.crm.dao.impl.CustomerDaoImpl"&gt;</div><div class="line"> &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;bean id="customerService" class="cn.itcast.crm.service.impl.CustomerServiceImpl"&gt;</div><div class="line"> &lt;property name="customerDao" ref="customerDao"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line"></div><div class="line">&lt;bean id="customerAction" class="cn.itcast.crm.action.CustomerAction" scope="prototype"&gt;</div><div class="line"> &lt;property name="customerService" ref="customerService"&gt;&lt;/property&gt;</div><div class="line"> &lt;property name="baseDictService" ref="baseDictService"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/16/struts.xml(非注解是开发)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/16/struts.xml(非注解是开发)/" itemprop="url">struts.xml</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-16T00:00:00+08:00">
+                2015-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</div><div class="line">	"http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</div><div class="line">&lt;struts&gt;	</div><div class="line">    &lt;constant name="struts.multipart.maxSize" value="5097152"&gt;&lt;/constant&gt;</div><div class="line"></div><div class="line">	&lt;package name="crm" namespace="/" extends="struts-default"&gt;</div><div class="line">		&lt;action name="userAction_*" class="userAction" method="&#123;1&#125;"&gt;</div><div class="line">		&lt;!-- 			修改默认拦截器栈中的fileUpload中的属性maximumSize --&gt;</div><div class="line"> 			&lt;interceptor-ref name="defaultStack"&gt;</div><div class="line"> 			  &lt;param name="fileUpload.maximumSize"&gt;2097152&lt;/param&gt;</div><div class="line"> 			&lt;/interceptor-ref&gt;</div><div class="line">			 &lt;result name="toregist"&gt;/add.jsp&lt;/result&gt;</div><div class="line">			 &lt;result name="tologin"&gt;/login.jsp&lt;/result&gt;</div><div class="line">			 &lt;result name="index"&gt;/index.jsp&lt;/result&gt;</div><div class="line">		&lt;/action&gt;</div><div class="line">		&lt;action name="customerAction_*" class="customerAction" method="&#123;1&#125;"&gt;</div><div class="line">&lt;!-- 			修改默认拦截器栈中的fileUpload中的属性maximumSize --&gt;</div><div class="line"> 			&lt;interceptor-ref name="defaultStack"&gt;</div><div class="line"> 			  &lt;param name="fileUpload.maximumSize"&gt;4097152&lt;/param&gt;</div><div class="line"> 			&lt;/interceptor-ref&gt;</div><div class="line">		</div><div class="line">		    &lt;result name="toadd"&gt;/jsp/customer/add.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="success"&gt;/jsp/success.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="list"&gt;/jsp/customer/list.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="input"&gt;/jsp/error.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="update"&gt;/jsp/customer/edit.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="tolist" type="redirectAction"&gt;customerAction_list.action&lt;/result&gt;</div><div class="line">		    &lt;result name="error" &gt;/jsp/error.jsp&lt;/result&gt;</div><div class="line">		&lt;/action&gt;</div><div class="line">	&lt;/package&gt;</div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/16/hibernate.xml/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/16/hibernate.xml/" itemprop="url">hibernate.xml</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-16T00:00:00+08:00">
+                2015-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</div><div class="line">	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</div><div class="line">&lt;hibernate-configuration&gt;</div><div class="line">    &lt;session-factory&gt;</div><div class="line">        &lt;!-- hibernate方言;是指hibernate生成底层的sql语句时使用什么样的sql语句，由方言来决定 --&gt;</div><div class="line">        &lt;property name="hibernate.dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;</div><div class="line"></div><div class="line">	    &lt;!-- 自动建表 --&gt;</div><div class="line">	    &lt;property name="hibernate.hbm2ddl.auto"&gt;update&lt;/property&gt;</div><div class="line">        &lt;!-- 显示出sql在控制台 --&gt;</div><div class="line">        &lt;property name="hibernate.show_sql"&gt;true&lt;/property&gt;</div><div class="line">        &lt;!-- 格式化sql在控制台  可以换行 --&gt;</div><div class="line">        &lt;property name="hibernate.format_sql"&gt;true&lt;/property&gt;</div><div class="line">        </div><div class="line">        &lt;!-- 设置事务的隔离级别 --&gt;</div><div class="line">        &lt;property name="hibernate.connection.isolation"&gt;4&lt;/property&gt;</div><div class="line">        &lt;!-- 指定加载映射文件 --&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/User.hbm.xml"/&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/BaseDict.hbm.xml"/&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/Customer.hbm.xml"/&gt;</div><div class="line">    &lt;/session-factory&gt;</div><div class="line">&lt;/hibernate-configuration&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/09/20/用户名密码注册校验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/09/20/用户名密码注册校验/" itemprop="url">用户名密码注册校验</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-20T00:00:00+08:00">
+                2015-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#原始方式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="UTF-8"&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">	&lt;table align="center" width="600px"&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				用户:&amp;nbsp;&amp;nbsp;&lt;input type="text" name="username" id="username" value="请输入用户名" style="color: darkgray;" onfocus="myfocus(this,'用户名是由字母与数组组成','ulable')" onblur="mybluer(this,'ulable')" /&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				&lt;label id="ulable"&gt;&lt;/label&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				密码:&amp;nbsp;&amp;nbsp;&lt;input type="password" name="password" id="password" value="请输入密码!" style="color: darkgray;" onfocus="myfocus(this,'密码是由数字组成，且大于等于6位','plable')" onblur="mybluer(this,'plable')" /&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				&lt;label id="plable"&gt;&lt;/label&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">	&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	function myfocus(thisObj, content, id) &#123;</div><div class="line">		thisObj.value = "";</div><div class="line">		thisObj.style.color = "black";</div><div class="line">		var lableObj = eval(id);</div><div class="line">		lableObj.innerHTML = content;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function mybluer(thisObj, id) &#123;</div><div class="line">		var lableObj = eval(id);</div><div class="line">		lableObj.innerHTML = "";</div><div class="line">		if(thisObj.value == "") &#123;</div><div class="line">			lableObj.innerHTML = "&lt;font color='red'&gt;请输入文字&lt;/font&gt;";</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/09/17/添加和删除列表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/09/17/添加和删除列表/" itemprop="url">添加和删除列表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-17T00:00:00+08:00">
+                2015-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="utf-8"&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">	&lt;table align="center" cellpadding="10" cellspacing="3"&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td&gt;姓名：&lt;input type="text" id="username" /&gt;&lt;/td&gt;</div><div class="line">			&lt;td&gt;Email:&lt;input type="text" id="email" /&gt;&lt;/td&gt;</div><div class="line">			&lt;td&gt;年龄:&lt;input type="text" id="age" /&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td colspan="3" align="center"&gt;&lt;input type="button" value="添加" onclick="addTR()" /&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">	&lt;/table&gt;</div><div class="line">	&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</div><div class="line">	&lt;hr/&gt;</div><div class="line">	&lt;table id="tabInfo" align="center" width="500" border="1"&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td&gt;姓名&lt;/td&gt;</div><div class="line">			&lt;td&gt;Email&lt;/td&gt;</div><div class="line">			&lt;td&gt;年龄&lt;/td&gt;</div><div class="line">			&lt;td&gt;操作&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line"></div><div class="line">	&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	function addTR() &#123;</div><div class="line">		var tableObj = document.getElementsByTagName('table')[1];</div><div class="line">		var username = document.getElementById('username').value;</div><div class="line">		var email = document.getElementById('email').value;</div><div class="line">		var age = document.getElementById('age').value;</div><div class="line">		var rowObj = tableObj.insertRow();</div><div class="line">		var uObj = rowObj.insertCell();</div><div class="line">		var eObj = rowObj.insertCell();</div><div class="line">		var aObj = rowObj.insertCell();</div><div class="line">		var dObj = rowObj.insertCell();</div><div class="line">		uObj.innerHTML = username;</div><div class="line">		eObj.innerHTML = email;</div><div class="line">		aObj.innerHTML = age;</div><div class="line">		dObj.innerHTML = "&lt;input type='button' value='删除' onclick='delTR(this);' /&gt;";</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function delTR(obj) &#123;</div><div class="line">		var tableObj = document.getElementsByTagName('table')[1];</div><div class="line">		var rowObj = obj.parentNode.parentNode;</div><div class="line">		tableObj.deleteRow(rowObj.rowIndex);</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">  &lt;/html&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/29/跑马灯/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/29/跑马灯/" itemprop="url">跑马灯</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-29T00:00:00+08:00">
+                2015-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="utf-8"&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;table border="1" align="center" width="200"&gt;</div><div class="line">		&lt;tr align="center"&gt;</div><div class="line">			&lt;td id="td1" style="background-color: red;"&gt;跑&lt;/td&gt;</div><div class="line">			&lt;td id="td2" style="background-color: yellow;"&gt;马&lt;/td&gt;</div><div class="line">			&lt;td id="td3" style="background-color: green;"&gt;灯&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">	&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	var fn = function()&#123;</div><div class="line">		if(document.getElementById("td1").style.background=="red")&#123;</div><div class="line">			td1.style.background="yellow"</div><div class="line">		&#125;else&#123;</div><div class="line">			td1.style.background="red"</div><div class="line">		&#125;</div><div class="line">		if(document.getElementById("td2").style.background=="yellow")&#123;</div><div class="line">			td2.style.background="green"</div><div class="line">		&#125;else&#123;</div><div class="line">			td2.style.background="yellow"</div><div class="line">		&#125;</div><div class="line">		if(document.getElementById("td3").style.background=="green")&#123;</div><div class="line">			td3.style.background="red"</div><div class="line">		&#125;else&#123;</div><div class="line">			td3.style.background="green"</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	setInterval(fn,1000);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/25/获取在线人数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/25/获取在线人数/" itemprop="url">获取在线人数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-25T00:00:00+08:00">
+                2015-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tuxianchao.listener;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ServletContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpSessionEvent;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpSessionListener;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnlineNumberListener</span> <span class="keyword">implements</span> <span class="title">HttpSessionListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionCreated</span><span class="params">(HttpSessionEvent sessionEvent)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"创建session，人数加1"</span>);</div><div class="line">        <span class="comment">// 获取servletcontext</span></div><div class="line">        ServletContext context = sessionEvent.getSession().getServletContext();</div><div class="line">        <span class="comment">// 获取当前人数</span></div><div class="line">        Integer count = (Integer) context.getAttribute(<span class="string">"OnlineCount"</span>);</div><div class="line">        <span class="keyword">if</span> (count == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="comment">// 若果为空，初始化为1（第一个访问的用户）</span></div><div class="line">            count = <span class="keyword">new</span> Integer(<span class="number">1</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// +1</span></div><div class="line">            <span class="keyword">int</span> i = count.intValue();</div><div class="line">            count = <span class="keyword">new</span> Integer(i + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 改变人数</span></div><div class="line">        context.setAttribute(<span class="string">"OnlineCount"</span>, count);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionDestroyed</span><span class="params">(HttpSessionEvent sessionEvent)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"销毁session，人数减1"</span>);</div><div class="line">        ServletContext context = sessionEvent.getSession().getServletContext();</div><div class="line">        Integer count = (Integer) context.getAttribute(<span class="string">"OnlineCount"</span>);</div><div class="line">        <span class="keyword">int</span> i = count.intValue();</div><div class="line">        count = <span class="keyword">new</span> Integer(i - <span class="number">1</span>);</div><div class="line">        context.setAttribute(<span class="string">"OnlineCount"</span>, count);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>index.jsp</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language="java" contentType="text/html; charset=ISO-8859-1"</div><div class="line"></div><div class="line">    pageEncoding="ISO-8859-1"%&gt;</div><div class="line"></div><div class="line">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</div><div class="line"></div><div class="line">&lt;html&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line"></div><div class="line">&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;</div><div class="line"></div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">    &lt;h1&gt;Index&lt;/h1&gt;</div><div class="line">    &lt;h4&gt;</div><div class="line">        Online:&lt;%=application.getAttribute("OnlineCount")%&gt;&lt;/h4&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/13/初识JS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/13/初识JS/" itemprop="url">初识JS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-13T00:00:00+08:00">
+                2015-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ol>
+<li>什么是 JavaScript？</li>
+</ol>
+<p>　JavaScript 是一门跨平台、面向对象的动态的弱类型的轻量级解释型语言，是一种基于对象和事件驱动并具有相对安全性的客户端脚本语言。应用于 HTML 文档能够在网站上提供动态的交互能力，他不同于 Java。简单说就是基于浏览器处理 HTML 文档，实现各种网页特效，响应用户的各种操作，为网页添加动态效果，提升用户操作体验，比如图片滚动播放效果，点击登录按钮弹出对话框，鼠标移入移出动画，表单提交数据验证等。</p>
+<ol>
+<li>为什么要学习 JavaScript？</li>
+</ol>
+<p>　　JavaScript 通常被称为 JS，他发明的目的，就是作为浏览器的内置脚本语言，为网页开发者提供操控浏览器的能力，他可以让网页呈现出各种特殊效果，为用户提供友好的互动体验。随着 Ajax 技术的出现，前端可以在不刷新页面的情况下和后端进行数据交换，更新页面数据，jQuery 等库的盛行让 JS 编写变得异常简单，Bootstrap 框架更让前端的成本无限降低，大大提高了前端开发的效率，JS 在前端领域前景非常广阔。</p>
+<p>　　随着 Node 的发布，使得 JS 不仅可以运行在前端，还可以运行在服务器上。这对 JS 来说是一次质的突破，Node.js 项目使得 JS 可以用于开发服务器端的大型项目，网站的前后端都用 JS 开发已经称为了现实。</p>
+<p>　　至此 JS 除了可以被浏览器解析，也可以作为后端语言使用，越来越多的应用程序，将 JS 作为内嵌的脚本语言，可以用来构建移动端 APP，开发 HTML 游戏，可以不依赖于浏览器，构建桌面应用程序。</p>
+<p>　　可以预期，最终只使用 JS 这一种语言，就可以开发出适应不同平台（包括桌面端，服务器端，手持端）的程序。在 Jeef Atwood 发布的博客中，他提出了著名的“Atwood定律”，即“任何能够用 JavaScript 实现的应用程序，最终都必将用 JavaScript 实现”。</p>
+<p>　　相比学习其他语言，JS 很容易学习。只要有浏览器，就能运行 JS 程序，只要有文本编辑器，就可以编写 JS 代码。不用安装复杂的 IED（集成开发环境）和编译器。JS 的语法相对简单一些，本身的语法不是特别多，而且语言灵活，完全可以只用简单的命令，完成大部分的操作。</p>
+<p>　　虽然 JS 的核心语法不难学习，但是要真正学透还不是一件容易的事，JS 其实是很复杂的，随着学习，越能体会到他的强大。JS 要发挥作用，必须与其他组件配合，这些外部组件五花八门，而且数量庞大，涉及到了网络应用的各个方面，比如编辑器组件，QQ 空间提供的关注组件等，要掌握他们并非易事，必须下狠功夫。JS 语言有一些设计缺陷，在一些地方会出现怪异的运行结果，各主流浏览器对于 JS 的支持不尽相同，兼容性是最让人头疼的事情，学习 JS，很大一部分时间都是用来搞清除哪些地方有陷阱。</p>
+<p>　　尽管如此，JS 的地位还是不可动摇的，2015年公布的世界语言使用排名，JS 排在第七位，较去年又有了提升。Ecma（通过 Ecma-262 制定脚本语言的标准）加快了语言的标准化，使得 JS 功能日益增强，而语法缺陷和怪异之处也得到了弥补，截至今年 JS 最新版本为 ECMAScript 2015，也叫 ES6，增加了许多新特性。所以，JS 还是值得学习的，不仅要掌握，而且要学精，尤其对于 Web 前端开发工程师尤为重要。</p>
+<ol>
+<li>JavaScript 组成</li>
+</ol>
+<p>　　JS 由三部分组成：</p>
+<p>　　ECMAScript：也叫解释器，充当翻译角色，这是 JS 的核心部分。</p>
+<p>　　DOM：文档对象模型（Document Object Model）。DOM 赋予了 JS 操作 HTML 的能力，即 document 操作。</p>
+<p>　　BOM：浏览器对象模型（Browser Object Model）。BOM 赋予了 JS 操作浏览器的能力，即 window 操作。</p>
+<ol>
+<li>JavaScript 用法</li>
+</ol>
+<p>　　HTML 中的脚本必须位于 <script></script> 标签之间。可以在 HTML 文档中放入不限数量的脚本。脚本可位于 HTML 的 <head>或</head><body> 中，或者同时存在于这两个部分中。通常的做法是把函数放在 <head> 中，或者放在页面底部，这样不会干扰页面的内容。</head></body></p>
+<p>　　也可以把脚本保存在外部文件中，文件扩展名为 .js，外部文件通常包含被多个网页使用的代码。注意：在使用外部脚本时，脚本内不能包含 <script> 标签。</p>
+<ol>
+<li>编写 JavaScript 的流程</li>
+</ol>
+<p>　　首先，也是最重要的，先要搞清楚网页效果的实现原理，要达到什么目的，需要对哪些属性做出修改，以及用户的哪些操作，通过用户的某种操作，一步步的构思 JS 实现的方法。</p>
+<p>　　然后 HTML+CSS 布局页面。</p>
+<p>　　接着选择需要修改的属性的名称（id 或 class）。</p>
+<p>　　再根据用户的操作，选择相应的触发事件。</p>
+<p>　　最后，在事件中，根据第一步的构思，编写 JS 代码。</p>
+</script></p>
           
         
       
@@ -517,7 +1673,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -562,7 +1718,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -573,7 +1729,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

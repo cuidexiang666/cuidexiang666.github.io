@@ -1,0 +1,847 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript对象 　　在 JS 中一切皆对象，并提供了多个内置对象，比如：String、Array、Date 等，此外还支持自定义对象。对象只是一种特殊类型的数据，并拥有属性和方法，属性是与对象相关的值，方法是能够在对象上执行的动作。 1、String 对象　　String 对象用于处理文本，也就是字符串。一个字符串用于存储一系列的字符，通常 JS 字符串是原始值，可以使用变量声明，也可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS对象">
+<meta property="og:url" content="http://yoursite.com/2015/07/08/JS对象/index.html">
+<meta property="og:site_name" content="Big Elephant">
+<meta property="og:description" content="JavaScript对象 　　在 JS 中一切皆对象，并提供了多个内置对象，比如：String、Array、Date 等，此外还支持自定义对象。对象只是一种特殊类型的数据，并拥有属性和方法，属性是与对象相关的值，方法是能够在对象上执行的动作。 1、String 对象　　String 对象用于处理文本，也就是字符串。一个字符串用于存储一系列的字符，通常 JS 字符串是原始值，可以使用变量声明，也可以">
+<meta property="og:updated_time" content="2017-07-26T08:29:12.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS对象">
+<meta name="twitter:description" content="JavaScript对象 　　在 JS 中一切皆对象，并提供了多个内置对象，比如：String、Array、Date 等，此外还支持自定义对象。对象只是一种特殊类型的数据，并拥有属性和方法，属性是与对象相关的值，方法是能够在对象上执行的动作。 1、String 对象　　String 对象用于处理文本，也就是字符串。一个字符串用于存储一系列的字符，通常 JS 字符串是原始值，可以使用变量声明，也可以">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/07/08/JS对象/"/>
+
+
+
+
+
+  <title>JS对象 | Big Elephant</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Big Elephant</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/08/JS对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-08T00:00:00+08:00">
+                2015-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JavaScript对象</p>
+<p>　　在 JS 中一切皆对象，并提供了多个内置对象，比如：String、Array、Date 等，此外还支持自定义对象。对象只是一种特殊类型的数据，并拥有属性和方法，属性是与对象相关的值，方法是能够在对象上执行的动作。</p>
+<p>1、String 对象<br>　　String 对象用于处理文本，也就是字符串。一个字符串用于存储一系列的字符，通常 JS 字符串是原始值，可以使用变量声明，也可以使用 new 关键字将字符串定义为一个对象，在 JS 中并不提倡使用 new 关键字创建对象。原始值字符串是没有属性和方法的，但是可以使用 JS 的属性和方法，因为 JS 在执行属性和方法时可以把原始值视为对象。</p>
+<p>　　可以使用 JS 内置的 length 属性来计算字符串的长度。比如：</p>
+<p>var str = “abcdefghijklmnopqrstuvwxyz”;<br>alert(str.length);    //返回：26<br>　　下面是一些字符串常用的方法：</p>
+<p>　　(1)、charAt()</p>
+<p>　　str.charAt(index)　　返回指定索引位置的字符，也就是获取字符串的某一位字符。</p>
+<p>　　(2)、concat()</p>
+<p>　　str1.concat(str2, str3, …., strN)　　用于连接两个或多个字符串，返回连接后的字符串。</p>
+<p>　　(3)、indexOf()</p>
+<p>　　str.indexOf(某个字符, strat)　　返回字符串中某个字符从指定位置开始首次出现的位置，第二个参数可选，规定在字符串中开始查找的位置，他的合法值为 0 到字符串的长度 -1：str.length-1，如果不设置该参数，则从字符串的首字符开始查找。返回值为数值，如果找到则返回该字符首次出现的位置，没找到则返回 -1。</p>
+<p>　　(4)、search()</p>
+<p>　　search(str/RegExp)　　返回字符串中某个字符首次出现的位置，该参数为字符或者正则表达式，配合正则效果更好，返回值为数值，如果没有匹配到，则返回 -1。</p>
+<p>　　indexOf() 和 search() 区别：</p>
+<p>　　这两个方法都返回字符首次出现的位置，但是配合正则使用 search() 要比 indexOf() 更强大，如果是一个普通的字符串或者对一个具体的字符串来提取，那么使用 indexOf() 的效率更好，更省资源，但如果是查找特殊的字符串，比如有数字有字母，那么 indexOf() 就没办法执行了，必须要使用正则表达式和 search() 方法。</p>
+<p>　　(5)、match()</p>
+<p>　　match(str/RegExp)　　用于查找字符串中指定的字符，并且返回该字符，该方法配合正则使用效果更好，如果不使用正则表达式，则只是返回首次出现的指定字符，不会再向后匹配，如果配合正则并且全局匹配，则以数组形式返回字符串中所有指定的字符，如果没找到，则返回 null。</p>
+<p>　　(6)、replace()</p>
+<p>　　replace(str/RegExp, newstr)　　用于字符串中将一些字符替换成另一些字符，返回一个新字符串。该方法有两个参数，第一个参数规定需要被替换的字符，第二个参数为新字符，就是替换后要显示的字符。配合正则使用效果更好，可以替换所有匹配。最常见的应用就是：敏感词过滤。</p>
+<p>　　(7)、lastIndexOf()</p>
+<p>　　lastIndexOf() 和indexOf 相反，lastIndexOf(某个字符, strat)　　返回字符串中某个字符从指定位置开始最后出现的位置，在指定位置从后向前查找。第二个参数可选，他的合法值为0到字符串的长度 -1：str.length-1，如果不设置该参数，则从字符串的最后一个字符开始查找。返回值为数值，如果找到则返回该字符最后出现的位置，没找到则返回 -1。</p>
+<p>　　(8)、slice()</p>
+<p>　　slice(start, end)　　提取字符串的某个部分，并以新的字符串返回被提取的部分，不包括结束位置的字符。第一个参数为起始位置，第一个字符的位置为 0，第二个参数 end 可选，结束位置的下标，如果不设置该参数，则提取从起始位置开始到字符串最后一个字符的子字符串。提取字符的参数可以是负数，则规定的是从字符串的尾部位置开始算起，也就是说：-1 代表字符串最后一个字符，-2 指倒数第二个字符，依次类推。提取全部字符可写为：slice(0)，也可以不设置参数，直接使用。　</p>
+<p>　　(9)、substr() </p>
+<p>　　substr(start, length)　　提取字符串从开始位置指定字符串长度的字符，并以新的字符串返回被提取的部分。该方法可以替代 substring() 和 slice() 来使用。第一个参数为起始位置，可以是负数，则从尾部开始算起。第二个参数为提取字符串的长度，该参数可选，且不能小于 1，否则返回一个空字符串，如果不设置该参数，则返回从起始位置开始到最后一个字符的子字符串。</p>
+<p>　　(10)、substring()</p>
+<p>　　substring(from, to)　　提取介于字符串指定的两个下标中间的字符，并以新的字符串返回被提取的部分，不包括结束位置的字符。第一个参数规定提取子串的第一个字符在字符串中的位置，简单说就是开始位置，该参数是一个非负的整数。第二个参数是要提取的子串最后一个字符在字符串中的位置，也就是结束位置，该参数可选，为一个非负的整数，如果不设置该参数，则返回从开始位置到最后一个字符的子字符串。如果第二个参数比第一个参数大，则在提取子串之前会将较小的数作为开始位置，较大的作为结束位置。</p>
+<p>　　slice()、substr() 、substring()三者区别：</p>
+<p>　　从定义上看，三者都为提取子字符串，slice() 和substring() 可以看成是同类，参数都是字符串的某个开始位置到结束位置，都不包括结束位置。而 substr() 则是提取从字符串的某个位置开始，指定字符串长度的子字符串。他们的共同点都是：第二个参数可选，如果不设置，都返回从开始位置到最后一个字符的子字符串。</p>
+<p>　　从可设置的参数看，slice() 的两个参数都可为负数，表示从尾部开始算起。substr() 的第一个参数也可以设置为负数，而 substring() 的参数则不接受负数，如果设置为负数或者其他无效的数，则会被当作 0 处理。</p>
+<p>　　(11)、split()</p>
+<p>　　str.split()　　用于分割字符串，返回字符串数组。该方法有2个可选的参数，第一个参数为分割方式，可以是正则表达式，第二个参数设置返回字符串的最大长度。</p>
+<p>复制代码<br> 1 <script><br> 2 var str = “Good good study day day up！”;<br> 3<br> 4 //忽略参数：<br> 5 var arr = str.split();<br> 6 document.write(arr);<br> 7 //返回：Good good study day day up！<br> 8<br> 9 //分割每个字符包括空格：<br>10 var arr = str.split(‘’);<br>11 document.write(arr);<br>12 //返回：G,o,o,d, ,g,o,o,d, ,s,t,u,d,y, ,d,a,y, ,d,a,y, ,u,p,！<br>13<br>14 //使用空格作为分割符：<br>15 var arr = str.split(‘ ‘);<br>16 document.write(arr);<br>17 //返回：Good,good,study,day,day,up！<br>18<br>19 //规定返回数组的最大长度<br>20 var arr = str.split(‘ ‘, 3);<br>21 document.write(arr);<br>22 //返回：Good,good,study<br>23<br>24 //使用一个字符作为分割符：<br>25 var arr = str.split(‘d’);<br>26 document.write(arr);<br>27 //返回：Goo, goo, stu,y ,ay ,ay up！<br>28 </script><br>复制代码</p>
+<p>　　(12)、toString()</p>
+<p>　　toString()　　方法用于将对象转换为字符串。</p>
+<p>　　(13)、valueOf() </p>
+<p>　　valueOf()　　方法用于将对象转换为一个基本数据的值，返回对象的原始值。</p>
+<p>　　(14)、toLowerCase()</p>
+<p>　　str.toLowerCase()　　方法用于将字符串转换为小写。</p>
+<p>　　(15)、toUpperCase()</p>
+<p>　　str.toUpperCase()　　方法用于将字符串转换为大写。</p>
+<p>2、Number 对象<br>　　JS 只有一种数字类型，可以是整数，也可以是小数。整数最大可以有 15 位，小数最大可以有17位，在 JS 中小数运算并不是非常精确，所以大多数情况下，需要将小数转换为整数。注意：整数的第一位不能为 0，否则会得到意想不到的结果。如下面的运算结果：</p>
+<p>1 var sum = 0.1 + 0.2;<br>2 alert(sum);<br>3 //返回：0.30000000000000004</p>
+<p>　　(1)、infinity 和 -infinity</p>
+<p>　　当数字运算超过了 JS 所能表示的数字上限时，结果就为一个无穷大的值，在 JS 中用infinity表示。当负数运算超过了 JS 的负数范围，结果就为一个负无穷大的值，也叫无穷小，在 JS 中用 -infinity 表示。基于无穷大的加减乘数运算，他们的结果还是无穷大，并保留正负号。一个整数或者负数除以0，得到的都是无穷大。</p>
+<p>　　(2)、NaN</p>
+<p>　　NaN 表示非数字的特殊值，该属性用于指示一个值不是数字。返回值为布尔值。可以使用函数 isNaN() 判断一个值是否是 NaN 值。</p>
+<p>复制代码<br> 1 var x = 123;<br> 2 var y = ‘abc’;<br> 3<br> 4 alert(isNaN(x));    //返回：false<br> 5 alert(isNaN(y));    //返回：ture<br> 6<br> 7 alert(x == y);    //返回：false<br> 8 //NaN和NaN是不相等的。所以为假。<br> 9<br>10 var a = 2/0；<br>11 alert(isNaN(a));    //返回：false<br>12 //无穷大是一个数字<br>复制代码</p>
+<p>　　Number 对象属性：</p>
+<p>　　(1)、MAX_VALUE 和 MIN_VALUE</p>
+<p>　　MAX_VALUE 表示最大的数，它的近似值为： 1.7976931348623157 x 10308。如果大于该数则表示无穷大。MIN_VALUE 表示最小的数，它的近似值为：5 x 10-324，MIN_VALUE 是最接近 0 的数，但不是负值。比该属性小的值用 0 表示。由于他们都是 Number 对象的静态属性，只能通过 Number 调用，所以使用自定义的 Number 将无法获取属性，返回值为 undefined。</p>
+<p>复制代码<br> 1 //JS最大数<br> 2 alert(Number.MAX_VALUE);<br> 3 //返回：1.7976931348623157e+308<br> 4<br> 5 //JS最小数<br> 6 alert(Number.MIN_VALUE);<br> 7 //返回：5e-324<br> 8<br> 9 //e为科学计数法：<br>10 var a = 123e5;<br>11 var b = 123e-5;<br>12<br>13 alert(a);    //返回：12300000<br>14 alert(b);    //返回：0.00123<br>复制代码</p>
+<p>　　(2)、POSITIVE_INFINITY 和 NEGATIVE_INFINITY</p>
+<p>　　POSITIVE_INFINITY 属性代表无穷大，表示比 MAX_VALUE 大的数。NEGATIVE_INFINITY 属性表示负无穷大，表示比 MIN_VALUE 小的数。由于他们都是 Number 对象的静态属性，只能通过 Number 调用，所以使用自定义的 Number 将无法获取属性，返回值为 undefined。</p>
+<p>1 alert(Number.POSITIVE_INFINITY);<br>2 //返回：Infinity<br>3<br>4 alert(Number.NEGATIVE_INFINITY);<br>5 //返回：-Infinity</p>
+<p>　　Number 对象方法：</p>
+<p>　　(1)、toExponential() </p>
+<p>　　toExponential(n)　　可把对象的值转换成指数计数法。该方法有一个可选的参数，用于规定计数法中的小数位数，包括 0 和 20 之内的值，如果不设置该参数，将使用尽可能多的数字。</p>
+<p>　　(2)、toFixed()</p>
+<p>　　toFixed(n)　　可把数字转换为字符串，并四舍五入为指定小数点后位数的数字。该方法必须设置一个参数，规定小数的位数，包括 0 和 20 之内的值，如果不设置该参数，将默认为 0。</p>
+<p>　　(3)、toPrecision()</p>
+<p>　　toPrecision(n)　　可把数字格式化为指定的长度，如果超出指定的长度将转换为指数计数法。该方法必须设置一个参数，规定转换为指数计数法的最小位数，包括 1 和 21 之内的值，如果不设置该参数，则调用 toString() 方法，而不对数字转换。</p>
+<p>　　(4)、toString()</p>
+<p>　　toString()　　方法用于将对象转换为字符串。</p>
+<p>　　(5)、valueOf() </p>
+<p>　　valueOf()　　方法用于将对象转换为一个基本数据的值，返回对象的原始值。</p>
+<p>3、Math 对象<br>　　Math 对象的作用是：执行常见的算数任务。该对象无需在使用这个对象之前对它进行定义。</p>
+<p>　　下面主要介绍 Math 对象的一些常用方法：</p>
+<p>　　(1)、ceil() </p>
+<p>　　Math.ceil()　　可对一个数向上取整，如果参数是一个整数，该值不变。向上取整运算返回的是一个大于或等于该值并且与之最接近的整数。</p>
+<p>复制代码<br> 1 alert(Math.ceil(-0.1));    //返回：0<br> 2<br> 3 alert(Math.ceil(-9.9));    //返回：-9<br> 4<br> 5 alert(Math.ceil(2.1));     //返回：3<br> 6<br> 7 alert(Math.ceil(2.9));     //返回：3<br> 8<br> 9 var num = 8;<br>10 alert(Math.ceil(num));    //返回：8<br>复制代码</p>
+<p>　　(2)、floor() </p>
+<p>　　Math.floor()　　可对一个数进行向下取整，如果参数是一个整数，该值不变。向下取整运算返回一个小于或等于该值的最大整数。</p>
+<p>复制代码<br> 1 alert(Math.floor(-0.1));    //返回：-1<br> 2<br> 3 alert(Math.floor(-9.9));    //返回：-10<br> 4<br> 5 alert(Math.floor(2.1));     //返回：2<br> 6<br> 7 alert(Math.floor(2.9));     //返回：2<br> 8<br> 9 var num = 8;<br>10 alert(Math.floor(num));    //返回：8<br>复制代码</p>
+<p>　　(3)、round() </p>
+<p>　　Math.round()　　可把一个数字四舍五入为最接近的整数。</p>
+<p>复制代码<br> 1 alert(Math.round(-0.1));    //返回：0<br> 2<br> 3 alert(Math.round(-9.9));    //返回：-10<br> 4<br> 5 alert(Math.round(2.49));     //返回：2<br> 6<br> 7 alert(Math.round(2.5));     //返回：3<br> 8<br> 9 var num=8;<br>10 alert(Math.round(num));    //返回：8<br>复制代码</p>
+<p>　　(4)、random() 方法</p>
+<p>　　Math.random()　　可返回介于 0 ~ 1（大于或等于 0 但小于 1 )之间的一个随机数。</p>
+<p>复制代码<br> 1 //获得一个随机数：<br> 2 alert(Math.random());<br> 3<br> 4 //获得 0~10 之间的随机数：<br> 5 alert(Math.random()<em>10);<br> 6<br> 7 //random ()方法和round()方法配合，可获得一个不大于10的整数：<br> 8 alert(Math.round(Math.random()</em>10));<br> 9<br>10 //随机数每次返回的值都不同。<br>复制代码</p>
+<p>4、Array 对象<br>　　数组对象的作用是：使用单个变量来存储一系列的值。</p>
+<p>　　数组最常用的属性就是 length，用于返回数组中数据的长度，也可用于设置数组的长度。</p>
+<p>1 var arr = [1,2,3,4,5,6];<br>2 arr.length=3;<br>3 alert(arr);    //返回1,2,3<br>4<br>5 //arr.length=0;        可用于快速清空数组</p>
+<p>　　下面主要介绍 Array 对象一些常用方法：</p>
+<p>　　(1)、concat()</p>
+<p>　　arr.concat(arr1, arr2, …, arrN)　　用于连接两个或多个数组，该方法返回一个新数组，不改变原来数组。该方法的参数可以是具体的值，也可以是数组对象，可以是任意多个。如果该参数是具体的值，将把该值插入到原来的数组返回。</p>
+<p>　　(2)、join()</p>
+<p>　　join()　　用于将数组中的所有元素转换成一个字符串，元素是通过指定的分隔符分隔的。该方法有一个可选参数，用于指定分隔方式。如果不设置该参数，默认使用逗号分割。</p>
+<p>复制代码<br> 1 var arr1 = [86,’010’]<br> 2 var arr2 = [15278654321]<br> 3 var arr3 = arr1.concat(arr2);<br> 4<br> 5 document.write(arr3.join());<br> 6 //返回：86,010,15278654321<br> 7<br> 8 document.write(arr3.join(“.”));<br> 9 //返回：86.010.15278654321<br>10<br>11 document.write(arr3.join(“-“));<br>12 //返回：86-010-15278654321<br>13<br>14 document.write(arr3.join(“|”));<br>15 //返回：86|010|15278654321<br>复制代码</p>
+<p>　　(3)、reverse()</p>
+<p>　　arr.reverse()　　用于颠倒数组中元素的顺序。</p>
+<p>1 var arr = [‘Banana’, ‘Orange’, ‘Apple’];<br>2 document.write(arr);<br>3 //返回：Banana, Orange, Apple<br>4<br>5 document.write(arr.reverse());<br>6 //返回：Apple,Orange,Banana</p>
+<p>　　(4)、slice()</p>
+<p>　　arr.slice(start, end)　　可从已有的数组中返回选定的元素。该方法也适用于提取子字符串。也不包括开始位置和结束位置的元素。第一个参数规定从何处开始选取，第二个参数可选，规定从何处结束选取，如果省略该参数，则返回从开始位置到数组尾部的所有元素。如果参数为负数，则从数组最后一个元素开始算起。</p>
+<p>　　(5)、sort()</p>
+<p>　　arr.sort(方法函数)　　用于对数组的元素排序。排序可以是字母或数字，并按升序或降序。默认排序顺序为按字母升序。使用数字排序，你必须通过一个函数作为参数来调用。函数指定数字是按照升序还是降序排列。如果数字排序不指定方法函数，默认是按照字母升序，则 100 会排在 15 前边。</p>
+<p>复制代码<br> 1 var arr = [99,15,21,2,8,56,100,1];<br> 2<br> 3 //默认排序：<br> 4 document.write(arr.sort());<br> 5 //返回：1,100,15,2,21,56,8,99<br> 6<br> 7 //指定方法函数，按升序排序。<br> 8 function ascNum(a,b) {<br> 9     return a-b;<br>10 }<br>11 document.write(arr.sort(ascNum));<br>12 //返回：1,2,8,15,21,56,99,100<br>13<br>14 //指定方法函数，按降序排序。<br>15 function desNum(a,b) {<br>16     return b-a;<br>17 }<br>18 document.write(arr.sort(desNum));<br>19 //返回：100,99,56,21,15,8,2,1<br>复制代码</p>
+<p>　　(6)、shift() </p>
+<p>　　arr.shift()　　删除数组的第一个元素。 此方法将改变数组的长度。</p>
+<p>复制代码<br>1 var arr = [‘Banana’, ‘Orange’, ‘Apple’];<br>2 document.write(arr.length);    //返回：3<br>3<br>4 arr.shift();<br>5 document.write(arr);    //返回：Orange,Apple<br>6<br>7 document.write(arr.length);     //返回：2<br>复制代码</p>
+<p>　　(7)、pop()</p>
+<p>　　arr.pop()　　删除数组的最后一个元素。此方法将改变数组的长度。</p>
+<p>复制代码<br>1 var arr = [‘Banana’, ‘Orange’, ‘Apple’];<br>2 document.write(arr.length);    //返回：3<br>3<br>4 arr.pop();<br>5 document.write(arr);    //返回：Banana,Orange<br>6<br>7 document.write(arr.length);     //返回：2<br>复制代码</p>
+<p>　　(8)、unshift()</p>
+<p>　　arr.unshift()　　向数组开头添加一个或多个元素。此方法将改变数组的长度。</p>
+<p>复制代码<br>1 var arr = [‘Banana’, ‘Orange’, ‘Apple’];<br>2 document.write(arr.length);    //返回：3<br>3<br>4 arr.unshift(‘Mango’, ‘Pear’);<br>5 document.write(arr);<br>6 //返回：Mango,Pear,Banana,Orange,Apple<br>7<br>8 document.write(arr.length);    //返回：5<br>复制代码</p>
+<p>　　(9)、push()</p>
+<p>　　arr.push()　　向数组末尾添加一个或多个元素。此方法将该变数组的长度。</p>
+<p>复制代码<br>1 var arr= [‘Banana’, ‘Orange’, ‘Apple’];<br>2 document.write(arr.length);    //返回：3<br>3<br>4 arr.push(‘Mango’, ‘Pear’,’Lemon’);<br>5 document.write(arr);<br>6 //返回：Banana,Orange,Apple,Mango,Pear,Lemon<br>7<br>8 document.write(arr.length);    //返回：6<br>复制代码</p>
+<p>　　(10)、splice()</p>
+<p>　　arr.splice(start, length, arrElement1, …, arrElementN)　　用于删除、插入或替换数组的元素。该方法会改变数组的原始数据。该方法有多个参数，前两个为必须的参数。第一个参数规定从何处开始删除或插入。第二个参数规定删除元素的长度，如果设置为 0，则不删除元素，如果不定义该参数，则删除从 start 规定的位置开始到原数组结尾的所有元素。最后的参数可选，要添加到数组的新元素。</p>
+<p>复制代码<br> 1 var arr = [1,2,3,4,5,6];<br> 2<br> 3 //删除元素的应用：<br> 4 //从第2个位置开始，删除长度为3。<br> 5 arr.splice(2,3);<br> 6 document.write(arr+’<br>‘);<br> 7 //返回：1,2,6<br> 8<br> 9 //插入元素的应用：<br>10 //从第2个位置开始，删除为0个元素，也就是不删除，插入abc。<br>11 arr.splice(2,0,’a’,’b’,’c’);<br>12 document.write(arr+’<br>‘);<br>13 //返回：1,2,a,b,c,3,4,5,6<br>14<br>15 //替换元素的应用：<br>16 //从第2个位置开始，删除3个元素，再插入def。<br>17 arr.splice(2,3,’d’,’e’,’f’);<br>18 document.write(arr);<br>19 //返回：1,2,d,e,f,6<br>复制代码</p>
+<p>　　(11)、toString() </p>
+<p>　　toString()　　方法可把数组转换为字符串，并返回结果。</p>
+<p>　　(12)、valueOf() </p>
+<p>　　valueOf()　　方法返回数组对象的原始值。</p>
+<p>5、Date 对象</p>
+<p>　　Date 对象用于处理日期和时间。可以通过 new 关键词来定义 Date 对象。</p>
+<p>　　下面例子是获取当前的所有日期：</p>
+<p>复制代码<br> 1 var d = new Date();<br> 2 //获取当前日期<br> 3 document.write(d);<br> 4<br> 5 //获取当前的年份<br> 6 document.write(d.getFullYear() + ‘年’);<br> 7<br> 8 //获取当前月份，月份从0开始计算，所以需要+1<br> 9 document.write(d.getMonth() + 1 + ‘月’);<br>10<br>11 //获取当前是当月中的哪一天<br>12 document.write(d.getDate() + ‘日’);<br>13<br>14 //获取当前时间的小时<br>15 document.write(d.getHours() + ‘时’);<br>16<br>17 //获取当前时间的分钟<br>18 document.write(d.getMinutes() + ‘分’);<br>19<br>20 //获取当前时的秒数<br>21 document.write(d.getSeconds() + ‘秒’);<br>22<br>23 //获取当前的毫秒数t<br>24 document.write(d.getMilliseconds() + ‘毫秒’);<br>25<br>26 //获取星期<br>27 document.write(‘星期’ + d.getDay());<br>28<br>29 //星期从0开始算起，从星期天开始计算。<br>30 //getDay()返回的是0-6的数字，0表示星期天。如果要返回相对应的“星期”，需要通过数组完成。<br>31 var weekday = [“星期日”,”星期一”,”星期二”,”星期三”,”星期四”,”星期五”,”星期六”];<br>32 var week = d.getDay();<br>33 document.write(weekday[week]);<br>复制代码</p>
+<p>　　下面例子用于设置日期：</p>
+<p>复制代码<br> 1 var d = new Date();<br> 2<br> 3 //设置年份<br> 4 d.setFullYear(2020);<br> 5 document.write(d);<br> 6<br> 7 //该方法也可用于设置月份(介于0-11之间)和天数(介于1-31之间)。<br> 8 //月份：-1为去年的最后一月，-2为去年的倒数第二个月。<br> 9 //12为明年的第一个月，13为明年的第二个月。<br>10 //天数：0为上个月最后一天，-1为上个月最后一天之前的天数。<br>11 //如果当月有31天，32为下个月第一天，如果当天只有30天，32则为下个月的第二天<br>12 d.setFullYear(2020, 11, -1);<br>13 document.write(d);<br>14 //设置月份(介于0-11之间)，也可用于设置天数<br>15 d.setMonth(5);<br>16 document.write(d);<br>17<br>18<br>19 //设置天数(介于1-31之间)<br>20 d.setDate(12);<br>21 document.write(d);<br>22<br>23 //设置小时<br>24 //值介于0(午夜)-23(晚上11点)之间，-1为昨天的最后一个小时，24为明天的第一个小时<br>25 d.setHours(24);<br>26 document.write(d);<br>27<br>28 //该方法也可用于设置分钟、秒以及毫秒数。<br>29 //分钟：介于0-59之间，-1为上一小时最后一分钟，60为下一个小时第一分钟<br>30 //秒：介于0-59之间，-1为上一分钟最后一秒，60为下一分钟第一秒<br>31 //毫秒：介于0-999之间，-1为上一秒钟的最后一毫秒，1000为下一秒钟的第一毫秒<br>32 d.setHours(21,30,1);<br>33 document.write(d);<br>34<br>35 //获取小时 一个小应用：返回24小时之前的的时间<br>36 var d = new Date();<br>37 d.setHours(d.getHours()-24);<br>38 document.write(d);<br>39<br>40 //设置分钟，也可用于设置秒数和毫秒数<br>41 d.setMinutes(20);<br>42 document.write(d);<br>43<br>44 //设置秒，也可用于设置毫秒<br>45 d.setSeconds(10);<br>46 document.write(d);<br>47<br>48 //设置毫秒<br>49 d.setMilliseconds(999);<br>50 document.write(d);<br>复制代码</p>
+<p>　　getTime() 和 setTime()</p>
+<p>复制代码<br> 1 var d = new Date();<br> 2<br> 3 //获取1970年元旦距今的毫秒数<br> 4 document.write(d.getTime()+’毫秒’);<br> 5<br> 6 //向1970年元旦增加1325347200000毫秒，返回新日期<br> 7 d.setTime(1325347200000);<br> 8 document.write(d);<br> 9<br>10 //获取指定时间据1970年之间的毫秒数<br>11 var d = Date.parse(“2012, 12, 12”);<br>12 document.write(d+’毫秒’);<br>13<br>14 //计算1970年元旦至今有多少年：<br>15 var minutes = 1000<em>60;<br>16 var hours = minutes</em>60;<br>17 var day = hours<em>24;<br>18 var year = day</em>365;<br>19 var d = new Date();<br>20 var t = d.getTime();<br>21 var y = Math.round(t/year);<br>22 document.write(y + ‘年’);<br>复制代码</p>
+<p>　　日期转换：</p>
+<p>复制代码<br> 1 var d = new Date();<br> 2 //当前时间<br> 3 document.write(d);<br> 4<br> 5 //将日期部分(不包括时分秒)转换为字符串<br> 6 document.write(d.toDateString());<br> 7<br> 8 //将日期部分(不包括年月日)转换为字符串<br> 9 document.write(d.toTimeString());<br>10<br>11 //根据本地时间将日期转换为字符串<br>12 document.write(d.toLocaleString());<br>13<br>14 //根据本地时间将日期部分(不包括时分秒)转换为字符串<br>15 document.write(d.toLocaleDateString());<br>16<br>17 //根据本地时间将日期部分(不包括年月日)转换为字符串<br>18 document.write(d.toLocaleTimeString());<br>19<br>20 //使用ISO标准将日期转换为字符串<br>21 //该标准格式为：YYYY-MM-DDTHH:mm:ss.sssZ<br>22 document.write(d.toISOString());<br>23<br>24 //将日期转换为JSON格式<br>25 //JSON格式与ISO标准是同样的格式<br>26 document.write(d.toJSON());<br>复制代码</p>
+<p>　　toString()　　方法可把日期对象转换为字符串，当日期需要显示为一个字符串时，该方法会被自动调用。</p>
+<p>　　valueOf()　　方法返回日期对象的原始值。该方法将返回1970年元旦至今的毫秒数。</p>
+<p>6、数据类型转换<br>　　JS 中有5种不同的数据类型：string、number、boolean、object、function。</p>
+<p>　　3 种对象类型：Object、Date、Array。2 个不包含任何值的类型：ubll、undefined。</p>
+<p>　　可以使用 typeof 操作符来查看 JS 变量的数据类型。</p>
+<p>复制代码<br> 1 var str = ‘小明’;<br> 2 alert(typeof str);    //返回：string<br> 3<br> 4 var num = 12;<br> 5 alert(typeof num);    //返回：number<br> 6<br> 7 var num1 = NaN;<br> 8 alert(typeof num1);    //返回：number<br> 9<br>10 var fun = function (){alert(‘abcd’);};<br>11 alert(typeof fun);    //返回：function<br>12<br>13 var boo = true;<br>14 alert(typeof boo);    //返回：boolean<br>15<br>16 var obj = document;<br>17 alert(typeof obj);    //返回：object<br>18<br>19 var arr = [1,2,3,4];<br>20 alert(typeof arr);    //返回：object<br>21<br>22 var d = new Date();<br>23 alert(typeof d);    //返回：object<br>24<br>25 var json = {a:’12’, b:21};<br>26 alert(typeof json);    //返回：object<br>27<br>28 var n = null;<br>29 alert(typeof n);    //返回：object<br>30<br>31 var x;<br>32 alert(typeof x);        //返回：undefined<br>33 alert(typeof y);        //返回：undefined<br>34 //未定义有2种情况：<br>35 //1、真的没有定义（如y）<br>36 //2、虽然定义了，但是没有给赋值（如x)<br>复制代码</p>
+<p>　　数组对象和日期对象无法通过 typeof 来判断数据类型，因为都返回 object。可以使用 constructor 属性来查看。constructor 属性返回一个对象的构造函数，将返回的构造函数转换为字符串，再判断是否包含数组和日期。</p>
+<p>复制代码<br> 1 //返回数组和日期的构造函数：<br> 2 var arr = [“abc”, “123”, “123abc”, “abc123”];<br> 3 alert(arr.constructor);<br> 4 //返回：function Array() { [native code] }<br> 5<br> 6 var d = new Date;<br> 7 alert(d.constructor);<br> 8 //返回：function Date() { [native code] }<br> 9<br>10<br>11 var arr = [“abc”, “123”, “123abc”, “abc123”];<br>12 function con(obj) {<br>13     return arr.constructor.toString().indexOf(“Array”) &gt; -1;<br>14 }<br>15 alert(con(arr));    //返回：ture<br>16<br>17 var d = new Date();<br>18 function cons(obj) {<br>19     return d.constructor.toString().indexOf(“Date”) &gt; -1;<br>20 }<br>21 alert(cons(d));    //返回：ture<br>复制代码
+ 　</p>
+<p>　　强制类型转换，也叫显式类型转换。</p>
+<p>　　(1)、转换为字符串：</p>
+<p>　　全局方法 string() 和 toString() 方法可用于将一个值转换为字符串。string() 可用于任何类型的数字、字母、变量、表达式。</p>
+<p>　　二者区别：</p>
+<p>　　大多数值都有 toString() 方法，除了 null 和 undefined。字符串本身也可以使用 toString() 方法，将返回字符串的原始值。</p>
+<p>　　任何值都可以使用 string() 方法，如果该值有 toString() 方法，则使用该方法，如果该值没有 toString() 方法，那就为 null 和 undefined，则返回 null 和 undefined。</p>
+<p>复制代码<br> 1 var str = ‘小明’;<br> 2 alert(String(str));<br> 3 alert(str.toString());<br> 4 //都返回：小明<br> 5<br> 6 var num = 123;<br> 7 alert(String(num));<br> 8 alert(num.toString());<br> 9 //都返回：123<br>10<br>11 var and = 123+100;<br>12 alert(String(and));<br>13 alert(and.toString());<br>14 //都返回：223<br>复制代码</p>
+<p>　　(2)、转换为数字：</p>
+<p>　　全局方法 Number() 可以将字符串转换为数字。空字符串转换为 0，特殊值字符串将转换为 NaN。</p>
+<p>复制代码<br>1 var str = ‘123’;<br>2 alert(Number(str));    //返回：123<br>3<br>4 var str = ‘’;<br>5 alert(Number(str));    //返回：0<br>6<br>7 var str = ‘200px’;<br>8 alert(Number(str));    //返回：NaN<br>复制代码</p>
+<p>　　最常用的就是转换为整数和小数。parseInt() 方法用于转换整数。parseFloat() 方法用于转换小数。</p>
+<p>复制代码<br> 1 var a = ‘3.1’<br> 2 alert(parseInt(a));    //返回：3<br> 3 var a = ‘3.9’<br> 4 alert(parseInt(a));    //返回：3<br> 5 var a = ‘12px34’;<br> 6 alert(parseInt(a));    //返回：12<br> 7 var a = ‘px1234’;<br> 8 alert(parseInt(a));    //返回：NaN<br> 9<br>10 var d = ‘3.14’;<br>11 alert(parseFloat(d));    //返回：3.14<br>12 var d = ‘3.99’;<br>13 alert(parseFloat(d));    //返回：3.99<br>复制代码</p>
+<ul>
+<li>运算符可以连接字符串，也可以将字符串转换为数字。</li>
+</ul>
+<p>复制代码<br>1 var n = ‘12ab’;<br>2 var x = ‘34’;<br>3 alert(n+x);    //返回：12ab34<br>4 alert(parseInt(n)+x);    //返回：1234<br>5<br>6 var y = + x;<br>7 alert(typeof x);    //返回：string<br>8 //若变量不能转换，但仍然是一个数字，NaN<br>9 alert(typeof y);    //返回：number<br>复制代码</p>
+<p>　　NaN 的数据类型是 number，NaN 表示非数字(Not a Number)，所以本身也为数字。</p>
+<p>复制代码<br> 1 var a = parseInt(‘abc’);<br> 2 var b = parseInt(‘12edf’);<br> 3 var c = 12+NaN;<br> 4 alert(c);    //返回NaN<br> 5<br> 6 //判断NaN是否等于NaN<br> 7 alert(a==b);    //返回false<br> 8<br> 9 //isNaN判断一个变量是不是NaN<br>10 alert(isNaN(a));    //返回：true<br>11 alert(isNaN(b));    //返回：flase<br>复制代码</p>
+<p>　　利用这一特性，可以做一个简易的文本框求和，用户输入的文本框的值为字符串，需要将字符串转换为数字，再判断输入的值是否为数字。</p>
+<p>复制代码<br> 1 &lt;!DOCTYPE html&gt;<br> 2 <html><br> 3 <head><br> 4     <meta charset="UTF-8"><br> 5     <title>文本框求和</title><br> 6 </head><br> 7 <script><br> 8 window.onload = function (){<br> 9     var x = document.getElementById(‘txt1’);<br>10     var y = document.getElementById(‘txt2’);<br>11     var oBth = document.getElementById(‘but1’);<br>12     oBth.onclick = function (){<br>13         //将输入的值转换为整数：<br>14         var n1 = parseInt(x.value);<br>15         var n2 = parseInt(y.value);<br>16             //判断用户输入的n1是不是非数字<br>17             if(isNaN(n1)){<br>18                 alert(‘输入的第一个数字有误’);<br>19             }<br>20             else if(isNaN(n2)){<br>21                 alert(‘输入的第二个数字有误’);<br>22             }<br>23             //若都输入的为数字，则求和<br>24             else{<br>25                 alert(n1+n2);<br>26             }<br>27     };<br>28 };<br>29 </script><br>30 <body><br>31 <input id="txt1" type="text"><br>32 <input id="txt2" type="text"><br>33 <input id="but1" type="button" value="求和"><br>34 </body><br>35 </html><br>复制代码</p>
+<p>　　全局方法 Number() 可将布尔值转换为数字。</p>
+<p>1 alert(Number(false));    //返回 0<br>2 alert(Number(true));    // 返回 1</p>
+<p>　　隐式类型转换，也叫自动转换类型。</p>
+<p>　　当 JS 尝试操作一个“错误”的数据类型时，会自动转换为“正确”的类型再去执行，这就是隐式类型转换。直接看几个例子：</p>
+<p>复制代码<br> 1 var a = 2;<br> 2 var b = ‘2’;<br> 3 //比较数字2和字符串2是否相等<br> 4 alert(a==b);    //返回：true<br> 5 //why? 相等比较实际上比较前是先将a和b转换为同一类型，再进行比较的。<br> 6<br> 7 //比较数字2和字符串2是否全等<br> 8 alert(a===b);    //返回：返回false<br> 9 //why? 全等比较不转换类型，直接比较。a为数字，b为字符串。<br>10 //所以，一般情况下，采用全等比较，更为严谨。<br>11<br>12 var c = ‘12’;<br>13 var d = ‘5’;<br>14 //两个值为数字的字符串做+运算<br>15 alert(c+d);    //返回125<br>16 //why? “+”运算符有2种功能：1、字符串连接。2、算术运算(数字相加)。系统会采用最直接的方法。<br>17<br>18 //两个值为数字的字符串做-运算<br>19 alert(c-d);　　//返回7<br>20 //why? 在做减法运算时会先转换为同类型，再做运算。”-“运算符只有1种功能。算术运算(数字相减)。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/07/使用HttpSessionListener和ServletContextListener实现在线人数和历史访问人数统计的问题/" rel="next" title="在线人数统计">
+                <i class="fa fa-chevron-left"></i> 在线人数统计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/27/JS基础/" rel="prev" title="JS基础">
+                JS基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Cuidx" />
+          <p class="site-author-name" itemprop="name">Cuidx</p>
+           
+              <p class="site-description motion-element" itemprop="description">�޵���</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cuidx</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
