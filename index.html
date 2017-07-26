@@ -93,15 +93,15 @@
 
 
 
-<meta name="description" content="�޵���">
+<meta name="description" content="abc">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Big Elephant">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="�޵���">
+<meta property="og:description" content="abc">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Big Elephant">
-<meta name="twitter:description" content="�޵���">
+<meta name="twitter:description" content="abc">
 
 
 
@@ -1085,7 +1085,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/springmvc--controller层配置文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/jdbc外部配置文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -1104,7 +1104,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/24/springmvc--controller层配置文件/" itemprop="url">controller层配置文件</a></h1>
+                <a class="post-title-link" href="/2016/06/24/jdbc外部配置文件/" itemprop="url">jdbc外部配置文件</a></h1>
         
 
         <div class="post-meta">
@@ -1139,8 +1139,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/springmvc/" itemprop="url" rel="index">
-                    <span itemprop="name">springmvc</span>
+                  <a href="/categories/jdbc/" itemprop="url" rel="index">
+                    <span itemprop="name">jdbc</span>
                   </a>
                 </span>
 
@@ -1175,7 +1175,7 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 1、	扫描@Controller --&gt;</div><div class="line">	&lt;context:component-scan base-package="cn.itcast.babasport.controller"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 2、	配置处理器映射器：HandlerMapping --&gt;</div><div class="line">	&lt;!-- 3、	配置处理器适配器：HandlerAdapter --&gt;</div><div class="line">	&lt;!-- 加载json解析器、校验器、类型转换器 --&gt;</div><div class="line">	&lt;mvc:annotation-driven/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 4、	配置视图解析器：ViewResolver --&gt;</div><div class="line">	&lt;bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"&gt;</div><div class="line">		&lt;property name="prefix" value="/WEB-INF/console/"/&gt;</div><div class="line">		&lt;property name="suffix" value=".jsp"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 加载配置文件 --&gt;</div><div class="line">	&lt;import resource="classpath:consumer.xml"/&gt;</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">jdbc.driver=com.mysql.jdbc.Driver</div><div class="line">jdbc.url=jdbc:mysql:<span class="comment">//localhost:3306/babasport253?characterEncoding=utf-8</span></div><div class="line">jdbc.username=root</div><div class="line">jdbc.password=root</div></pre></td></tr></table></figure>
 
           
         
@@ -1353,7 +1353,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/jdbc外部配置文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/springmvc--controller层配置文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -1372,7 +1372,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/24/jdbc外部配置文件/" itemprop="url">jdbc外部配置文件</a></h1>
+                <a class="post-title-link" href="/2016/06/24/springmvc--controller层配置文件/" itemprop="url">controller层配置文件</a></h1>
         
 
         <div class="post-meta">
@@ -1407,8 +1407,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jdbc/" itemprop="url" rel="index">
-                    <span itemprop="name">jdbc</span>
+                  <a href="/categories/springmvc/" itemprop="url" rel="index">
+                    <span itemprop="name">springmvc</span>
                   </a>
                 </span>
 
@@ -1443,7 +1443,7 @@
       
         
           
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">jdbc.driver=com.mysql.jdbc.Driver</div><div class="line">jdbc.url=jdbc:mysql:<span class="comment">//localhost:3306/babasport253?characterEncoding=utf-8</span></div><div class="line">jdbc.username=root</div><div class="line">jdbc.password=root</div></pre></td></tr></table></figure>
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 1、	扫描@Controller --&gt;</div><div class="line">	&lt;context:component-scan base-package="cn.itcast.babasport.controller"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 2、	配置处理器映射器：HandlerMapping --&gt;</div><div class="line">	&lt;!-- 3、	配置处理器适配器：HandlerAdapter --&gt;</div><div class="line">	&lt;!-- 加载json解析器、校验器、类型转换器 --&gt;</div><div class="line">	&lt;mvc:annotation-driven/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 4、	配置视图解析器：ViewResolver --&gt;</div><div class="line">	&lt;bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"&gt;</div><div class="line">		&lt;property name="prefix" value="/WEB-INF/console/"/&gt;</div><div class="line">		&lt;property name="suffix" value=".jsp"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 加载配置文件 --&gt;</div><div class="line">	&lt;import resource="classpath:consumer.xml"/&gt;</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
 
           
         
@@ -1487,7 +1487,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/16/dubbo服务提供方配置文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/16/dubbo服务消费方配置文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -1506,7 +1506,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/16/dubbo服务提供方配置文件/" itemprop="url">服务提供方配置文件</a></h1>
+                <a class="post-title-link" href="/2016/06/16/dubbo服务消费方配置文件/" itemprop="url">服务消费方配置文件</a></h1>
         
 
         <div class="post-meta">
@@ -1577,7 +1577,7 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置服务提供方名称 --&gt;</div><div class="line">	&lt;dubbo:application name="service-product"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置注册中心 --&gt;</div><div class="line">	&lt;dubbo:registry protocol="zookeeper" address="192.168.200.128:2181"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置暴露的接口地址 --&gt;</div><div class="line">	&lt;dubbo:service ref="bbsTestService" interface="cn.itcast.babasport.service.test.BbsTestService"/&gt;</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置服务消费方名称 --&gt;</div><div class="line">	&lt;dubbo:application name="service-product"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置注册中心 --&gt;</div><div class="line">	&lt;dubbo:registry protocol="zookeeper" address="192.168.200.128:2181"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置引用的服务 --&gt;</div><div class="line">	&lt;dubbo:reference id="bbsTestService" interface="cn.itcast.babasport.service.test.BbsTestService" timeout="6000000"/&gt;</div><div class="line">	</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
 
           
         
@@ -1653,7 +1653,7 @@
                alt="Cuidx" />
           <p class="site-author-name" itemprop="name">Cuidx</p>
            
-              <p class="site-description motion-element" itemprop="description">�޵���</p>
+              <p class="site-description motion-element" itemprop="description">abc</p>
           
         </div>
         <nav class="site-state motion-element">
