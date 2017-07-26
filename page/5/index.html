@@ -266,6 +266,274 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/Mysql批处理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/27/Mysql批处理/" itemprop="url">Mysql批处理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
+                2015-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/事务/" itemprop="url" rel="index">
+                    <span itemprop="name">事务</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Mysql批处理"><a href="#Mysql批处理" class="headerlink" title="Mysql批处理"></a>Mysql批处理</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">批处理</div><div class="line">  * 客户端可以把一堆的sql语句一次性发送给服务器，服务器执行所有sql语句。</div><div class="line">  * 批处理的实现步骤</div><div class="line">    &gt; Statement：可以理解为，它内部有一个集合，用来装载sql语句</div><div class="line">      * <span class="function"><span class="keyword">void</span> <span class="title">addBatch</span><span class="params">(String sql)</span>：添加sql语句到集合内！（没有执行！！！）</span></div><div class="line">      * <span class="keyword">int</span>[] <span class="title">executeBatch</span><span class="params">()</span>：执行集合中所有sql语句！</div><div class="line">      * <span class="keyword">void</span> <span class="title">clearBatch</span><span class="params">()</span>：清空集合中的sql语句！</div><div class="line">    &gt; PreparedStatement：（模板不能改变！批处理中执行的是相同的sql语句，只是参数不同！）</div><div class="line">      * <span class="keyword">void</span> <span class="title">addBatch</span><span class="params">()</span>：没有参数！在每个<span class="title">addBatch</span><span class="params">()</span>之前需要给参数赋值！</div><div class="line">        &gt; PreparedStatement内部的集合，装载的是N组参数！</div><div class="line"></div><div class="line">   * mysql默认是关闭批处理的！！！你想要开启，请先进行设置<span class="params">(设置一个变量，自己百度搜索)</span></div><div class="line"></div><div class="line">	如何演示：</div><div class="line">		代码跟之前一模一样</div><div class="line"></div><div class="line">	Connection conn = <span class="keyword">null</span>;</div><div class="line">	Statement stm = <span class="keyword">null</span>;</div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		conn = xxxx;</div><div class="line">		stm = conn.xxxx;</div><div class="line">		String sql = <span class="string">"insert into ^^^^^^"</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">1000000</span>;i++&#123;</div><div class="line">			stm.addBatch(sql);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//记录插入数据前的时间点</span></div><div class="line">		begin time1;</div><div class="line">		stm.executeBatch();</div><div class="line">		<span class="comment">//记录插入数据完成的时间点</span></div><div class="line">		end time2;	</div><div class="line">		syso(<span class="number">2</span>-<span class="number">1</span>);</div><div class="line">	&#125;<span class="keyword">catch</span>(……)&#123;</div><div class="line"></div><div class="line"></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务隔离级别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/27/事务隔离级别/" itemprop="url">事务隔离级别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
+                2015-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/事务/" itemprop="url" rel="index">
+                    <span itemprop="name">事务</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line">1.7.3.1	演示脏读</div><div class="line">步骤一：分别开启两个窗口A,B:</div><div class="line">步骤二：分别查询两个窗口的隔离级别：</div><div class="line">* select @@tx_isolation;</div><div class="line">步骤三：设置A窗口的隔离级别为read uncommitted</div><div class="line">* set session transaction isolation level read uncommitted;</div><div class="line">步骤四：在两个窗口中分别开启事务：</div><div class="line">* start transaction;</div><div class="line">步骤五：在B窗口中转账操作：</div><div class="line">* update tbl_account set money = money - 1000 where name=&apos;书记&apos;;</div><div class="line">* update tbl_account set money = money + 1000 where name=&apos;科长&apos;;</div><div class="line">**** 在B窗口中没有提交事务的！！！</div><div class="line">步骤六：在A窗口中进行查询：</div><div class="line">* 已经转账成功!!!(脏读:一个事务中读到了另一个事务未提交的数据)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">假设没有隔离级别：</div><div class="line">	那么这个里面的转账，A读到了B未提交的数据。此时存在脏读问题；</div><div class="line"></div><div class="line">解决这个问题：</div><div class="line">	提升隔离级别：设置为读已提交。那么B如果没有提交，那么A就不会读到未提交的数据，也就是最原始的数据。从而就解决了脏读问题！</div><div class="line"></div><div class="line"></div><div class="line">1.7.3.2	演示避免脏读，不可重复读发生</div><div class="line">步骤一：分别开启两个窗口A,B:</div><div class="line">步骤二：分别查询两个窗口的隔离级别：</div><div class="line">* select @@tx_isolation</div><div class="line">步骤三：设置A窗口的隔离级别为read committed;</div><div class="line">* set session transaction isolation level read committed;</div><div class="line">步骤四：在两个窗口中分别开启事务：</div><div class="line">* start transaction;</div><div class="line">步骤五：在B窗口中完成转账的操作：</div><div class="line">* update account set money = money - 1000 where name=&apos;守义&apos;;</div><div class="line">* update account set money = money + 1000 where name=&apos;凤儿&apos;;</div><div class="line">**** 在B窗口中没有提交事务！！！</div><div class="line">步骤六：在A窗口中进行查询：</div><div class="line">* 没有转账的结果！！！（已经避免了脏读）</div><div class="line">步骤七：在B窗口中提交事务！！！</div><div class="line">* commit;</div><div class="line">步骤八：在A窗口中进行查询：</div><div class="line">* 转账成功！！！（不可重复读：一个事务读到了另一个事务已经提交的update的数据，导致一次事务中多次查询结果不一致.）</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">1.7.3.3	演示避免不可重复读：</div><div class="line">步骤一：分别开启两个窗口A,B:</div><div class="line">步骤二：分别查询两个窗口的隔离级别：</div><div class="line">* select @@tx_isolation</div><div class="line">步骤三：设置A窗口的隔离级别为repeatable read;</div><div class="line">* set session transaction isolation level repeatable read;</div><div class="line">步骤四：在两个窗口中分别开始事务：</div><div class="line">* start transaction;</div><div class="line">步骤五：在B窗口中完成转账的操作：</div><div class="line">* update account set money = money - 1000 where name=&apos;守义&apos;;</div><div class="line">* update account set money = money + 1000 where name=&apos;凤儿&apos;;</div><div class="line">***** 在B窗口没有提交事务！！！</div><div class="line">步骤六：在A窗口中进行查询：</div><div class="line">* 没有转账成功！！！（已经避免脏读）</div><div class="line">步骤七：在B窗口提交事务！！！</div><div class="line">* commit;</div><div class="line">步骤八：在A窗口进行查询：</div><div class="line">* 转账没有成功！！（避免不可重复读）</div><div class="line">步骤九：在A窗口中结束事务,再重新查询.</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">1.7.3.4	演示隔离级别为serializable</div><div class="line">步骤一：分别开启两个窗口A,B:</div><div class="line">步骤二：分别查询两个窗口的隔离级别：</div><div class="line">* select @@tx_isolation</div><div class="line">步骤三：设置A窗口的隔离级别为serializable;</div><div class="line">* set session transaction isolation level serializable;</div><div class="line">步骤四：在两个窗口中分别开启事务：</div><div class="line">* start transaction;</div><div class="line">步骤五：在B窗口中完成一个insert操作:</div><div class="line">* insert into account values (null,&apos;芙蓉&apos;,10000);</div><div class="line">***** 事务没有提交！！</div><div class="line">步骤六：在A窗口中进行查找：</div><div class="line">* 没有任何结果！！！（不可以事务并发执行的）</div><div class="line">步骤七：在B窗口中结束事务！</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务特性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -357,274 +625,6 @@
         
           
             <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">事务</div><div class="line"></div><div class="line">1. 什么是事务</div><div class="line">  * 需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）</div><div class="line"></div><div class="line">2. 事务的特性</div><div class="line">  * A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！</div><div class="line">  * C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！</div><div class="line">  * I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！</div><div class="line">  * D 持久性：数据只要保存到了数据库中，数据就是持久的！就算数据库马上崩溃，也要在重启后有能力恢复数据。</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务保存点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/08/27/事务保存点/" itemprop="url">事务保存点</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
-                2015-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/事务/" itemprop="url" rel="index">
-                    <span itemprop="name">事务</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="事务保存点"><a href="#事务保存点" class="headerlink" title="事务保存点"></a>事务保存点</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">保存点（了解）</div><div class="line"></div><div class="line"><span class="number">1</span>. jdbc3.0后，可以在事务中设置保存点</div><div class="line">  &gt; 可以回滚到保存点！不用再回滚到事务开始时的状态了！</div><div class="line">  &gt; 如果回滚到保存点，事务并未结束！</div><div class="line"><span class="number">2</span>. 保存点在Spring框架中大量应用，用来处理事务传播！</div><div class="line"></div><div class="line">开始事务</div><div class="line">a条语句</div><div class="line">设置保存点<span class="number">1</span></div><div class="line">b条语句</div><div class="line">设置保存点<span class="number">2</span></div><div class="line">c条语句</div><div class="line">回滚到保存点<span class="number">1</span>（回滚了b和c，但没有回滚a！a又没回滚，又没提交）</div><div class="line">需要回滚或提交</div><div class="line"></div><div class="line"><span class="number">3</span>. 保存点相关API</div><div class="line">  * 测试当前数据库是否支持保存点：<span class="keyword">boolean</span> b = con.getMetaData().supportsSavepoints();</div><div class="line">  * 设置保存点：Savepoint sp = con.setSavepoint();</div><div class="line">  * 回滚到保存点：con.rollback(sp);</div><div class="line"></div><div class="line"></div><div class="line">代码测试：</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSavepoint</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> flag = JDBCUtils_v3.getConnection().getMetaData().supportsSavepoints();</div><div class="line">        System.out.println(flag);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        Connection conn = <span class="keyword">null</span>;</div><div class="line">        PreparedStatement pstmt = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 1.获得连接</span></div><div class="line">            conn = JDBCUtils_v3.getConnection();</div><div class="line">            conn.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">            <span class="comment">// 2.编写SQL</span></div><div class="line">            String sql = <span class="string">"update tbl_account set money=money-1000 where name='静静'"</span>;</div><div class="line">            Savepoint sp1 = conn.setSavepoint();</div><div class="line">            </div><div class="line">            String sql1 = <span class="string">"update tbl_account set money=money-1000 where name='静静'"</span>;</div><div class="line">            </div><div class="line">            <span class="comment">// 3.获得执行SQL语句对象(PreparedStatement)</span></div><div class="line">            pstmt = conn.prepareStatement(sql);</div><div class="line">            pstmt.executeUpdate();</div><div class="line">            </div><div class="line">            pstmt = conn.prepareStatement(sql1);</div><div class="line">            conn.rollback(sp1);</div><div class="line">            <span class="comment">// 4.执行删除操作</span></div><div class="line">            pstmt.executeUpdate();</div><div class="line">            conn.commit();</div><div class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="comment">//6.释放资源</span></div><div class="line">            JDBCUtils_v3.release(conn, pstmt, <span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务并发访问/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/08/27/事务并发访问/" itemprop="url">事务并发访问</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
-                2015-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/事务/" itemprop="url" rel="index">
-                    <span itemprop="name">事务</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="事务并发访问"><a href="#事务并发访问" class="headerlink" title="事务并发访问"></a>事务并发访问</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">事务并发访问读问题</div><div class="line">  * 脏读：读取到另一个事务未提交数据！！！</div><div class="line">  * 不可重复读：对同一数据两次读取前后不一致！！！因为在第二次读取之前另一个事务修改数据！</div><div class="line">  * 幻读（虚读）：对数据的统计两次不一致！！！因为在第二次统计时，另一个事务插入了一条记录！</div><div class="line"></div><div class="line">举例：</div><div class="line">	脏读 </div><div class="line">		事务1：张三给李四转账100元</div><div class="line">		事务2：李四查看自己的账户</div><div class="line">		</div><div class="line">		张三 900 李四 500</div><div class="line">             800      600</div><div class="line">			 900      500</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：张三给李四转账100元 100</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：李四查看自己的账户，看到账户多出100元（脏读）  600</div><div class="line">			t5：事务2：提交事务(李四查看自己多了100)</div><div class="line">			t6：事务1：回滚事务，回到转账之前的状态(张三实际没有转账成功)</div><div class="line"></div><div class="line"></div><div class="line">	不可重复读</div><div class="line">		事务1：酒店查看两次1048号房间状态</div><div class="line">		事务2：预订1048号房间</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：查看1048号房间状态为空闲（第一次查询）</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：预定1048号房间</div><div class="line">			t5：事务2：提交事务(1048房已经被预定了)</div><div class="line">			t6：事务1：再次查看1048号房间状态为使用（第二次查询）</div><div class="line">			t7：事务1：提交事务</div><div class="line">		对同一记录的两次查询结果不一致！</div><div class="line"></div><div class="line">	幻读</div><div class="line">		事务1：对酒店房间预订记录两次统计</div><div class="line">		事务2：添加一条预订房间记录</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：统计预订记录100条</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：添加一条预订房间记录</div><div class="line">			t5：事务2：提交事务</div><div class="line">			t6：事务1：再次统计预订记录为101记录</div><div class="line">			t7：事务1：提交</div><div class="line">		对同一表的两次查询不一致！</div><div class="line"></div><div class="line">不可重复读和幻读的区别：</div><div class="line">	不可重复读是读取到了另一事务的更新update；</div><div class="line">	幻读是读取到了另一事务的插入insert（MySQL中无法测试到幻读）；</div><div class="line"></div><div class="line">如何解决呢？(设置隔离级别)</div><div class="line"></div><div class="line">4个等级的事务隔离级别，在相同数据环境下，使用相同的输入，执行相同的工作，根据不同的隔离级别，可以导致不同的结果。不同事务隔离级别能够解决的数据并发问题的能力是不同的。</div><div class="line"></div><div class="line">1　SERIALIZABLE（串行化）</div><div class="line">	不会出现任何并发问题，因为它是对同一数据的访问是串行的，非并发访问的；</div><div class="line">	性能最差；</div><div class="line"></div><div class="line">2　REPEATABLE READ（可重复读）（MySQL）</div><div class="line">	防止脏读(读未提交)和不可重复读(读已修改)；</div><div class="line">	性能比SERIALIZABLE好</div><div class="line"></div><div class="line">3　READ COMMITTED（读已提交数据）（Oracle）</div><div class="line">	防止脏读(读未提交)；</div><div class="line">	性能比REPEATABLE READ好</div><div class="line"></div><div class="line">4　READ UNCOMMITTED（读未提交数据）</div><div class="line">	可能出现任何事务并发问题</div><div class="line">	性能最好</div><div class="line"></div><div class="line">如何解决这些问题的，查看图片</div><div class="line"></div><div class="line"></div><div class="line">设置隔离级别：set session transaction isolation level read uncommitted;</div></pre></td></tr></table></figure>
 
           
         
@@ -802,7 +802,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务隔离级别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务并发访问/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -821,7 +821,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/08/27/事务隔离级别/" itemprop="url">事务隔离级别</a></h1>
+                <a class="post-title-link" href="/2015/08/27/事务并发访问/" itemprop="url">事务并发访问</a></h1>
         
 
         <div class="post-meta">
@@ -892,7 +892,7 @@
       
         
           
-            <h1 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line">1.7.3.1	演示脏读</div><div class="line">步骤一：分别开启两个窗口A,B:</div><div class="line">步骤二：分别查询两个窗口的隔离级别：</div><div class="line">* select @@tx_isolation;</div><div class="line">步骤三：设置A窗口的隔离级别为read uncommitted</div><div class="line">* set session transaction isolation level read uncommitted;</div><div class="line">步骤四：在两个窗口中分别开启事务：</div><div class="line">* start transaction;</div><div class="line">步骤五：在B窗口中转账操作：</div><div class="line">* update tbl_account set money = money - 1000 where name=&apos;书记&apos;;</div><div class="line">* update tbl_account set money = money + 1000 where name=&apos;科长&apos;;</div><div class="line">**** 在B窗口中没有提交事务的！！！</div><div class="line">步骤六：在A窗口中进行查询：</div><div class="line">* 已经转账成功!!!(脏读:一个事务中读到了另一个事务未提交的数据)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">假设没有隔离级别：</div><div class="line">	那么这个里面的转账，A读到了B未提交的数据。此时存在脏读问题；</div><div class="line"></div><div class="line">解决这个问题：</div><div class="line">	提升隔离级别：设置为读已提交。那么B如果没有提交，那么A就不会读到未提交的数据，也就是最原始的数据。从而就解决了脏读问题！</div><div class="line"></div><div class="line"></div><div class="line">1.7.3.2	演示避免脏读，不可重复读发生</div><div class="line">步骤一：分别开启两个窗口A,B:</div><div class="line">步骤二：分别查询两个窗口的隔离级别：</div><div class="line">* select @@tx_isolation</div><div class="line">步骤三：设置A窗口的隔离级别为read committed;</div><div class="line">* set session transaction isolation level read committed;</div><div class="line">步骤四：在两个窗口中分别开启事务：</div><div class="line">* start transaction;</div><div class="line">步骤五：在B窗口中完成转账的操作：</div><div class="line">* update account set money = money - 1000 where name=&apos;守义&apos;;</div><div class="line">* update account set money = money + 1000 where name=&apos;凤儿&apos;;</div><div class="line">**** 在B窗口中没有提交事务！！！</div><div class="line">步骤六：在A窗口中进行查询：</div><div class="line">* 没有转账的结果！！！（已经避免了脏读）</div><div class="line">步骤七：在B窗口中提交事务！！！</div><div class="line">* commit;</div><div class="line">步骤八：在A窗口中进行查询：</div><div class="line">* 转账成功！！！（不可重复读：一个事务读到了另一个事务已经提交的update的数据，导致一次事务中多次查询结果不一致.）</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">1.7.3.3	演示避免不可重复读：</div><div class="line">步骤一：分别开启两个窗口A,B:</div><div class="line">步骤二：分别查询两个窗口的隔离级别：</div><div class="line">* select @@tx_isolation</div><div class="line">步骤三：设置A窗口的隔离级别为repeatable read;</div><div class="line">* set session transaction isolation level repeatable read;</div><div class="line">步骤四：在两个窗口中分别开始事务：</div><div class="line">* start transaction;</div><div class="line">步骤五：在B窗口中完成转账的操作：</div><div class="line">* update account set money = money - 1000 where name=&apos;守义&apos;;</div><div class="line">* update account set money = money + 1000 where name=&apos;凤儿&apos;;</div><div class="line">***** 在B窗口没有提交事务！！！</div><div class="line">步骤六：在A窗口中进行查询：</div><div class="line">* 没有转账成功！！！（已经避免脏读）</div><div class="line">步骤七：在B窗口提交事务！！！</div><div class="line">* commit;</div><div class="line">步骤八：在A窗口进行查询：</div><div class="line">* 转账没有成功！！（避免不可重复读）</div><div class="line">步骤九：在A窗口中结束事务,再重新查询.</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">1.7.3.4	演示隔离级别为serializable</div><div class="line">步骤一：分别开启两个窗口A,B:</div><div class="line">步骤二：分别查询两个窗口的隔离级别：</div><div class="line">* select @@tx_isolation</div><div class="line">步骤三：设置A窗口的隔离级别为serializable;</div><div class="line">* set session transaction isolation level serializable;</div><div class="line">步骤四：在两个窗口中分别开启事务：</div><div class="line">* start transaction;</div><div class="line">步骤五：在B窗口中完成一个insert操作:</div><div class="line">* insert into account values (null,&apos;芙蓉&apos;,10000);</div><div class="line">***** 事务没有提交！！</div><div class="line">步骤六：在A窗口中进行查找：</div><div class="line">* 没有任何结果！！！（不可以事务并发执行的）</div><div class="line">步骤七：在B窗口中结束事务！</div></pre></td></tr></table></figure>
+            <h1 id="事务并发访问"><a href="#事务并发访问" class="headerlink" title="事务并发访问"></a>事务并发访问</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">事务并发访问读问题</div><div class="line">  * 脏读：读取到另一个事务未提交数据！！！</div><div class="line">  * 不可重复读：对同一数据两次读取前后不一致！！！因为在第二次读取之前另一个事务修改数据！</div><div class="line">  * 幻读（虚读）：对数据的统计两次不一致！！！因为在第二次统计时，另一个事务插入了一条记录！</div><div class="line"></div><div class="line">举例：</div><div class="line">	脏读 </div><div class="line">		事务1：张三给李四转账100元</div><div class="line">		事务2：李四查看自己的账户</div><div class="line">		</div><div class="line">		张三 900 李四 500</div><div class="line">             800      600</div><div class="line">			 900      500</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：张三给李四转账100元 100</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：李四查看自己的账户，看到账户多出100元（脏读）  600</div><div class="line">			t5：事务2：提交事务(李四查看自己多了100)</div><div class="line">			t6：事务1：回滚事务，回到转账之前的状态(张三实际没有转账成功)</div><div class="line"></div><div class="line"></div><div class="line">	不可重复读</div><div class="line">		事务1：酒店查看两次1048号房间状态</div><div class="line">		事务2：预订1048号房间</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：查看1048号房间状态为空闲（第一次查询）</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：预定1048号房间</div><div class="line">			t5：事务2：提交事务(1048房已经被预定了)</div><div class="line">			t6：事务1：再次查看1048号房间状态为使用（第二次查询）</div><div class="line">			t7：事务1：提交事务</div><div class="line">		对同一记录的两次查询结果不一致！</div><div class="line"></div><div class="line">	幻读</div><div class="line">		事务1：对酒店房间预订记录两次统计</div><div class="line">		事务2：添加一条预订房间记录</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：统计预订记录100条</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：添加一条预订房间记录</div><div class="line">			t5：事务2：提交事务</div><div class="line">			t6：事务1：再次统计预订记录为101记录</div><div class="line">			t7：事务1：提交</div><div class="line">		对同一表的两次查询不一致！</div><div class="line"></div><div class="line">不可重复读和幻读的区别：</div><div class="line">	不可重复读是读取到了另一事务的更新update；</div><div class="line">	幻读是读取到了另一事务的插入insert（MySQL中无法测试到幻读）；</div><div class="line"></div><div class="line">如何解决呢？(设置隔离级别)</div><div class="line"></div><div class="line">4个等级的事务隔离级别，在相同数据环境下，使用相同的输入，执行相同的工作，根据不同的隔离级别，可以导致不同的结果。不同事务隔离级别能够解决的数据并发问题的能力是不同的。</div><div class="line"></div><div class="line">1　SERIALIZABLE（串行化）</div><div class="line">	不会出现任何并发问题，因为它是对同一数据的访问是串行的，非并发访问的；</div><div class="line">	性能最差；</div><div class="line"></div><div class="line">2　REPEATABLE READ（可重复读）（MySQL）</div><div class="line">	防止脏读(读未提交)和不可重复读(读已修改)；</div><div class="line">	性能比SERIALIZABLE好</div><div class="line"></div><div class="line">3　READ COMMITTED（读已提交数据）（Oracle）</div><div class="line">	防止脏读(读未提交)；</div><div class="line">	性能比REPEATABLE READ好</div><div class="line"></div><div class="line">4　READ UNCOMMITTED（读未提交数据）</div><div class="line">	可能出现任何事务并发问题</div><div class="line">	性能最好</div><div class="line"></div><div class="line">如何解决这些问题的，查看图片</div><div class="line"></div><div class="line"></div><div class="line">设置隔离级别：set session transaction isolation level read uncommitted;</div></pre></td></tr></table></figure>
 
           
         
@@ -1204,140 +1204,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/Mysql批处理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/08/27/Mysql批处理/" itemprop="url">Mysql批处理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
-                2015-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/事务/" itemprop="url" rel="index">
-                    <span itemprop="name">事务</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Mysql批处理"><a href="#Mysql批处理" class="headerlink" title="Mysql批处理"></a>Mysql批处理</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">批处理</div><div class="line">  * 客户端可以把一堆的sql语句一次性发送给服务器，服务器执行所有sql语句。</div><div class="line">  * 批处理的实现步骤</div><div class="line">    &gt; Statement：可以理解为，它内部有一个集合，用来装载sql语句</div><div class="line">      * <span class="function"><span class="keyword">void</span> <span class="title">addBatch</span><span class="params">(String sql)</span>：添加sql语句到集合内！（没有执行！！！）</span></div><div class="line">      * <span class="keyword">int</span>[] <span class="title">executeBatch</span><span class="params">()</span>：执行集合中所有sql语句！</div><div class="line">      * <span class="keyword">void</span> <span class="title">clearBatch</span><span class="params">()</span>：清空集合中的sql语句！</div><div class="line">    &gt; PreparedStatement：（模板不能改变！批处理中执行的是相同的sql语句，只是参数不同！）</div><div class="line">      * <span class="keyword">void</span> <span class="title">addBatch</span><span class="params">()</span>：没有参数！在每个<span class="title">addBatch</span><span class="params">()</span>之前需要给参数赋值！</div><div class="line">        &gt; PreparedStatement内部的集合，装载的是N组参数！</div><div class="line"></div><div class="line">   * mysql默认是关闭批处理的！！！你想要开启，请先进行设置<span class="params">(设置一个变量，自己百度搜索)</span></div><div class="line"></div><div class="line">	如何演示：</div><div class="line">		代码跟之前一模一样</div><div class="line"></div><div class="line">	Connection conn = <span class="keyword">null</span>;</div><div class="line">	Statement stm = <span class="keyword">null</span>;</div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		conn = xxxx;</div><div class="line">		stm = conn.xxxx;</div><div class="line">		String sql = <span class="string">"insert into ^^^^^^"</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">1000000</span>;i++&#123;</div><div class="line">			stm.addBatch(sql);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//记录插入数据前的时间点</span></div><div class="line">		begin time1;</div><div class="line">		stm.executeBatch();</div><div class="line">		<span class="comment">//记录插入数据完成的时间点</span></div><div class="line">		end time2;	</div><div class="line">		syso(<span class="number">2</span>-<span class="number">1</span>);</div><div class="line">	&#125;<span class="keyword">catch</span>(……)&#123;</div><div class="line"></div><div class="line"></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/ThreadLocal本地线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1429,6 +1295,140 @@
         
           
             <h1 id="ThreadLocal本地线程"><a href="#ThreadLocal本地线程" class="headerlink" title="ThreadLocal本地线程"></a>ThreadLocal本地线程</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">ThreadLocal</div><div class="line"></div><div class="line"><span class="number">1</span>. 线程本地变量</div><div class="line">  * ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！</div><div class="line">    &gt; <span class="number">1</span>号线程，是否可以获取<span class="number">2</span>线程保存的数据？不能！！！</div><div class="line"></div><div class="line"><span class="number">2</span>. ThreadLocal内部是一个Map</div><div class="line">  * key：线程对象</div><div class="line">  * value：保存的数据</div><div class="line"></div><div class="line"></div><div class="line">  A线程中的代码：map.put(Thread.currentThread(), <span class="string">"hello"</span>);  map.get(Thread.currentThread());</div><div class="line">  B线程中的代码：map.put(Thread.currentThread(), <span class="string">"world"</span>);  map.get(Thread.currentThread());</div><div class="line"></div><div class="line"><span class="number">3</span>. ThreadLocal的API</div><div class="line">  * <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(Object)</span> --&gt; 保存数据，底层在操作map，使用Thread.<span class="title">currentThread</span><span class="params">()</span></span></div><div class="line">  * Object <span class="title">get</span><span class="params">()</span> --&gt; 获取数据，底层在操作map，使用Thread.<span class="title">currentThread</span><span class="params">()</span></div><div class="line">  * <span class="keyword">void</span> <span class="title">remvoe</span><span class="params">()</span> --&gt; 移除数据，底层在操作map，使用Thread.<span class="title">currentThread</span><span class="params">()</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">测试代码：</div><div class="line"><span class="keyword">public</span> class Demo2 &#123;</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun1</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">		<span class="keyword">final</span> MyClass mc = <span class="keyword">new</span> MyClass();</div><div class="line">		mc.add(<span class="string">"zhangSan"</span>);<span class="comment">//1号保存zhangSan</span></div><div class="line">		Thread.sleep(<span class="number">1000</span>);</div><div class="line">		<span class="keyword">new</span> Thread() &#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				System.out.println(<span class="string">"2号："</span> + mc.get());<span class="comment">//2号获取值</span></div><div class="line">			&#125;</div><div class="line">		&#125;.start();</div><div class="line">		</div><div class="line">		System.out.println(<span class="string">"1号"</span> + mc.get());<span class="comment">//1号获取值</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> ThreadLocal&lt;String&gt; tl = <span class="keyword">new</span> ThreadLocal&lt;String&gt;();</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String s )</span> </span>&#123;</div><div class="line">		tl.set(s);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> tl.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务保存点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/27/事务保存点/" itemprop="url">事务保存点</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
+                2015-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/事务/" itemprop="url" rel="index">
+                    <span itemprop="name">事务</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="事务保存点"><a href="#事务保存点" class="headerlink" title="事务保存点"></a>事务保存点</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">保存点（了解）</div><div class="line"></div><div class="line"><span class="number">1</span>. jdbc3.0后，可以在事务中设置保存点</div><div class="line">  &gt; 可以回滚到保存点！不用再回滚到事务开始时的状态了！</div><div class="line">  &gt; 如果回滚到保存点，事务并未结束！</div><div class="line"><span class="number">2</span>. 保存点在Spring框架中大量应用，用来处理事务传播！</div><div class="line"></div><div class="line">开始事务</div><div class="line">a条语句</div><div class="line">设置保存点<span class="number">1</span></div><div class="line">b条语句</div><div class="line">设置保存点<span class="number">2</span></div><div class="line">c条语句</div><div class="line">回滚到保存点<span class="number">1</span>（回滚了b和c，但没有回滚a！a又没回滚，又没提交）</div><div class="line">需要回滚或提交</div><div class="line"></div><div class="line"><span class="number">3</span>. 保存点相关API</div><div class="line">  * 测试当前数据库是否支持保存点：<span class="keyword">boolean</span> b = con.getMetaData().supportsSavepoints();</div><div class="line">  * 设置保存点：Savepoint sp = con.setSavepoint();</div><div class="line">  * 回滚到保存点：con.rollback(sp);</div><div class="line"></div><div class="line"></div><div class="line">代码测试：</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSavepoint</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> flag = JDBCUtils_v3.getConnection().getMetaData().supportsSavepoints();</div><div class="line">        System.out.println(flag);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        Connection conn = <span class="keyword">null</span>;</div><div class="line">        PreparedStatement pstmt = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 1.获得连接</span></div><div class="line">            conn = JDBCUtils_v3.getConnection();</div><div class="line">            conn.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">            <span class="comment">// 2.编写SQL</span></div><div class="line">            String sql = <span class="string">"update tbl_account set money=money-1000 where name='静静'"</span>;</div><div class="line">            Savepoint sp1 = conn.setSavepoint();</div><div class="line">            </div><div class="line">            String sql1 = <span class="string">"update tbl_account set money=money-1000 where name='静静'"</span>;</div><div class="line">            </div><div class="line">            <span class="comment">// 3.获得执行SQL语句对象(PreparedStatement)</span></div><div class="line">            pstmt = conn.prepareStatement(sql);</div><div class="line">            pstmt.executeUpdate();</div><div class="line">            </div><div class="line">            pstmt = conn.prepareStatement(sql1);</div><div class="line">            conn.rollback(sp1);</div><div class="line">            <span class="comment">// 4.执行删除操作</span></div><div class="line">            pstmt.executeUpdate();</div><div class="line">            conn.commit();</div><div class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="comment">//6.释放资源</span></div><div class="line">            JDBCUtils_v3.release(conn, pstmt, <span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         

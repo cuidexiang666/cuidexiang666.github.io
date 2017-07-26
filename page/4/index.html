@@ -266,140 +266,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/25/web.xml.(ssh开发)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/11/25/web.xml.(ssh开发)/" itemprop="url">web.xml</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-25T00:00:00+08:00">
-                2015-11-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssh/" itemprop="url" rel="index">
-                    <span itemprop="name">ssh</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5"&gt;</div><div class="line">  &lt;display-name&gt;ssh3&lt;/display-name&gt;</div><div class="line">  </div><div class="line">  &lt;!-- 配置Spring整合WEB的监听器 --&gt;</div><div class="line">	&lt;listener&gt;</div><div class="line">		&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</div><div class="line">	&lt;/listener&gt;</div><div class="line">	&lt;context-param&gt;</div><div class="line">		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">		&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;</div><div class="line">	&lt;/context-param&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置Spring解决延迟加载的问题过滤器 --&gt;</div><div class="line">	&lt;filter&gt;</div><div class="line">		&lt;filter-name&gt;openSessionInViewFilter&lt;/filter-name&gt;</div><div class="line">		&lt;filter-class&gt;org.springframework.orm.hibernate5.support.OpenSessionInViewFilter&lt;/filter-class&gt;</div><div class="line">	&lt;/filter&gt;</div><div class="line">	&lt;filter-mapping&gt;</div><div class="line">		&lt;filter-name&gt;openSessionInViewFilter&lt;/filter-name&gt;</div><div class="line">		&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">	&lt;/filter-mapping&gt;</div><div class="line">	</div><div class="line"></div><div class="line">	&lt;!-- 配置Struts2框架的过滤器 --&gt;</div><div class="line">	&lt;filter&gt;</div><div class="line">		&lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">		&lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">	&lt;/filter&gt;</div><div class="line">	&lt;filter-mapping&gt;</div><div class="line">		&lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">		&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">	&lt;/filter-mapping&gt;</div><div class="line">  </div><div class="line">  &lt;welcome-file-list&gt;</div><div class="line">    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;</div><div class="line">  &lt;/welcome-file-list&gt;</div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/25/applicationContext.xml(注解式开发)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -834,7 +700,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/16/application.xml配置文件（非注解式开发)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/04/application.xml配置文件（非注解式开发)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -853,7 +719,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/10/16/application.xml配置文件（非注解式开发)/" itemprop="url">applicationContext.xml</a></h1>
+                <a class="post-title-link" href="/2015/11/04/application.xml配置文件（非注解式开发)/" itemprop="url">applicationContext.xml</a></h1>
         
 
         <div class="post-meta">
@@ -865,8 +731,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-16T00:00:00+08:00">
-                2015-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-04T00:00:00+08:00">
+                2015-11-04
               </time>
             
 
@@ -1192,6 +1058,140 @@
         
           
             <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</div><div class="line">	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</div><div class="line">&lt;hibernate-configuration&gt;</div><div class="line">    &lt;session-factory&gt;</div><div class="line">        &lt;!-- hibernate方言;是指hibernate生成底层的sql语句时使用什么样的sql语句，由方言来决定 --&gt;</div><div class="line">        &lt;property name="hibernate.dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;</div><div class="line"></div><div class="line">	    &lt;!-- 自动建表 --&gt;</div><div class="line">	    &lt;property name="hibernate.hbm2ddl.auto"&gt;update&lt;/property&gt;</div><div class="line">        &lt;!-- 显示出sql在控制台 --&gt;</div><div class="line">        &lt;property name="hibernate.show_sql"&gt;true&lt;/property&gt;</div><div class="line">        &lt;!-- 格式化sql在控制台  可以换行 --&gt;</div><div class="line">        &lt;property name="hibernate.format_sql"&gt;true&lt;/property&gt;</div><div class="line">        </div><div class="line">        &lt;!-- 设置事务的隔离级别 --&gt;</div><div class="line">        &lt;property name="hibernate.connection.isolation"&gt;4&lt;/property&gt;</div><div class="line">        &lt;!-- 指定加载映射文件 --&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/User.hbm.xml"/&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/BaseDict.hbm.xml"/&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/Customer.hbm.xml"/&gt;</div><div class="line">    &lt;/session-factory&gt;</div><div class="line">&lt;/hibernate-configuration&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/15/c3p0Utils/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/10/15/c3p0Utils/" itemprop="url">c3p0Utils</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-15T00:00:00+08:00">
+                2015-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/简单工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">简单工具类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itheima.account.utils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.sql.DataSource;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.dbutils.DbUtils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</div><div class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.impl.NewProxyConnection;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C3p0Utils</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">//连接池就定义 并且加载配置完毕</span></div><div class="line">	<span class="comment">//命名配置</span></div><div class="line"><span class="comment">//	private static DataSource dataSource=new ComboPooledDataSource("itcast");</span></div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">//默认配置</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> DataSource dataSource=<span class="keyword">new</span> ComboPooledDataSource();</div><div class="line">	</div><div class="line">	<span class="comment">//</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;Connection&gt; local = <span class="keyword">new</span> ThreadLocal&lt;Connection&gt;();</div><div class="line">	</div><div class="line">	<span class="comment">//c3p0+DBUtils</span></div><div class="line">	<span class="comment">//DBUtils使用时，需要获取dataSource对象</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DataSource <span class="title">getDataSource</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> dataSource;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * </div><div class="line">	 * 研发版</div><div class="line">	 * 获取链接方法---结合了ThreadLocal，加入了事务自动提交的控制</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnectionForThreadLocalForFinal</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//首先从当前的线程中获取Connection对象</span></div><div class="line">			con=local.get();</div><div class="line">			<span class="keyword">if</span>(con==<span class="keyword">null</span>)&#123;</div><div class="line">				<span class="comment">//当前线程没有绑定Connection对象，从连接池中获取一个新的</span></div><div class="line">				con = dataSource.getConnection();</div><div class="line">				local.set(con);</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//这句判断只是为了防止con被关闭及被重复设置自动提交关闭，可以去掉</span></div><div class="line">			<span class="keyword">if</span>(!con.isClosed()&amp;&amp;con.getAutoCommit())</div><div class="line">				con.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 提交方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">commit</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = getConnectionForThreadLocalForFinal();</div><div class="line">		<span class="keyword">if</span>(con!=<span class="keyword">null</span>)</div><div class="line">			<span class="comment">//因为这句会导致con对象的关闭，这样con进入池中后，con就被关闭了，而被关闭的con执行任何SQL设置或者语句都会报 java.sql.SQLException: You can't operate on a closed Connection!!! </span></div><div class="line"><span class="comment">//			DbUtils.commitAndCloseQuietly(con);</span></div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				con.commit();</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 回滚方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">rollback</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = getConnectionForThreadLocalForFinal();</div><div class="line">		<span class="keyword">if</span>(con!=<span class="keyword">null</span>)</div><div class="line">			<span class="comment">//因为这句会导致con对象的关闭，这样con进入池中后，con就被关闭了，而被关闭的con执行任何SQL设置或者语句都会报 java.sql.SQLException: You can't operate on a closed Connection!!! </span></div><div class="line"><span class="comment">//			DbUtils.rollbackAndCloseQuietly(con);</span></div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				con.rollback();</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * </div><div class="line">	 * 开发板</div><div class="line">	 * 获取链接方法---结合了ThreadLocal</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnectionForThreadLocal</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//首先从当前的线程中获取Connection对象</span></div><div class="line">			con=local.get();</div><div class="line">			<span class="keyword">if</span>(con==<span class="keyword">null</span>)&#123;</div><div class="line">				<span class="comment">//当前线程没有绑定Connection对象，从连接池中获取一个新的</span></div><div class="line">				con = dataSource.getConnection();</div><div class="line">				local.set(con);</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 获取链接方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			con = dataSource.getConnection();</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;<span class="number">40</span>;i++)&#123;</div><div class="line">			Connection con=C3p0Utils.getConnection();</div><div class="line">			System.out.println(<span class="string">"获取到的"</span>+con);</div><div class="line">			<span class="comment">//不会关闭con对象，C3P0已经帮我去增强了Connection close方法</span></div><div class="line">			con.close();</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
           
         
