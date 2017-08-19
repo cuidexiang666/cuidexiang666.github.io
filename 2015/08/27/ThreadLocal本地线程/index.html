@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="ThreadLocal本地线程12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849ThreadLocal1. 线程本地变量  * ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！    &amp;gt; 1号线程，是否可以获取">
+<meta name="description" content="线程本地变量   ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！ 1号线程，是否可以获取2线程保存的数据？不能！！！     ThreadLocal内部是一个Map   key：线程对象 value：保存的数据  A线程中的代码：map.put(Thread.currentThread(), “hello”);  map.get(Thre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ThreadLocal本地线程">
 <meta property="og:url" content="http://yoursite.com/2015/08/27/ThreadLocal本地线程/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="ThreadLocal本地线程12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849ThreadLocal1. 线程本地变量  * ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！    &amp;gt; 1号线程，是否可以获取">
-<meta property="og:updated_time" content="2017-07-26T10:28:33.066Z">
+<meta property="og:description" content="线程本地变量   ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！ 1号线程，是否可以获取2线程保存的数据？不能！！！     ThreadLocal内部是一个Map   key：线程对象 value：保存的数据  A线程中的代码：map.put(Thread.currentThread(), “hello”);  map.get(Thre">
+<meta property="og:updated_time" content="2017-08-19T08:50:04.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ThreadLocal本地线程">
-<meta name="twitter:description" content="ThreadLocal本地线程12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849ThreadLocal1. 线程本地变量  * ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！    &amp;gt; 1号线程，是否可以获取">
+<meta name="twitter:description" content="线程本地变量   ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！ 1号线程，是否可以获取2线程保存的数据？不能！！！     ThreadLocal内部是一个Map   key：线程对象 value：保存的数据  A线程中的代码：map.put(Thread.currentThread(), “hello”);  map.get(Thre">
 
 
 
@@ -351,7 +351,32 @@
       
 
       
-        <h1 id="ThreadLocal本地线程"><a href="#ThreadLocal本地线程" class="headerlink" title="ThreadLocal本地线程"></a>ThreadLocal本地线程</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">ThreadLocal</div><div class="line"></div><div class="line"><span class="number">1</span>. 线程本地变量</div><div class="line">  * ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！</div><div class="line">    &gt; <span class="number">1</span>号线程，是否可以获取<span class="number">2</span>线程保存的数据？不能！！！</div><div class="line"></div><div class="line"><span class="number">2</span>. ThreadLocal内部是一个Map</div><div class="line">  * key：线程对象</div><div class="line">  * value：保存的数据</div><div class="line"></div><div class="line"></div><div class="line">  A线程中的代码：map.put(Thread.currentThread(), <span class="string">"hello"</span>);  map.get(Thread.currentThread());</div><div class="line">  B线程中的代码：map.put(Thread.currentThread(), <span class="string">"world"</span>);  map.get(Thread.currentThread());</div><div class="line"></div><div class="line"><span class="number">3</span>. ThreadLocal的API</div><div class="line">  * <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">(Object)</span> --&gt; 保存数据，底层在操作map，使用Thread.<span class="title">currentThread</span><span class="params">()</span></span></div><div class="line">  * Object <span class="title">get</span><span class="params">()</span> --&gt; 获取数据，底层在操作map，使用Thread.<span class="title">currentThread</span><span class="params">()</span></div><div class="line">  * <span class="keyword">void</span> <span class="title">remvoe</span><span class="params">()</span> --&gt; 移除数据，底层在操作map，使用Thread.<span class="title">currentThread</span><span class="params">()</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">测试代码：</div><div class="line"><span class="keyword">public</span> class Demo2 &#123;</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun1</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">		<span class="keyword">final</span> MyClass mc = <span class="keyword">new</span> MyClass();</div><div class="line">		mc.add(<span class="string">"zhangSan"</span>);<span class="comment">//1号保存zhangSan</span></div><div class="line">		Thread.sleep(<span class="number">1000</span>);</div><div class="line">		<span class="keyword">new</span> Thread() &#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				System.out.println(<span class="string">"2号："</span> + mc.get());<span class="comment">//2号获取值</span></div><div class="line">			&#125;</div><div class="line">		&#125;.start();</div><div class="line">		</div><div class="line">		System.out.println(<span class="string">"1号"</span> + mc.get());<span class="comment">//1号获取值</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> ThreadLocal&lt;String&gt; tl = <span class="keyword">new</span> ThreadLocal&lt;String&gt;();</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String s )</span> </span>&#123;</div><div class="line">		tl.set(s);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> tl.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <ol>
+<li>线程本地变量</li>
+</ol>
+<ul>
+<li>ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！<blockquote>
+<p>1号线程，是否可以获取2线程保存的数据？不能！！！</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>ThreadLocal内部是一个Map</li>
+</ol>
+<ul>
+<li>key：线程对象</li>
+<li>value：保存的数据</li>
+</ul>
+<p>A线程中的代码：map.put(Thread.currentThread(), “hello”);  map.get(Thread.currentThread());<br>B线程中的代码：map.put(Thread.currentThread(), “world”);  map.get(Thread.currentThread());</p>
+<ol>
+<li>ThreadLocal的API</li>
+</ol>
+<ul>
+<li>void set(Object) –&gt; 保存数据，底层在操作map，使用Thread.currentThread()</li>
+<li>Object get() –&gt; 获取数据，底层在操作map，使用Thread.currentThread()</li>
+<li>void remvoe() –&gt; 移除数据，底层在操作map，使用Thread.currentThread()</li>
+</ul>
+<p>测试代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>&#123;</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun1</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">		<span class="keyword">final</span> MyClass mc = <span class="keyword">new</span> MyClass();</div><div class="line">		mc.add(<span class="string">"zhangSan"</span>);<span class="comment">//1号保存zhangSan</span></div><div class="line">		Thread.sleep(<span class="number">1000</span>);</div><div class="line">		<span class="keyword">new</span> Thread() &#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				System.out.println(<span class="string">"2号："</span> + mc.get());<span class="comment">//2号获取值</span></div><div class="line">			&#125;</div><div class="line">		&#125;.start();</div><div class="line">		</div><div class="line">		System.out.println(<span class="string">"1号"</span> + mc.get());<span class="comment">//1号获取值</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> ThreadLocal&lt;String&gt; tl = <span class="keyword">new</span> ThreadLocal&lt;String&gt;();</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String s )</span> </span>&#123;</div><div class="line">		tl.set(s);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> tl.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -388,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/27/Mysql事务操作/" rel="next" title="Mysql事务操作">
-                <i class="fa fa-chevron-left"></i> Mysql事务操作
+              <a href="/2015/08/27/事务隔离级别/" rel="next" title="事务隔离级别">
+                <i class="fa fa-chevron-left"></i> 事务隔离级别
               </a>
             
           </div>
@@ -398,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/27/事务隔离级别/" rel="prev" title="事务隔离级别">
-                事务隔离级别 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/08/27/事务保存点/" rel="prev" title="事务保存点">
+                事务保存点 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -447,17 +472,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -472,7 +488,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -510,22 +526,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ThreadLocal本地线程"><span class="nav-number">1.</span> <span class="nav-text">ThreadLocal本地线程</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

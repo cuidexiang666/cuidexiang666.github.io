@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/25/applicationContext.xml(注解式开发)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/16/struts.xml(非注解是开发)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -285,7 +285,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/11/25/applicationContext.xml(注解式开发)/" itemprop="url">applicationContext.xml</a></h1>
+                <a class="post-title-link" href="/2015/10/16/struts.xml(非注解是开发)/" itemprop="url">struts.xml</a></h1>
         
 
         <div class="post-meta">
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-25T00:00:00+08:00">
-                2015-11-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-16T00:00:00+08:00">
+                2015-10-16
               </time>
             
 
@@ -356,441 +356,8 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop"</div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">	http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">	http://www.springframework.org/schema/context</div><div class="line">	http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">	http://www.springframework.org/schema/aop</div><div class="line">	http://www.springframework.org/schema/aop/spring-aop.xsd</div><div class="line">	http://www.springframework.org/schema/tx </div><div class="line">	http://www.springframework.org/schema/tx/spring-tx.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 开启注解的扫描 --&gt;</div><div class="line">	&lt;context:component-scan base-package="com.itheima.customer"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 整合C3P0的连接池 --&gt;</div><div class="line">	&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;</div><div class="line">		&lt;property name="driverClass" value="com.mysql.jdbc.Driver"/&gt;</div><div class="line">		&lt;property name="jdbcUrl" value="jdbc:mysql:///day45_ssh"/&gt;</div><div class="line">		&lt;property name="user" value="root"/&gt;</div><div class="line">		&lt;property name="password" value="root"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 加载hibernate.cfg.xml配置文件 --&gt;</div><div class="line">	&lt;bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"&gt;</div><div class="line">		&lt;property name="dataSource" ref="dataSource"/&gt;</div><div class="line">		&lt;property name="hibernateProperties"&gt;</div><div class="line">			&lt;props&gt;</div><div class="line">				&lt;prop key="hibernate.dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/prop&gt;</div><div class="line">				&lt;prop key="hibernate.show_sql"&gt;true&lt;/prop&gt;</div><div class="line">				&lt;prop key="hibernate.format_sql"&gt;true&lt;/prop&gt;</div><div class="line">				&lt;prop key="hibernate.hbm2ddl.auto"&gt;update&lt;/prop&gt;</div><div class="line">			&lt;/props&gt;</div><div class="line">		&lt;/property&gt;</div><div class="line">		&lt;property name="packagesToScan" value="com.itheima.*.domain"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 注册模板对象 --&gt;</div><div class="line">	&lt;bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate"&gt;</div><div class="line">		&lt;property name="sessionFactory" ref="sessionFactory"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置平台事务管理器对象 --&gt;</div><div class="line">	&lt;bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"&gt;</div><div class="line">		&lt;property name="sessionFactory" ref="sessionFactory"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 事务注解的方式 --&gt;</div><div class="line">	&lt;tx:annotation-driven transaction-manager="transactionManager"/&gt;</div><div class="line">	</div><div class="line">	</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE struts PUBLIC</span></div><div class="line">	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</div><div class="line">	"http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">struts</span>&gt;</span>	</div><div class="line">    <span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.multipart.maxSize"</span> <span class="attr">value</span>=<span class="string">"5097152"</span>&gt;</span><span class="tag">&lt;/<span class="name">constant</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"crm"</span> <span class="attr">namespace</span>=<span class="string">"/"</span> <span class="attr">extends</span>=<span class="string">"struts-default"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"userAction_*"</span> <span class="attr">class</span>=<span class="string">"userAction"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 			修改默认拦截器栈中的fileUpload中的属性maximumSize --&gt;</span></div><div class="line"> 			<span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"defaultStack"</span>&gt;</span></div><div class="line"> 			  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"fileUpload.maximumSize"</span>&gt;</span>2097152<span class="tag">&lt;/<span class="name">param</span>&gt;</span></div><div class="line"> 			<span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></div><div class="line">			 <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"toregist"</span>&gt;</span>/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">			 <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"tologin"</span>&gt;</span>/login.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">			 <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"index"</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"customerAction_*"</span> <span class="attr">class</span>=<span class="string">"customerAction"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 			修改默认拦截器栈中的fileUpload中的属性maximumSize --&gt;</span></div><div class="line"> 			<span class="tag">&lt;<span class="name">interceptor-ref</span> <span class="attr">name</span>=<span class="string">"defaultStack"</span>&gt;</span></div><div class="line"> 			  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"fileUpload.maximumSize"</span>&gt;</span>4097152<span class="tag">&lt;/<span class="name">param</span>&gt;</span></div><div class="line"> 			<span class="tag">&lt;/<span class="name">interceptor-ref</span>&gt;</span></div><div class="line">		</div><div class="line">		    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"toadd"</span>&gt;</span>/jsp/customer/add.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span>&gt;</span>/jsp/success.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"list"</span>&gt;</span>/jsp/customer/list.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"input"</span>&gt;</span>/jsp/error.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"update"</span>&gt;</span>/jsp/customer/edit.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"tolist"</span> <span class="attr">type</span>=<span class="string">"redirectAction"</span>&gt;</span>customerAction_list.action<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"error"</span> &gt;</span>/jsp/error.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">package</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">struts</span>&gt;</span></div></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/23/过滤器、监听器、拦截器的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/11/23/过滤器、监听器、拦截器的区别/" itemprop="url">过滤，监听，拦截器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-23T00:00:00+08:00">
-                2015-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssh/" itemprop="url" rel="index">
-                    <span itemprop="name">ssh</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="过滤器、监听器、拦截器的区别"><a href="#过滤器、监听器、拦截器的区别" class="headerlink" title="过滤器、监听器、拦截器的区别"></a>过滤器、监听器、拦截器的区别</h1><p>1.过滤器</p>
-<p>Servlet中的过滤器Filter是实现了javax.servlet.Filter接口的服务器端程序，主要的用途是过滤字符编码、做一些业务逻辑判断等。其工作原理是，只要你在web.xml文件配置好要拦截的客户端请求，它都会帮你拦截到请求，此时你就可以对请求或响应(Request、Response)统一设置编码，简化操作；同时还可进行逻辑判断，如用户是否已经登陆、有没有权限访问该页面等等工作。它是随你的web应用启动而启动的，只初始化一次，以后就可以拦截相关请求，只有当你的web应用停止或重新部署的时候才销毁，以下通过过滤编码的代码示例来了解它的使用：</p>
-<p>[c-sharp] view plain copy<br> MyCharsetFilter.Java 编码过滤器<br>package …;<br>import …;<br>// 主要目的：过滤字符编码；其次，做一些应用逻辑判断等.<br>// Filter跟web应用一起启动<br>// 当web应用重新启动或销毁时，Filter也被销毁<br>public class MyCharsetFilter implements Filter {<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> FilterConfig config = <span class="keyword">null</span>;   </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;   </div><div class="line">    System.out.println(<span class="string">"MyCharsetFilter准备销毁..."</span>);   </div><div class="line">&#125;   </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest arg0, ServletResponse arg1, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;   </div><div class="line">    <span class="comment">// 强制类型转换   </span></div><div class="line">    HttpServletRequest request = (HttpServletRequest)arg0;   </div><div class="line">    HttpServletResponse response = (HttpServletResponse)arg1;   </div><div class="line">    <span class="comment">// 获取web.xm设置的编码集，设置到Request、Response中         request.setCharacterEncoding(config.getInitParameter("charset"));          response.setContentType(config.getInitParameter("contentType"));          response.setCharacterEncoding(config.getInitParameter("charset"));            </span></div><div class="line">   <span class="comment">// 将请求转发到目的地   </span></div><div class="line">    chain.doFilter(request, response);   </div><div class="line">&#125;   </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException </span>&#123;   </div><div class="line">    <span class="keyword">this</span>.config = arg0;   </div><div class="line">    System.out.println(<span class="string">"MyCharsetFilter初始化..."</span>);   </div><div class="line">&#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>以下是 MyCharsetFilter.java 在web.xml 中配置: </p>
-<p>[c-sharp] view plain copy</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;filter&gt;   </div><div class="line">&lt;filter-name&gt;filter&lt;/filter-name&gt;   </div><div class="line">  &lt;filter-class&gt;dc.gz.filters.MyCharsetFilter&lt;/filter-class&gt;   </div><div class="line">  &lt;init-param&gt;   </div><div class="line">      &lt;param-name&gt;charset&lt;/param-name&gt;   </div><div class="line">      &lt;param-value&gt;UTF-8&lt;/param-value&gt;   </div><div class="line">  &lt;/init-param&gt;   </div><div class="line">  &lt;init-param&gt;   </div><div class="line">      &lt;param-name&gt;contentType&lt;/param-name&gt;   </div><div class="line">      &lt;param-value&gt;text/html;charset=UTF-8&lt;/param-value&gt;   </div><div class="line">  &lt;/init-param&gt;   </div><div class="line">&lt;/filter&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;filter-mapping&gt;   </div><div class="line">   &lt;filter-name&gt;filter&lt;/filter-name&gt;   </div><div class="line">     &lt;!-- * 代表截获所有的请求  或指定请求/test.do  /xxx.do --&gt;   </div><div class="line">     &lt;url-pattern&gt;/*&lt;/url-pattern&gt;  </div><div class="line">&lt;/filter-mapping&gt;</div></pre></td></tr></table></figure>
-<p>​    </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">以上的例子简单的说明了Filter的使用，具体其他的应用可以看具体的场景。</div></pre></td></tr></table></figure>
-<p>2.监听器</p>
-<p>现在来说说Servlet的监听器Listener，它是实现了javax.servlet.ServletContextListener 接口的服务器端程序，它也是随web应用的启动而启动，只初始化一次，随web应用的停止而销毁。主要作用是： 做一些初始化的内容添加工作、设置一些基本的内容、比如一些参数或者是一些固定的对象等等。下面利用监听器对数据库连接池DataSource的初始化演示它的使用： </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[c-sharp] view plain copy</div><div class="line"></div><div class="line">MyServletContextListener.java   </div><div class="line"></div><div class="line"> <span class="keyword">package</span> dc.gz.listeners;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContext;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContextEvent;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContextListener;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> org.apache.commons.dbcp.BasicDataSource;</div></pre></td></tr></table></figure>
-<p>​<br>  /**  </p>
-<ul>
-<li><p>Web应用监听器<br>*/<br> public class MyServletContextListener implements ServletContextListener {<br> // 应用监听器的销毁方法<br> public void contextDestroyed(ServletContextEvent event) {   </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> ServletContext sc = event.getServletContext();   </div><div class="line"> <span class="comment">// 在整个web应用销毁之前调用，将所有应用空间所设置的内容清空   </span></div><div class="line"> sc.removeAttribute(<span class="string">"dataSource"</span>);   </div><div class="line">System.out.println(<span class="string">"销毁工作完成..."</span>);</div></pre></td></tr></table></figure>
-<p> }   </p>
-<p> // 应用监听器的初始化方法<br> public void contextInitialized(ServletContextEvent event) {   </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过这个事件可以获取整个应用的空间   </span></div><div class="line"><span class="comment">// 在整个web应用下面启动的时候做一些初始化的内容添加工作   </span></div><div class="line">ServletContext sc = event.getServletContext();   </div><div class="line"><span class="comment">// 设置一些基本的内容；比如一些参数或者是一些固定的对象   </span></div><div class="line"><span class="comment">// 创建DataSource对象，连接池技术 dbcp   </span></div><div class="line">BasicDataSource bds = <span class="keyword">new</span> BasicDataSource();   </div><div class="line">bds.setDriverClassName(<span class="string">"com.MySQL.jdbc.Driver"</span>);                       bds.setUrl(<span class="string">"jdbc:mysql://localhost:3306/hibernate"</span>);   </div><div class="line">bds.setUsername(<span class="string">"root"</span>);   </div><div class="line">bds.setPassword(<span class="string">"root"</span>);   </div><div class="line">bds.setMaxActive(<span class="number">10</span>);<span class="comment">//最大连接数   </span></div><div class="line">bds.setMaxIdle(<span class="number">5</span>);<span class="comment">//最大管理数   </span></div><div class="line"><span class="comment">//bds.setMaxWait(maxWait); 最大等待时间   </span></div><div class="line"><span class="comment">// 把 DataSource 放入ServletContext空间中，   </span></div><div class="line"><span class="comment">// 供整个web应用的使用(获取数据库连接)   </span></div><div class="line">sc.setAttribute(<span class="string">"dataSource"</span>, bds);   </div><div class="line">System.out.println(<span class="string">"应用监听器初始化工作完成..."</span>);   </div><div class="line">System.out.println(<span class="string">"已经创建DataSource..."</span>);</div></pre></td></tr></table></figure>
-<p> }<br> }   </p>
-</li>
-</ul>
-<p>web.xml中配置如下，很简单：</p>
-<p>[c-sharp] view plain copy<br><!-- 配置应用监听器  --><br>  <listener><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;listener-<span class="class"><span class="keyword">class</span>&gt;<span class="title">dc</span>.<span class="title">gz</span>.<span class="title">listeners</span>.<span class="title">MyServletContextListener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></div></pre></td></tr></table></figure></listener></p>
-<p>     </p>
-<p>这样配置好了之后，以后在web应用中就可以通过ServletContext取得BasicDataSource对象，从而获取与数据库的连接，提高性能，方便使用。</p>
-<p>3.拦截器</p>
-<p>拦截器是在面向切面编程中应用的，就是在你的service或者一个方法前调用一个方法，或者在方法后调用一个方法。是基于JAVA的反射机制。拦截器不是在web.xml，比如struts在struts.xml中配置，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[c-sharp] <span class="function">view plain copy</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable  </div><div class="line"></div><div class="line">&#123;  </div><div class="line"></div><div class="line">Object result = <span class="keyword">null</span>;  </div><div class="line"></div><div class="line">System.out.println(<span class="string">"before invoke method :"</span> + method.getName());  </div><div class="line"></div><div class="line">result = method.invoke(<span class="keyword">this</span>.targetObj, args);  </div><div class="line"></div><div class="line">System.out.println(<span class="string">"after invoke method : "</span> + method.getName());  </div><div class="line"></div><div class="line"><span class="keyword">return</span> result;  </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>总结：</p>
-<p>1.过滤器：所谓过滤器顾名思义是用来过滤的，在Java web中，你传入的request,response提前过滤掉一些信息，或者提前设置一些参数，然后再传入servlet或者struts的action进行业务逻辑，比如过滤掉非法url（不是login.do的地址请求，如果用户没有登陆都过滤掉）,或者在传入servlet或者struts的action前统一设置字符集，或者去除掉一些非法字符（聊天室经常用到的，一些骂人的话）。filter 流程是线性的， url传来之后，检查之后，可保持原来的流程继续向下执行，被下一个filter, servlet接收等.</p>
-<p>2.监听器：这个东西在c/s模式里面经常用到，他会对特定的事件产生产生一个处理。监听在很多模式下用到。比如说观察者模式，就是一个监听来的。又比如struts可以用监听来启动。Servlet监听器用于监听一些重要事件的发生，监听器对象可以在事情发生前、发生后可以做一些必要的处理。</p>
-<p>3.java的拦截器 主要是用在插件上，扩展件上比如 hivernate spring struts2等 有点类似面向切片的技术，在用之前先要在配置文件即xml文件里声明一段的那个东西。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/08/多对一实体类配置文件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/11/08/多对一实体类配置文件/" itemprop="url">entity</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-08T00:00:00+08:00">
-                2015-11-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssh/" itemprop="url" rel="index">
-                    <span itemprop="name">ssh</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC </div><div class="line">    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"</div><div class="line">    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;</div><div class="line">&lt;hibernate-mapping&gt;</div><div class="line">   &lt;!-- 类与表的映射   name指的是类名     table指的是表名 --&gt;</div><div class="line">   &lt;class name="cn.itcast.crm.domain.Customer" table="customer"&gt;</div><div class="line">		&lt;id name="custId"&gt;</div><div class="line">			&lt;generator class="native"&gt;&lt;/generator&gt;</div><div class="line">		&lt;/id&gt;</div><div class="line">		&lt;property name="custName"&gt;&lt;/property&gt;</div><div class="line">		&lt;property name="custLinkman"&gt;&lt;/property&gt;</div><div class="line">		&lt;property name="custPhone"&gt;&lt;/property&gt;</div><div class="line">		&lt;property name="custMobile"&gt;&lt;/property&gt;</div><div class="line">		&lt;property name="filePath"&gt;&lt;/property&gt;</div><div class="line">		</div><div class="line">		&lt;many-to-one name="levelBaseDict"  column="custLevel" class="cn.itcast.crm.domain.BaseDict"&gt;&lt;/many-to-one&gt;</div><div class="line">		&lt;many-to-one name="sourceBaseDict"   column="custSource" class="cn.itcast.crm.domain.BaseDict"&gt;&lt;/many-to-one&gt;</div><div class="line">		</div><div class="line">&lt;!-- 		private BaseDict levelBaseDict;  //级别 --&gt;</div><div class="line">&lt;!-- 	private BaseDict sourceBaseDict ; //来源 --&gt;</div><div class="line">   &lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/04/application.xml配置文件（非注解式开发)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/11/04/application.xml配置文件（非注解式开发)/" itemprop="url">applicationContext.xml</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-04T00:00:00+08:00">
-                2015-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssh/" itemprop="url" rel="index">
-                    <span itemprop="name">ssh</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop"</div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">	http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">	http://www.springframework.org/schema/context</div><div class="line">	http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">	http://www.springframework.org/schema/aop</div><div class="line">	http://www.springframework.org/schema/aop/spring-aop.xsd</div><div class="line">	http://www.springframework.org/schema/tx</div><div class="line">	http://www.springframework.org/schema/tx/spring-tx.xsd"&gt;</div><div class="line">	</div><div class="line">&lt;!-- 	数据源 --&gt;</div><div class="line">&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;</div><div class="line"> &lt;property name="driverClass" value="com.mysql.jdbc.Driver"&gt;&lt;/property&gt;</div><div class="line"> &lt;property name="jdbcUrl" value="jdbc:mysql:///crm_253"&gt;&lt;/property&gt;</div><div class="line"> &lt;property name="user" value="root"&gt;&lt;/property&gt;</div><div class="line"> &lt;property name="password" value="root"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;!--sessionFactory --&gt;</div><div class="line">&lt;bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"&gt;</div><div class="line">&lt;property name="dataSource" ref="dataSource"&gt;&lt;/property&gt;</div><div class="line">&lt;property name="configLocations" value="classpath:hibernate.cfg.xml"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;!-- 	声明式事务管理 --&gt;</div><div class="line">&lt;bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"&gt;</div><div class="line"> &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;!-- 	配置通知 --&gt;</div><div class="line">&lt;tx:advice id="advice" transaction-manager="transactionManager"&gt;</div><div class="line"> &lt;tx:attributes&gt;</div><div class="line">  &lt;tx:method name="save*"/&gt;</div><div class="line">  &lt;tx:method name="update*"/&gt;</div><div class="line">  &lt;tx:method name="delete*"/&gt;</div><div class="line">  &lt;tx:method name="find*" read-only="true"/&gt;</div><div class="line">  &lt;tx:method name="*"/&gt;</div><div class="line"> &lt;/tx:attributes&gt;</div><div class="line">&lt;/tx:advice&gt;</div><div class="line"></div><div class="line">&lt;!-- 	切面 --&gt;</div><div class="line">&lt;aop:config&gt;</div><div class="line"> &lt;aop:pointcut expression="execution(* cn.itcast.crm.service.impl.*.*(..))" id="mycut"/&gt;</div><div class="line"> &lt;aop:advisor advice-ref="advice" pointcut-ref="mycut"/&gt;</div><div class="line">&lt;/aop:config&gt;	</div><div class="line">	</div><div class="line">	</div><div class="line">&lt;bean id="userDao" class="cn.itcast.crm.dao.impl.UserDaoImpl"&gt;</div><div class="line"> &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;bean id="userService" class="cn.itcast.crm.service.impl.UserServiceImpl"&gt;</div><div class="line"> &lt;property name="userDao" ref="userDao"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line"></div><div class="line">&lt;bean id="userAction" class="cn.itcast.crm.action.UserAction" scope="prototype"&gt;</div><div class="line"> &lt;property name="userService" ref="userService"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;bean id="baseDictDao" class="cn.itcast.crm.dao.impl.BaseDictDaoImpl"&gt;</div><div class="line"> &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;bean id="baseDictService" class="cn.itcast.crm.service.impl.BaseDictServiceImpl"&gt;</div><div class="line"> &lt;property name="baseDictDao" ref="baseDictDao"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;bean id="customerDao" class="cn.itcast.crm.dao.impl.CustomerDaoImpl"&gt;</div><div class="line"> &lt;property name="sessionFactory" ref="sessionFactory"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;bean id="customerService" class="cn.itcast.crm.service.impl.CustomerServiceImpl"&gt;</div><div class="line"> &lt;property name="customerDao" ref="customerDao"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line"></div><div class="line">&lt;bean id="customerAction" class="cn.itcast.crm.action.CustomerAction" scope="prototype"&gt;</div><div class="line"> &lt;property name="customerService" ref="customerService"&gt;&lt;/property&gt;</div><div class="line"> &lt;property name="baseDictService" ref="baseDictService"&gt;&lt;/property&gt;</div><div class="line">&lt;/bean&gt;		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
           
         
       
@@ -923,141 +490,7 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</div><div class="line">	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</div><div class="line">&lt;hibernate-configuration&gt;</div><div class="line">    &lt;session-factory&gt;</div><div class="line">        &lt;!-- hibernate方言;是指hibernate生成底层的sql语句时使用什么样的sql语句，由方言来决定 --&gt;</div><div class="line">        &lt;property name="hibernate.dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;</div><div class="line"></div><div class="line">	    &lt;!-- 自动建表 --&gt;</div><div class="line">	    &lt;property name="hibernate.hbm2ddl.auto"&gt;update&lt;/property&gt;</div><div class="line">        &lt;!-- 显示出sql在控制台 --&gt;</div><div class="line">        &lt;property name="hibernate.show_sql"&gt;true&lt;/property&gt;</div><div class="line">        &lt;!-- 格式化sql在控制台  可以换行 --&gt;</div><div class="line">        &lt;property name="hibernate.format_sql"&gt;true&lt;/property&gt;</div><div class="line">        </div><div class="line">        &lt;!-- 设置事务的隔离级别 --&gt;</div><div class="line">        &lt;property name="hibernate.connection.isolation"&gt;4&lt;/property&gt;</div><div class="line">        &lt;!-- 指定加载映射文件 --&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/User.hbm.xml"/&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/BaseDict.hbm.xml"/&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/Customer.hbm.xml"/&gt;</div><div class="line">    &lt;/session-factory&gt;</div><div class="line">&lt;/hibernate-configuration&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/10/16/struts.xml(非注解是开发)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/10/16/struts.xml(非注解是开发)/" itemprop="url">struts.xml</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-16T00:00:00+08:00">
-                2015-10-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ssh/" itemprop="url" rel="index">
-                    <span itemprop="name">ssh</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"</div><div class="line">	"http://struts.apache.org/dtds/struts-2.3.dtd"&gt;</div><div class="line">&lt;struts&gt;	</div><div class="line">    &lt;constant name="struts.multipart.maxSize" value="5097152"&gt;&lt;/constant&gt;</div><div class="line"></div><div class="line">	&lt;package name="crm" namespace="/" extends="struts-default"&gt;</div><div class="line">		&lt;action name="userAction_*" class="userAction" method="&#123;1&#125;"&gt;</div><div class="line">		&lt;!-- 			修改默认拦截器栈中的fileUpload中的属性maximumSize --&gt;</div><div class="line"> 			&lt;interceptor-ref name="defaultStack"&gt;</div><div class="line"> 			  &lt;param name="fileUpload.maximumSize"&gt;2097152&lt;/param&gt;</div><div class="line"> 			&lt;/interceptor-ref&gt;</div><div class="line">			 &lt;result name="toregist"&gt;/add.jsp&lt;/result&gt;</div><div class="line">			 &lt;result name="tologin"&gt;/login.jsp&lt;/result&gt;</div><div class="line">			 &lt;result name="index"&gt;/index.jsp&lt;/result&gt;</div><div class="line">		&lt;/action&gt;</div><div class="line">		&lt;action name="customerAction_*" class="customerAction" method="&#123;1&#125;"&gt;</div><div class="line">&lt;!-- 			修改默认拦截器栈中的fileUpload中的属性maximumSize --&gt;</div><div class="line"> 			&lt;interceptor-ref name="defaultStack"&gt;</div><div class="line"> 			  &lt;param name="fileUpload.maximumSize"&gt;4097152&lt;/param&gt;</div><div class="line"> 			&lt;/interceptor-ref&gt;</div><div class="line">		</div><div class="line">		    &lt;result name="toadd"&gt;/jsp/customer/add.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="success"&gt;/jsp/success.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="list"&gt;/jsp/customer/list.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="input"&gt;/jsp/error.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="update"&gt;/jsp/customer/edit.jsp&lt;/result&gt;</div><div class="line">		    &lt;result name="tolist" type="redirectAction"&gt;customerAction_list.action&lt;/result&gt;</div><div class="line">		    &lt;result name="error" &gt;/jsp/error.jsp&lt;/result&gt;</div><div class="line">		&lt;/action&gt;</div><div class="line">	&lt;/package&gt;</div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></div><div class="line">	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</div><div class="line">	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- hibernate方言;是指hibernate生成底层的sql语句时使用什么样的sql语句，由方言来决定 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.dialect"</span>&gt;</span>org.hibernate.dialect.MySQLDialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"></div><div class="line">	    <span class="comment">&lt;!-- 自动建表 --&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;</span>update<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 显示出sql在控制台 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 格式化sql在控制台  可以换行 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="comment">&lt;!-- 设置事务的隔离级别 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.isolation"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 指定加载映射文件 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"cn/itcast/crm/domain/User.hbm.xml"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"cn/itcast/crm/domain/BaseDict.hbm.xml"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"cn/itcast/crm/domain/Customer.hbm.xml"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1191,8 +624,7 @@
       
         
           
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itheima.account.utils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.sql.DataSource;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.dbutils.DbUtils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</div><div class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.impl.NewProxyConnection;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C3p0Utils</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">//连接池就定义 并且加载配置完毕</span></div><div class="line">	<span class="comment">//命名配置</span></div><div class="line"><span class="comment">//	private static DataSource dataSource=new ComboPooledDataSource("itcast");</span></div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">//默认配置</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> DataSource dataSource=<span class="keyword">new</span> ComboPooledDataSource();</div><div class="line">	</div><div class="line">	<span class="comment">//</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;Connection&gt; local = <span class="keyword">new</span> ThreadLocal&lt;Connection&gt;();</div><div class="line">	</div><div class="line">	<span class="comment">//c3p0+DBUtils</span></div><div class="line">	<span class="comment">//DBUtils使用时，需要获取dataSource对象</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DataSource <span class="title">getDataSource</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> dataSource;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * </div><div class="line">	 * 研发版</div><div class="line">	 * 获取链接方法---结合了ThreadLocal，加入了事务自动提交的控制</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnectionForThreadLocalForFinal</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//首先从当前的线程中获取Connection对象</span></div><div class="line">			con=local.get();</div><div class="line">			<span class="keyword">if</span>(con==<span class="keyword">null</span>)&#123;</div><div class="line">				<span class="comment">//当前线程没有绑定Connection对象，从连接池中获取一个新的</span></div><div class="line">				con = dataSource.getConnection();</div><div class="line">				local.set(con);</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//这句判断只是为了防止con被关闭及被重复设置自动提交关闭，可以去掉</span></div><div class="line">			<span class="keyword">if</span>(!con.isClosed()&amp;&amp;con.getAutoCommit())</div><div class="line">				con.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 提交方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">commit</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = getConnectionForThreadLocalForFinal();</div><div class="line">		<span class="keyword">if</span>(con!=<span class="keyword">null</span>)</div><div class="line">			<span class="comment">//因为这句会导致con对象的关闭，这样con进入池中后，con就被关闭了，而被关闭的con执行任何SQL设置或者语句都会报 java.sql.SQLException: You can't operate on a closed Connection!!! </span></div><div class="line"><span class="comment">//			DbUtils.commitAndCloseQuietly(con);</span></div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				con.commit();</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 回滚方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">rollback</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = getConnectionForThreadLocalForFinal();</div><div class="line">		<span class="keyword">if</span>(con!=<span class="keyword">null</span>)</div><div class="line">			<span class="comment">//因为这句会导致con对象的关闭，这样con进入池中后，con就被关闭了，而被关闭的con执行任何SQL设置或者语句都会报 java.sql.SQLException: You can't operate on a closed Connection!!! </span></div><div class="line"><span class="comment">//			DbUtils.rollbackAndCloseQuietly(con);</span></div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				con.rollback();</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * </div><div class="line">	 * 开发板</div><div class="line">	 * 获取链接方法---结合了ThreadLocal</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnectionForThreadLocal</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//首先从当前的线程中获取Connection对象</span></div><div class="line">			con=local.get();</div><div class="line">			<span class="keyword">if</span>(con==<span class="keyword">null</span>)&#123;</div><div class="line">				<span class="comment">//当前线程没有绑定Connection对象，从连接池中获取一个新的</span></div><div class="line">				con = dataSource.getConnection();</div><div class="line">				local.set(con);</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 获取链接方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			con = dataSource.getConnection();</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;<span class="number">40</span>;i++)&#123;</div><div class="line">			Connection con=C3p0Utils.getConnection();</div><div class="line">			System.out.println(<span class="string">"获取到的"</span>+con);</div><div class="line">			<span class="comment">//不会关闭con对象，C3P0已经帮我去增强了Connection close方法</span></div><div class="line">			con.close();</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itheima.account.utils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.sql.Connection;</div><div class="line"><span class="keyword">import</span> java.sql.SQLException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.sql.DataSource;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.dbutils.DbUtils;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.ComboPooledDataSource;</div><div class="line"><span class="keyword">import</span> com.mchange.v2.c3p0.impl.NewProxyConnection;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C3p0Utils</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">//连接池就定义 并且加载配置完毕</span></div><div class="line">	<span class="comment">//命名配置</span></div><div class="line"><span class="comment">//	private static DataSource dataSource=new ComboPooledDataSource("itcast");</span></div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">//默认配置</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> DataSource dataSource=<span class="keyword">new</span> ComboPooledDataSource();</div><div class="line">	</div><div class="line">	<span class="comment">//</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;Connection&gt; local = <span class="keyword">new</span> ThreadLocal&lt;Connection&gt;();</div><div class="line">	</div><div class="line">	<span class="comment">//c3p0+DBUtils</span></div><div class="line">	<span class="comment">//DBUtils使用时，需要获取dataSource对象</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DataSource <span class="title">getDataSource</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> dataSource;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * </div><div class="line">	 * 研发版</div><div class="line">	 * 获取链接方法---结合了ThreadLocal，加入了事务自动提交的控制</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnectionForThreadLocalForFinal</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//首先从当前的线程中获取Connection对象</span></div><div class="line">			con=local.get();</div><div class="line">			<span class="keyword">if</span>(con==<span class="keyword">null</span>)&#123;</div><div class="line">				<span class="comment">//当前线程没有绑定Connection对象，从连接池中获取一个新的</span></div><div class="line">				con = dataSource.getConnection();</div><div class="line">				local.set(con);</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//这句判断只是为了防止con被关闭及被重复设置自动提交关闭，可以去掉</span></div><div class="line">			<span class="keyword">if</span>(!con.isClosed()&amp;&amp;con.getAutoCommit())</div><div class="line">				con.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 提交方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">commit</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = getConnectionForThreadLocalForFinal();</div><div class="line">		<span class="keyword">if</span>(con!=<span class="keyword">null</span>)</div><div class="line">			<span class="comment">//因为这句会导致con对象的关闭，这样con进入池中后，con就被关闭了，而被关闭的con执行任何SQL设置或者语句都会报 java.sql.SQLException: You can't operate on a closed Connection!!! </span></div><div class="line"><span class="comment">//			DbUtils.commitAndCloseQuietly(con);</span></div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				con.commit();</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 回滚方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">rollback</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = getConnectionForThreadLocalForFinal();</div><div class="line">		<span class="keyword">if</span>(con!=<span class="keyword">null</span>)</div><div class="line">			<span class="comment">//因为这句会导致con对象的关闭，这样con进入池中后，con就被关闭了，而被关闭的con执行任何SQL设置或者语句都会报 java.sql.SQLException: You can't operate on a closed Connection!!! </span></div><div class="line"><span class="comment">//			DbUtils.rollbackAndCloseQuietly(con);</span></div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				con.rollback();</div><div class="line">			&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">				e.printStackTrace();</div><div class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * </div><div class="line">	 * 开发板</div><div class="line">	 * 获取链接方法---结合了ThreadLocal</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnectionForThreadLocal</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">//首先从当前的线程中获取Connection对象</span></div><div class="line">			con=local.get();</div><div class="line">			<span class="keyword">if</span>(con==<span class="keyword">null</span>)&#123;</div><div class="line">				<span class="comment">//当前线程没有绑定Connection对象，从连接池中获取一个新的</span></div><div class="line">				con = dataSource.getConnection();</div><div class="line">				local.set(con);</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 获取链接方法</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</div><div class="line">		Connection con = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			con = dataSource.getConnection();</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> con;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;<span class="number">40</span>;i++)&#123;</div><div class="line">			Connection con=C3p0Utils.getConnection();</div><div class="line">			System.out.println(<span class="string">"获取到的"</span>+con);</div><div class="line">			<span class="comment">//不会关闭con对象，C3P0已经帮我去增强了Connection close方法</span></div><div class="line">			con.close();</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           
         
       
@@ -1326,7 +758,7 @@
         
           
             <p>#原始方式</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="UTF-8"&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">	&lt;table align="center" width="600px"&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				用户:&amp;nbsp;&amp;nbsp;&lt;input type="text" name="username" id="username" value="请输入用户名" style="color: darkgray;" onfocus="myfocus(this,'用户名是由字母与数组组成','ulable')" onblur="mybluer(this,'ulable')" /&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				&lt;label id="ulable"&gt;&lt;/label&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				密码:&amp;nbsp;&amp;nbsp;&lt;input type="password" name="password" id="password" value="请输入密码!" style="color: darkgray;" onfocus="myfocus(this,'密码是由数字组成，且大于等于6位','plable')" onblur="mybluer(this,'plable')" /&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				&lt;label id="plable"&gt;&lt;/label&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">	&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	function myfocus(thisObj, content, id) &#123;</div><div class="line">		thisObj.value = "";</div><div class="line">		thisObj.style.color = "black";</div><div class="line">		var lableObj = eval(id);</div><div class="line">		lableObj.innerHTML = content;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function mybluer(thisObj, id) &#123;</div><div class="line">		var lableObj = eval(id);</div><div class="line">		lableObj.innerHTML = "";</div><div class="line">		if(thisObj.value == "") &#123;</div><div class="line">			lableObj.innerHTML = "&lt;font color='red'&gt;请输入文字&lt;/font&gt;";</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">table</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"600px"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">				用户:&amp;nbsp;&amp;nbsp;<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"请输入用户名"</span> <span class="attr">style</span>=<span class="string">"color: darkgray;"</span> <span class="attr">onfocus</span>=<span class="string">"myfocus(this,'用户名是由字母与数组组成','ulable')"</span> <span class="attr">onblur</span>=<span class="string">"mybluer(this,'ulable')"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"ulable"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">				密码:&amp;nbsp;&amp;nbsp;<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"请输入密码!"</span> <span class="attr">style</span>=<span class="string">"color: darkgray;"</span> <span class="attr">onfocus</span>=<span class="string">"myfocus(this,'密码是由数字组成，且大于等于6位','plable')"</span> <span class="attr">onblur</span>=<span class="string">"mybluer(this,'plable')"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"plable"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">myfocus</span>(<span class="params">thisObj, content, id</span>) </span>&#123;</div><div class="line">		thisObj.value = <span class="string">""</span>;</div><div class="line">		thisObj.style.color = <span class="string">"black"</span>;</div><div class="line">		<span class="keyword">var</span> lableObj = <span class="built_in">eval</span>(id);</div><div class="line">		lableObj.innerHTML = content;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">mybluer</span>(<span class="params">thisObj, id</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> lableObj = <span class="built_in">eval</span>(id);</div><div class="line">		lableObj.innerHTML = <span class="string">""</span>;</div><div class="line">		<span class="keyword">if</span>(thisObj.value == <span class="string">""</span>) &#123;</div><div class="line">			lableObj.innerHTML = <span class="string">"&lt;font color='red'&gt;请输入文字&lt;/font&gt;"</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1460,7 +892,7 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="utf-8"&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line">	&lt;table align="center" cellpadding="10" cellspacing="3"&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td&gt;姓名：&lt;input type="text" id="username" /&gt;&lt;/td&gt;</div><div class="line">			&lt;td&gt;Email:&lt;input type="text" id="email" /&gt;&lt;/td&gt;</div><div class="line">			&lt;td&gt;年龄:&lt;input type="text" id="age" /&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td colspan="3" align="center"&gt;&lt;input type="button" value="添加" onclick="addTR()" /&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">	&lt;/table&gt;</div><div class="line">	&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</div><div class="line">	&lt;hr/&gt;</div><div class="line">	&lt;table id="tabInfo" align="center" width="500" border="1"&gt;</div><div class="line">		&lt;tr&gt;</div><div class="line">			&lt;td&gt;姓名&lt;/td&gt;</div><div class="line">			&lt;td&gt;Email&lt;/td&gt;</div><div class="line">			&lt;td&gt;年龄&lt;/td&gt;</div><div class="line">			&lt;td&gt;操作&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line"></div><div class="line">	&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	function addTR() &#123;</div><div class="line">		var tableObj = document.getElementsByTagName('table')[1];</div><div class="line">		var username = document.getElementById('username').value;</div><div class="line">		var email = document.getElementById('email').value;</div><div class="line">		var age = document.getElementById('age').value;</div><div class="line">		var rowObj = tableObj.insertRow();</div><div class="line">		var uObj = rowObj.insertCell();</div><div class="line">		var eObj = rowObj.insertCell();</div><div class="line">		var aObj = rowObj.insertCell();</div><div class="line">		var dObj = rowObj.insertCell();</div><div class="line">		uObj.innerHTML = username;</div><div class="line">		eObj.innerHTML = email;</div><div class="line">		aObj.innerHTML = age;</div><div class="line">		dObj.innerHTML = "&lt;input type='button' value='删除' onclick='delTR(this);' /&gt;";</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	function delTR(obj) &#123;</div><div class="line">		var tableObj = document.getElementsByTagName('table')[1];</div><div class="line">		var rowObj = obj.parentNode.parentNode;</div><div class="line">		tableObj.deleteRow(rowObj.rowIndex);</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">  &lt;/html&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">table</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">cellpadding</span>=<span class="string">"10"</span> <span class="attr">cellspacing</span>=<span class="string">"3"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>姓名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"username"</span> /&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>Email:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"email"</span> /&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>年龄:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"age"</span> /&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"添加"</span> <span class="attr">onclick</span>=<span class="string">"addTR()"</span> /&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">hr</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">table</span> <span class="attr">id</span>=<span class="string">"tabInfo"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">border</span>=<span class="string">"1"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">addTR</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> tableObj = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'table'</span>)[<span class="number">1</span>];</div><div class="line">		<span class="keyword">var</span> username = <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>).value;</div><div class="line">		<span class="keyword">var</span> email = <span class="built_in">document</span>.getElementById(<span class="string">'email'</span>).value;</div><div class="line">		<span class="keyword">var</span> age = <span class="built_in">document</span>.getElementById(<span class="string">'age'</span>).value;</div><div class="line">		<span class="keyword">var</span> rowObj = tableObj.insertRow();</div><div class="line">		<span class="keyword">var</span> uObj = rowObj.insertCell();</div><div class="line">		<span class="keyword">var</span> eObj = rowObj.insertCell();</div><div class="line">		<span class="keyword">var</span> aObj = rowObj.insertCell();</div><div class="line">		<span class="keyword">var</span> dObj = rowObj.insertCell();</div><div class="line">		uObj.innerHTML = username;</div><div class="line">		eObj.innerHTML = email;</div><div class="line">		aObj.innerHTML = age;</div><div class="line">		dObj.innerHTML = <span class="string">"&lt;input type='button' value='删除' onclick='delTR(this);' /&gt;"</span>;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">delTR</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> tableObj = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'table'</span>)[<span class="number">1</span>];</div><div class="line">		<span class="keyword">var</span> rowObj = obj.parentNode.parentNode;</div><div class="line">		tableObj.deleteRow(rowObj.rowIndex);</div><div class="line"></div><div class="line">	&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1594,7 +1026,615 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset="utf-8"&gt;</div><div class="line">	&lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;table border="1" align="center" width="200"&gt;</div><div class="line">		&lt;tr align="center"&gt;</div><div class="line">			&lt;td id="td1" style="background-color: red;"&gt;跑&lt;/td&gt;</div><div class="line">			&lt;td id="td2" style="background-color: yellow;"&gt;马&lt;/td&gt;</div><div class="line">			&lt;td id="td3" style="background-color: green;"&gt;灯&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">	&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">	var fn = function()&#123;</div><div class="line">		if(document.getElementById("td1").style.background=="red")&#123;</div><div class="line">			td1.style.background="yellow"</div><div class="line">		&#125;else&#123;</div><div class="line">			td1.style.background="red"</div><div class="line">		&#125;</div><div class="line">		if(document.getElementById("td2").style.background=="yellow")&#123;</div><div class="line">			td2.style.background="green"</div><div class="line">		&#125;else&#123;</div><div class="line">			td2.style.background="yellow"</div><div class="line">		&#125;</div><div class="line">		if(document.getElementById("td3").style.background=="green")&#123;</div><div class="line">			td3.style.background="red"</div><div class="line">		&#125;else&#123;</div><div class="line">			td3.style.background="green"</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	setInterval(fn,1000);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">width</span>=<span class="string">"200"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">tr</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span> <span class="attr">id</span>=<span class="string">"td1"</span> <span class="attr">style</span>=<span class="string">"background-color: red;"</span>&gt;</span>跑<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span> <span class="attr">id</span>=<span class="string">"td2"</span> <span class="attr">style</span>=<span class="string">"background-color: yellow;"</span>&gt;</span>马<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">td</span> <span class="attr">id</span>=<span class="string">"td3"</span> <span class="attr">style</span>=<span class="string">"background-color: green;"</span>&gt;</span>灯<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">	<span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="built_in">document</span>.getElementById(<span class="string">"td1"</span>).style.background==<span class="string">"red"</span>)&#123;</div><div class="line">			td1.style.background=<span class="string">"yellow"</span></div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			td1.style.background=<span class="string">"red"</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(<span class="built_in">document</span>.getElementById(<span class="string">"td2"</span>).style.background==<span class="string">"yellow"</span>)&#123;</div><div class="line">			td2.style.background=<span class="string">"green"</span></div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			td2.style.background=<span class="string">"yellow"</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(<span class="built_in">document</span>.getElementById(<span class="string">"td3"</span>).style.background==<span class="string">"green"</span>)&#123;</div><div class="line">			td3.style.background=<span class="string">"red"</span></div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			td3.style.background=<span class="string">"green"</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	setInterval(fn,<span class="number">1000</span>);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/DBUtils-事务操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/27/DBUtils-事务操作/" itemprop="url">DBUtils 事务操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
+                2015-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/事务/" itemprop="url" rel="index">
+                    <span itemprop="name">事务</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DBUtils-API"><a href="#DBUtils-API" class="headerlink" title="DBUtils   API"></a>DBUtils   API</h1><h2 id="创建QueryRunner"><a href="#创建QueryRunner" class="headerlink" title="创建QueryRunner"></a>创建QueryRunner</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div></pre></td></tr></table></figure>
+<p>使用这个对象时，需要给它提供Connection</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">QueryRunner qr = <span class="keyword">new</span> QueryRunner(dataSource);</div><div class="line"><span class="comment">//需要连接池对象</span></div></pre></td></tr></table></figure>
+<p> 使用这个对象时，不用给Connection</p>
+<h2 id="调用update-："><a href="#调用update-：" class="headerlink" title="调用update()："></a>调用update()：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qr.update(connection, sql, array)</div></pre></td></tr></table></figure>
+<ul>
+<li>connection：连接对象</li>
+<li>sql：sql模板，带有问号</li>
+<li>array：对应sql模板中问号的值！</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qr.update(sql, array);</div></pre></td></tr></table></figure>
+<ul>
+<li>sql：sql模板，带有问号</li>
+<li>array：对应sql模板中问号的值！</li>
+</ul>
+<h2 id="调用batch"><a href="#调用batch" class="headerlink" title="调用batch()"></a>调用batch()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">batch(Connection con, String sql, Object[][] params);</div><div class="line">batch(String sql, Object[][] params);</div></pre></td></tr></table></figure>
+<h2 id="调用query"><a href="#调用query" class="headerlink" title="调用query()"></a>调用query()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">query(Connection con, String sql, ResultSetHandler rh, Object[] params);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务特性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/27/事务特性/" itemprop="url">事务特性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
+                2015-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/事务/" itemprop="url" rel="index">
+                    <span itemprop="name">事务</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>事务</p>
+<ol>
+<li><p>什么是事务</p>
+<ul>
+<li>需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）</li>
+</ul>
+</li>
+<li><p>事务的特性</p>
+<ul>
+<li>A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！</li>
+<li>C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！</li>
+<li>I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！</li>
+<li>D 持久性：数据只要保存到了数据库中，数据就是持久的！就算数据库马上崩溃，也要在重启后有能力恢复数据。</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/事务保存点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/27/事务保存点/" itemprop="url">事务保存点</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
+                2015-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/事务/" itemprop="url" rel="index">
+                    <span itemprop="name">事务</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>jdbc3.0后，可以在事务中设置保存点<blockquote>
+<p>可以回滚到保存点！不用再回滚到事务开始时的状态了！<br>如果回滚到保存点，事务并未结束！</p>
+</blockquote>
+</li>
+<li>保存点在Spring框架中大量应用，用来处理事务传播！</li>
+</ol>
+<p>开始事务<br>a条语句<br>设置保存点1<br>b条语句<br>设置保存点2<br>c条语句<br>回滚到保存点1（回滚了b和c，但没有回滚a！a又没回滚，又没提交）<br>需要回滚或提交</p>
+<ol>
+<li>保存点相关API</li>
+</ol>
+<ul>
+<li>测试当前数据库是否支持保存点：boolean b = con.getMetaData().supportsSavepoints();</li>
+<li>设置保存点：Savepoint sp = con.setSavepoint();</li>
+<li>回滚到保存点：con.rollback(sp);</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSavepoint</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> flag = JDBCUtils_v3.getConnection().getMetaData().supportsSavepoints();</div><div class="line">        System.out.println(flag);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</div><div class="line">        Connection conn = <span class="keyword">null</span>;</div><div class="line">        PreparedStatement pstmt = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 1.获得连接</span></div><div class="line">            conn = JDBCUtils_v3.getConnection();</div><div class="line">            conn.setAutoCommit(<span class="keyword">false</span>);</div><div class="line">            <span class="comment">// 2.编写SQL</span></div><div class="line">            String sql = <span class="string">"update tbl_account set money=money-1000 where name='静静'"</span>;</div><div class="line">            Savepoint sp1 = conn.setSavepoint();</div><div class="line">            </div><div class="line">            String sql1 = <span class="string">"update tbl_account set money=money-1000 where name='静静'"</span>;</div><div class="line">            </div><div class="line">            <span class="comment">// 3.获得执行SQL语句对象(PreparedStatement)</span></div><div class="line">            pstmt = conn.prepareStatement(sql);</div><div class="line">            pstmt.executeUpdate();</div><div class="line">            </div><div class="line">            pstmt = conn.prepareStatement(sql1);</div><div class="line">            conn.rollback(sp1);</div><div class="line">            <span class="comment">// 4.执行删除操作</span></div><div class="line">            pstmt.executeUpdate();</div><div class="line">            conn.commit();</div><div class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="comment">//6.释放资源</span></div><div class="line">            JDBCUtils_v3.release(conn, pstmt, <span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/27/ThreadLocal本地线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/08/27/ThreadLocal本地线程/" itemprop="url">ThreadLocal本地线程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-27T00:00:00+08:00">
+                2015-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/事务/" itemprop="url" rel="index">
+                    <span itemprop="name">事务</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>线程本地变量</li>
+</ol>
+<ul>
+<li>ThreadLocal：每个线程都可以向其内保存数据，谁保存了，谁就可以获取到！没有保存，是获取不到的！<blockquote>
+<p>1号线程，是否可以获取2线程保存的数据？不能！！！</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>ThreadLocal内部是一个Map</li>
+</ol>
+<ul>
+<li>key：线程对象</li>
+<li>value：保存的数据</li>
+</ul>
+<p>A线程中的代码：map.put(Thread.currentThread(), “hello”);  map.get(Thread.currentThread());<br>B线程中的代码：map.put(Thread.currentThread(), “world”);  map.get(Thread.currentThread());</p>
+<ol>
+<li>ThreadLocal的API</li>
+</ol>
+<ul>
+<li>void set(Object) –&gt; 保存数据，底层在操作map，使用Thread.currentThread()</li>
+<li>Object get() –&gt; 获取数据，底层在操作map，使用Thread.currentThread()</li>
+<li>void remvoe() –&gt; 移除数据，底层在操作map，使用Thread.currentThread()</li>
+</ul>
+<p>测试代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2</span> </span>&#123;</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun1</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">		<span class="keyword">final</span> MyClass mc = <span class="keyword">new</span> MyClass();</div><div class="line">		mc.add(<span class="string">"zhangSan"</span>);<span class="comment">//1号保存zhangSan</span></div><div class="line">		Thread.sleep(<span class="number">1000</span>);</div><div class="line">		<span class="keyword">new</span> Thread() &#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				System.out.println(<span class="string">"2号："</span> + mc.get());<span class="comment">//2号获取值</span></div><div class="line">			&#125;</div><div class="line">		&#125;.start();</div><div class="line">		</div><div class="line">		System.out.println(<span class="string">"1号"</span> + mc.get());<span class="comment">//1号获取值</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> ThreadLocal&lt;String&gt; tl = <span class="keyword">new</span> ThreadLocal&lt;String&gt;();</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String s )</span> </span>&#123;</div><div class="line">		tl.set(s);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> tl.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
           
         
@@ -1633,7 +1673,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1678,7 +1718,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

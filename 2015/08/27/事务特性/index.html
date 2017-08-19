@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="12345678910事务1. 什么是事务  * 需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）2. 事务的特性  * A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！  * C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！  * I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！  * D 持久性：数据只要保存到了数据库中，数据就是持久的">
+<meta name="description" content="事务  什么是事务  需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）   事务的特性  A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！ C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！ I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！ D 持久性：数据只要保存到了数据库中，数据就是持久的！就算数据库马上崩溃，也要在重启后有能力恢复数据。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事务特性">
 <meta property="og:url" content="http://yoursite.com/2015/08/27/事务特性/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="12345678910事务1. 什么是事务  * 需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）2. 事务的特性  * A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！  * C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！  * I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！  * D 持久性：数据只要保存到了数据库中，数据就是持久的">
-<meta property="og:updated_time" content="2017-07-26T10:20:32.672Z">
+<meta property="og:description" content="事务  什么是事务  需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）   事务的特性  A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！ C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！ I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！ D 持久性：数据只要保存到了数据库中，数据就是持久的！就算数据库马上崩溃，也要在重启后有能力恢复数据。">
+<meta property="og:updated_time" content="2017-08-19T09:08:42.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事务特性">
-<meta name="twitter:description" content="12345678910事务1. 什么是事务  * 需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）2. 事务的特性  * A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！  * C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！  * I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！  * D 持久性：数据只要保存到了数据库中，数据就是持久的">
+<meta name="twitter:description" content="事务  什么是事务  需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）   事务的特性  A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！ C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！ I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！ D 持久性：数据只要保存到了数据库中，数据就是持久的！就算数据库马上崩溃，也要在重启后有能力恢复数据。">
 
 
 
@@ -351,7 +351,22 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">事务</div><div class="line"></div><div class="line">1. 什么是事务</div><div class="line">  * 需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）</div><div class="line"></div><div class="line">2. 事务的特性</div><div class="line">  * A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！</div><div class="line">  * C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！</div><div class="line">  * I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！</div><div class="line">  * D 持久性：数据只要保存到了数据库中，数据就是持久的！就算数据库马上崩溃，也要在重启后有能力恢复数据。</div></pre></td></tr></table></figure>
+        <p>事务</p>
+<ol>
+<li><p>什么是事务</p>
+<ul>
+<li>需要把多个操作绑定成一个事务（要么完全成功，要么完全失败）</li>
+</ul>
+</li>
+<li><p>事务的特性</p>
+<ul>
+<li>A 原子性：事务中的多条语句是不可再分隔的！要么完全成功，要么完全失败！</li>
+<li>C 一致性（核心）：在事务执行前后，要保证业务数据前后一致！</li>
+<li>I 隔离性：多个事务并发执行，需要隔离开来，保存不相互影响！</li>
+<li>D 持久性：数据只要保存到了数据库中，数据就是持久的！就算数据库马上崩溃，也要在重启后有能力恢复数据。</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
@@ -388,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/27/事务隔离级别/" rel="next" title="事务隔离级别">
-                <i class="fa fa-chevron-left"></i> 事务隔离级别
+              <a href="/2015/08/27/事务保存点/" rel="next" title="事务保存点">
+                <i class="fa fa-chevron-left"></i> 事务保存点
               </a>
             
           </div>
@@ -398,8 +413,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/27/事务并发访问/" rel="prev" title="事务并发访问">
-                事务并发访问 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/08/27/DBUtils-事务操作/" rel="prev" title="DBUtils 事务操作">
+                DBUtils 事务操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,7 +478,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

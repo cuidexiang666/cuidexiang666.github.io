@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="1、SpringMVC Spring组织下的一个表现层框架和Struts2比较 2、SpringMVC组件    三大组件    1、处理器映射器    2、处理器适配器    3、视图解析器 3、SSM整合    Spring+SpringMVC+Mybatis+Dubbo等等    a)整合思路        1、dao            Mybatis和核心配置文件">
+<meta name="description" content="SpringMVCSpring组织下的一个表现层框架和Struts2比较 SpringMVC组件三大组件1、处理器映射器2、处理器适配器3、视图解析器 SSM整合Spring+SpringMVC+Mybatis+Dubbo等等a)整合思路1、daoMybatis和核心配置文件ApplicationContext-dao.xml 数据库连接池  SqlSessionFactory工厂   扫描Map">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springmvc基础知识">
 <meta property="og:url" content="http://yoursite.com/2016/05/10/springmvc常识/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="1、SpringMVC Spring组织下的一个表现层框架和Struts2比较 2、SpringMVC组件    三大组件    1、处理器映射器    2、处理器适配器    3、视图解析器 3、SSM整合    Spring+SpringMVC+Mybatis+Dubbo等等    a)整合思路        1、dao            Mybatis和核心配置文件">
-<meta property="og:updated_time" content="2017-07-26T08:52:21.750Z">
+<meta property="og:description" content="SpringMVCSpring组织下的一个表现层框架和Struts2比较 SpringMVC组件三大组件1、处理器映射器2、处理器适配器3、视图解析器 SSM整合Spring+SpringMVC+Mybatis+Dubbo等等a)整合思路1、daoMybatis和核心配置文件ApplicationContext-dao.xml 数据库连接池  SqlSessionFactory工厂   扫描Map">
+<meta property="og:updated_time" content="2017-08-19T08:48:58.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springmvc基础知识">
-<meta name="twitter:description" content="1、SpringMVC Spring组织下的一个表现层框架和Struts2比较 2、SpringMVC组件    三大组件    1、处理器映射器    2、处理器适配器    3、视图解析器 3、SSM整合    Spring+SpringMVC+Mybatis+Dubbo等等    a)整合思路        1、dao            Mybatis和核心配置文件">
+<meta name="twitter:description" content="SpringMVCSpring组织下的一个表现层框架和Struts2比较 SpringMVC组件三大组件1、处理器映射器2、处理器适配器3、视图解析器 SSM整合Spring+SpringMVC+Mybatis+Dubbo等等a)整合思路1、daoMybatis和核心配置文件ApplicationContext-dao.xml 数据库连接池  SqlSessionFactory工厂   扫描Map">
 
 
 
@@ -351,48 +351,18 @@
       
 
       
-        <p>1、SpringMVC</p>
-<pre><code>Spring组织下的一个表现层框架和Struts2比较
-</code></pre><p>2、SpringMVC组件<br>    三大组件<br>    1、处理器映射器<br>    2、处理器适配器<br>    3、视图解析器</p>
-<p>3、SSM整合<br>    Spring+SpringMVC+Mybatis+Dubbo等等<br>    a)整合思路<br>        1、dao<br>            Mybatis和核心配置文件<br>            ApplicationContext-dao.xml 数据库连接池  SqlSessionFactory工厂   扫描Mapper接口类和Mapper映射文件</p>
-<pre><code>2、Service
-    ApplicationContext-service.xml   扫描@Service注解
-    ApplicationContext-trans.xml  事务管理
-
-3、Controller
-    SpringMVC.xml
-        扫描@Controller注解
-        配置三大组件
-
-4、web.xml
-    springmvc前端控制器
-    Spring的监听
-
-5、jsp
-</code></pre><p>4、SpringMVC参数绑定</p>
-<pre><code>a) 默认类型参数绑定
-    HttpServletRequest,HttpServletResponse,HttpSession,Model(Springmvc)
-    条件：页面传的参数名必须和Request.getParameter（&quot;参数名一致&quot;）
-
-
-b) 简单类型的参数绑定
-    比如：Integer ， Float ，String等等
-    条件：页面Input框中的name属性名必须和Controller中方法的形参名一致
-
-c) POJO对象参数类型绑定
-    条件：页面Input框中的name属性名必须和Controller中方法形参POJO类型中属性名一致
-
-d) POJO包装对象的参数绑定
-    条件：页面Input框中的name属性名 必须和Controller方法中形参POJO包装对象中属性名的属性名一致（属性名.属性名）
-
-e) 自定义类型参数绑定Converter
-    应用场景：
-    当简单类型转非简单类型的时候SpringMVC不会给我们自动转换那么就需要我们自己定义参数绑定
-    步骤：
-        1、创建Converter类实现COnverter接口《S,T》
-        2、在SpringMVC中添加
-        3、在配置处理器适配器时添加 Converter  &lt;mvc:annotation-driven  conversion-service=&quot;conversionService&quot;/&gt;
-</code></pre><p>​<br>​<br>​<br>​<br>​<br>​<br>​<br>​    </p>
+        <h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p>Spring组织下的一个表现层框架和Struts2比较</p>
+<h1 id="SpringMVC组件"><a href="#SpringMVC组件" class="headerlink" title="SpringMVC组件"></a>SpringMVC组件</h1><p>三大组件<br>1、处理器映射器<br>2、处理器适配器<br>3、视图解析器</p>
+<h1 id="SSM整合"><a href="#SSM整合" class="headerlink" title="SSM整合"></a>SSM整合</h1><p>Spring+SpringMVC+Mybatis+Dubbo等等<br>a)整合思路<br>1、dao<br>Mybatis和核心配置文件<br>ApplicationContext-dao.xml 数据库连接池  SqlSessionFactory工厂   扫描Mapper接口类和Mapper映射文件</p>
+<p>2、Service<br>ApplicationContext-service.xml   扫描@Service注解<br>ApplicationContext-trans.xml  事务管理</p>
+<p>3、Controller<br>SpringMVC.xml<br>扫描@Controller注解<br>配置三大组件</p>
+<p>4、web.xml<br>springmvc前端控制器<br>Spring的监听</p>
+<p>5、jsp</p>
+<h1 id="SpringMVC参数绑定"><a href="#SpringMVC参数绑定" class="headerlink" title="SpringMVC参数绑定"></a>SpringMVC参数绑定</h1><p>a) 默认类型参数绑定<br>HttpServletRequest,HttpServletResponse,HttpSession,Model(Springmvc)<br>条件：页面传的参数名必须和Request.getParameter（”参数名一致”）</p>
+<p>b) 简单类型的参数绑定<br>比如：Integer ， Float ，String等等<br>条件：页面Input框中的name属性名必须和Controller中方法的形参名一致</p>
+<p>c) POJO对象参数类型绑定<br>条件：页面Input框中的name属性名必须和Controller中方法形参POJO类型中属性名一致</p>
+<p>d) POJO包装对象的参数绑定<br>条件：页面Input框中的name属性名 必须和Controller方法中形参POJO包装对象中属性名的属性名一致（属性名.属性名）</p>
+<p>e) 自定义类型参数绑定Converter<br>应用场景：<br>当简单类型转非简单类型的时候SpringMVC不会给我们自动转换那么就需要我们自己定义参数绑定<br>步骤：<br>1、创建Converter类实现COnverter接口《S,T》<br>2、在SpringMVC中添加<br>3、在配置处理器适配器时添加 Converter  <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven></p>
 
       
     </div>
@@ -429,8 +399,8 @@ e) 自定义类型参数绑定Converter
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/02/基础知识/" rel="next" title="基础知识总结">
-                <i class="fa fa-chevron-left"></i> 基础知识总结
+              <a href="/2016/04/26/多级文件夹的复制/" rel="next" title="多级文件夹的复制">
+                <i class="fa fa-chevron-left"></i> 多级文件夹的复制
               </a>
             
           </div>
@@ -439,8 +409,8 @@ e) 自定义类型参数绑定Converter
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/10/面向对象三大特征/" rel="prev" title="面向对象">
-                面向对象 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/27/spring头信息/" rel="prev" title="spring头信息">
+                spring头信息 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,8 +458,17 @@ e) 自定义类型参数绑定Converter
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -504,7 +483,7 @@ e) 自定义类型参数绑定Converter
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -542,6 +521,22 @@ e) 自定义类型参数绑定Converter
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringMVC"><span class="nav-number">1.</span> <span class="nav-text">SpringMVC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringMVC组件"><span class="nav-number">2.</span> <span class="nav-text">SpringMVC组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSM整合"><span class="nav-number">3.</span> <span class="nav-text">SSM整合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringMVC参数绑定"><span class="nav-number">4.</span> <span class="nav-text">SpringMVC参数绑定</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

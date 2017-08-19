@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="事务并发访问12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576事务并发访问读问题  * 脏读：读取到另一个事务未提交数据！！！  * 不可重复读：对同一数据两次读取">
+<meta name="description" content="事务并发访问读问题  脏读：读取到另一个事务未提交数据！！！ 不可重复读：对同一数据两次读取前后不一致！！！因为在第二次读取之前另一个事务修改数据！ 幻读（虚读）：对数据的统计两次不一致！！！因为在第二次统计时，另一个事务插入了一条记录！  脏读事务1：张三给李四转账100元事务2：李四查看自己的账户 张三 900 李四 500800      600900      500 t1：事务1：开始事">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事务并发访问">
 <meta property="og:url" content="http://yoursite.com/2015/08/27/事务并发访问/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="事务并发访问12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576事务并发访问读问题  * 脏读：读取到另一个事务未提交数据！！！  * 不可重复读：对同一数据两次读取">
-<meta property="og:updated_time" content="2017-07-26T10:29:31.139Z">
+<meta property="og:description" content="事务并发访问读问题  脏读：读取到另一个事务未提交数据！！！ 不可重复读：对同一数据两次读取前后不一致！！！因为在第二次读取之前另一个事务修改数据！ 幻读（虚读）：对数据的统计两次不一致！！！因为在第二次统计时，另一个事务插入了一条记录！  脏读事务1：张三给李四转账100元事务2：李四查看自己的账户 张三 900 李四 500800      600900      500 t1：事务1：开始事">
+<meta property="og:updated_time" content="2017-08-19T09:06:29.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事务并发访问">
-<meta name="twitter:description" content="事务并发访问12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576事务并发访问读问题  * 脏读：读取到另一个事务未提交数据！！！  * 不可重复读：对同一数据两次读取">
+<meta name="twitter:description" content="事务并发访问读问题  脏读：读取到另一个事务未提交数据！！！ 不可重复读：对同一数据两次读取前后不一致！！！因为在第二次读取之前另一个事务修改数据！ 幻读（虚读）：对数据的统计两次不一致！！！因为在第二次统计时，另一个事务插入了一条记录！  脏读事务1：张三给李四转账100元事务2：李四查看自己的账户 张三 900 李四 500800      600900      500 t1：事务1：开始事">
 
 
 
@@ -351,7 +351,28 @@
       
 
       
-        <h1 id="事务并发访问"><a href="#事务并发访问" class="headerlink" title="事务并发访问"></a>事务并发访问</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">事务并发访问读问题</div><div class="line">  * 脏读：读取到另一个事务未提交数据！！！</div><div class="line">  * 不可重复读：对同一数据两次读取前后不一致！！！因为在第二次读取之前另一个事务修改数据！</div><div class="line">  * 幻读（虚读）：对数据的统计两次不一致！！！因为在第二次统计时，另一个事务插入了一条记录！</div><div class="line"></div><div class="line">举例：</div><div class="line">	脏读 </div><div class="line">		事务1：张三给李四转账100元</div><div class="line">		事务2：李四查看自己的账户</div><div class="line">		</div><div class="line">		张三 900 李四 500</div><div class="line">             800      600</div><div class="line">			 900      500</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：张三给李四转账100元 100</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：李四查看自己的账户，看到账户多出100元（脏读）  600</div><div class="line">			t5：事务2：提交事务(李四查看自己多了100)</div><div class="line">			t6：事务1：回滚事务，回到转账之前的状态(张三实际没有转账成功)</div><div class="line"></div><div class="line"></div><div class="line">	不可重复读</div><div class="line">		事务1：酒店查看两次1048号房间状态</div><div class="line">		事务2：预订1048号房间</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：查看1048号房间状态为空闲（第一次查询）</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：预定1048号房间</div><div class="line">			t5：事务2：提交事务(1048房已经被预定了)</div><div class="line">			t6：事务1：再次查看1048号房间状态为使用（第二次查询）</div><div class="line">			t7：事务1：提交事务</div><div class="line">		对同一记录的两次查询结果不一致！</div><div class="line"></div><div class="line">	幻读</div><div class="line">		事务1：对酒店房间预订记录两次统计</div><div class="line">		事务2：添加一条预订房间记录</div><div class="line"></div><div class="line">			t1：事务1：开始事务</div><div class="line">			t2：事务1：统计预订记录100条</div><div class="line">			t3：事务2：开始事务</div><div class="line">			t4：事务2：添加一条预订房间记录</div><div class="line">			t5：事务2：提交事务</div><div class="line">			t6：事务1：再次统计预订记录为101记录</div><div class="line">			t7：事务1：提交</div><div class="line">		对同一表的两次查询不一致！</div><div class="line"></div><div class="line">不可重复读和幻读的区别：</div><div class="line">	不可重复读是读取到了另一事务的更新update；</div><div class="line">	幻读是读取到了另一事务的插入insert（MySQL中无法测试到幻读）；</div><div class="line"></div><div class="line">如何解决呢？(设置隔离级别)</div><div class="line"></div><div class="line">4个等级的事务隔离级别，在相同数据环境下，使用相同的输入，执行相同的工作，根据不同的隔离级别，可以导致不同的结果。不同事务隔离级别能够解决的数据并发问题的能力是不同的。</div><div class="line"></div><div class="line">1　SERIALIZABLE（串行化）</div><div class="line">	不会出现任何并发问题，因为它是对同一数据的访问是串行的，非并发访问的；</div><div class="line">	性能最差；</div><div class="line"></div><div class="line">2　REPEATABLE READ（可重复读）（MySQL）</div><div class="line">	防止脏读(读未提交)和不可重复读(读已修改)；</div><div class="line">	性能比SERIALIZABLE好</div><div class="line"></div><div class="line">3　READ COMMITTED（读已提交数据）（Oracle）</div><div class="line">	防止脏读(读未提交)；</div><div class="line">	性能比REPEATABLE READ好</div><div class="line"></div><div class="line">4　READ UNCOMMITTED（读未提交数据）</div><div class="line">	可能出现任何事务并发问题</div><div class="line">	性能最好</div><div class="line"></div><div class="line">如何解决这些问题的，查看图片</div><div class="line"></div><div class="line"></div><div class="line">设置隔离级别：set session transaction isolation level read uncommitted;</div></pre></td></tr></table></figure>
+        <p>事务并发访问读问题</p>
+<ul>
+<li>脏读：读取到另一个事务未提交数据！！！</li>
+<li>不可重复读：对同一数据两次读取前后不一致！！！因为在第二次读取之前另一个事务修改数据！</li>
+<li>幻读（虚读）：对数据的统计两次不一致！！！因为在第二次统计时，另一个事务插入了一条记录！</li>
+</ul>
+<p>脏读<br>事务1：张三给李四转账100元<br>事务2：李四查看自己的账户</p>
+<p>张三 900 李四 500<br>800      600<br>900      500</p>
+<p>t1：事务1：开始事务<br>t2：事务1：张三给李四转账100元 100<br>t3：事务2：开始事务<br>t4：事务2：李四查看自己的账户，看到账户多出100元（脏读）  600<br>t5：事务2：提交事务(李四查看自己多了100)<br>t6：事务1：回滚事务，回到转账之前的状态(张三实际没有转账成功)</p>
+<p>不可重复读<br>事务1：酒店查看两次1048号房间状态<br>事务2：预订1048号房间</p>
+<p>    t1：事务1：开始事务<br>    t2：事务1：查看1048号房间状态为空闲（第一次查询）<br>    t3：事务2：开始事务<br>    t4：事务2：预定1048号房间<br>    t5：事务2：提交事务(1048房已经被预定了)<br>    t6：事务1：再次查看1048号房间状态为使用（第二次查询）<br>    t7：事务1：提交事务<br>对同一记录的两次查询结果不一致！</p>
+<p>幻读<br>事务1：对酒店房间预订记录两次统计<br>事务2：添加一条预订房间记录</p>
+<p>    t1：事务1：开始事务<br>    t2：事务1：统计预订记录100条<br>    t3：事务2：开始事务<br>    t4：事务2：添加一条预订房间记录<br>    t5：事务2：提交事务<br>    t6：事务1：再次统计预订记录为101记录<br>    t7：事务1：提交<br>对同一表的两次查询不一致！</p>
+<p>不可重复读和幻读的区别：<br>    不可重复读是读取到了另一事务的更新update；<br>    幻读是读取到了另一事务的插入insert（MySQL中无法测试到幻读）；</p>
+<p>如何解决呢？(设置隔离级别)</p>
+<p>4个等级的事务隔离级别，在相同数据环境下，使用相同的输入，执行相同的工作，根据不同的隔离级别，可以导致不同的结果。不同事务隔离级别能够解决的数据并发问题的能力是不同的。</p>
+<p>1　SERIALIZABLE（串行化）<br>    不会出现任何并发问题，因为它是对同一数据的访问是串行的，非并发访问的；<br>    性能最差；</p>
+<p>2　REPEATABLE READ（可重复读）（MySQL）<br>    防止脏读(读未提交)和不可重复读(读已修改)；<br>    性能比SERIALIZABLE好</p>
+<p>3　READ COMMITTED（读已提交数据）（Oracle）<br>    防止脏读(读未提交)；<br>    性能比REPEATABLE READ好</p>
+<p>4　READ UNCOMMITTED（读未提交数据）<br>    可能出现任何事务并发问题<br>    性能最好</p>
+<p>如何解决这些问题的，查看图片</p>
+<p>设置隔离级别：set session transaction isolation level read uncommitted;</p>
 
       
     </div>
@@ -388,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/27/事务特性/" rel="next" title="事务特性">
-                <i class="fa fa-chevron-left"></i> 事务特性
+              <a href="/2015/08/25/获取在线人数/" rel="next" title="获取在线人数">
+                <i class="fa fa-chevron-left"></i> 获取在线人数
               </a>
             
           </div>
@@ -398,8 +419,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/27/事务保存点/" rel="prev" title="事务保存点">
-                事务保存点 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/08/27/Mysql批处理/" rel="prev" title="Mysql批处理">
+                Mysql批处理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -447,17 +468,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -472,7 +484,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -510,22 +522,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事务并发访问"><span class="nav-number">1.</span> <span class="nav-text">事务并发访问</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

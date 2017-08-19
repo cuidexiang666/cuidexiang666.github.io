@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="JDBC事务操作123456789101112131415161718192021222324252627282930  * 在JDBC中，所有与事务相关的操作，都是Connection的方法完成的！  * 开启事务：con.setAutoCommit(false)    &amp;gt; 默认情况下：所有的语句都是自动提交的，即一条语句一个事务！    &amp;gt; 调用setAutoCommit(fals">
+<meta name="description" content="在JDBC中，所有与事务相关的操作，都是Connection的方法完成的！ 开启事务： con.setAutoCommit(false) 默认情况下：所有的语句都是自动提交的，即一条语句一个事务！ 调用setAutoCommit(false)，表示设置为手动提交！需要我们自己来写代码完成提交！结束事务： con.commit()：提交事务 con.rollback()：回滚事务  事务的模板代码：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDBC中事务操作">
 <meta property="og:url" content="http://yoursite.com/2015/08/27/JDBC中事务操作/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="JDBC事务操作123456789101112131415161718192021222324252627282930  * 在JDBC中，所有与事务相关的操作，都是Connection的方法完成的！  * 开启事务：con.setAutoCommit(false)    &amp;gt; 默认情况下：所有的语句都是自动提交的，即一条语句一个事务！    &amp;gt; 调用setAutoCommit(fals">
-<meta property="og:updated_time" content="2017-07-26T10:26:23.073Z">
+<meta property="og:description" content="在JDBC中，所有与事务相关的操作，都是Connection的方法完成的！ 开启事务： con.setAutoCommit(false) 默认情况下：所有的语句都是自动提交的，即一条语句一个事务！ 调用setAutoCommit(false)，表示设置为手动提交！需要我们自己来写代码完成提交！结束事务： con.commit()：提交事务 con.rollback()：回滚事务  事务的模板代码：">
+<meta property="og:updated_time" content="2017-08-19T07:51:16.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC中事务操作">
-<meta name="twitter:description" content="JDBC事务操作123456789101112131415161718192021222324252627282930  * 在JDBC中，所有与事务相关的操作，都是Connection的方法完成的！  * 开启事务：con.setAutoCommit(false)    &amp;gt; 默认情况下：所有的语句都是自动提交的，即一条语句一个事务！    &amp;gt; 调用setAutoCommit(fals">
+<meta name="twitter:description" content="在JDBC中，所有与事务相关的操作，都是Connection的方法完成的！ 开启事务： con.setAutoCommit(false) 默认情况下：所有的语句都是自动提交的，即一条语句一个事务！ 调用setAutoCommit(false)，表示设置为手动提交！需要我们自己来写代码完成提交！结束事务： con.commit()：提交事务 con.rollback()：回滚事务  事务的模板代码：">
 
 
 
@@ -351,7 +351,21 @@
       
 
       
-        <h1 id="JDBC事务操作"><a href="#JDBC事务操作" class="headerlink" title="JDBC事务操作"></a>JDBC事务操作</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  * 在JDBC中，所有与事务相关的操作，都是Connection的方法完成的！</div><div class="line">  * 开启事务：con.setAutoCommit(<span class="keyword">false</span>)</div><div class="line">    &gt; 默认情况下：所有的语句都是自动提交的，即一条语句一个事务！</div><div class="line">    &gt; 调用setAutoCommit(<span class="keyword">false</span>)，表示设置为手动提交！需要我们自己来写代码完成提交！</div><div class="line">  * 结束事务：</div><div class="line">    &gt; con.commit()：提交事务</div><div class="line">    &gt; con.rollback()：回滚事务</div><div class="line"></div><div class="line">事务的模板代码：</div><div class="line">  * <span class="keyword">try</span>项：开启事务</div><div class="line">  * <span class="keyword">try</span>底：提交事务</div><div class="line">  * <span class="keyword">catch</span>：回滚事务</div><div class="line">  </div><div class="line">  Connection con = <span class="keyword">null</span>;</div><div class="line">  PrearedStatement pstmt = <span class="keyword">null</span>;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">      con = ...</div><div class="line">      con.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//开始事物</span></div><div class="line"></div><div class="line">      pstmt = ...</div><div class="line">      </div><div class="line">      ...</div><div class="line"></div><div class="line">      con.commit();<span class="comment">//try块最后一句完成提交！</span></div><div class="line">  &#125; <span class="keyword">catch</span>(SQLException e) &#123;</div><div class="line">      con.rollback();<span class="comment">//在抛出异常后，完成回滚！</span></div><div class="line">  &#125; <span class="keyword">finally</span> &#123;</div><div class="line">    ...</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+        <p>在JDBC中，所有与事务相关的操作，都是Connection的方法完成的！</p>
+<h1 id="开启事务："><a href="#开启事务：" class="headerlink" title="开启事务："></a>开启事务：</h1><ul>
+<li>con.setAutoCommit(false)</li>
+<li>默认情况下：所有的语句都是自动提交的，即一条语句一个事务！</li>
+<li>调用setAutoCommit(false)，表示设置为手动提交！需要我们自己来写代码完成提交！<h1 id="结束事务："><a href="#结束事务：" class="headerlink" title="结束事务："></a>结束事务：</h1></li>
+<li>con.commit()：提交事务</li>
+<li>con.rollback()：回滚事务</li>
+</ul>
+<p>事务的模板代码：</p>
+<ul>
+<li>try项：开启事务</li>
+<li>try底：提交事务</li>
+<li>catch：回滚事务</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Connection con = <span class="keyword">null</span>;</div><div class="line">PrearedStatement pstmt = <span class="keyword">null</span>;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    con = ...</div><div class="line">    con.setAutoCommit(<span class="keyword">false</span>);<span class="comment">//开始事物</span></div><div class="line"></div><div class="line">    pstmt = ...</div><div class="line">    </div><div class="line">    ...</div><div class="line"></div><div class="line">    con.commit();<span class="comment">//try块最后一句完成提交！</span></div><div class="line">&#125; <span class="keyword">catch</span>(SQLException e) &#123;</div><div class="line">    con.rollback();<span class="comment">//在抛出异常后，完成回滚！</span></div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -388,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/27/DBUtils-事务操作/" rel="next" title="DBUtils 事务操作">
-                <i class="fa fa-chevron-left"></i> DBUtils 事务操作
+              <a href="/2015/08/27/Mysql事务操作/" rel="next" title="Mysql事务操作">
+                <i class="fa fa-chevron-left"></i> Mysql事务操作
               </a>
             
           </div>
@@ -398,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/27/Mysql事务操作/" rel="prev" title="Mysql事务操作">
-                Mysql事务操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/08/27/事务隔离级别/" rel="prev" title="事务隔离级别">
+                事务隔离级别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -472,7 +486,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -520,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC事务操作"><span class="nav-number">1.</span> <span class="nav-text">JDBC事务操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开启事务："><span class="nav-number">1.</span> <span class="nav-text">开启事务：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束事务："><span class="nav-number">2.</span> <span class="nav-text">结束事务：</span></a></li></ol></div>
             
 
           </div>

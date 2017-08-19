@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="MySQL事务操作12345678910111213141516171819202122232425* 事务有两个边界！    &amp;gt; 事务开始    &amp;gt; 事务结束      * 成功      * 失败  * start transaction：开启事务    &amp;gt; N条语句  * commit：成功！把N条语句提交了！  * rollback：失败！把N条语句回滚！回到事务开始时的">
+<meta name="description" content="事务有两个边界 事务开始事务结束   成功 失败 start transaction：开启事务 N条语句   commit：成功！把N条语句提交了！ rollback：失败！把N条语句回滚！回到事务开始时的状态！  Mysql自动提交事务自动提交：例如：执行了一句UPDATE account SET money=money-1000 WHERE NAME=&amp;#39;小明&amp;#39;;底层其实执行了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql事务操作">
 <meta property="og:url" content="http://yoursite.com/2015/08/27/Mysql事务操作/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="MySQL事务操作12345678910111213141516171819202122232425* 事务有两个边界！    &amp;gt; 事务开始    &amp;gt; 事务结束      * 成功      * 失败  * start transaction：开启事务    &amp;gt; N条语句  * commit：成功！把N条语句提交了！  * rollback：失败！把N条语句回滚！回到事务开始时的">
-<meta property="og:updated_time" content="2017-07-26T10:25:04.906Z">
+<meta property="og:description" content="事务有两个边界 事务开始事务结束   成功 失败 start transaction：开启事务 N条语句   commit：成功！把N条语句提交了！ rollback：失败！把N条语句回滚！回到事务开始时的状态！  Mysql自动提交事务自动提交：例如：执行了一句UPDATE account SET money=money-1000 WHERE NAME=&amp;#39;小明&amp;#39;;底层其实执行了">
+<meta property="og:updated_time" content="2017-08-19T08:47:30.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql事务操作">
-<meta name="twitter:description" content="MySQL事务操作12345678910111213141516171819202122232425* 事务有两个边界！    &amp;gt; 事务开始    &amp;gt; 事务结束      * 成功      * 失败  * start transaction：开启事务    &amp;gt; N条语句  * commit：成功！把N条语句提交了！  * rollback：失败！把N条语句回滚！回到事务开始时的">
+<meta name="twitter:description" content="事务有两个边界 事务开始事务结束   成功 失败 start transaction：开启事务 N条语句   commit：成功！把N条语句提交了！ rollback：失败！把N条语句回滚！回到事务开始时的状态！  Mysql自动提交事务自动提交：例如：执行了一句UPDATE account SET money=money-1000 WHERE NAME=&amp;#39;小明&amp;#39;;底层其实执行了">
 
 
 
@@ -351,7 +351,22 @@
       
 
       
-        <h1 id="MySQL事务操作"><a href="#MySQL事务操作" class="headerlink" title="MySQL事务操作"></a>MySQL事务操作</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* 事务有两个边界！</div><div class="line">    &gt; 事务开始</div><div class="line">    &gt; 事务结束</div><div class="line">      * 成功</div><div class="line">      * 失败</div><div class="line">  * start transaction：开启事务</div><div class="line">    &gt; N条语句</div><div class="line">  * commit：成功！把N条语句提交了！</div><div class="line">  * rollback：失败！把N条语句回滚！回到事务开始时的状态！</div><div class="line"></div><div class="line">Mysql自动提交事务</div><div class="line">自动提交：</div><div class="line">	例如：执行了一句 UPDATE account SET money=money-<span class="number">1000</span> WHERE NAME=<span class="string">'小明'</span>;</div><div class="line">	底层其实执行了三句：</div><div class="line">	START TRANSACTION;--开启</div><div class="line">	UPDATE account SET money=money-<span class="number">1000</span> WHERE NAME=<span class="string">'小明'</span>;</div><div class="line">	COMMIT;--提交</div><div class="line"></div><div class="line"></div><div class="line">如果把自动提交关闭：</div><div class="line">	例如：执行了一句 UPDATE account SET money=money-<span class="number">1000</span> WHERE NAME=<span class="string">'小明'</span>;</div><div class="line">底层其实执行了两句：</div><div class="line">	START TRANSACTION;--开启</div><div class="line">	UPDATE account SET money=money-<span class="number">1000</span> WHERE NAME=<span class="string">'小明'</span>;</div></pre></td></tr></table></figure>
+        <ul>
+<li>事务有两个边界<blockquote>
+<p>事务开始<br>事务结束</p>
+</blockquote>
+</li>
+<li>成功</li>
+<li>失败</li>
+<li>start transaction：开启事务<blockquote>
+<p>N条语句</p>
+</blockquote>
+</li>
+<li>commit：成功！把N条语句提交了！</li>
+<li>rollback：失败！把N条语句回滚！回到事务开始时的状态！</li>
+</ul>
+<p>Mysql自动提交事务<br>自动提交：<br>例如：执行了一句<code>UPDATE account SET money=money-1000 WHERE NAME=&#39;小明&#39;</code>;<br>底层其实执行了三句：<br><code>START TRANSACTION</code>;–开启<br><code>UPDATE account SET money=money-1000 WHERE NAME=&#39;小明&#39;</code>;<br><code>COMMIT</code>;–提交</p>
+<p>如果把自动提交关闭：<br>例如：执行了一句<code>UPDATE account SET money=money-1000 WHERE NAME=&#39;小明&#39;</code>;<br>底层其实执行了两句：<br><code>START TRANSACTION</code>;–开启<br><code>UPDATE account SET money=money-1000 WHERE NAME=&#39;小明&#39;</code>;</p>
 
       
     </div>
@@ -388,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/27/JDBC中事务操作/" rel="next" title="JDBC中事务操作">
-                <i class="fa fa-chevron-left"></i> JDBC中事务操作
+              <a href="/2015/08/27/Mysql批处理/" rel="next" title="Mysql批处理">
+                <i class="fa fa-chevron-left"></i> Mysql批处理
               </a>
             
           </div>
@@ -398,8 +413,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/27/ThreadLocal本地线程/" rel="prev" title="ThreadLocal本地线程">
-                ThreadLocal本地线程 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/08/27/JDBC中事务操作/" rel="prev" title="JDBC中事务操作">
+                JDBC中事务操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -447,17 +462,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -472,7 +478,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -510,22 +516,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL事务操作"><span class="nav-number">1.</span> <span class="nav-text">MySQL事务操作</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

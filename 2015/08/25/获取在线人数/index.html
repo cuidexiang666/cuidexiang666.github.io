@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。  12345">
+<meta name="description" content="主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。 1234567">
 <meta property="og:type" content="article">
 <meta property="og:title" content="获取在线人数">
 <meta property="og:url" content="http://yoursite.com/2015/08/25/获取在线人数/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。  12345">
-<meta property="og:updated_time" content="2017-07-26T08:30:21.647Z">
+<meta property="og:description" content="主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。 1234567">
+<meta property="og:updated_time" content="2017-08-19T08:57:06.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="获取在线人数">
-<meta name="twitter:description" content="主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。  12345">
+<meta name="twitter:description" content="主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。 1234567">
 
 
 
@@ -351,13 +351,9 @@
       
 
       
-        <ul>
-<li>主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。</li>
-</ul>
+        <p>主要的思路是：每当用户第一次访问web应用的时候都会创建一个session来跟踪会话，可以监听session的变化来记录当前在线的人数。每当创建session的时候，人数+1，当session销毁的时候，人数减1（在application（servletContext）添加一个属性来保存人数）。这样一来可以创建一个session监听器，监听session的变化就可以获得当前的人数。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.tuxianchao.listener;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ServletContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpSessionEvent;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.http.HttpSessionListener;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnlineNumberListener</span> <span class="keyword">implements</span> <span class="title">HttpSessionListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionCreated</span><span class="params">(HttpSessionEvent sessionEvent)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"创建session，人数加1"</span>);</div><div class="line">        <span class="comment">// 获取servletcontext</span></div><div class="line">        ServletContext context = sessionEvent.getSession().getServletContext();</div><div class="line">        <span class="comment">// 获取当前人数</span></div><div class="line">        Integer count = (Integer) context.getAttribute(<span class="string">"OnlineCount"</span>);</div><div class="line">        <span class="keyword">if</span> (count == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="comment">// 若果为空，初始化为1（第一个访问的用户）</span></div><div class="line">            count = <span class="keyword">new</span> Integer(<span class="number">1</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// +1</span></div><div class="line">            <span class="keyword">int</span> i = count.intValue();</div><div class="line">            count = <span class="keyword">new</span> Integer(i + <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 改变人数</span></div><div class="line">        context.setAttribute(<span class="string">"OnlineCount"</span>, count);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sessionDestroyed</span><span class="params">(HttpSessionEvent sessionEvent)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"销毁session，人数减1"</span>);</div><div class="line">        ServletContext context = sessionEvent.getSession().getServletContext();</div><div class="line">        Integer count = (Integer) context.getAttribute(<span class="string">"OnlineCount"</span>);</div><div class="line">        <span class="keyword">int</span> i = count.intValue();</div><div class="line">        count = <span class="keyword">new</span> Integer(i - <span class="number">1</span>);</div><div class="line">        context.setAttribute(<span class="string">"OnlineCount"</span>, count);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>index.jsp</li>
-</ul>
+<p><strong>index.jsp</strong></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language="java" contentType="text/html; charset=ISO-8859-1"</div><div class="line"></div><div class="line">    pageEncoding="ISO-8859-1"%&gt;</div><div class="line"></div><div class="line">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</div><div class="line"></div><div class="line">&lt;html&gt;</div><div class="line"></div><div class="line">&lt;head&gt;</div><div class="line"></div><div class="line">&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;</div><div class="line"></div><div class="line">&lt;title&gt;Insert title here&lt;/title&gt;</div><div class="line"></div><div class="line">&lt;/head&gt;</div><div class="line"></div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">    &lt;h1&gt;Index&lt;/h1&gt;</div><div class="line">    &lt;h4&gt;</div><div class="line">        Online:&lt;%=application.getAttribute("OnlineCount")%&gt;&lt;/h4&gt;</div><div class="line"></div><div class="line">&lt;/body&gt;</div><div class="line"></div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 
       
@@ -395,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/15/UUIDUtils/" rel="next" title="UUIDUtils">
-                <i class="fa fa-chevron-left"></i> UUIDUtils
+              <a href="/2015/08/15/自定义拦截器（一）/" rel="next" title="自定义拦截器（一）">
+                <i class="fa fa-chevron-left"></i> 自定义拦截器（一）
               </a>
             
           </div>
@@ -405,8 +401,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/27/Mysql批处理/" rel="prev" title="Mysql批处理">
-                Mysql批处理 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/08/27/事务并发访问/" rel="prev" title="事务并发访问">
+                事务并发访问 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -470,7 +466,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

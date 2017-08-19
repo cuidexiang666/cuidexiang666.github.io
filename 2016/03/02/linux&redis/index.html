@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="一、JDK的安装12345678910111213141516171819202122232425262728293031323334353637383940411.使用rpm命令来查看当前系统中已经存在的jdk版本	rpm -qa | grep -i java --color2.使用rpm命令卸载已经安装好的JDK(不是我们想要的)	rpm -e --nodeps java-1.6.0-open">
+<meta name="description" content="一、JDK的安装1.使用rpm命令来查看当前系统中已经存在的jdk版本 1rpm -qa | grep -i java --color 2.使用rpm命令卸载已经安装好的JDK(不是我们想要的) 12rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.i686rpm -e --nodeps java-1.7.0-openjdk-1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux安装">
 <meta property="og:url" content="http://yoursite.com/2016/03/02/linux&redis/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="一、JDK的安装12345678910111213141516171819202122232425262728293031323334353637383940411.使用rpm命令来查看当前系统中已经存在的jdk版本	rpm -qa | grep -i java --color2.使用rpm命令卸载已经安装好的JDK(不是我们想要的)	rpm -e --nodeps java-1.6.0-open">
-<meta property="og:updated_time" content="2017-07-26T08:34:38.697Z">
+<meta property="og:description" content="一、JDK的安装1.使用rpm命令来查看当前系统中已经存在的jdk版本 1rpm -qa | grep -i java --color 2.使用rpm命令卸载已经安装好的JDK(不是我们想要的) 12rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.i686rpm -e --nodeps java-1.7.0-openjdk-1.">
+<meta property="og:updated_time" content="2017-08-19T08:40:14.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux安装">
-<meta name="twitter:description" content="一、JDK的安装12345678910111213141516171819202122232425262728293031323334353637383940411.使用rpm命令来查看当前系统中已经存在的jdk版本	rpm -qa | grep -i java --color2.使用rpm命令卸载已经安装好的JDK(不是我们想要的)	rpm -e --nodeps java-1.6.0-open">
+<meta name="twitter:description" content="一、JDK的安装1.使用rpm命令来查看当前系统中已经存在的jdk版本 1rpm -qa | grep -i java --color 2.使用rpm命令卸载已经安装好的JDK(不是我们想要的) 12rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.i686rpm -e --nodeps java-1.7.0-openjdk-1.">
 
 
 
@@ -351,10 +351,94 @@
       
 
       
-        <h2 id="一、JDK的安装"><a href="#一、JDK的安装" class="headerlink" title="一、JDK的安装"></a>一、JDK的安装</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.使用rpm命令来查看当前系统中已经存在的jdk版本</div><div class="line">	rpm -qa | grep -i java --color</div><div class="line"></div><div class="line"><span class="number">2</span>.使用rpm命令卸载已经安装好的JDK(不是我们想要的)</div><div class="line">	rpm -e --nodeps java-<span class="number">1.6</span>.0-openjdk-<span class="number">1.6</span>.0.0-<span class="number">1.66</span>.1.13.0.el6.i686</div><div class="line">	rpm -e --nodeps java-<span class="number">1.7</span>.0-openjdk-<span class="number">1.7</span>.0.45-<span class="number">2.4</span>.3.3.el6.i686</div><div class="line"></div><div class="line"><span class="number">3</span>.将我们需要安装jdk上传到Linux系统中去</div><div class="line">	alt+p打开文件上传的窗口 将JDK拖拽进去</div><div class="line"></div><div class="line"><span class="number">4</span>.解压这个JDK</div><div class="line">	tar -zxvf jdk-<span class="number">7</span>u71-linux-i586.tar.gz</div><div class="line"></div><div class="line"><span class="number">5</span>.创建一个目录用于存放这个解压好的jdk</div><div class="line">	mkdir /usr/local/src/java</div><div class="line"></div><div class="line"><span class="number">6</span>.将解压好的jdk目录移动到创建好的目录中去</div><div class="line">	mv jdk1.7.0_71 /usr/local/src/java</div><div class="line"></div><div class="line"><span class="number">7</span>.配置环境变量</div><div class="line">	先执行文件编辑命令  vim /etc/profile</div><div class="line">	然后将以下<span class="number">2</span>行命令复制插入到编辑文件的末尾</div><div class="line">		export JAVA_HOME=/usr/local/src/java/jdk1.7.0_71</div><div class="line">		export PATH=$JAVA_HOME/bin:$PATH</div><div class="line">	保存退出即可</div><div class="line"></div><div class="line"><span class="number">8</span>.让修改的配置生效</div><div class="line">	进入安装jdk的bin目录，执行以下命令：</div><div class="line">		source /etc/profile</div><div class="line"></div><div class="line"><span class="number">9</span>.测试</div><div class="line">	在任意目录下，执行以下命令：</div><div class="line">		java -version</div><div class="line">	如果出现</div><div class="line">		java version <span class="string">"1.7.0_71"</span></div><div class="line">		Java(TM) <span class="function">SE Runtime <span class="title">Environment</span> <span class="params">(build <span class="number">1.7</span><span class="number">.0</span>_71-b14)</span></span></div><div class="line">		Java <span class="title">HotSpot</span><span class="params">(TM)</span> Client <span class="title">VM</span> <span class="params">(build <span class="number">24.71</span>-b01, mixed mode)</span></div><div class="line">	说明安装成功！</div><div class="line"></div><div class="line">注意：操作之前，请先安装相关的依赖！</div><div class="line">	执行指令：yum install glibc.i686   【需要联网】</div></pre></td></tr></table></figure>
-<h2 id="二、安装tomcat"><a href="#二、安装tomcat" class="headerlink" title="二、安装tomcat"></a>二、安装tomcat</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.将我们需要安装tomcat上传到Linux系统中去</div><div class="line">	alt+p打开文件上传的窗口 将apache-tomcat-<span class="number">7.0</span>.57.tar.gz拖拽进去</div><div class="line"></div><div class="line"><span class="number">2</span>.解压这个tomcat</div><div class="line">	tar -zxvf apache-tomcat-<span class="number">7.0</span>.57.tar.gz</div><div class="line"></div><div class="line"><span class="number">3</span>.创建一个目录用于存放这个解压好的tomcat(之前已经创建好了)</div><div class="line">	mkdir /usr/local/src/java</div><div class="line"></div><div class="line"><span class="number">4</span>.将解压好的tomcat目录移动到创建好的目录中去</div><div class="line">	mv apache-tomcat-<span class="number">7.0</span>.57 /usr/local/src/java</div><div class="line"></div><div class="line"><span class="number">5</span>.配置tomcat端口对外公开【能够在windows系统中访问Linux系统里面的tomcat软件】</div><div class="line">	执行以下指令：</div><div class="line">		vim /etc/sysconfig/iptables</div><div class="line">	在-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">22</span> -j ACCEPT后面按下回车键</div><div class="line">		将上面的这一行复制粘贴，修改<span class="number">22</span>为<span class="number">8080</span></div><div class="line">	保存退出</div><div class="line"></div><div class="line"><span class="number">6</span>.重启防火墙</div><div class="line">	service iptables restart</div><div class="line"></div><div class="line"><span class="number">7</span>.进入安装好的tomcat的bin目录</div><div class="line">	cd /usr/local/src/java/apache-tomcat-<span class="number">7.0</span>.57/bin</div><div class="line"></div><div class="line"><span class="number">8</span>.启动tomcat</div><div class="line">	在bin目录中执行  ./startup.sh</div><div class="line">	如果看到：Tomcat started. 说明tomcat启动成功！</div><div class="line"></div><div class="line"><span class="number">9</span>.测试：</div><div class="line">	在windows系统中，打开浏览器，输入：http:<span class="comment">//192.168.59.132:8080  </span></div><div class="line">	回车后如果看到了tomcat猫，说明tomcat安装并且配置OK</div><div class="line"></div><div class="line"><span class="number">10</span>.关闭tomcat</div><div class="line">	在bin目录中执行   ./shutdown.sh</div></pre></td></tr></table></figure>
-<h2 id="三、MySQL的安装"><a href="#三、MySQL的安装" class="headerlink" title="三、MySQL的安装"></a>三、MySQL的安装</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.使用rpm命令来查看当前系统中已经存在的jdk版本</div><div class="line">	rpm -qa | grep -i mysql --color</div><div class="line"></div><div class="line"><span class="number">2</span>.使用rpm命令卸载已经安装好的MySQL(不是我们想要的)</div><div class="line">	rpm -e --nodeps mysql-libs-<span class="number">5.1</span>.71-<span class="number">1</span>.el6.i686</div><div class="line"></div><div class="line"><span class="number">3</span>.将我们需要安装MySQL上传到Linux系统中去</div><div class="line">	alt+p打开文件上传的窗口 将下面<span class="number">2</span>个rpm文件拖拽进去</div><div class="line">		MySQL-client-<span class="number">5.5</span>.49-<span class="number">1</span>.linux2.6.i386.rpm</div><div class="line">		MySQL-server-<span class="number">5.5</span>.49-<span class="number">1</span>.linux2.6.i386.rpm</div><div class="line"></div><div class="line"><span class="number">4</span>.执行安装服务器端的指令</div><div class="line">	rpm -ivh MySQL-server-<span class="number">5.5</span>.49-<span class="number">1</span>.linux2.6.i386.rpm</div><div class="line">	注意(登录成功一定要设置密码)，安装服务器端成功之后，注意观察一个提示信息：PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</div><div class="line"></div><div class="line"><span class="number">5</span>.执行安装客户端的指令</div><div class="line">	rpm -ivh MySQL-client-<span class="number">5.5</span>.49-<span class="number">1</span>.linux2.6.i386.rpm</div><div class="line"></div><div class="line"><span class="number">6</span>.输入mysql指令登录MySQL数据库</div><div class="line">	先 service mysql start</div><div class="line"></div><div class="line"><span class="number">7</span>.设置密码</div><div class="line">	SET PASSWORD = PASSWORD(<span class="string">'root'</span>);</div><div class="line"></div><div class="line"><span class="number">8</span>.配置防火墙(能够在外界访问)</div><div class="line">	退出mysql</div><div class="line">	vim /etc/sysconfig/iptables</div><div class="line">		-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">22</span> -j ACCEPT</div><div class="line">		-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">8080</span> -j ACCEPT</div><div class="line">		-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">3306</span> -j ACCEPT</div><div class="line"></div><div class="line"><span class="number">9</span>.重启防火墙</div><div class="line">	service iptables restart</div><div class="line"></div><div class="line"><span class="number">10</span>.登录MySQL</div><div class="line">	直接输入mysql -u root -p</div><div class="line">		root</div><div class="line"></div><div class="line"><span class="number">11</span>.授权</div><div class="line">	在mysql命令行输入以下三条指令：</div><div class="line">		create user <span class="string">'root'</span>@<span class="string">'%'</span> identified by <span class="string">'root'</span>;</div><div class="line">		grant all on *.* to <span class="string">'root'</span>@<span class="string">'%'</span> with grant option;</div><div class="line">		flush privileges;</div><div class="line"></div><div class="line"><span class="number">12</span>.在windows中按win+r打开dos命令行</div><div class="line">		执行以下命令进行访问：</div><div class="line">			mysql -h <span class="number">192.168</span>.59.132 -u root -p</div><div class="line">			root</div><div class="line">		查看是否访问OK</div><div class="line"></div><div class="line"><span class="number">13</span>.在MySQL工具中将Linux系统的MySQL给连接上。</div><div class="line">	点击连接，选择MySQL，输入连接名称、ip地址、密码测试即可</div></pre></td></tr></table></figure>
-<h2 id="四、Redis安装"><a href="#四、Redis安装" class="headerlink" title="四、Redis安装"></a>四、Redis安装</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">1.安装Redis的依赖</div><div class="line">	执行指令：yum install gcc-c++</div><div class="line"></div><div class="line">2.将我们需要安装redis上传到Linux系统中去</div><div class="line">	alt+p打开文件上传的窗口 将redis-3.0.0.tar.gz拖拽进去</div><div class="line"></div><div class="line">3.解压这个redis</div><div class="line">	tar -zxvf redis-3.0.0.tar.gz</div><div class="line"></div><div class="line">4.创建一个目录用于存放这个解压好的redis</div><div class="line">	mkdir /usr/local/src/java/redis</div><div class="line"></div><div class="line">5.将解压好的redis目录移动到创建好的目录中去</div><div class="line">	mv redis-3.0.0 /usr/local/src/java/redis</div><div class="line"></div><div class="line">6.编译redis</div><div class="line">	注意：一定要确保依赖已经安装OK</div><div class="line">	先得进入目录：cd /usr/local/src/java/redis/redis-3.0.0</div><div class="line">	然后执行指令：make</div><div class="line"></div><div class="line">7.进行安装</div><div class="line">	执行指令；make PREFIX=/usr/local/src/java/redis install</div><div class="line">	注意：PREFIX必须是大写！其值为redis安装的目录</div><div class="line"></div><div class="line">8.移动文件【方便后面启动redis】</div><div class="line">	首先的进入目录：cd /usr/local/src/java/redis/redis-3.0.0</div><div class="line">	执行以下指令(移动到redis目录中去)：</div><div class="line">		cp redis.conf /usr/local/src/java/redis</div><div class="line"></div><div class="line">9.启动redis服务</div><div class="line">	先得修改配置文件</div><div class="line">		执行指令：vim /usr/local/src/java/redis/redis.conf</div><div class="line">			在文件的末尾添加：  # daemonize yes</div><div class="line">			保存退出</div><div class="line">	启动：</div><div class="line">		进入redis即可</div><div class="line">			cd /usr/local/src/java/redis</div><div class="line">		执行指令：</div><div class="line">			./bin/redis-server ./redis.conf</div><div class="line"></div><div class="line">	如果看到了：The server is now ready to accept connections on port 6379  说明启动成功</div><div class="line"></div><div class="line">10.停止redis服务</div><div class="line">	进入redis目录，执行指令：./bin/redis-cli shutdown</div><div class="line">	如果看到了： Redis is now ready to exit, bye bye...	说明redis停止OK</div><div class="line"></div><div class="line">11.连接redis</div><div class="line">	得先启动redis服务！</div><div class="line">	克隆一个窗口</div><div class="line">	进入目录 cd /usr/local/src/java/redis</div><div class="line">	执行指令：./bin/redis-cli -h 192.168.59.132 -p 6379    【手敲，复制无用】</div><div class="line">	如果看到了：192.168.59.132:6379&gt;     说明连接OK</div></pre></td></tr></table></figure>
+        <h2 id="一、JDK的安装"><a href="#一、JDK的安装" class="headerlink" title="一、JDK的安装"></a>一、JDK的安装</h2><p>1.使用rpm命令来查看当前系统中已经存在的jdk版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep -i java --color</div></pre></td></tr></table></figure>
+<p>2.使用rpm命令卸载已经安装好的JDK(不是我们想要的)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.i686</div><div class="line">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.i686</div></pre></td></tr></table></figure>
+<p>3.将我们需要安装jdk上传到Linux系统中去</p>
+<ul>
+<li>alt+p打开文件上传的窗口 将JDK拖拽进去</li>
+</ul>
+<p>4.解压这个JDK</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-7u71-linux-i586.tar.gz</div></pre></td></tr></table></figure>
+<p>5.创建一个目录用于存放这个解压好的jdk</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/<span class="built_in">local</span>/src/java</div></pre></td></tr></table></figure>
+<p>6.将解压好的jdk目录移动到创建好的目录中去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv jdk1.7.0_71 /usr/<span class="built_in">local</span>/src/java</div></pre></td></tr></table></figure>
+<p>7.配置环境变量</p>
+<p>先执行文件编辑命令<code>vim /etc/profile</code><br>然后将以下2行命令复制插入到编辑文件的末尾<br><code>export JAVA_HOME=/usr/local/src/java/jdk1.7.0_71</code><br><code>export PATH=$JAVA_HOME/bin:$PATH</code><br>保存退出即可</p>
+<p>8.让修改的配置生效<br>进入安装jdk的bin目录，执行以下命令：<br><code>source /etc/profile</code></p>
+<p>9.测试<br>在任意目录下，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure>
+<p>如果出现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java version <span class="string">"1.7.0_71"</span></div><div class="line">Java(TM) SE Runtime Environment (build 1.7.0_71-b14)</div><div class="line">Java HotSpot(TM) Client VM (build 24.71-b01, mixed mode)</div></pre></td></tr></table></figure>
+<p>说明安装成功！</p>
+<p>注意：操作之前，请先安装相关的依赖！<br>执行指令：<code>yum install glibc.i686</code>   【需要联网】</p>
+<h1 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h1><p>1.将我们需要安装tomcat上传到Linux系统中去</p>
+<ul>
+<li>alt+p打开文件上传的窗口 将apache-tomcat-7.0.57.tar.gz拖拽进去</li>
+</ul>
+<p>2.解压这个tomcat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf apache-tomcat-7.0.57.tar.gz</div></pre></td></tr></table></figure>
+<p>3.创建一个目录用于存放这个解压好的tomcat(之前已经创建好了)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/<span class="built_in">local</span>/src/java</div></pre></td></tr></table></figure>
+<p>4.将解压好的tomcat目录移动到创建好的目录中去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv apache-tomcat-7.0.57 /usr/<span class="built_in">local</span>/src/java</div></pre></td></tr></table></figure>
+<p>5.配置tomcat端口对外公开【能够在windows系统中访问Linux系统里面的tomcat软件】<br>执行以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/iptables</div></pre></td></tr></table></figure>
+<p>在<code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT</code>后面按下回车键<br>将上面的这一行复制粘贴，修改22为8080<br>保存退出</p>
+<p>6.重启防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables restart</div></pre></td></tr></table></figure>
+<p>7.进入安装好的tomcat的bin目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src/java/apache-tomcat-7.0.57/bin</div></pre></td></tr></table></figure>
+<p>8.启动tomcat</p>
+<p>在bin目录中执行  <code>./startup.sh</code><br>如果看到：<code>Tomcat started</code>. 说明tomcat启动成功！</p>
+<p>9.测试：<br>在windows系统中，打开浏览器，输入：<code>http://192.168.59.132:8080</code><br>回车后如果看到了tomcat猫，说明tomcat安装并且配置OK</p>
+<p>10.关闭tomcat<br>在bin目录中执行<code>./shutdown.sh</code></p>
+<h1 id="MySQL的安装"><a href="#MySQL的安装" class="headerlink" title="MySQL的安装"></a>MySQL的安装</h1><p>1.使用rpm命令来查看当前系统中已经存在的jdk版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep -i mysql --color</div></pre></td></tr></table></figure>
+<p>2.使用rpm命令卸载已经安装好的MySQL(不是我们想要的)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -e --nodeps mysql-libs-5.1.71-1.el6.i686</div></pre></td></tr></table></figure>
+<p>3.将我们需要安装MySQL上传到Linux系统中去</p>
+<ul>
+<li>alt+p打开文件上传的窗口 将下面2个rpm文件拖拽进去</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MySQL-client-5.5.49-1.linux2.6.i386.rpm</div><div class="line">MySQL-server-5.5.49-1.linux2.6.i386.rpm</div></pre></td></tr></table></figure>
+<p>4.执行安装服务器端的指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh MySQL-server-5.5.49-1.linux2.6.i386.rpm</div></pre></td></tr></table></figure>
+<p>注意(登录成功一定要设置密码)，安装服务器端成功之后，注意观察一个提示信息：PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</p>
+<p>5.执行安装客户端的指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh MySQL-client-5.5.49-1.linux2.6.i386.rpm</div></pre></td></tr></table></figure>
+<p>6.输入mysql指令登录MySQL数据库<br>先 <code>service mysql start</code></p>
+<p>7.设置密码<br><code>SET PASSWORD = PASSWORD(&#39;root&#39;);</code></p>
+<p>8.配置防火墙(能够在外界访问)<br>退出mysql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/iptables</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT</div></pre></td></tr></table></figure>
+<p>9.重启防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables restart</div></pre></td></tr></table></figure>
+<p>10.登录MySQL<br>直接输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p root</div></pre></td></tr></table></figure></p>
+<p>11.授权<br>在mysql命令行输入以下三条指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">create user <span class="string">'root'</span>@<span class="string">'%'</span> identified by <span class="string">'root'</span>;</div><div class="line">grant all on *.* to <span class="string">'root'</span>@<span class="string">'%'</span> with grant option;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
+<p>12.在windows中按win+r打开dos命令行<br>执行以下命令进行访问：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h 192.168.59.132 -u root -p root</div></pre></td></tr></table></figure>
+<p>查看是否访问OK</p>
+<p>13.在MySQL工具中将Linux系统的MySQL给连接上。<br>点击连接，选择MySQL，输入连接名称、ip地址、密码测试即可</p>
+<h1 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h1><p>1.安装Redis的依赖<br>执行指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install gcc-c++</div></pre></td></tr></table></figure>
+<p>2.将我们需要安装redis上传到Linux系统中去<br>alt+p打开文件上传的窗口 将redis-3.0.0.tar.gz拖拽进去</p>
+<p>3.解压这个redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf redis-3.0.0.tar.gz</div></pre></td></tr></table></figure>
+<p>4.创建一个目录用于存放这个解压好的redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/<span class="built_in">local</span>/src/java/redis</div></pre></td></tr></table></figure>
+<p>5.将解压好的redis目录移动到创建好的目录中去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv redis-3.0.0 /usr/<span class="built_in">local</span>/src/java/redis</div></pre></td></tr></table></figure>
+<p>6.编译redis<br>注意：一定要确保依赖已经安装OK<br>先得进入目录：<code>cd /usr/local/src/java/redis/redis-3.0.0</code><br>然后执行指令：<code>make</code></p>
+<p>7.进行安装<br>执行指令；<code>make PREFIX=/usr/local/src/java/redis install</code><br>注意：PREFIX必须是大写！其值为redis安装的目录</p>
+<p>8.移动文件【方便后面启动redis】<br>首先的进入目录：<code>cd /usr/local/src/java/redis/redis-3.0.0</code><br>执行以下指令(移动到redis目录中去)：<br><code>cp redis.conf /usr/local/src/java/redis</code></p>
+<p>9.启动redis服务<br>先得修改配置文件<br>执行指令：<code>vim /usr/local/src/java/redis/redis.conf</code><br>在文件的末尾添加：  <code># daemonize yes</code><br>保存退出<br>启动：<br>进入redis即可<br><code>cd /usr/local/src/java/redis</code><br>执行指令：<br><code>./bin/redis-server ./redis.conf</code></p>
+<p>如果看到了：<code>The server is now ready to accept connections on port 6379</code> 说明启动成功</p>
+<p>10.停止redis服务<br>进入redis目录，执行指令：.<code>/bin/redis-cli shutdown</code><br>如果看到了：<code>Redis is now ready to exit, bye bye...</code>说明redis停止OK</p>
+<p>11.连接redis<br>得先启动redis服务！<br>克隆一个窗口<br>进入目录<code>cd /usr/local/src/java/redis</code><br>执行指令：<code>./bin/redis-cli -h 192.168.59.132 -p 6379</code>   【手敲，复制无用】<br>如果看到了：<code>192.168.59.132:6379&gt;</code>   说明连接OK</p>
+
       
     </div>
 
@@ -390,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/02/TreeSet集合排序两种实现方式Comparable和Comparator比较/" rel="next" title="treeset">
-                <i class="fa fa-chevron-left"></i> treeset
+              <a href="/2016/03/02/JDBC工具类简化(配置文件)/" rel="next" title="JDBC工具类">
+                <i class="fa fa-chevron-left"></i> JDBC工具类
               </a>
             
           </div>
@@ -400,8 +484,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/02/JDBC工具类简化(配置文件)/" rel="prev" title="JDBC工具类">
-                JDBC工具类 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/10/x # 单级文件夹复制​import java/" rel="prev" title="单级文件夹的复制">
+                单级文件夹的复制 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -474,7 +558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -522,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、JDK的安装"><span class="nav-number">1.</span> <span class="nav-text">一、JDK的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装tomcat"><span class="nav-number">2.</span> <span class="nav-text">二、安装tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、MySQL的安装"><span class="nav-number">3.</span> <span class="nav-text">三、MySQL的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Redis安装"><span class="nav-number">4.</span> <span class="nav-text">四、Redis安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、JDK的安装"><span class="nav-number">1.</span> <span class="nav-text">一、JDK的安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装tomcat"><span class="nav-number"></span> <span class="nav-text">安装tomcat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL的安装"><span class="nav-number"></span> <span class="nav-text">MySQL的安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis安装"><span class="nav-number"></span> <span class="nav-text">Redis安装</span></a></div>
             
 
           </div>

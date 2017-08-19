@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/10/16/hibernate.xml/index.html">
 <meta property="og:site_name" content="Big Elephant">
 <meta property="og:description" content="123456789101112131415161718192021222324&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;!DOCTYPE hibernate-configuration PUBLIC	&quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;	&quot;http://www.hibernate.">
-<meta property="og:updated_time" content="2017-07-26T08:31:49.971Z">
+<meta property="og:updated_time" content="2017-08-19T07:41:38.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hibernate.xml">
 <meta name="twitter:description" content="123456789101112131415161718192021222324&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;!DOCTYPE hibernate-configuration PUBLIC	&quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;	&quot;http://www.hibernate.">
@@ -351,7 +351,7 @@
       
 
       
-        <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</div><div class="line">	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</div><div class="line">&lt;hibernate-configuration&gt;</div><div class="line">    &lt;session-factory&gt;</div><div class="line">        &lt;!-- hibernate方言;是指hibernate生成底层的sql语句时使用什么样的sql语句，由方言来决定 --&gt;</div><div class="line">        &lt;property name="hibernate.dialect"&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;</div><div class="line"></div><div class="line">	    &lt;!-- 自动建表 --&gt;</div><div class="line">	    &lt;property name="hibernate.hbm2ddl.auto"&gt;update&lt;/property&gt;</div><div class="line">        &lt;!-- 显示出sql在控制台 --&gt;</div><div class="line">        &lt;property name="hibernate.show_sql"&gt;true&lt;/property&gt;</div><div class="line">        &lt;!-- 格式化sql在控制台  可以换行 --&gt;</div><div class="line">        &lt;property name="hibernate.format_sql"&gt;true&lt;/property&gt;</div><div class="line">        </div><div class="line">        &lt;!-- 设置事务的隔离级别 --&gt;</div><div class="line">        &lt;property name="hibernate.connection.isolation"&gt;4&lt;/property&gt;</div><div class="line">        &lt;!-- 指定加载映射文件 --&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/User.hbm.xml"/&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/BaseDict.hbm.xml"/&gt;</div><div class="line">        &lt;mapping resource="cn/itcast/crm/domain/Customer.hbm.xml"/&gt;</div><div class="line">    &lt;/session-factory&gt;</div><div class="line">&lt;/hibernate-configuration&gt;</div></pre></td></tr></table></figure>
+        <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></div><div class="line">	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</div><div class="line">	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- hibernate方言;是指hibernate生成底层的sql语句时使用什么样的sql语句，由方言来决定 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.dialect"</span>&gt;</span>org.hibernate.dialect.MySQLDialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"></div><div class="line">	    <span class="comment">&lt;!-- 自动建表 --&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;</span>update<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 显示出sql在控制台 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 格式化sql在控制台  可以换行 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="comment">&lt;!-- 设置事务的隔离级别 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernate.connection.isolation"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 指定加载映射文件 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"cn/itcast/crm/domain/User.hbm.xml"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"cn/itcast/crm/domain/BaseDict.hbm.xml"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"cn/itcast/crm/domain/Customer.hbm.xml"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -388,8 +388,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/16/struts.xml(非注解是开发)/" rel="next" title="struts.xml">
-                <i class="fa fa-chevron-left"></i> struts.xml
+              <a href="/2015/10/15/c3p0Utils/" rel="next" title="c3p0Utils">
+                <i class="fa fa-chevron-left"></i> c3p0Utils
               </a>
             
           </div>
@@ -398,8 +398,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/04/application.xml配置文件（非注解式开发)/" rel="prev" title="applicationContext.xml">
-                applicationContext.xml <i class="fa fa-chevron-right"></i>
+              <a href="/2015/10/16/struts.xml(非注解是开发)/" rel="prev" title="struts.xml">
+                struts.xml <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -463,7 +463,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

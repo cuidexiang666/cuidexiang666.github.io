@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/18/递归删除/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/02/linux&redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -285,7 +285,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/04/18/递归删除/" itemprop="url">递归删除</a></h1>
+                <a class="post-title-link" href="/2016/03/02/linux&redis/" itemprop="url">Linux安装</a></h1>
         
 
         <div class="post-meta">
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-18T00:00:00+08:00">
-                2016-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-02T00:00:00+08:00">
+                2016-03-02
               </time>
             
 
@@ -320,8 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础/" itemprop="url" rel="index">
-                    <span itemprop="name">基础</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -356,275 +356,93 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 递归删除</div><div class="line"></div><div class="line">import java.io.File; public class demo &#123; public static void main(String[] args) &#123; File file = new File("D:\develop\李科霈上课内容\day23\代码\YesDir"); del(file);</div><div class="line"></div><div class="line">&#125;</div><div class="line">private static void del(File file) &#123;</div><div class="line">	File[] listFiles = file.listFiles();</div><div class="line">	for (File f : listFiles) &#123;</div><div class="line">		if (f.isDirectory()) &#123;</div><div class="line">			del(f);</div><div class="line">		&#125; else &#123;</div><div class="line">			f.delete();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	file.delete();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/12/连接池工具类/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/12/连接池工具类/" itemprop="url">连接池工具</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-12T00:00:00+08:00">
-                2016-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础/" itemprop="url" rel="index">
-                    <span itemprop="name">基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.itcast.tool;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.sql.DataSource;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.dbcp.BasicDataSource;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtils</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> BasicDataSource bs = <span class="keyword">new</span>  BasicDataSource(); </div><div class="line">	</div><div class="line">	<span class="keyword">static</span>&#123;</div><div class="line">		bs.setDriverClassName(<span class="string">"com.mysql.jdbc.Driver"</span>);</div><div class="line">		bs.setUrl(<span class="string">"jdbc:mysql://127.0.0.1:3306/day33"</span>);</div><div class="line">		bs.setUsername(<span class="string">"root"</span>);</div><div class="line">		bs.setPassword(<span class="string">"root"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DataSource <span class="title">getDataSource</span><span class="params">()</span></span>&#123;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span>  bs;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/10/x # 单级文件夹复制​import java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/10/x # 单级文件夹复制​import java/" itemprop="url">单级文件夹的复制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-10T00:00:00+08:00">
-                2016-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础/" itemprop="url" rel="index">
-                    <span itemprop="name">基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> tuozhanlianxi;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File; <span class="keyword">import</span> java.io.FileInputStream; <span class="keyword">import</span> java.io.FileOutputStream; <span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"></div><div class="line">将E盘下的d文件夹复制到a文件夹下</div><div class="line">*/ <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo02_Copy</span> </span>&#123; <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123; <span class="comment">//封装数据源 File srcPath = new File("E:\java\abc\d"); //封装目的地 File destPath = new File("dest"); //创建目的地文件夹 destPath.mkdirs(); //2:获取到数据源中所有的File对象 File[] files = srcPath.listFiles(); //3:遍历, 得到每一个File对象 for (File file : files) &#123; //4:复制文件</span></div><div class="line"></div><div class="line"><span class="comment">//得到名字</span></div><div class="line">		String name = file.getName();</div><div class="line">		<span class="comment">//组成目的地File对象</span></div><div class="line">		File dest = <span class="keyword">new</span> File(destPath, name);</div><div class="line">		copyFile(file, dest);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//复制文件</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span><span class="params">(File srcPath, File destPath)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">	FileInputStream fis = <span class="keyword">new</span> FileInputStream(srcPath);</div><div class="line">	FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(destPath);</div><div class="line">	<span class="comment">//读取数据</span></div><div class="line">	<span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line">	<span class="keyword">int</span> len  = <span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span>( (len=fis.read(buffer)) != -<span class="number">1</span>)&#123;</div><div class="line">		<span class="comment">//写数据到目的地</span></div><div class="line">		fos.write(buffer, <span class="number">0</span>, len);</div><div class="line">	&#125;</div><div class="line">	fos.close();</div><div class="line">	fis.close();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="一、JDK的安装"><a href="#一、JDK的安装" class="headerlink" title="一、JDK的安装"></a>一、JDK的安装</h2><p>1.使用rpm命令来查看当前系统中已经存在的jdk版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep -i java --color</div></pre></td></tr></table></figure>
+<p>2.使用rpm命令卸载已经安装好的JDK(不是我们想要的)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.i686</div><div class="line">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.i686</div></pre></td></tr></table></figure>
+<p>3.将我们需要安装jdk上传到Linux系统中去</p>
+<ul>
+<li>alt+p打开文件上传的窗口 将JDK拖拽进去</li>
+</ul>
+<p>4.解压这个JDK</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf jdk-7u71-linux-i586.tar.gz</div></pre></td></tr></table></figure>
+<p>5.创建一个目录用于存放这个解压好的jdk</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/<span class="built_in">local</span>/src/java</div></pre></td></tr></table></figure>
+<p>6.将解压好的jdk目录移动到创建好的目录中去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv jdk1.7.0_71 /usr/<span class="built_in">local</span>/src/java</div></pre></td></tr></table></figure>
+<p>7.配置环境变量</p>
+<p>先执行文件编辑命令<code>vim /etc/profile</code><br>然后将以下2行命令复制插入到编辑文件的末尾<br><code>export JAVA_HOME=/usr/local/src/java/jdk1.7.0_71</code><br><code>export PATH=$JAVA_HOME/bin:$PATH</code><br>保存退出即可</p>
+<p>8.让修改的配置生效<br>进入安装jdk的bin目录，执行以下命令：<br><code>source /etc/profile</code></p>
+<p>9.测试<br>在任意目录下，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure>
+<p>如果出现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">java version <span class="string">"1.7.0_71"</span></div><div class="line">Java(TM) SE Runtime Environment (build 1.7.0_71-b14)</div><div class="line">Java HotSpot(TM) Client VM (build 24.71-b01, mixed mode)</div></pre></td></tr></table></figure>
+<p>说明安装成功！</p>
+<p>注意：操作之前，请先安装相关的依赖！<br>执行指令：<code>yum install glibc.i686</code>   【需要联网】</p>
+<h1 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h1><p>1.将我们需要安装tomcat上传到Linux系统中去</p>
+<ul>
+<li>alt+p打开文件上传的窗口 将apache-tomcat-7.0.57.tar.gz拖拽进去</li>
+</ul>
+<p>2.解压这个tomcat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf apache-tomcat-7.0.57.tar.gz</div></pre></td></tr></table></figure>
+<p>3.创建一个目录用于存放这个解压好的tomcat(之前已经创建好了)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/<span class="built_in">local</span>/src/java</div></pre></td></tr></table></figure>
+<p>4.将解压好的tomcat目录移动到创建好的目录中去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv apache-tomcat-7.0.57 /usr/<span class="built_in">local</span>/src/java</div></pre></td></tr></table></figure>
+<p>5.配置tomcat端口对外公开【能够在windows系统中访问Linux系统里面的tomcat软件】<br>执行以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/iptables</div></pre></td></tr></table></figure>
+<p>在<code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT</code>后面按下回车键<br>将上面的这一行复制粘贴，修改22为8080<br>保存退出</p>
+<p>6.重启防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables restart</div></pre></td></tr></table></figure>
+<p>7.进入安装好的tomcat的bin目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/src/java/apache-tomcat-7.0.57/bin</div></pre></td></tr></table></figure>
+<p>8.启动tomcat</p>
+<p>在bin目录中执行  <code>./startup.sh</code><br>如果看到：<code>Tomcat started</code>. 说明tomcat启动成功！</p>
+<p>9.测试：<br>在windows系统中，打开浏览器，输入：<code>http://192.168.59.132:8080</code><br>回车后如果看到了tomcat猫，说明tomcat安装并且配置OK</p>
+<p>10.关闭tomcat<br>在bin目录中执行<code>./shutdown.sh</code></p>
+<h1 id="MySQL的安装"><a href="#MySQL的安装" class="headerlink" title="MySQL的安装"></a>MySQL的安装</h1><p>1.使用rpm命令来查看当前系统中已经存在的jdk版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -qa | grep -i mysql --color</div></pre></td></tr></table></figure>
+<p>2.使用rpm命令卸载已经安装好的MySQL(不是我们想要的)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -e --nodeps mysql-libs-5.1.71-1.el6.i686</div></pre></td></tr></table></figure>
+<p>3.将我们需要安装MySQL上传到Linux系统中去</p>
+<ul>
+<li>alt+p打开文件上传的窗口 将下面2个rpm文件拖拽进去</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MySQL-client-5.5.49-1.linux2.6.i386.rpm</div><div class="line">MySQL-server-5.5.49-1.linux2.6.i386.rpm</div></pre></td></tr></table></figure>
+<p>4.执行安装服务器端的指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh MySQL-server-5.5.49-1.linux2.6.i386.rpm</div></pre></td></tr></table></figure>
+<p>注意(登录成功一定要设置密码)，安装服务器端成功之后，注意观察一个提示信息：PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</p>
+<p>5.执行安装客户端的指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh MySQL-client-5.5.49-1.linux2.6.i386.rpm</div></pre></td></tr></table></figure>
+<p>6.输入mysql指令登录MySQL数据库<br>先 <code>service mysql start</code></p>
+<p>7.设置密码<br><code>SET PASSWORD = PASSWORD(&#39;root&#39;);</code></p>
+<p>8.配置防火墙(能够在外界访问)<br>退出mysql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/iptables</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT</div></pre></td></tr></table></figure>
+<p>9.重启防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables restart</div></pre></td></tr></table></figure>
+<p>10.登录MySQL<br>直接输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p root</div></pre></td></tr></table></figure></p>
+<p>11.授权<br>在mysql命令行输入以下三条指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">create user <span class="string">'root'</span>@<span class="string">'%'</span> identified by <span class="string">'root'</span>;</div><div class="line">grant all on *.* to <span class="string">'root'</span>@<span class="string">'%'</span> with grant option;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
+<p>12.在windows中按win+r打开dos命令行<br>执行以下命令进行访问：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -h 192.168.59.132 -u root -p root</div></pre></td></tr></table></figure>
+<p>查看是否访问OK</p>
+<p>13.在MySQL工具中将Linux系统的MySQL给连接上。<br>点击连接，选择MySQL，输入连接名称、ip地址、密码测试即可</p>
+<h1 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h1><p>1.安装Redis的依赖<br>执行指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install gcc-c++</div></pre></td></tr></table></figure>
+<p>2.将我们需要安装redis上传到Linux系统中去<br>alt+p打开文件上传的窗口 将redis-3.0.0.tar.gz拖拽进去</p>
+<p>3.解压这个redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf redis-3.0.0.tar.gz</div></pre></td></tr></table></figure>
+<p>4.创建一个目录用于存放这个解压好的redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/<span class="built_in">local</span>/src/java/redis</div></pre></td></tr></table></figure>
+<p>5.将解压好的redis目录移动到创建好的目录中去</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv redis-3.0.0 /usr/<span class="built_in">local</span>/src/java/redis</div></pre></td></tr></table></figure>
+<p>6.编译redis<br>注意：一定要确保依赖已经安装OK<br>先得进入目录：<code>cd /usr/local/src/java/redis/redis-3.0.0</code><br>然后执行指令：<code>make</code></p>
+<p>7.进行安装<br>执行指令；<code>make PREFIX=/usr/local/src/java/redis install</code><br>注意：PREFIX必须是大写！其值为redis安装的目录</p>
+<p>8.移动文件【方便后面启动redis】<br>首先的进入目录：<code>cd /usr/local/src/java/redis/redis-3.0.0</code><br>执行以下指令(移动到redis目录中去)：<br><code>cp redis.conf /usr/local/src/java/redis</code></p>
+<p>9.启动redis服务<br>先得修改配置文件<br>执行指令：<code>vim /usr/local/src/java/redis/redis.conf</code><br>在文件的末尾添加：  <code># daemonize yes</code><br>保存退出<br>启动：<br>进入redis即可<br><code>cd /usr/local/src/java/redis</code><br>执行指令：<br><code>./bin/redis-server ./redis.conf</code></p>
+<p>如果看到了：<code>The server is now ready to accept connections on port 6379</code> 说明启动成功</p>
+<p>10.停止redis服务<br>进入redis目录，执行指令：.<code>/bin/redis-cli shutdown</code><br>如果看到了：<code>Redis is now ready to exit, bye bye...</code>说明redis停止OK</p>
+<p>11.连接redis<br>得先启动redis服务！<br>克隆一个窗口<br>进入目录<code>cd /usr/local/src/java/redis</code><br>执行指令：<code>./bin/redis-cli -h 192.168.59.132 -p 6379</code>   【手敲，复制无用】<br>如果看到了：<code>192.168.59.132:6379&gt;</code>   说明连接OK</p>
 
           
         
@@ -802,142 +620,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/02/linux&redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/02/linux&redis/" itemprop="url">Linux安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-02T00:00:00+08:00">
-                2016-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、JDK的安装"><a href="#一、JDK的安装" class="headerlink" title="一、JDK的安装"></a>一、JDK的安装</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.使用rpm命令来查看当前系统中已经存在的jdk版本</div><div class="line">	rpm -qa | grep -i java --color</div><div class="line"></div><div class="line"><span class="number">2</span>.使用rpm命令卸载已经安装好的JDK(不是我们想要的)</div><div class="line">	rpm -e --nodeps java-<span class="number">1.6</span>.0-openjdk-<span class="number">1.6</span>.0.0-<span class="number">1.66</span>.1.13.0.el6.i686</div><div class="line">	rpm -e --nodeps java-<span class="number">1.7</span>.0-openjdk-<span class="number">1.7</span>.0.45-<span class="number">2.4</span>.3.3.el6.i686</div><div class="line"></div><div class="line"><span class="number">3</span>.将我们需要安装jdk上传到Linux系统中去</div><div class="line">	alt+p打开文件上传的窗口 将JDK拖拽进去</div><div class="line"></div><div class="line"><span class="number">4</span>.解压这个JDK</div><div class="line">	tar -zxvf jdk-<span class="number">7</span>u71-linux-i586.tar.gz</div><div class="line"></div><div class="line"><span class="number">5</span>.创建一个目录用于存放这个解压好的jdk</div><div class="line">	mkdir /usr/local/src/java</div><div class="line"></div><div class="line"><span class="number">6</span>.将解压好的jdk目录移动到创建好的目录中去</div><div class="line">	mv jdk1.7.0_71 /usr/local/src/java</div><div class="line"></div><div class="line"><span class="number">7</span>.配置环境变量</div><div class="line">	先执行文件编辑命令  vim /etc/profile</div><div class="line">	然后将以下<span class="number">2</span>行命令复制插入到编辑文件的末尾</div><div class="line">		export JAVA_HOME=/usr/local/src/java/jdk1.7.0_71</div><div class="line">		export PATH=$JAVA_HOME/bin:$PATH</div><div class="line">	保存退出即可</div><div class="line"></div><div class="line"><span class="number">8</span>.让修改的配置生效</div><div class="line">	进入安装jdk的bin目录，执行以下命令：</div><div class="line">		source /etc/profile</div><div class="line"></div><div class="line"><span class="number">9</span>.测试</div><div class="line">	在任意目录下，执行以下命令：</div><div class="line">		java -version</div><div class="line">	如果出现</div><div class="line">		java version <span class="string">"1.7.0_71"</span></div><div class="line">		Java(TM) <span class="function">SE Runtime <span class="title">Environment</span> <span class="params">(build <span class="number">1.7</span><span class="number">.0</span>_71-b14)</span></span></div><div class="line">		Java <span class="title">HotSpot</span><span class="params">(TM)</span> Client <span class="title">VM</span> <span class="params">(build <span class="number">24.71</span>-b01, mixed mode)</span></div><div class="line">	说明安装成功！</div><div class="line"></div><div class="line">注意：操作之前，请先安装相关的依赖！</div><div class="line">	执行指令：yum install glibc.i686   【需要联网】</div></pre></td></tr></table></figure>
-<h2 id="二、安装tomcat"><a href="#二、安装tomcat" class="headerlink" title="二、安装tomcat"></a>二、安装tomcat</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.将我们需要安装tomcat上传到Linux系统中去</div><div class="line">	alt+p打开文件上传的窗口 将apache-tomcat-<span class="number">7.0</span>.57.tar.gz拖拽进去</div><div class="line"></div><div class="line"><span class="number">2</span>.解压这个tomcat</div><div class="line">	tar -zxvf apache-tomcat-<span class="number">7.0</span>.57.tar.gz</div><div class="line"></div><div class="line"><span class="number">3</span>.创建一个目录用于存放这个解压好的tomcat(之前已经创建好了)</div><div class="line">	mkdir /usr/local/src/java</div><div class="line"></div><div class="line"><span class="number">4</span>.将解压好的tomcat目录移动到创建好的目录中去</div><div class="line">	mv apache-tomcat-<span class="number">7.0</span>.57 /usr/local/src/java</div><div class="line"></div><div class="line"><span class="number">5</span>.配置tomcat端口对外公开【能够在windows系统中访问Linux系统里面的tomcat软件】</div><div class="line">	执行以下指令：</div><div class="line">		vim /etc/sysconfig/iptables</div><div class="line">	在-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">22</span> -j ACCEPT后面按下回车键</div><div class="line">		将上面的这一行复制粘贴，修改<span class="number">22</span>为<span class="number">8080</span></div><div class="line">	保存退出</div><div class="line"></div><div class="line"><span class="number">6</span>.重启防火墙</div><div class="line">	service iptables restart</div><div class="line"></div><div class="line"><span class="number">7</span>.进入安装好的tomcat的bin目录</div><div class="line">	cd /usr/local/src/java/apache-tomcat-<span class="number">7.0</span>.57/bin</div><div class="line"></div><div class="line"><span class="number">8</span>.启动tomcat</div><div class="line">	在bin目录中执行  ./startup.sh</div><div class="line">	如果看到：Tomcat started. 说明tomcat启动成功！</div><div class="line"></div><div class="line"><span class="number">9</span>.测试：</div><div class="line">	在windows系统中，打开浏览器，输入：http:<span class="comment">//192.168.59.132:8080  </span></div><div class="line">	回车后如果看到了tomcat猫，说明tomcat安装并且配置OK</div><div class="line"></div><div class="line"><span class="number">10</span>.关闭tomcat</div><div class="line">	在bin目录中执行   ./shutdown.sh</div></pre></td></tr></table></figure>
-<h2 id="三、MySQL的安装"><a href="#三、MySQL的安装" class="headerlink" title="三、MySQL的安装"></a>三、MySQL的安装</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>.使用rpm命令来查看当前系统中已经存在的jdk版本</div><div class="line">	rpm -qa | grep -i mysql --color</div><div class="line"></div><div class="line"><span class="number">2</span>.使用rpm命令卸载已经安装好的MySQL(不是我们想要的)</div><div class="line">	rpm -e --nodeps mysql-libs-<span class="number">5.1</span>.71-<span class="number">1</span>.el6.i686</div><div class="line"></div><div class="line"><span class="number">3</span>.将我们需要安装MySQL上传到Linux系统中去</div><div class="line">	alt+p打开文件上传的窗口 将下面<span class="number">2</span>个rpm文件拖拽进去</div><div class="line">		MySQL-client-<span class="number">5.5</span>.49-<span class="number">1</span>.linux2.6.i386.rpm</div><div class="line">		MySQL-server-<span class="number">5.5</span>.49-<span class="number">1</span>.linux2.6.i386.rpm</div><div class="line"></div><div class="line"><span class="number">4</span>.执行安装服务器端的指令</div><div class="line">	rpm -ivh MySQL-server-<span class="number">5.5</span>.49-<span class="number">1</span>.linux2.6.i386.rpm</div><div class="line">	注意(登录成功一定要设置密码)，安装服务器端成功之后，注意观察一个提示信息：PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !</div><div class="line"></div><div class="line"><span class="number">5</span>.执行安装客户端的指令</div><div class="line">	rpm -ivh MySQL-client-<span class="number">5.5</span>.49-<span class="number">1</span>.linux2.6.i386.rpm</div><div class="line"></div><div class="line"><span class="number">6</span>.输入mysql指令登录MySQL数据库</div><div class="line">	先 service mysql start</div><div class="line"></div><div class="line"><span class="number">7</span>.设置密码</div><div class="line">	SET PASSWORD = PASSWORD(<span class="string">'root'</span>);</div><div class="line"></div><div class="line"><span class="number">8</span>.配置防火墙(能够在外界访问)</div><div class="line">	退出mysql</div><div class="line">	vim /etc/sysconfig/iptables</div><div class="line">		-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">22</span> -j ACCEPT</div><div class="line">		-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">8080</span> -j ACCEPT</div><div class="line">		-A INPUT -m state --state NEW -m tcp -p tcp --dport <span class="number">3306</span> -j ACCEPT</div><div class="line"></div><div class="line"><span class="number">9</span>.重启防火墙</div><div class="line">	service iptables restart</div><div class="line"></div><div class="line"><span class="number">10</span>.登录MySQL</div><div class="line">	直接输入mysql -u root -p</div><div class="line">		root</div><div class="line"></div><div class="line"><span class="number">11</span>.授权</div><div class="line">	在mysql命令行输入以下三条指令：</div><div class="line">		create user <span class="string">'root'</span>@<span class="string">'%'</span> identified by <span class="string">'root'</span>;</div><div class="line">		grant all on *.* to <span class="string">'root'</span>@<span class="string">'%'</span> with grant option;</div><div class="line">		flush privileges;</div><div class="line"></div><div class="line"><span class="number">12</span>.在windows中按win+r打开dos命令行</div><div class="line">		执行以下命令进行访问：</div><div class="line">			mysql -h <span class="number">192.168</span>.59.132 -u root -p</div><div class="line">			root</div><div class="line">		查看是否访问OK</div><div class="line"></div><div class="line"><span class="number">13</span>.在MySQL工具中将Linux系统的MySQL给连接上。</div><div class="line">	点击连接，选择MySQL，输入连接名称、ip地址、密码测试即可</div></pre></td></tr></table></figure>
-<h2 id="四、Redis安装"><a href="#四、Redis安装" class="headerlink" title="四、Redis安装"></a>四、Redis安装</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">1.安装Redis的依赖</div><div class="line">	执行指令：yum install gcc-c++</div><div class="line"></div><div class="line">2.将我们需要安装redis上传到Linux系统中去</div><div class="line">	alt+p打开文件上传的窗口 将redis-3.0.0.tar.gz拖拽进去</div><div class="line"></div><div class="line">3.解压这个redis</div><div class="line">	tar -zxvf redis-3.0.0.tar.gz</div><div class="line"></div><div class="line">4.创建一个目录用于存放这个解压好的redis</div><div class="line">	mkdir /usr/local/src/java/redis</div><div class="line"></div><div class="line">5.将解压好的redis目录移动到创建好的目录中去</div><div class="line">	mv redis-3.0.0 /usr/local/src/java/redis</div><div class="line"></div><div class="line">6.编译redis</div><div class="line">	注意：一定要确保依赖已经安装OK</div><div class="line">	先得进入目录：cd /usr/local/src/java/redis/redis-3.0.0</div><div class="line">	然后执行指令：make</div><div class="line"></div><div class="line">7.进行安装</div><div class="line">	执行指令；make PREFIX=/usr/local/src/java/redis install</div><div class="line">	注意：PREFIX必须是大写！其值为redis安装的目录</div><div class="line"></div><div class="line">8.移动文件【方便后面启动redis】</div><div class="line">	首先的进入目录：cd /usr/local/src/java/redis/redis-3.0.0</div><div class="line">	执行以下指令(移动到redis目录中去)：</div><div class="line">		cp redis.conf /usr/local/src/java/redis</div><div class="line"></div><div class="line">9.启动redis服务</div><div class="line">	先得修改配置文件</div><div class="line">		执行指令：vim /usr/local/src/java/redis/redis.conf</div><div class="line">			在文件的末尾添加：  # daemonize yes</div><div class="line">			保存退出</div><div class="line">	启动：</div><div class="line">		进入redis即可</div><div class="line">			cd /usr/local/src/java/redis</div><div class="line">		执行指令：</div><div class="line">			./bin/redis-server ./redis.conf</div><div class="line"></div><div class="line">	如果看到了：The server is now ready to accept connections on port 6379  说明启动成功</div><div class="line"></div><div class="line">10.停止redis服务</div><div class="line">	进入redis目录，执行指令：./bin/redis-cli shutdown</div><div class="line">	如果看到了： Redis is now ready to exit, bye bye...	说明redis停止OK</div><div class="line"></div><div class="line">11.连接redis</div><div class="line">	得先启动redis服务！</div><div class="line">	克隆一个窗口</div><div class="line">	进入目录 cd /usr/local/src/java/redis</div><div class="line">	执行指令：./bin/redis-cli -h 192.168.59.132 -p 6379    【手敲，复制无用】</div><div class="line">	如果看到了：192.168.59.132:6379&gt;     说明连接OK</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/02/TreeSet集合排序两种实现方式Comparable和Comparator比较/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1028,7 +710,8 @@
       
         
           
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div></pre></td><td class="code"><pre><div class="line">TreeSet集合排序两种实现方式Comparable和Comparator比较</div><div class="line"><span class="number">2014</span>-<span class="number">07</span>-<span class="number">26</span> <span class="number">16</span>:<span class="number">56</span> <span class="number">826</span>人阅读 评论(<span class="number">0</span>) 收藏 举报</div><div class="line"> 分类： JavaSE（<span class="number">31</span>）  </div><div class="line">版权声明：本文为博主原创文章，未经博主允许不得转载。</div><div class="line">[java] view plain copy 在CODE上查看代码片派生到我的代码片</div><div class="line"><span class="keyword">import</span> java.util.Comparator;  </div><div class="line"><span class="keyword">import</span> java.util.Iterator;  </div><div class="line"><span class="keyword">import</span> java.util.TreeSet;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * TreeSet集合排序有两种方式，Comparable和Comparator区别： </div><div class="line"> * 1：让元素自身具备比较性，需要元素对象实现Comparable接口，覆盖compareTo方法。 </div><div class="line"> * 2：让集合自身具备比较性，需要定义一个实现了Comparator接口的比较器，并覆盖compare方法， </div><div class="line"> *   并将该类对象作为实际参数传递给TreeSet集合的构造函数。 第二种方式较为灵活。 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSetDemo3</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </div><div class="line">          </div><div class="line">        Teacher t1 = <span class="keyword">new</span> Teacher(<span class="number">111L</span>);  </div><div class="line">        Teacher t2 = <span class="keyword">new</span> Teacher(<span class="number">222L</span>);  </div><div class="line">          </div><div class="line">        TreeSet&lt;Teacher&gt; teachers = <span class="keyword">new</span> TreeSet&lt;Teacher&gt;();  </div><div class="line">        teachers.add(t1);  </div><div class="line">        teachers.add(t2);  </div><div class="line">          </div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Teacher&gt; iter = teachers.iterator(); iter.hasNext();) &#123;  </div><div class="line">            Teacher t =  iter.next();  </div><div class="line">            System.out.println(t.getId());  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        System.out.println(<span class="string">"------------------------"</span>);  </div><div class="line">          </div><div class="line">        Student s1 = <span class="keyword">new</span> Student(<span class="number">123L</span>);  </div><div class="line">        Student s2 = <span class="keyword">new</span> Student(<span class="number">456L</span>);                 <span class="comment">//让集合自身具备比较性，这种方式较灵活      </span></div><div class="line">        TreeSet&lt;Student&gt; students = <span class="keyword">new</span> TreeSet&lt;Student&gt;(<span class="keyword">new</span> StudentComparator());    </div><div class="line">  </div><div class="line">        students.add(s1);  </div><div class="line">        students.add(s2);  </div><div class="line">  </div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Student&gt; iter = students.iterator(); iter.hasNext();) &#123;  </div><div class="line">            Student s = iter.next();  </div><div class="line">            System.out.println(s.getId());  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * 采用实现Comparable接口重写compareTo方法的方式，让元素自身具备比较性 </div><div class="line"> * <span class="doctag">@author</span> Administrator </div><div class="line"> * </div><div class="line"> */  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Teacher</span>&gt;</span>&#123;  </div><div class="line">    <span class="keyword">private</span> Long id;  </div><div class="line">      </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">()</span> </span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> id;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Teacher o)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) (<span class="keyword">this</span>.id - o.getId());  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">//学生类  </span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="keyword">private</span> Long id;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> id;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * 自定义定义一个实现了Comparator接口的比较器，并覆盖compare方法 </div><div class="line"> */  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Student</span>&gt; </span>&#123;  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) (o1.getId() - o2.getId()); <span class="comment">// 根据升序排序  </span></div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">[java] view plain copy 在CODE上查看代码片派生到我的代码片</div><div class="line"><span class="keyword">import</span> java.util.Comparator;  </div><div class="line"><span class="keyword">import</span> java.util.Iterator;  </div><div class="line"><span class="keyword">import</span> java.util.TreeSet;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * TreeSet集合排序有两种方式，Comparable和Comparator区别： </div><div class="line"> * 1：让元素自身具备比较性，需要元素对象实现Comparable接口，覆盖compareTo方法。 </div><div class="line"> * 2：让集合自身具备比较性，需要定义一个实现了Comparator接口的比较器，并覆盖compare方法， </div><div class="line"> *   并将该类对象作为实际参数传递给TreeSet集合的构造函数。 第二种方式较为灵活。 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSetDemo3</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </div><div class="line">          </div><div class="line">        Teacher t1 = <span class="keyword">new</span> Teacher(<span class="number">111L</span>);  </div><div class="line">        Teacher t2 = <span class="keyword">new</span> Teacher(<span class="number">222L</span>);  </div><div class="line">          </div><div class="line">        TreeSet&lt;Teacher&gt; teachers = <span class="keyword">new</span> TreeSet&lt;Teacher&gt;();  </div><div class="line">        teachers.add(t1);  </div><div class="line">        teachers.add(t2);  </div><div class="line">          </div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Teacher&gt; iter = teachers.iterator(); iter.hasNext();) &#123;  </div><div class="line">            Teacher t =  iter.next();  </div><div class="line">            System.out.println(t.getId());  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        System.out.println(<span class="string">"------------------------"</span>);  </div><div class="line">          </div><div class="line">        Student s1 = <span class="keyword">new</span> Student(<span class="number">123L</span>);  </div><div class="line">        Student s2 = <span class="keyword">new</span> Student(<span class="number">456L</span>);                 <span class="comment">//让集合自身具备比较性，这种方式较灵活      </span></div><div class="line">        TreeSet&lt;Student&gt; students = <span class="keyword">new</span> TreeSet&lt;Student&gt;(<span class="keyword">new</span> StudentComparator());    </div><div class="line">  </div><div class="line">        students.add(s1);  </div><div class="line">        students.add(s2);  </div><div class="line">  </div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Student&gt; iter = students.iterator(); iter.hasNext();) &#123;  </div><div class="line">            Student s = iter.next();  </div><div class="line">            System.out.println(s.getId());  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * 采用实现Comparable接口重写compareTo方法的方式，让元素自身具备比较性 </div><div class="line"> * <span class="doctag">@author</span> Administrator </div><div class="line"> * </div><div class="line"> */  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Teacher</span>&gt;</span>&#123;  </div><div class="line">    <span class="keyword">private</span> Long id;  </div><div class="line">      </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">()</span> </span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> id;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Teacher o)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) (<span class="keyword">this</span>.id - o.getId());  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">//学生类  </span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="keyword">private</span> Long id;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> id;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * 自定义定义一个实现了Comparator接口的比较器，并覆盖compare方法 </div><div class="line"> */  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Student</span>&gt; </span>&#123;  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) (o1.getId() - o2.getId()); <span class="comment">// 根据升序排序  </span></div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>TreeSet集合排序两种实现方式Comparable和Comparator比较</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Comparator;  </div><div class="line"><span class="keyword">import</span> java.util.Iterator;  </div><div class="line"><span class="keyword">import</span> java.util.TreeSet;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * TreeSet集合排序有两种方式，Comparable和Comparator区别： </div><div class="line"> * 1：让元素自身具备比较性，需要元素对象实现Comparable接口，覆盖compareTo方法。 </div><div class="line"> * 2：让集合自身具备比较性，需要定义一个实现了Comparator接口的比较器，并覆盖compare方法， </div><div class="line"> *   并将该类对象作为实际参数传递给TreeSet集合的构造函数。 第二种方式较为灵活。 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSetDemo3</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </div><div class="line">          </div><div class="line">        Teacher t1 = <span class="keyword">new</span> Teacher(<span class="number">111L</span>);  </div><div class="line">        Teacher t2 = <span class="keyword">new</span> Teacher(<span class="number">222L</span>);  </div><div class="line">          </div><div class="line">        TreeSet&lt;Teacher&gt; teachers = <span class="keyword">new</span> TreeSet&lt;Teacher&gt;();  </div><div class="line">        teachers.add(t1);  </div><div class="line">        teachers.add(t2);  </div><div class="line">          </div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Teacher&gt; iter = teachers.iterator(); iter.hasNext();) &#123;  </div><div class="line">            Teacher t =  iter.next();  </div><div class="line">            System.out.println(t.getId());  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        System.out.println(<span class="string">"------------------------"</span>);  </div><div class="line">          </div><div class="line">        Student s1 = <span class="keyword">new</span> Student(<span class="number">123L</span>);  </div><div class="line">        Student s2 = <span class="keyword">new</span> Student(<span class="number">456L</span>);                 <span class="comment">//让集合自身具备比较性，这种方式较灵活      </span></div><div class="line">        TreeSet&lt;Student&gt; students = <span class="keyword">new</span> TreeSet&lt;Student&gt;(<span class="keyword">new</span> StudentComparator());    </div><div class="line">  </div><div class="line">        students.add(s1);  </div><div class="line">        students.add(s2);  </div><div class="line">  </div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Student&gt; iter = students.iterator(); iter.hasNext();) &#123;  </div><div class="line">            Student s = iter.next();  </div><div class="line">            System.out.println(s.getId());  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * 采用实现Comparable接口重写compareTo方法的方式，让元素自身具备比较性 </div><div class="line"> * <span class="doctag">@author</span> Administrator </div><div class="line"> * </div><div class="line"> */  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Teacher</span>&gt;</span>&#123;  </div><div class="line">    <span class="keyword">private</span> Long id;  </div><div class="line">      </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">()</span> </span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> id;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Teacher o)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) (<span class="keyword">this</span>.id - o.getId());  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">//学生类  </span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="keyword">private</span> Long id;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> id;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * 自定义定义一个实现了Comparator接口的比较器，并覆盖compare方法 </div><div class="line"> */  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Student</span>&gt; </span>&#123;  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) (o1.getId() - o2.getId()); <span class="comment">// 根据升序排序  </span></div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">[java] view plain copy 在CODE上查看代码片派生到我的代码片</div><div class="line"><span class="keyword">import</span> java.util.Comparator;  </div><div class="line"><span class="keyword">import</span> java.util.Iterator;  </div><div class="line"><span class="keyword">import</span> java.util.TreeSet;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * TreeSet集合排序有两种方式，Comparable和Comparator区别： </div><div class="line"> * 1：让元素自身具备比较性，需要元素对象实现Comparable接口，覆盖compareTo方法。 </div><div class="line"> * 2：让集合自身具备比较性，需要定义一个实现了Comparator接口的比较器，并覆盖compare方法， </div><div class="line"> *   并将该类对象作为实际参数传递给TreeSet集合的构造函数。 第二种方式较为灵活。 </div><div class="line"> */  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSetDemo3</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </div><div class="line">          </div><div class="line">        Teacher t1 = <span class="keyword">new</span> Teacher(<span class="number">111L</span>);  </div><div class="line">        Teacher t2 = <span class="keyword">new</span> Teacher(<span class="number">222L</span>);  </div><div class="line">          </div><div class="line">        TreeSet&lt;Teacher&gt; teachers = <span class="keyword">new</span> TreeSet&lt;Teacher&gt;();  </div><div class="line">        teachers.add(t1);  </div><div class="line">        teachers.add(t2);  </div><div class="line">          </div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Teacher&gt; iter = teachers.iterator(); iter.hasNext();) &#123;  </div><div class="line">            Teacher t =  iter.next();  </div><div class="line">            System.out.println(t.getId());  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        System.out.println(<span class="string">"------------------------"</span>);  </div><div class="line">          </div><div class="line">        Student s1 = <span class="keyword">new</span> Student(<span class="number">123L</span>);  </div><div class="line">        Student s2 = <span class="keyword">new</span> Student(<span class="number">456L</span>);                 <span class="comment">//让集合自身具备比较性，这种方式较灵活      </span></div><div class="line">        TreeSet&lt;Student&gt; students = <span class="keyword">new</span> TreeSet&lt;Student&gt;(<span class="keyword">new</span> StudentComparator());    </div><div class="line">  </div><div class="line">        students.add(s1);  </div><div class="line">        students.add(s2);  </div><div class="line">  </div><div class="line">        <span class="keyword">for</span> (Iterator&lt;Student&gt; iter = students.iterator(); iter.hasNext();) &#123;  </div><div class="line">            Student s = iter.next();  </div><div class="line">            System.out.println(s.getId());  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * 采用实现Comparable接口重写compareTo方法的方式，让元素自身具备比较性 </div><div class="line"> * <span class="doctag">@author</span> Administrator </div><div class="line"> * </div><div class="line"> */  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Teacher</span>&gt;</span>&#123;  </div><div class="line">    <span class="keyword">private</span> Long id;  </div><div class="line">      </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">()</span> </span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> id;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">      </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Teacher o)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) (<span class="keyword">this</span>.id - o.getId());  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">//学生类  </span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="keyword">private</span> Long id;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> id;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;  </div><div class="line">        <span class="keyword">this</span>.id = id;  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">/** </span></div><div class="line"> * 自定义定义一个实现了Comparator接口的比较器，并覆盖compare方法 </div><div class="line"> */  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Student</span>&gt; </span>&#123;  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Student o1, Student o2)</span> </span>&#123;  </div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>) (o1.getId() - o2.getId()); <span class="comment">// 根据升序排序  </span></div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
           
         
       
@@ -1205,7 +888,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/02/03/IO&设计模式&反射/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/02/E01-ajax-http协议/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -1224,7 +907,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/02/03/IO&设计模式&反射/" itemprop="url">IO流</a></h1>
+                <a class="post-title-link" href="/2015/12/02/E01-ajax-http协议/" itemprop="url">http协议</a></h1>
         
 
         <div class="post-meta">
@@ -1236,8 +919,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-03T00:00:00+08:00">
-                2016-02-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-02T00:00:00+08:00">
+                2015-12-02
               </time>
             
 
@@ -1259,8 +942,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础/" itemprop="url" rel="index">
-                    <span itemprop="name">基础</span>
+                  <a href="/categories/http/" itemprop="url" rel="index">
+                    <span itemprop="name">http</span>
                   </a>
                 </span>
 
@@ -1295,81 +978,135 @@
       
         
           
-            <h2 id="————————-流的总结————————————"><a href="#————————-流的总结————————————" class="headerlink" title="————————-流的总结————————————-"></a>————————-流的总结————————————-</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">字节流</div><div class="line"></div><div class="line">    字节输入流 InputStream</div><div class="line">    FileInputStream  操作文件的字节输入流</div><div class="line">    BufferedInputStream 高效的字节输入流</div><div class="line">    ObjectInputStream 反序列化流</div><div class="line">    字节输出流   OutputStream</div><div class="line">    FileOutputStream  操作文件的字节输出流</div><div class="line">    BufferedOutputStream 高效的字节输出流</div><div class="line">    ObjectOutputStream  序列化流</div><div class="line"></div><div class="line">- 字符流</div><div class="line">-  字符输入流 Reader</div><div class="line"></div><div class="line">    FileReader 操作文件的字符输入流</div><div class="line">    BufferedReader 高效的字符输入流</div><div class="line">    InputStreamReader 输入操作的转换流(把字节流封装成字符流)</div><div class="line"></div><div class="line">  字符输出流 Writer</div><div class="line"></div><div class="line">      FileWriter 操作文件的字符输出流</div><div class="line">      BufferedWriter 高效的字符输出流</div><div class="line">      OutputStreamWriter 输出操作的转换流(把字节流封装成字符流)</div><div class="line"></div><div class="line">方法：</div><div class="line"></div><div class="line">	读数据方法：</div><div class="line"></div><div class="line">		read() 一次读一个字节或字符的方法</div><div class="line"></div><div class="line">		read(<span class="keyword">byte</span>[]  <span class="keyword">char</span>[]) 一次读一个数组数据的方法</div><div class="line"></div><div class="line">      readLine() 一次读一行字符串的方法(BufferedReader类特有方法)</div><div class="line">      readObject() 从流中读取对象(ObjectInputStream特有方法)</div><div class="line"></div><div class="line">写数据方法：</div><div class="line"></div><div class="line">		write(<span class="keyword">int</span>) 一次写一个字节或字符到文件中</div><div class="line"></div><div class="line">		write(<span class="keyword">byte</span>[] <span class="keyword">char</span>[]) 一次写一个数组数据到文件中</div><div class="line"></div><div class="line">		write(String) 一次写一个字符串内容到文件中</div><div class="line"></div><div class="line">		writeObject(Object ) 写对象到流中(ObjectOutputStream类特有方法)</div><div class="line"></div><div class="line">		newLine() 写一个换行符号(BufferedWriter类特有方法)</div><div class="line"></div><div class="line">向文件中写入数据的过程</div><div class="line"></div><div class="line">    	<span class="number">1</span>，创建输出流对象</div><div class="line">    	<span class="number">2</span>，写数据到文件</div><div class="line">    	<span class="number">3</span>，关闭输出流</div><div class="line"></div><div class="line">从文件中读数据的过程</div><div class="line"></div><div class="line">    	<span class="number">1</span>，创建输入流对象</div><div class="line">    	<span class="number">2</span>，从文件中读数据</div><div class="line">    	<span class="number">3</span>，关闭输入流</div><div class="line"></div><div class="line">文件复制的过程</div><div class="line"></div><div class="line">    	<span class="number">1</span>，创建输入流（数据源）</div><div class="line">    	<span class="number">2</span>，创建输出流（目的地）</div><div class="line">    	<span class="number">3</span>，从输入流中读数据</div><div class="line">    	<span class="number">4</span>，通过输出流，把数据写入目的地</div><div class="line">    	<span class="number">5</span>，关闭流</div><div class="line"></div><div class="line">-------------------------设计模式----------------------------------------</div><div class="line"></div><div class="line">单例模式是设计模式中最简单的形式之一。这一模式的目的是使得类的一个对象成为系统中的唯一实例。要实现这一点，需要用一种只允许生成对象类的唯一实例的机制，“阻止”所有想要生成对象的访问。这个方法应该是静态方法（类方法），因为让类的实例去生成另一个唯一实例毫无意义。</div><div class="line"></div><div class="line">    如何实现类在内存中只有一个对象呢?</div><div class="line">    	构造方法私有</div><div class="line">    	在类中提供一个本类对象</div><div class="line">    	提供一个公共的方法让外界访问，获取到已创建的本类对象</div><div class="line">    实现方式：</div><div class="line">    	饿汉式 : 直接创建对象</div><div class="line">    			线程安全的</div><div class="line">    	懒汉式 : 当需要用到对象的时候，再创建对象(延迟加载方式)</div><div class="line">    			一个线程对象的时候，这种方式线程是安全的</div><div class="line">    			多个线程对象的时候，这种方式线程是不安全, 可以同步机制处理</div></pre></td></tr></table></figure>
+            <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><blockquote>
+<p>http协议是W3C制定的。用来约束客户端浏览器与web服务器进行通讯的数据格式<br>http协议的数据格式分为两种，一种是请求，一种是响应</p>
+</blockquote>
+<h2 id="请求报文（客户端—–-gt-服务器）"><a href="#请求报文（客户端—–-gt-服务器）" class="headerlink" title="请求报文（客户端—–&gt;服务器）"></a>请求报文（客户端—–&gt;服务器）</h2><blockquote>
+<p>由请求首行、请求头、请求空行、请求体组成<br>常见的请求有两种：get和post</p>
+<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><ul>
+<li>GET /day08/code/01http/01get.html HTTP/1.1<br>请求首行：请求的方式  要访问的资源的地址  协议版本<br><strong>以下部分全部为请求头 </strong></li>
+<li>Host    127.0.0.1<br>请求的主机名 允许多个域名同处一个IP地址，即虚拟主机</li>
+<li>Cache-Control    max-age=0<br>这个做缓存控制的.</li>
+<li>Upgrade-Insecure-Requests    1</li>
+<li>User-Agent    Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36<br>客户端浏览器的版本，操作系统的版本信息</li>
+<li>Accept     text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<em>/</em>;q=0.8<br>接收，告诉服务器，客户端可以接收的数据格式.</li>
+<li>Referer    <a href="http://127.0.0.1/day08/code/01http/Accept-Encodinggzip" target="_blank" rel="external">http://127.0.0.1/day08/code/01http/Accept-Encodinggzip</a>, deflate, sdch<br>客户端接收的压缩格式</li>
+<li>Accept-Language    zh-CN,zh;q=0.8<br>客户端接收的语言</li>
+<li>If-None-Match    “7700000000217a-96-548afe60e947a”   If-Modified-SinceFri, 17 Feb 2017 01:33:19 GMT</li>
+</ul>
+</blockquote>
+<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><ul>
+<li>POST  /day08/code/01http/02post.php HTTP/1.1<blockquote>
+<p>请求首行:请求的方式  要访问的资源的地址<br><strong>以下为请求头</strong></p>
+</blockquote>
+</li>
+<li>Host: 127.0.0.1<blockquote>
+<p>请求的主机名</p>
+</blockquote>
+</li>
+<li>Content-Length: 21<blockquote>
+<p>内容长度，指的 请求体的长度</p>
+</blockquote>
+</li>
+<li>Cache-Control: max-age=0<blockquote>
+<p>缓存的</p>
+</blockquote>
+</li>
+<li>Origin: <a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a><blockquote>
+<p>只存在于post请求<br>浏览器发现这次跨源AJAX请求是简单请求，就自动在头信息之中，添加一个Origin字段。<br>Origin字段用来说明，本次请求来自哪个源（协议 + 域名 + 端口）。服务器根据响应头Access-Control-Allow-Origin中有没有该字段，决定是否同意这次请求。</p>
+</blockquote>
+</li>
+<li>Upgrade-Insecure-Requests: 1</li>
+<li>User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36<blockquote>
+<p>客户端浏览器的版本，操作系统的版本信息</p>
+</blockquote>
+</li>
+<li>Content-Type: application/x-www-form-urlencoded<blockquote>
+<p>这个是post 提交独有第一个请求头，如果发送到服务器的数据有中文，会把中文进行编码<br><strong>在使用ajax发送post请求时，需要设置该请求头。设置为application/x-www-form-urlencoded时，要以key=value&amp;key=value的格式发送数据；设置为application/json时，要以json的格式发送数据</strong><br>在发送给服务器，服务器得到数据会自动解码.</p>
+</blockquote>
+</li>
+<li>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<em>/</em>;q=0.8<blockquote>
+<p>接收的数据格式</p>
+</blockquote>
+</li>
+<li>Referer: <a href="http://127.0.0.1/day08/code/01http/02post.htm" target="_blank" rel="external">http://127.0.0.1/day08/code/01http/02post.htm</a><blockquote>
+<p>告诉服务器，请求来自于那个页面，服务器借此可以获得一些信息用于处理<br>比如从我主页上链接到一个朋友那里，他的服务器就能够从HTTP Referer中统计出每天有多少用户点击我主页上的链接访问他的网站</p>
+</blockquote>
+</li>
+<li>Accept-Encoding: gzip, deflate<blockquote>
+<p>客户端接收压缩格式</p>
+</blockquote>
+</li>
+<li>Accept-Language: zh-CN,zh;q=0.8<blockquote>
+<p>客户端接收的语言</p>
+</blockquote>
+</li>
+<li>​<blockquote>
+<p>请求空行 【用来将请求头跟请求体进行一个区分，方便服务器解析数据】</p>
+</blockquote>
+</li>
+<li>username=dasfadsfdafs<blockquote>
+<p>请求体【客户端发送到服务器的数据.】</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="响应报文-服务器—-gt-客户端"><a href="#响应报文-服务器—-gt-客户端" class="headerlink" title="响应报文(服务器—-&gt;客户端)"></a>响应报文(服务器—-&gt;客户端)</h2><blockquote>
+<p>由响应首行、响应头、响应空行、响应体组成</p>
+</blockquote>
 <ul>
-<li>/*</li>
+<li>HTTP/1.1 200 OK<blockquote>
+<p>请求首行：协议版本  状态码<br><strong>以下为响应头</strong></p>
+</blockquote>
+</li>
+<li>Date: Fri, 17 Feb 2017 01:35:58 GMT<blockquote>
+<p>响应头 告诉客户端服务器端的时间.</p>
+</blockquote>
+</li>
+<li>Server: Apache/2.2.21 (Win32) PHP/5.3.10<blockquote>
+<p>告诉客户端服务器的版本</p>
+</blockquote>
+</li>
+<li>Last-Modified: Fri, 17 Feb 2017 01:33:19 GMT<blockquote>
+<p>文件的最后修改时间</p>
+</blockquote>
+</li>
+<li>If-Modified-Since:Fri, 17 Feb 2017 01:33:19 GMT<blockquote>
+<p>如果两次请求之间If-Modified-Since和 Last-Modified的值相同，服务器就会给客户端一个304的状态码，代表请求的资源没有发生改变，会从本地缓存中获取数据</p>
+</blockquote>
+</li>
+<li>ETag: “7700000000217a-96-548afe60e947a”</li>
+<li>Accept-Ranges: bytes</li>
+<li>Content-Length: 150<blockquote>
+<p>内容的长度</p>
+</blockquote>
+</li>
+<li>Content-Type: text/html;<blockquote>
+<p>内容类型，告诉客户端浏览器，我给你返回的是一个文本，html 格式的文本,<br>客户端浏览器得到这个，就会以html 的方式去解析.</p>
+</blockquote>
+</li>
+<li>header(“Content-Type:text/html;charset=utf-8”)<blockquote>
+<p>响应空行</p>
+</blockquote>
+</li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">     中文</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 <ul>
-<li>​</li>
-<li>饿汉式</li>
-<li>当类 进入内存的时候  就把对象创建出来了 </li>
-<li>​</li>
-<li>1:构造方法私有化</li>
-<li>2:在本类中的成员位置  创建一个该类 类型的静态变量  并且new出来</li>
-<li>​</li>
-<li>3:提供公共访问方式 </li>
-<li>​</li>
-<li>静态的 只随着类的加载 加载一次 </li>
-<li><p>这样的写法 这个对象 只创建了一次<br>   */<br>  ​</p>
-<p>  ​    </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleClass</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="comment">//成员位置 定义一个 自己类型  变量</span></div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> SingleClass single= <span class="keyword">new</span> SingleClass();</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="title">SingleClass</span><span class="params">()</span></span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleClass  <span class="title">getSingle</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line"><span class="keyword">return</span> single;</div><div class="line">  &#125;  </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>  ​</p>
-</li>
+<li>响应体</li>
 </ul>
-<p>/*</p>
-<ul>
-<li>懒汉式 </li>
-<li>延迟加载  </li>
-<li>​</li>
-<li>在我使用的时候 才去 创建这个对象</li>
-<li>​</li>
-<li>1:构造方法私有化</li>
-<li>2:在本类中的成员位置  给一个成员变量</li>
-<li>​</li>
-<li>3:提供公共访问方式 </li>
-<li>​</li>
-<li>静态的 只随着类的加载 加载一次 </li>
-<li>这样的写法 这个对象 只创建了一次</li>
-<li>​</li>
-<li>单线程 没问题 </li>
-<li><p>多线程 需要加同步锁<br>   */<br>  ​</p>
-<p>  ​     </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleClass</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="comment">//成员位置 定义一个 自己类型  变量</span></div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> SingleClass single= <span class="keyword">null</span>;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="title">SingleClass</span><span class="params">()</span></span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> SingleClass  <span class="title">getSingle</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line"><span class="keyword">if</span>(single==<span class="keyword">null</span>)&#123;			</div><div class="line">	single = <span class="keyword">new</span> SingleClass();			</div><div class="line">	<span class="keyword">return</span> single;</div><div class="line">&#125;		</div><div class="line"><span class="keyword">return</span> single;</div><div class="line">   &#125;  </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>  ​</p>
-</li>
+<h2 id="GET和POST请求的区别"><a href="#GET和POST请求的区别" class="headerlink" title="GET和POST请求的区别"></a>GET和POST请求的区别</h2><ul>
+<li>1、get请求的参数写在地址栏中，信息不安全，并且对数据的大小有限制</li>
+<li>2、get请求没有请求体</li>
+<li>3、get请求报文中信息较少，相对于post请求性能较高</li>
+<li>4、post请求的参数在请求体中，相对安全</li>
+<li>5、post请求对数据的大小没有限制</li>
+<li>6、post 请求有一个特殊的请求头: Content-Type:application/x-www-form-urlencoded 可以对请求的数据包含中文的数据进行编码.</li>
 </ul>
-<h3 id="—————————装饰者模式——————————"><a href="#—————————装饰者模式——————————" class="headerlink" title="—————————装饰者模式——————————-"></a>—————————装饰者模式——————————-</h3><ul>
-<li>通过手机案例 去理解</li>
+<h2 id="Origin和Referer的区别"><a href="#Origin和Referer的区别" class="headerlink" title="Origin和Referer的区别"></a>Origin和Referer的区别</h2><ul>
+<li>origin中只包含请求的主机名</li>
+<li>referer包含请求的URL路径和请求内容</li>
+<li>origin比referer对信息的保密性强</li>
+<li>origin只存在于post请求中，referer可以存在于所有的请求类型中</li>
 </ul>
-<p>​    </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Phone</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">sendMess</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>/*</p>
-<ul>
-<li><p>装饰者类  </p>
-</li>
-<li><p>对基本类 功能一个增强</p>
-</li>
-<li><p>​</p>
-</li>
-<li><p>Buffered<br>   */</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">- <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FiveG</span> <span class="keyword">extends</span> <span class="title">Phone</span></span>&#123;</div><div class="line">  <span class="keyword">private</span> Phone p;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">FiveG</span><span class="params">(Phone p)</span></span>&#123;</div><div class="line">      <span class="keyword">this</span>.p = p;</div><div class="line">  &#125;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123;</div><div class="line">      System.out.println(<span class="string">"开启5G模式...视频聊天不要钱"</span>);</div><div class="line">      p.call();</div><div class="line">      System.out.println(<span class="string">"关闭5G模式...视频聊天结束"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMess</span><span class="params">()</span> </span>&#123;</div><div class="line">      p.sendMess();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JinLi</span> <span class="keyword">extends</span> <span class="title">Phone</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>&#123;</div><div class="line">    	System.out.println(<span class="string">"金立2017 成功者的标配,欢迎拨打...."</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendMess</span><span class="params">()</span> </span>&#123;</div><div class="line">    	System.out.println(<span class="string">"金立手机发短信,安全可靠,加密芯片"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div></pre></td></tr></table></figure>
-<pre><code>JinLi jl = new JinLi();
-
-jl.call();
-
-jl.sendMess();
-
-//再次使用 加强功能的 操作
-System.out.println(&quot;-----------------&quot;);
-FiveG fg = new FiveG(new JinLi());
-
-fg.call();
-</code></pre><p>   } </p>
-<p>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   ​</div><div class="line"></div><div class="line">----------------------工厂模式----------------------</div><div class="line">定义具体的工厂类,来负责创建一些类的实例,这些被创建的类必须具有相同的父类,可以实现面向抽象不面向具体编程。</div><div class="line">例如宠物店 获取宠物方法</div><div class="line"></div><div class="line">​```java</div><div class="line">public class AnimalShop &#123;</div><div class="line"></div><div class="line">    public static final int DOG = 1;</div><div class="line">    public static final int CAT = 2;</div><div class="line">    public static final int LV = 3;</div><div class="line">    </div><div class="line">    public static  Animal getAnimal(int value)&#123;</div><div class="line">    	</div><div class="line">    	if(value==DOG)&#123;</div><div class="line">    		return new Dog();</div><div class="line">    	&#125;else if(value==CAT)&#123;</div><div class="line">    		</div><div class="line">    		return new Cat();</div><div class="line">    	&#125;else if(value==LV)&#123;</div><div class="line">    		</div><div class="line">    		return new Lv();</div><div class="line">    	&#125;else&#123;</div><div class="line">    		</div><div class="line">    		return null;</div><div class="line">    	&#125;</div><div class="line">    	</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="——————–反射-作为了解知识点-看看使用步骤就行————————"><a href="#——————–反射-作为了解知识点-看看使用步骤就行————————" class="headerlink" title="——————–反射 作为了解知识点 看看使用步骤就行————————-"></a>——————–反射 作为了解知识点 看看使用步骤就行————————-</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div></pre></td><td class="code"><pre><div class="line">如何获取.Class文件对象</div><div class="line"></div><div class="line">    	<span class="number">1</span>, 通过Object类 getClass()方法获取 Class对象 </div><div class="line">    	<span class="number">2</span>, 通过类名.class 方式 获取 Class对象</div><div class="line">    	<span class="number">3</span>, 通过反射的方式, Class.forName(String classname) 获取Class对象</div><div class="line">    		<span class="keyword">public</span> <span class="keyword">static</span> Class&lt;?&gt; forName(String className)<span class="keyword">throws</span> ClassNotFoundException</div><div class="line"></div><div class="line">返回与带有给定字符串名的类或接口相关联的 Class 对象</div><div class="line"></div><div class="line">通过反射， 获取类中的构造方法，并完成对象的创建</div><div class="line"></div><div class="line">    	获取指定的构造方法</div><div class="line"></div><div class="line">  			<span class="function"><span class="keyword">public</span> Constructor&lt;T&gt; <span class="title">getConstructor</span><span class="params">(Class&lt;?&gt;... parameterTypes)</span></span></div><div class="line"></div><div class="line">    			获取指定的<span class="keyword">public</span>修饰的构造方法 </div><div class="line"></div><div class="line">  			<span class="keyword">public</span> Constructor&lt;T&gt; <span class="title">getDeclaredConstructor</span><span class="params">(Class&lt;?&gt;... parameterTypes)</span></div><div class="line"></div><div class="line">    			获取指定的构造方法，包含私有的</div><div class="line"></div><div class="line">  		获取所有的构造方法</div><div class="line"></div><div class="line">  			<span class="keyword">public</span> Constructor&lt;?&gt;[] <span class="title">getConstructors</span><span class="params">()</span> 获取所有的<span class="keyword">public</span> 修饰的构造方法</div><div class="line"></div><div class="line">  			<span class="keyword">public</span> Constructor&lt;?&gt;[] <span class="title">getDeclaredConstructors</span><span class="params">()</span> 获取所有的构造方法，包含私有的</div><div class="line"></div><div class="line">通过反射， 获取类中的构造方法，并完成对象的创建</div><div class="line"></div><div class="line">  		步骤：</div><div class="line"></div><div class="line">  		1，获取字节码文件对象</div><div class="line"></div><div class="line">  		2,通过字节码文件对象 ，获取到指定的构造方法</div><div class="line"></div><div class="line">  			<span class="title">getConstructor</span><span class="params">(参数)</span>;</div><div class="line"></div><div class="line">  		<span class="number">3</span>,通过构造方法，创建对象</div><div class="line"></div><div class="line">  			<span class="function"><span class="keyword">public</span> T <span class="title">newInstance</span><span class="params">(Object... initargs)</span></span></div><div class="line"></div><div class="line">私有构造方法，创建对象</div><div class="line"></div><div class="line">    	1，获取字节码文件对象</div><div class="line"></div><div class="line">  		2,通过字节码文件对象 ，获取到指定的构造方法</div><div class="line"></div><div class="line">  			<span class="title">getDeclaredConstructor</span> <span class="params">(参数)</span>;</div><div class="line"></div><div class="line">  		<span class="number">3</span>,暴力访问 </div><div class="line"></div><div class="line">  			con.setAccessible(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">  		<span class="number">4</span>,通过构造方法，创建对象</div><div class="line"></div><div class="line">  			<span class="function"><span class="keyword">public</span> T <span class="title">newInstance</span><span class="params">(Object... initargs)</span></span></div><div class="line"></div><div class="line">通过反射，获取Class文件中的方法</div><div class="line"></div><div class="line">  		获取指定的方法</div><div class="line"></div><div class="line">  			<span class="keyword">public</span> Method <span class="title">getMethod</span><span class="params">(String name, Class&lt;?&gt;... parameterTypes)</span></div><div class="line"></div><div class="line">  				获取指定的<span class="keyword">public</span>方法</div><div class="line"></div><div class="line">  			<span class="keyword">public</span> Method <span class="title">getDeclaredMethod</span><span class="params">(String name, Class&lt;?&gt;... parameterTypes)</span></div><div class="line"></div><div class="line">  				获取指定的任意方法，包含私有的</div><div class="line"></div><div class="line">  		获取所有的方法</div><div class="line"></div><div class="line">  			<span class="keyword">public</span> Method[] <span class="title">getMethods</span><span class="params">()</span> 获取本类与父类中所有<span class="keyword">public</span> 修饰的方法</div><div class="line"></div><div class="line">  			ublic Method[] <span class="title">getDeclaredMethods</span><span class="params">()</span>获取本类中所有的方法，包含私有的</div><div class="line"></div><div class="line">	</div><div class="line"></div><div class="line">通过反射，调用方法</div><div class="line"></div><div class="line">  	步骤：</div><div class="line"></div><div class="line">  	1，获取Class对象</div><div class="line"></div><div class="line">  	2,获取构造方法，创建对象</div><div class="line"></div><div class="line">      3,获取指定的<span class="keyword">public</span>方法</div><div class="line"></div><div class="line">  	4,执行方法	</div><div class="line"></div><div class="line">  		<span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object obj, Object... args)</span></div><div class="line"></div><div class="line">私有方法的调用：</div><div class="line"></div><div class="line">     1，获取Class对象</div><div class="line">     2,获取构造方法，创建对象</div><div class="line">     3,获取指定的<span class="keyword">private</span>方法</div><div class="line">     4,开启暴力访问</div><div class="line">     	m5.<span class="title">setAccessible</span><span class="params">(<span class="keyword">true</span>)</span>;</div><div class="line">     <span class="number">5</span>,执行方法	</div><div class="line">     	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object obj, Object... args)</span></span></div><div class="line"></div><div class="line">通过反射，获取成员变量<span class="params">(字段)</span></div><div class="line"></div><div class="line">  		获取指定的成员变量</div><div class="line"></div><div class="line">  			 <span class="keyword">public</span> Field <span class="title">getField</span><span class="params">(String name)</span> 获取<span class="keyword">public</span>修饰的成员变量</div><div class="line"></div><div class="line">  			 <span class="keyword">public</span> Field <span class="title">getDeclaredField</span><span class="params">(String name)</span> 获取任意的成员变量，包含私有</div><div class="line"></div><div class="line">  		获取所有的成员变量</div><div class="line"></div><div class="line">  			 <span class="keyword">public</span> Field[] <span class="title">getFields</span><span class="params">()</span> 获取所有<span class="keyword">public</span>修饰的成员变量</div><div class="line"></div><div class="line">  			 <span class="keyword">public</span> Field[] <span class="title">getDeclaredFields</span><span class="params">()</span> 获取司所有的成员变量，包含私有</div><div class="line"></div><div class="line">通过反射，获取成员 变量，并赋值使用</div><div class="line"></div><div class="line">      	步骤：</div><div class="line">      	1，获取字节码文件对象</div><div class="line">      	2,获取构造方法，创建对象</div><div class="line">      	3,获取指定的成员变量</div><div class="line">      	4,对成员变量赋值\获取值操作</div><div class="line">      		<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(Object obj,  Object value)</span> 赋值</div><div class="line">      		<span class="keyword">public</span> Object <span class="title">get</span><span class="params">(Object obj)</span> 获取值</div><div class="line"></div><div class="line">私有成员变量的使用</div><div class="line"></div><div class="line">       	步骤：</div><div class="line">      	1，获取字节码文件对象</div><div class="line">      	2,获取构造方法，创建对象</div><div class="line">      	3,获取指定的成员变量</div><div class="line">      	4,开启暴力访问</div><div class="line">      	5,对成员变量赋值\获取值操作</div><div class="line">      		<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(Object obj,  Object value)</span> 赋值</div><div class="line">      		<span class="keyword">public</span> Object <span class="title">get</span><span class="params">(Object obj)</span> 获取值</div></pre></td></tr></table></figure>
 
           
         
@@ -1413,7 +1150,7 @@ fg.call();
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/12/07/github/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/25/applicationContext.xml(注解式开发)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cuidx">
@@ -1432,7 +1169,7 @@ fg.call();
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/12/07/github/" itemprop="url">GitHub</a></h1>
+                <a class="post-title-link" href="/2015/11/25/applicationContext.xml(注解式开发)/" itemprop="url">applicationContext.xml</a></h1>
         
 
         <div class="post-meta">
@@ -1444,8 +1181,8 @@ fg.call();
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-07T00:00:00+08:00">
-                2015-12-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-25T00:00:00+08:00">
+                2015-11-25
               </time>
             
 
@@ -1467,8 +1204,8 @@ fg.call();
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础/" itemprop="url" rel="index">
-                    <span itemprop="name">基础</span>
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
                   </a>
                 </span>
 
@@ -1503,58 +1240,7 @@ fg.call();
       
         
           
-            <h2 id="一、NPM-工具介绍"><a href="#一、NPM-工具介绍" class="headerlink" title="一、NPM 工具介绍"></a>一、NPM 工具介绍</h2><h2 id="1、-官网地址"><a href="#1、-官网地址" class="headerlink" title="1、 官网地址"></a>1、 <a href="https://www.npmjs.com/" target="_blank" rel="external">官网地址</a></h2><h3 id="2、NPM的简称：Node-Package-Manager"><a href="#2、NPM的简称：Node-Package-Manager" class="headerlink" title="2、NPM的简称：Node Package Manager"></a>2、NPM的简称：Node Package Manager</h3><h3 id="3、作用：是一个用来安装管理Node包和前端包的一个工具"><a href="#3、作用：是一个用来安装管理Node包和前端包的一个工具" class="headerlink" title="3、作用：是一个用来安装管理Node包和前端包的一个工具"></a>3、作用：是一个用来安装管理Node包和前端包的一个工具</h3><ul>
-<li>3.1 一是托管node 环境或者浏览器环境用到的一些第三方的包</li>
-<li>3.2 二是提供了一个用来共享或者检索的一个平台<h3 id="4、是一共命令行工具可以用来下载npm网站上托管的包"><a href="#4、是一共命令行工具可以用来下载npm网站上托管的包" class="headerlink" title="4、是一共命令行工具可以用来下载npm网站上托管的包"></a>4、是一共命令行工具可以用来下载npm网站上托管的包</h3><h3 id="5、安装条件"><a href="#5、安装条件" class="headerlink" title="5、安装条件"></a>5、安装条件</h3></li>
-<li>5.1必须安装 node 环境</li>
-<li><p>监测方法:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -v</div></pre></td></tr></table></figure>
-</li>
-<li><p>5.2 安装node 环境的时候，已经自动安装了npm 命令行工具,不需要单独安装</p>
-</li>
-<li>监测方法：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm-v</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="二、基本使用"><a href="#二、基本使用" class="headerlink" title="二、基本使用"></a>二、基本使用</h2><h3 id="1、本地安装"><a href="#1、本地安装" class="headerlink" title="1、本地安装:"></a>1、本地安装:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install [--save]包名</div></pre></td></tr></table></figure>
-<ul>
-<li>注意：下载项目中使用的第三方包，要切换到项目的根目录，然后执行 <code>npm install jquery</code> 下载完成后包就在<code>node_modules</code>文件夹下</li>
-<li>其中 <code>node_modules</code>文件夹中</li>
-</ul>
-<h3 id="2-全局安装："><a href="#2-全局安装：" class="headerlink" title="2.全局安装："></a>2.全局安装：</h3><ul>
-<li>在任意目录执行都可以</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -global 包名(工具名)</div></pre></td></tr></table></figure>
-<ul>
-<li>例子 比如全局安装less：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g  less(缩写)</div></pre></td></tr></table></figure>
-<ul>
-<li>可以通过 <code>npm root -g</code> 查看全局安装的目录</li>
-</ul>
-<h2 id="三、github的介绍"><a href="#三、github的介绍" class="headerlink" title="三、github的介绍"></a>三、github的介绍</h2><h3 id="1、什么是github-管理开源项目的网站"><a href="#1、什么是github-管理开源项目的网站" class="headerlink" title="1、什么是github:管理开源项目的网站"></a>1、什么是github:管理开源项目的网站</h3><h3 id="2、-github-地址：https-github-com"><a href="#2、-github-地址：https-github-com" class="headerlink" title="2、 github 地址：https://github.com/"></a>2、 github 地址：<code>https://github.com/</code></h3><h3 id="3、Github教程-廖雪峰的官方网站"><a href="#3、Github教程-廖雪峰的官方网站" class="headerlink" title="3、Github教程 - 廖雪峰的官方网站"></a>3、<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">Github教程 - 廖雪峰的官方网站</a></h3><h3 id="4、Git与Github-的关系"><a href="#4、Git与Github-的关系" class="headerlink" title="4、Git与Github 的关系"></a>4、Git与Github 的关系</h3><ul>
-<li>git 是一个分布式管理工具</li>
-<li>github 是为开发者提供git 仓库托管服务</li>
-</ul>
-<h2 id="四、github-安装-和-git-bash-的基本使用"><a href="#四、github-安装-和-git-bash-的基本使用" class="headerlink" title="四、github 安装 和 git-bash 的基本使用"></a>四、github 安装 和 git-bash 的基本使用</h2><h3 id="1、关于git-bash-的下载：注意64位电脑下载64位的，如果32位的要使用本电脑下载"><a href="#1、关于git-bash-的下载：注意64位电脑下载64位的，如果32位的要使用本电脑下载" class="headerlink" title="1、关于git-bash 的下载：注意64位电脑下载64位的，如果32位的要使用本电脑下载"></a>1、关于git-bash 的下载：注意64位电脑下载64位的，如果32位的要使用本电脑下载</h3><ul>
-<li>git-bash 就是一个命令行工具</li>
-<li>地址是：<code>https://git-for-windows.github.io/</code></li>
-</ul>
-<h3 id="2、git-bash-安装注意事项"><a href="#2、git-bash-安装注意事项" class="headerlink" title="2、git-bash 安装注意事项"></a>2、git-bash 安装注意事项</h3><ul>
-<li>最好不要更改安装地址</li>
-<li>注意自己的电脑位数(32位或者64位)</li>
-<li>安装完成后进行测试 <code>git --version</code>,显示版本号则表示安装成功</li>
-</ul>
-<h2 id="五、部署静态Blog"><a href="#五、部署静态Blog" class="headerlink" title="五、部署静态Blog"></a>五、部署静态Blog</h2><h3 id="1、-通过hexo-来部署-网站"><a href="#1、-通过hexo-来部署-网站" class="headerlink" title="1、 通过hexo 来部署 网站"></a>1、 通过<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo 来部署 网站</a></h3><h3 id="2、-所需要的环境"><a href="#2、-所需要的环境" class="headerlink" title="2、 所需要的环境"></a>2、 所需要的环境</h3><ul>
-<li>Node 环境、 npm 全局安装  、github 账号<h3 id="3、安装hexo-环境-npm-install-g-hexo-cli"><a href="#3、安装hexo-环境-npm-install-g-hexo-cli" class="headerlink" title="3、安装hexo 环境 npm install -g hexo-cli"></a>3、安装hexo 环境 <code>npm install -g hexo-cli</code></h3></li>
-<li>检查是否安装成功：<code>hexo --version</code>,出现版本号则表示安装成功</li>
-</ul>
-<h3 id="4、博客初始化-hexo-init-blog"><a href="#4、博客初始化-hexo-init-blog" class="headerlink" title="4、博客初始化 hexo init blog"></a>4、博客初始化 <code>hexo init blog</code></h3><h2 id="六、博客的发布"><a href="#六、博客的发布" class="headerlink" title="六、博客的发布"></a>六、博客的发布</h2><h3 id="1、修改配置文件"><a href="#1、修改配置文件" class="headerlink" title="1、修改配置文件"></a>1、修改配置文件</h3><ul>
-<li>找到blog 文件夹，找到config 文件，找到  <code>deploy</code> 、 <code>type:</code> 设置成键值对的形式：;</li>
-<li><code>type: git</code> / <code>repo: 生成的io 文件，在文件的前面加上用户名：密码@加github地址</code> </li>
-<li>在项目的跟目录下（也就是说blog 下执行gitbash 命令 <code>npm install hexo-deployer-git --save</code>）</li>
-<li>在上面的基础上执行 <code>hexo deploy --generate</code>  就可以提交成功了</li>
-<li>通过用户名加github.io 就可以访问了<code>https://hostpink.github.io/</code> </li>
-</ul>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">	http://www.springframework.org/schema/context</div><div class="line">	http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">	http://www.springframework.org/schema/aop</div><div class="line">	http://www.springframework.org/schema/aop/spring-aop.xsd</div><div class="line">	http://www.springframework.org/schema/tx </div><div class="line">	http://www.springframework.org/schema/tx/spring-tx.xsd"&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 开启注解的扫描 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.itheima.customer"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 整合C3P0的连接池 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"com.mysql.jdbc.Driver"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql:///day45_ssh"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 加载hibernate.cfg.xml配置文件 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.LocalSessionFactoryBean"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hibernateProperties"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">props</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.dialect"</span>&gt;</span>org.hibernate.dialect.MySQLDialect<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"hibernate.hbm2ddl.auto"</span>&gt;</span>update<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">props</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"packagesToScan"</span> <span class="attr">value</span>=<span class="string">"com.itheima.*.domain"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 注册模板对象 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"hibernateTemplate"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.HibernateTemplate"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置平台事务管理器对象 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.HibernateTransactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 事务注解的方式 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1688,8 +1374,430 @@ fg.call();
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5"&gt;</div><div class="line">  &lt;display-name&gt;ssh3&lt;/display-name&gt;</div><div class="line">  </div><div class="line">  &lt;!-- 配置Spring整合WEB的监听器 --&gt;</div><div class="line">	&lt;listener&gt;</div><div class="line">		&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</div><div class="line">	&lt;/listener&gt;</div><div class="line">	&lt;context-param&gt;</div><div class="line">		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</div><div class="line">		&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;</div><div class="line">	&lt;/context-param&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置Spring解决延迟加载的问题过滤器 --&gt;</div><div class="line">	&lt;filter&gt;</div><div class="line">		&lt;filter-name&gt;openSessionInViewFilter&lt;/filter-name&gt;</div><div class="line">		&lt;filter-class&gt;org.springframework.orm.hibernate5.support.OpenSessionInViewFilter&lt;/filter-class&gt;</div><div class="line">	&lt;/filter&gt;</div><div class="line">	&lt;filter-mapping&gt;</div><div class="line">		&lt;filter-name&gt;openSessionInViewFilter&lt;/filter-name&gt;</div><div class="line">		&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">	&lt;/filter-mapping&gt;</div><div class="line">	</div><div class="line"></div><div class="line">	&lt;!-- 配置Struts2框架的过滤器 --&gt;</div><div class="line">	&lt;filter&gt;</div><div class="line">		&lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">		&lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">	&lt;/filter&gt;</div><div class="line">	&lt;filter-mapping&gt;</div><div class="line">		&lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">		&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">	&lt;/filter-mapping&gt;</div><div class="line">  </div><div class="line">  &lt;welcome-file-list&gt;</div><div class="line">    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;default.html&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;</div><div class="line">    &lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;</div><div class="line">  &lt;/welcome-file-list&gt;</div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://java.sun.com/xml/ns/javaee"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span> <span class="attr">id</span>=<span class="string">"WebApp_ID"</span> <span class="attr">version</span>=<span class="string">"2.5"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>ssh3<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></div><div class="line">  </div><div class="line">  <span class="comment">&lt;!-- 配置Spring整合WEB的监听器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置Spring解决延迟加载的问题过滤器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>openSessionInViewFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>openSessionInViewFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div><div class="line">	</div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- 配置Struts2框架的过滤器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>struts2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div><div class="line">  </div><div class="line">  <span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.html<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.htm<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>default.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
 
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/23/过滤器、监听器、拦截器的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/11/23/过滤器、监听器、拦截器的区别/" itemprop="url">过滤，监听，拦截器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-23T00:00:00+08:00">
+                2015-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><p>Servlet中的过滤器Filter是实现了javax.servlet.Filter接口的服务器端程序，主要的用途是过滤字符编码、做一些业务逻辑判断等。其工作原理是，只要你在web.xml文件配置好要拦截的客户端请求，它都会帮你拦截到请求，此时你就可以对请求或响应(Request、Response)统一设置编码，简化操作；同时还可进行逻辑判断，如用户是否已经登陆、有没有权限访问该页面等等工作。它是随你的web应用启动而启动的，只初始化一次，以后就可以拦截相关请求，只有当你的web应用停止或重新部署的时候才销毁，以下通过过滤编码的代码示例来了解它的使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 主要目的：过滤字符编码；其次，做一些应用逻辑判断等.   </span></div><div class="line"><span class="comment">// Filter跟web应用一起启动   </span></div><div class="line"><span class="comment">// 当web应用重新启动或销毁时，Filter也被销毁   </span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCharsetFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;   </div><div class="line"> <span class="keyword">private</span> FilterConfig config = <span class="keyword">null</span>;   </div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;   </div><div class="line">     System.out.println(<span class="string">"MyCharsetFilter准备销毁..."</span>);   </div><div class="line"> &#125;   </div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest arg0, ServletResponse arg1, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;   </div><div class="line">     <span class="comment">// 强制类型转换   </span></div><div class="line">     HttpServletRequest request = (HttpServletRequest)arg0;   </div><div class="line">     HttpServletResponse response = (HttpServletResponse)arg1;   </div><div class="line">     <span class="comment">// 获取web.xm设置的编码集，设置到Request、Response中         request.setCharacterEncoding(config.getInitParameter("charset"));          response.setContentType(config.getInitParameter("contentType"));          response.setCharacterEncoding(config.getInitParameter("charset"));            </span></div><div class="line">    <span class="comment">// 将请求转发到目的地   </span></div><div class="line">     chain.doFilter(request, response);   </div><div class="line"> &#125;   </div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig arg0)</span> <span class="keyword">throws</span> ServletException </span>&#123;   </div><div class="line">     <span class="keyword">this</span>.config = arg0;   </div><div class="line">     System.out.println(<span class="string">"MyCharsetFilter初始化..."</span>);   </div><div class="line"> &#125;  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>以下是 MyCharsetFilter.java 在web.xml 中配置: </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span>   </div><div class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>dc.gz.filters.MyCharsetFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span>   </div><div class="line">  <span class="tag">&lt;<span class="name">init-param</span>&gt;</span>   </div><div class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>charset<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span>   </div><div class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span>   </div><div class="line">  <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span>   </div><div class="line">  <span class="tag">&lt;<span class="name">init-param</span>&gt;</span>   </div><div class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contentType<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span>   </div><div class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>text/html;charset=UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span>   </div><div class="line">  <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span>   </div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span>   </div><div class="line">   <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span>   </div><div class="line">     <span class="comment">&lt;!-- * 代表截获所有的请求  或指定请求/test.do  /xxx.do --&gt;</span>   </div><div class="line">     <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<p> 以上的例子简单的说明了Filter的使用，具体其他的应用可以看具体的场景。 </p>
+<h1 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h1><p>现在来说说Servlet的监听器Listener，它是实现了javax.servlet.ServletContextListener 接口的服务器端程序，它也是随web应用的启动而启动，只初始化一次，随web应用的停止而销毁。主要作用是： 做一些初始化的内容添加工作、设置一些基本的内容、比如一些参数或者是一些固定的对象等等。下面利用监听器对数据库连接池DataSource的初始化演示它的使用： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">MyServletContextListener.java   </div><div class="line"></div><div class="line"> <span class="keyword">package</span> dc.gz.listeners;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContext;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContextEvent;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> javax.servlet.ServletContextListener;   </div><div class="line"></div><div class="line"> <span class="keyword">import</span> org.apache.commons.dbcp.BasicDataSource;   </div><div class="line">  </div><div class="line">  <span class="comment">/**  </span></div><div class="line">*   Web应用监听器  </div><div class="line">    */   </div><div class="line">     <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServletContextListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span> </span>&#123;     </div><div class="line">     <span class="comment">// 应用监听器的销毁方法   </span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent event)</span> </span>&#123;   </div><div class="line">    ```java</div><div class="line">     ServletContext sc = event.getServletContext();   </div><div class="line">     <span class="comment">// 在整个web应用销毁之前调用，将所有应用空间所设置的内容清空   </span></div><div class="line">     sc.removeAttribute(<span class="string">"dataSource"</span>);   </div><div class="line">    System.out.println(<span class="string">"销毁工作完成..."</span>);</div></pre></td></tr></table></figure>
+<pre><code> }   
+
+ // 应用监听器的初始化方法   
+ public void contextInitialized(ServletContextEvent event) {   
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过这个事件可以获取整个应用的空间   </span></div><div class="line"><span class="comment">// 在整个web应用下面启动的时候做一些初始化的内容添加工作   </span></div><div class="line">ServletContext sc = event.getServletContext();   </div><div class="line"><span class="comment">// 设置一些基本的内容；比如一些参数或者是一些固定的对象   </span></div><div class="line"><span class="comment">// 创建DataSource对象，连接池技术 dbcp   </span></div><div class="line">BasicDataSource bds = <span class="keyword">new</span> BasicDataSource();   </div><div class="line">bds.setDriverClassName(<span class="string">"com.MySQL.jdbc.Driver"</span>);                       bds.setUrl(<span class="string">"jdbc:mysql://localhost:3306/hibernate"</span>);   </div><div class="line">bds.setUsername(<span class="string">"root"</span>);   </div><div class="line">bds.setPassword(<span class="string">"root"</span>);   </div><div class="line">bds.setMaxActive(<span class="number">10</span>);<span class="comment">//最大连接数   </span></div><div class="line">bds.setMaxIdle(<span class="number">5</span>);<span class="comment">//最大管理数   </span></div><div class="line"><span class="comment">//bds.setMaxWait(maxWait); 最大等待时间   </span></div><div class="line"><span class="comment">// 把 DataSource 放入ServletContext空间中，   </span></div><div class="line"><span class="comment">// 供整个web应用的使用(获取数据库连接)   </span></div><div class="line">sc.setAttribute(<span class="string">"dataSource"</span>, bds);   </div><div class="line">System.out.println(<span class="string">"应用监听器初始化工作完成..."</span>);   </div><div class="line">System.out.println(<span class="string">"已经创建DataSource..."</span>);   </div><div class="line">  &#125;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p>web.xml中配置如下，很简单：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 配置应用监听器  --&gt;</span>   </div><div class="line">  <span class="tag">&lt;<span class="name">listener</span>&gt;</span>   </div><div class="line">  <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>dc.gz.listeners.MyServletContextListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span>   </div><div class="line">  <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这样配置好了之后，以后在web应用中就可以通过ServletContext取得BasicDataSource对象，从而获取与数据库的连接，提高性能，方便使用。</p>
+<h1 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h1><p>拦截器是在面向切面编程中应用的，就是在你的service或者一个方法前调用一个方法，或者在方法后调用一个方法。是基于JAVA的反射机制。拦截器不是在web.xml，比如struts在struts.xml中配置，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable  </span></div><div class="line"></div><div class="line">&#123;  </div><div class="line"></div><div class="line">Object result = <span class="keyword">null</span>;  </div><div class="line"></div><div class="line">System.out.println(<span class="string">"before invoke method :"</span> + method.getName());  </div><div class="line"></div><div class="line">result = method.invoke(<span class="keyword">this</span>.targetObj, args);  </div><div class="line"></div><div class="line">System.out.println(<span class="string">"after invoke method : "</span> + method.getName());  </div><div class="line"></div><div class="line"><span class="keyword">return</span> result;  </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>总结：</p>
+<p>1.过滤器：所谓过滤器顾名思义是用来过滤的，在Java web中，你传入的request,response提前过滤掉一些信息，或者提前设置一些参数，然后再传入servlet或者struts的action进行业务逻辑，比如过滤掉非法url（不是login.do的地址请求，如果用户没有登陆都过滤掉）,或者在传入servlet或者struts的action前统一设置字符集，或者去除掉一些非法字符（聊天室经常用到的，一些骂人的话）。filter 流程是线性的， url传来之后，检查之后，可保持原来的流程继续向下执行，被下一个filter, servlet接收等.</p>
+<p>2.监听器：这个东西在c/s模式里面经常用到，他会对特定的事件产生产生一个处理。监听在很多模式下用到。比如说观察者模式，就是一个监听来的。又比如struts可以用监听来启动。Servlet监听器用于监听一些重要事件的发生，监听器对象可以在事情发生前、发生后可以做一些必要的处理。</p>
+<p>3.java的拦截器 主要是用在插件上，扩展件上比如 hivernate spring struts2等 有点类似面向切片的技术，在用之前先要在配置文件即xml文件里声明一段的那个东西。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/08/多对一实体类配置文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/11/08/多对一实体类配置文件/" itemprop="url">entity</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-08T00:00:00+08:00">
+                2015-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC </span></div><div class="line">    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"</div><div class="line">    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">   <span class="comment">&lt;!-- 类与表的映射   name指的是类名     table指的是表名 --&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"cn.itcast.crm.domain.Customer"</span> <span class="attr">table</span>=<span class="string">"customer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"custId"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"custName"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"custLinkman"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"custPhone"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"custMobile"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"filePath"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		</div><div class="line">		<span class="tag">&lt;<span class="name">many-to-one</span> <span class="attr">name</span>=<span class="string">"levelBaseDict"</span>  <span class="attr">column</span>=<span class="string">"custLevel"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.domain.BaseDict"</span>&gt;</span><span class="tag">&lt;/<span class="name">many-to-one</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">many-to-one</span> <span class="attr">name</span>=<span class="string">"sourceBaseDict"</span>   <span class="attr">column</span>=<span class="string">"custSource"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.domain.BaseDict"</span>&gt;</span><span class="tag">&lt;/<span class="name">many-to-one</span>&gt;</span></div><div class="line">		</div><div class="line"><span class="comment">&lt;!-- 		private BaseDict levelBaseDict;  //级别 --&gt;</span></div><div class="line"><span class="comment">&lt;!-- 	private BaseDict sourceBaseDict ; //来源 --&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/04/application.xml配置文件（非注解式开发)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/11/04/application.xml配置文件（非注解式开发)/" itemprop="url">applicationContext.xml</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-04T00:00:00+08:00">
+                2015-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssh/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">	http://www.springframework.org/schema/context</div><div class="line">	http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">	http://www.springframework.org/schema/aop</div><div class="line">	http://www.springframework.org/schema/aop/spring-aop.xsd</div><div class="line">	http://www.springframework.org/schema/tx</div><div class="line">	http://www.springframework.org/schema/tx/spring-tx.xsd"&gt;</div><div class="line">	</div><div class="line"><span class="comment">&lt;!-- 	数据源 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.mchange.v2.c3p0.ComboPooledDataSource"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClass"</span> <span class="attr">value</span>=<span class="string">"com.mysql.jdbc.Driver"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"jdbcUrl"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql:///crm_253"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"user"</span> <span class="attr">value</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--sessionFactory --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.LocalSessionFactoryBean"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocations"</span> <span class="attr">value</span>=<span class="string">"classpath:hibernate.cfg.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 	声明式事务管理 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.HibernateTransactionManager"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 	配置通知 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">tx:advice</span> <span class="attr">id</span>=<span class="string">"advice"</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">tx:attributes</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"save*"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"update*"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"delete*"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"find*"</span> <span class="attr">read-only</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tx:method</span> <span class="attr">name</span>=<span class="string">"*"</span>/&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">tx:attributes</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">tx:advice</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 	切面 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">expression</span>=<span class="string">"execution(* cn.itcast.crm.service.impl.*.*(..))"</span> <span class="attr">id</span>=<span class="string">"mycut"</span>/&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">aop:advisor</span> <span class="attr">advice-ref</span>=<span class="string">"advice"</span> <span class="attr">pointcut-ref</span>=<span class="string">"mycut"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span>	</div><div class="line">	</div><div class="line">	</div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userDao"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.dao.impl.UserDaoImpl"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userService"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.service.impl.UserServiceImpl"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"userDao"</span> <span class="attr">ref</span>=<span class="string">"userDao"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>		</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"userAction"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.action.UserAction"</span> <span class="attr">scope</span>=<span class="string">"prototype"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"userService"</span> <span class="attr">ref</span>=<span class="string">"userService"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>		</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"baseDictDao"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.dao.impl.BaseDictDaoImpl"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"baseDictService"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.service.impl.BaseDictServiceImpl"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"baseDictDao"</span> <span class="attr">ref</span>=<span class="string">"baseDictDao"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>		</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerDao"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.dao.impl.CustomerDaoImpl"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerService"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.service.impl.CustomerServiceImpl"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"customerDao"</span> <span class="attr">ref</span>=<span class="string">"customerDao"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>		</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customerAction"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.crm.action.CustomerAction"</span> <span class="attr">scope</span>=<span class="string">"prototype"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"customerService"</span> <span class="attr">ref</span>=<span class="string">"customerService"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"baseDictService"</span> <span class="attr">ref</span>=<span class="string">"baseDictService"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span>		</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
           
         
       
@@ -1727,7 +1835,7 @@ fg.call();
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1772,7 +1880,7 @@ fg.call();
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

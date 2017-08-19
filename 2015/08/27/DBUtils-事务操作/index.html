@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="DBUtils 事务操作123456789101112131415161718192021DBUtils操作回顾(API)  * 创建QueryRunner    &amp;gt; QueryRunner qr = new QueryRunner();      * 使用这个对象时，需要给它提供Connection    &amp;gt; QueryRunner qr = new QueryRunner(data">
+<meta name="description" content="DBUtils   API创建QueryRunner1QueryRunner qr = new QueryRunner(); 使用这个对象时，需要给它提供Connection 12QueryRunner qr = new QueryRunner(dataSource);//需要连接池对象  使用这个对象时，不用给Connection 调用update()：1qr.update(connection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DBUtils 事务操作">
 <meta property="og:url" content="http://yoursite.com/2015/08/27/DBUtils-事务操作/index.html">
 <meta property="og:site_name" content="Big Elephant">
-<meta property="og:description" content="DBUtils 事务操作123456789101112131415161718192021DBUtils操作回顾(API)  * 创建QueryRunner    &amp;gt; QueryRunner qr = new QueryRunner();      * 使用这个对象时，需要给它提供Connection    &amp;gt; QueryRunner qr = new QueryRunner(data">
-<meta property="og:updated_time" content="2017-07-26T10:27:27.562Z">
+<meta property="og:description" content="DBUtils   API创建QueryRunner1QueryRunner qr = new QueryRunner(); 使用这个对象时，需要给它提供Connection 12QueryRunner qr = new QueryRunner(dataSource);//需要连接池对象  使用这个对象时，不用给Connection 调用update()：1qr.update(connection">
+<meta property="og:updated_time" content="2017-08-19T07:33:03.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DBUtils 事务操作">
-<meta name="twitter:description" content="DBUtils 事务操作123456789101112131415161718192021DBUtils操作回顾(API)  * 创建QueryRunner    &amp;gt; QueryRunner qr = new QueryRunner();      * 使用这个对象时，需要给它提供Connection    &amp;gt; QueryRunner qr = new QueryRunner(data">
+<meta name="twitter:description" content="DBUtils   API创建QueryRunner1QueryRunner qr = new QueryRunner(); 使用这个对象时，需要给它提供Connection 12QueryRunner qr = new QueryRunner(dataSource);//需要连接池对象  使用这个对象时，不用给Connection 调用update()：1qr.update(connection">
 
 
 
@@ -351,7 +351,23 @@
       
 
       
-        <h1 id="DBUtils-事务操作"><a href="#DBUtils-事务操作" class="headerlink" title="DBUtils 事务操作"></a>DBUtils 事务操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">DBUtils操作回顾(API)</div><div class="line">  * 创建QueryRunner</div><div class="line">    &gt; QueryRunner qr = new QueryRunner();</div><div class="line">      * 使用这个对象时，需要给它提供Connection</div><div class="line">    &gt; QueryRunner qr = new QueryRunner(dataSource);//需要连接池对象</div><div class="line">      * 使用这个对象时，不用给Connection</div><div class="line">  * 调用update()：</div><div class="line">    &gt; qr.update(connection, sql, array)</div><div class="line">      * connection：连接对象</div><div class="line">      * sql：sql模板，带有问号</div><div class="line">      * array：对应sql模板中问号的值！</div><div class="line">    &gt; qr.update(sql, array)</div><div class="line">      * sql：sql模板，带有问号</div><div class="line">      * array：对应sql模板中问号的值！</div><div class="line"></div><div class="line">  * 调用batch()</div><div class="line">    &gt; batch(Connection con, String sql, Object[][] params);</div><div class="line">    &gt; batch(String sql, Object[][] params);</div><div class="line"></div><div class="line">  * 调用query()</div><div class="line">    &gt; query(Connection con, String sql, ResultSetHandler rh, Object[] params);</div></pre></td></tr></table></figure>
+        <h1 id="DBUtils-API"><a href="#DBUtils-API" class="headerlink" title="DBUtils   API"></a>DBUtils   API</h1><h2 id="创建QueryRunner"><a href="#创建QueryRunner" class="headerlink" title="创建QueryRunner"></a>创建QueryRunner</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QueryRunner qr = <span class="keyword">new</span> QueryRunner();</div></pre></td></tr></table></figure>
+<p>使用这个对象时，需要给它提供Connection</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">QueryRunner qr = <span class="keyword">new</span> QueryRunner(dataSource);</div><div class="line"><span class="comment">//需要连接池对象</span></div></pre></td></tr></table></figure>
+<p> 使用这个对象时，不用给Connection</p>
+<h2 id="调用update-："><a href="#调用update-：" class="headerlink" title="调用update()："></a>调用update()：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qr.update(connection, sql, array)</div></pre></td></tr></table></figure>
+<ul>
+<li>connection：连接对象</li>
+<li>sql：sql模板，带有问号</li>
+<li>array：对应sql模板中问号的值！</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qr.update(sql, array);</div></pre></td></tr></table></figure>
+<ul>
+<li>sql：sql模板，带有问号</li>
+<li>array：对应sql模板中问号的值！</li>
+</ul>
+<h2 id="调用batch"><a href="#调用batch" class="headerlink" title="调用batch()"></a>调用batch()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">batch(Connection con, String sql, Object[][] params);</div><div class="line">batch(String sql, Object[][] params);</div></pre></td></tr></table></figure>
+<h2 id="调用query"><a href="#调用query" class="headerlink" title="调用query()"></a>调用query()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">query(Connection con, String sql, ResultSetHandler rh, Object[] params);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -388,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/27/Mysql批处理/" rel="next" title="Mysql批处理">
-                <i class="fa fa-chevron-left"></i> Mysql批处理
+              <a href="/2015/08/27/事务特性/" rel="next" title="事务特性">
+                <i class="fa fa-chevron-left"></i> 事务特性
               </a>
             
           </div>
@@ -398,8 +414,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/27/JDBC中事务操作/" rel="prev" title="JDBC中事务操作">
-                JDBC中事务操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/08/29/跑马灯/" rel="prev" title="跑马灯">
+                跑马灯 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -472,7 +488,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -520,7 +536,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DBUtils-事务操作"><span class="nav-number">1.</span> <span class="nav-text">DBUtils 事务操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DBUtils-API"><span class="nav-number">1.</span> <span class="nav-text">DBUtils   API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建QueryRunner"><span class="nav-number">1.1.</span> <span class="nav-text">创建QueryRunner</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用update-："><span class="nav-number">1.2.</span> <span class="nav-text">调用update()：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用batch"><span class="nav-number">1.3.</span> <span class="nav-text">调用batch()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用query"><span class="nav-number">1.4.</span> <span class="nav-text">调用query()</span></a></li></ol></li></ol></div>
             
 
           </div>

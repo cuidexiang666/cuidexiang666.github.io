@@ -356,22 +356,25 @@
       
         
           
-            <h1 id="linux-常用命令"><a href="#linux-常用命令" class="headerlink" title="linux 常用命令"></a>linux 常用命令</h1><h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">bin（binaries）：存放可执行的二进制文件</div><div class="line">sbin（<span class="keyword">super</span> user binaries）：存放可执行的二进制文件，只有root用户才能访问</div><div class="line">boot：存放用于系统引导时使用的的各种文件</div><div class="line">dev（devices）：用于存放设备文件</div><div class="line">etc（etcetera）：存放系统配置文件【重要】</div><div class="line">root：超级用户（管理员）目录</div><div class="line">home：存放用户文件的根目录</div><div class="line">lib（library）：存放根文件系统中的程序运行所需要的共享库及内核模块</div><div class="line">mnt（mount）：系统管理员安装临时文件系统的安装点</div><div class="line">tmp（temporary）：用于存放各种临时文件</div><div class="line">usr（Unix share resource）：用于存放共享的的系统资源【重要】，一般我们都会把文件安装在该目录下</div><div class="line">var（variable）：用于存放运行时需要改变数据的文件</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">内部命令：属于shell解析器的一部分，例如：cd、pwd、help</div><div class="line">外部命令：独立与shell解析器之外的文件程序，例如：ls、mkdir、cp</div><div class="line">查看帮助文档</div><div class="line">内部命令：help + 命令，例如help cd</div><div class="line">外部命令：man + 命令，例如 man ls</div></pre></td></tr></table></figure>
-<h2 id="操作文件或目录常用命令"><a href="#操作文件或目录常用命令" class="headerlink" title="操作文件或目录常用命令"></a>操作文件或目录常用命令</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">cd ~：进入到用户的根目录，cd -：返回到原来目录</div><div class="line">pwd：print working directory，显示当前工作目录</div><div class="line">ls：查看当前目录下的所有文件，ls –la或者ll</div><div class="line">touch：创建空文件</div><div class="line">echo：向指定的文件中添加内容，例如：echo “content” &gt; x.txt；向指定的文件中追加数据：echo “content” &gt;&gt; x.txt</div><div class="line">mkdir：make directory，创建目录</div><div class="line">cp：copy，复制文件或者目录</div><div class="line">mv：move，移动文件或者目录、文件或者目录改名（同一目录下就是改名）</div><div class="line">rm：remove，删除文件</div><div class="line">-r：recursive，同时删除该目录下的所有文件</div><div class="line">-f：force，强制删除文件或目录</div><div class="line">rmdir：remove directory，删除空目录</div><div class="line">cat：catenate，显示文件文件内容</div><div class="line">more、less：分页显示文本文件内容  空格：翻页</div><div class="line">head、tail：查看文本中开头或者结尾部分的内容</div><div class="line">head –n 5 a.log：查看a.log的前5行数据</div><div class="line">tail –f b.log：循环读取</div><div class="line">stat：查看文件详情</div></pre></td></tr></table></figure>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">wc：word count，统计文本的字符个数、单词个数、行数</div><div class="line">-m：统计该文本的字符个数</div><div class="line">-w：统计该文本的单词个数</div><div class="line">-l：统计该文本的行数</div><div class="line">find：在文件系统中查找指定的文件，例：find /usr/ -name “xxx.txt”</div><div class="line">grep：在指定的文本文件中查找指定的字符串，例如：grep “hello” x.txt</div><div class="line">du：显示指定的文件（目录）已使用的磁盘空间的总数</div><div class="line">free：显示当前内存和交换空间的使用情况</div><div class="line">netstat：显示网络状态信息</div><div class="line">ifconfig：网卡的网络配置信息</div><div class="line">ping：测试网络的连通性</div><div class="line">ps：显示瞬间的进程状态</div><div class="line">kill：杀死一个进程，kill -<span class="number">9</span> pid</div><div class="line">df：显示文件系统磁盘空间的使用情况</div><div class="line">ln：link，建立连接文件（link），例如：ln –s family/son lnson</div></pre></td></tr></table></figure>
-<h2 id="解压缩命令"><a href="#解压缩命令" class="headerlink" title="解压缩命令"></a>解压缩命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">gzip：压缩文件（xxx.gz），例：gzip <span class="number">1</span>.txt；解压：gzip –d xxx.gz或者gunzip xxx.gz</div><div class="line">bzip2：压缩文件（xxx.bz2）例如：bzip2 <span class="number">1</span>.txt；解压：bzip2 –d xxx.bz2或者bunzip2 xxx.bz2</div><div class="line">tar：</div><div class="line">-c 建立一个压缩文件的参数指令（create）</div><div class="line">-x 解开一个压缩文件的参数指令（extract）</div><div class="line">-z 是否需要用 gzip 压缩</div><div class="line">-j 是否需要用 bzip2 压缩</div><div class="line">-v 压缩的过程中显示文件（verbose）</div><div class="line">-f 使用档名，在 f 之后要立即接档名（file）</div><div class="line"></div><div class="line"><span class="number">1</span>、将当前目录打包： tar –cvf bak.tar bak/</div><div class="line"><span class="number">2</span>、解压：tar –xvf bak.tar </div><div class="line"><span class="number">3</span>、打包并压缩成gzip：tar –zcvf bak.tar.gz bak.tar</div><div class="line"><span class="number">4</span>、解压gzip：tar –zxvf bak.tar.gz [-C /usr  解压到该目录下]</div><div class="line"><span class="number">5</span>、打包并压缩成bz2：tar -jcvf a.tar.bz2</div><div class="line"><span class="number">6</span>、解压bz2：tar -jxvf a.tar.bz2</div></pre></td></tr></table></figure>
-<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">shutdown：系统关机</div><div class="line">-r：关机后立即重启</div><div class="line">-h：关机后不启动</div><div class="line">halt：关机后关闭电源</div><div class="line">reboot：重启</div><div class="line">学习Linux的好习惯：善于使用帮助命令、善用tab键、掌握一些快捷键：Ctrl+c（停止当前进程）、history（查看历史命令）、Ctrl+l（清屏，与clear命令作用相同）、Ctrl+r（搜索历史命令）</div></pre></td></tr></table></figure>
-<h1 id="vim编辑器"><a href="#vim编辑器" class="headerlink" title="vim编辑器"></a>vim编辑器</h1><h2 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">i：在当前光标前插入</div><div class="line">I：在当前光标行首插入</div><div class="line">a：在当前光标后插入</div><div class="line">A：在当前光标行尾插入</div><div class="line">o：在当前光标的下一行插入新行</div><div class="line">O：在当前光标的上一行插入新行</div></pre></td></tr></table></figure>
-<h2 id="定位命令"><a href="#定位命令" class="headerlink" title="定位命令"></a>定位命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:set nu：显示行号</div><div class="line">:set nonu：取消行号</div><div class="line">gg：到文本第一行</div><div class="line">G：到文本的最后一行</div><div class="line">:n：到文本的第n行</div></pre></td></tr></table></figure>
-<h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x：删除光标所在处的字符</div><div class="line">nx：删除光标所在处的n个字符</div><div class="line">dd：删除光标所在行，ndd删除n行</div><div class="line">dG：删除光标所在行到末尾行的所有内容</div><div class="line">D：删除光标所在处到行尾的内容</div><div class="line">:n1,n2d：删除指定范围的行</div></pre></td></tr></table></figure>
-<h2 id="复制粘贴命令"><a href="#复制粘贴命令" class="headerlink" title="复制粘贴命令"></a>复制粘贴命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yy：复制当前光标行；nyy复制n行</div><div class="line">p：粘贴到该行下</div><div class="line">P：粘贴到该行上</div></pre></td></tr></table></figure>
-<h2 id="替换和取消命令"><a href="#替换和取消命令" class="headerlink" title="替换和取消命令"></a>替换和取消命令</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">u：undo，取消上一步操作</div><div class="line">ctrl+r：redo，返回到undo之前</div><div class="line">r：替换光标所在处的字符</div><div class="line">R：从光标所在处开始替换，按Esc键结束</div></pre></td></tr></table></figure>
-<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ZZ（Shift+zz）：保存并退出，与”:wq”作用相同</div><div class="line">Ctrl+c：结束当前进程</div><div class="line">Ctrl+r：搜索历史命令</div><div class="line">Tab键：自动补全</div></pre></td></tr></table></figure>
-<h1 id="关于Linux的配置"><a href="#关于Linux的配置" class="headerlink" title="关于Linux的配置"></a>关于Linux的配置</h1><h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network</div><div class="line"></div><div class="line">修改hostname=master即可，需要注意的是：主机名不能包含下划线或者中划线</div></pre></td></tr></table></figure>
-<h2 id="修改IP"><a href="#修改IP" class="headerlink" title="修改IP"></a>修改IP</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line"></div><div class="line">DEVICE="eth0"</div><div class="line">BOOTPROTO="static"          #修改</div><div class="line">HWADDR="00:0C:29:7D:A4:4E"</div><div class="line">IPV6INIT="yes"</div><div class="line">NM_CONTROLLED="yes"</div><div class="line">ONBOOT="yes"</div><div class="line">TYPE="Ethernet"</div><div class="line">UUID="f804bacc-f3e8-452b-ae55-3f97d3bf5108"</div><div class="line">IPADDR="192.168.31.251"      #添加</div><div class="line">NETMASK="255.255.255.0"     #添加</div><div class="line">GATEWAY="193.168.31.250"    #添加</div></pre></td></tr></table></figure>
-<h2 id="修改主机和IP的映射关系"><a href="#修改主机和IP的映射关系" class="headerlink" title="修改主机和IP的映射关系"></a>修改主机和IP的映射关系</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div><div class="line">最后一行添加 <span class="number">192.168</span>.31.251	master</div></pre></td></tr></table></figure>
-<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>、查看防火墙强状态：service iptables status</div><div class="line"><span class="number">2</span>、关闭防火墙：service iptables stop</div><div class="line"><span class="number">3</span>、查看防火墙是否开机启动：chkconfig iptables --list</div><div class="line"><span class="number">4</span>、查看该系统已哪种方式启动：vim /etc/inittab   <span class="number">1</span>：单用户启动  <span class="number">3</span>：多用户启动，server版  <span class="number">5</span>：图形界面方式启动</div><div class="line"><span class="number">5</span>、关闭防火墙开机关闭：chkconfig iptables off</div></pre></td></tr></table></figure>
+            <h1 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h1><p>bin（binaries）：存放可执行的二进制文件<br>sbin（super user binaries）：存放可执行的二进制文件，只有root用户才能访问<br>boot：存放用于系统引导时使用的的各种文件<br>dev（devices）：用于存放设备文件<br>etc（etcetera）：存放系统配置文件【重要】<br>root：超级用户（管理员）目录<br>home：存放用户文件的根目录<br>lib（library）：存放根文件系统中的程序运行所需要的共享库及内核模块<br>mnt（mount）：系统管理员安装临时文件系统的安装点<br>tmp（temporary）：用于存放各种临时文件<br>usr（Unix share resource）：用于存放共享的的系统资源【重要】，一般我们都会把文件安装在该目录下<br>var（variable）：用于存放运行时需要改变数据的文件</p>
+<p>内部命令：属于shell解析器的一部分，例如：cd、pwd、help<br>外部命令：独立与shell解析器之外的文件程序，例如：ls、mkdir、cp<br>查看帮助文档<br>内部命令：help + 命令，例如help cd<br>外部命令：man + 命令，例如 man ls</p>
+<h1 id="操作文件或目录常用命令"><a href="#操作文件或目录常用命令" class="headerlink" title="操作文件或目录常用命令"></a>操作文件或目录常用命令</h1><p>cd ~：进入到用户的根目录，cd -：返回到原来目录<br>pwd：print working directory，显示当前工作目录<br>ls：查看当前目录下的所有文件，ls –la或者ll<br>touch：创建空文件<br>echo：向指定的文件中添加内容，例如：echo “content” &gt; x.txt；向指定的文件中追加数据：echo “content” &gt;&gt; x.txt<br>mkdir：make directory，创建目录<br>cp：copy，复制文件或者目录<br>mv：move，移动文件或者目录、文件或者目录改名（同一目录下就是改名）<br>rm：remove，删除文件<br><code>-r</code>：recursive，同时删除该目录下的所有文件<br><code>-f</code>：force，强制删除文件或目录<br>rmdir：remove directory，删除空目录<br>cat：catenate，显示文件文件内容<br>more、less：分页显示文本文件内容  空格：翻页<br>head、tail：查看文本中开头或者结尾部分的内容<br>head –n 5 a.log：查看a.log的前5行数据<br>tail –f b.log：循环读取<br>stat：查看文件详情</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>wc：word count，统计文本的字符个数、单词个数、行数<br><code>-m</code>：统计该文本的字符个数<br><code>-w</code>：统计该文本的单词个数<br><code>-l</code>：统计该文本的行数<br>find：在文件系统中查找指定的文件，例：find /usr/ -name “xxx.txt”<br>grep：在指定的文本文件中查找指定的字符串，例如：grep “hello” x.txt<br>du：显示指定的文件（目录）已使用的磁盘空间的总数<br>free：显示当前内存和交换空间的使用情况<br>netstat：显示网络状态信息<br>ifconfig：网卡的网络配置信息<br>ping：测试网络的连通性<br>ps：显示瞬间的进程状态<br>kill：杀死一个进程，kill -9 pid<br>df：显示文件系统磁盘空间的使用情况<br>ln：link，建立连接文件（link），例如：ln –s family/son lnson</p>
+<h1 id="解压缩命令"><a href="#解压缩命令" class="headerlink" title="解压缩命令"></a>解压缩命令</h1><p>gzip：压缩文件（xxx.gz），例：gzip 1.txt；解压：gzip –d xxx.gz或者gunzip xxx.gz<br>bzip2：压缩文件（xxx.bz2）例如：bzip2 1.txt；解压：bzip2 –d xxx.bz2或者bunzip2 xxx.bz2<br>tar：<br><code>-c</code> 建立一个压缩文件的参数指令（create）<br><code>-x</code> 解开一个压缩文件的参数指令（extract）<br><code>-z</code> 是否需要用 gzip 压缩<br><code>-j</code> 是否需要用 bzip2 压缩<br><code>-v</code>压缩的过程中显示文件（verbose）<br><code>-f</code> 使用档名，在 f 之后要立即接档名（file）</p>
+<p>1、将当前目录打包：<code>tar –cvf bak.tar bak/</code><br>2、解压：<code>tar –xvf bak.tar</code><br>3、打包并压缩成gzip：<code>tar –zcvf bak.tar.gz bak.tar</code><br>4、解压gzip：<code>tar –zxvf bak.tar.gz [-C /usr  解压到该目录下]</code><br>5、打包并压缩成bz2：<code>tar -jcvf a.tar.bz2</code><br>6、解压bz2：<code>tar -jxvf a.tar.bz2</code></p>
+<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><p>shutdown：系统关机<br><code>-r</code>：关机后立即重启<br><code>-h</code>：关机后不启动<br>halt：关机后关闭电源<br>reboot：重启<br>学习Linux的好习惯：善于使用帮助命令、善用tab键、掌握一些快捷键：Ctrl+c（停止当前进程）、history（查看历史命令）、Ctrl+l（清屏，与clear命令作用相同）、Ctrl+r（搜索历史命令）</p>
+<h1 id="vim编辑器"><a href="#vim编辑器" class="headerlink" title="vim编辑器"></a>vim编辑器</h1><h2 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h2><p>i：在当前光标前插入<br>I：在当前光标行首插入<br>a：在当前光标后插入<br>A：在当前光标行尾插入<br>o：在当前光标的下一行插入新行<br>O：在当前光标的上一行插入新行</p>
+<h2 id="定位命令"><a href="#定位命令" class="headerlink" title="定位命令"></a>定位命令</h2><p>:set nu：显示行号<br>:set nonu：取消行号<br>gg：到文本第一行<br>G：到文本的最后一行<br>:n：到文本的第n行</p>
+<h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><p>x：删除光标所在处的字符<br>nx：删除光标所在处的n个字符<br>dd：删除光标所在行，ndd删除n行<br>dG：删除光标所在行到末尾行的所有内容<br>D：删除光标所在处到行尾的内容<br>:n1,n2d：删除指定范围的行</p>
+<h2 id="复制粘贴命令"><a href="#复制粘贴命令" class="headerlink" title="复制粘贴命令"></a>复制粘贴命令</h2><p>yy：复制当前光标行；nyy复制n行<br>p：粘贴到该行下<br>P：粘贴到该行上</p>
+<h2 id="替换和取消命令"><a href="#替换和取消命令" class="headerlink" title="替换和取消命令"></a>替换和取消命令</h2><p>u：undo，取消上一步操作<br>ctrl+r：redo，返回到undo之前<br>r：替换光标所在处的字符<br>R：从光标所在处开始替换，按Esc键结束</p>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><p>ZZ（Shift+zz）：保存并退出，与”:wq”作用相同<br>Ctrl+c：结束当前进程<br>Ctrl+r：搜索历史命令<br>Tab键：自动补全</p>
+<h1 id="关于Linux的配置"><a href="#关于Linux的配置" class="headerlink" title="关于Linux的配置"></a>关于Linux的配置</h1><h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network</div></pre></td></tr></table></figure>
+<p>修改hostname=master即可，需要注意的是：主机名不能包含下划线或者中划线</p>
+<h2 id="修改IP"><a href="#修改IP" class="headerlink" title="修改IP"></a>修改IP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-eth0</div><div class="line"></div><div class="line">DEVICE=<span class="string">"eth0"</span></div><div class="line">BOOTPROTO=<span class="string">"static"</span>          <span class="comment">#修改</span></div><div class="line">HWADDR=<span class="string">"00:0C:29:7D:A4:4E"</span></div><div class="line">IPV6INIT=<span class="string">"yes"</span></div><div class="line">NM_CONTROLLED=<span class="string">"yes"</span></div><div class="line">ONBOOT=<span class="string">"yes"</span></div><div class="line">TYPE=<span class="string">"Ethernet"</span></div><div class="line">UUID=<span class="string">"f804bacc-f3e8-452b-ae55-3f97d3bf5108"</span></div><div class="line">IPADDR=<span class="string">"192.168.31.251"</span>      <span class="comment">#添加</span></div><div class="line">NETMASK=<span class="string">"255.255.255.0"</span>     <span class="comment">#添加</span></div><div class="line">GATEWAY=<span class="string">"193.168.31.250"</span>    <span class="comment">#添加</span></div></pre></td></tr></table></figure>
+<h2 id="修改主机和IP的映射关系"><a href="#修改主机和IP的映射关系" class="headerlink" title="修改主机和IP的映射关系"></a>修改主机和IP的映射关系</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div></pre></td></tr></table></figure>
+<p>最后一行添加 192.168.31.251    master</p>
+<h2 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h2><p>1、查看防火墙强状态：service iptables status<br>2、关闭防火墙：service iptables stop<br>3、查看防火墙是否开机启动：chkconfig iptables –list<br>4、查看该系统已哪种方式启动：vim /etc/inittab   1：单用户启动  3：多用户启动，server版  5：图形界面方式启动<br>5、关闭防火墙开机关闭：chkconfig iptables off</p>
 
           
         
@@ -505,141 +508,38 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">一、通过git模拟单人开发</div><div class="line"></div><div class="line">1、在计算机的任意盘符创建一个文件夹：d:/gitdemo/tangseng</div><div class="line">2、进入tangseng目录下进行初始化：git init</div><div class="line">3、在tangseng目录下创建一个test.java文件：touch test.java</div><div class="line">4、查看文件的状态：git status(查看所有的文件状态）  git status filename(查看指定的文件状态)</div><div class="line">   4-1：文件为红色：未被git管理</div><div class="line">   4-2：文件为绿色：已被git管理</div><div class="line">5、将文件提交到暂存态：git add test.java(指定的文件)  git add .(提交所有的文件)</div><div class="line">6、将文件提交到本地班级库：git commit -m "注释内容"</div><div class="line">7、查看操作记录：git log</div><div class="line"></div><div class="line">二、通过git配置用户信息</div><div class="line"></div><div class="line">    1、配置局部的账号信息(.git/config文件)</div><div class="line">       git config user.name "Your Name"</div><div class="line">       git config user.email "your@example.cn"</div><div class="line"></div><div class="line">    2、配置全局的账号信息</div><div class="line">       git config --global user.name "Your Name"</div><div class="line">       git config --global user.email "your@example.cn"</div><div class="line"></div><div class="line"></div><div class="line">三、git的别名的设置</div><div class="line"></div><div class="line">    1、设置增强版的日志信息：git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</div><div class="line">       1-1、显示日志信息：有的一定样式</div><div class="line">       1-2、用户版本的回退</div><div class="line">    2、配置其他的别名：git config --global alias.别名 "具体的命令+[参数]"   git config --global alias.ci "commit -m"</div><div class="line"></div><div class="line">四、版本的回退与撤销</div><div class="line"></div><div class="line">    1、执行commit操作后：git reset --hard 哈希值(前七位)</div><div class="line">    2、未执行commit操作：git reset --hard HEAD</div><div class="line"></div><div class="line"></div><div class="line">五、模拟多人开发以及出现的冲突</div><div class="line"></div><div class="line">1、项目经理的角色</div><div class="line">   a、在任意盘符创建一个目录：d:/gitdemo/service</div><div class="line">   b、进入到service目录下：初始化git版本库:git init --bare</div><div class="line">   c、创建两个程序员(与service在同级目录下)：tangseng、wukong</div><div class="line"></div><div class="line">2、tangseng操作   a.txt   echo "content" &gt;(&gt;&gt;:追加) a.txt </div><div class="line">   a、检出代码：git clone url</div><div class="line">   b、设置忽略的文件：.gitignore(.git在同级目录)</div><div class="line">   c、将.gitignore文件提交到远程服务器</div><div class="line">      git add .</div><div class="line">      git commit -m ""</div><div class="line">      git push</div><div class="line">   d、开发了一个main.java文件：将文件推送到远程服务器</div><div class="line"></div><div class="line">3、悟空操作</div><div class="line">   a、检出代码：git clone url</div><div class="line">   b、开发代码：push到远程服务器</div><div class="line">      编辑文件：vim xxx.java</div><div class="line">      git add .</div><div class="line">      git commit -m ""</div><div class="line">      git push</div><div class="line"></div><div class="line">4、出现冲突</div><div class="line">   a、唐僧编写代码并且提交到远程服务器：</div><div class="line">   b、悟空未更新代码：直接开发并且提交到本地版本库；</div><div class="line">   c、悟空焕然大悟：更新代码：出现文件的冲突</div><div class="line">   d、解决冲突：编辑该文件并且最终提交到远程服务器</div><div class="line"></div><div class="line">六、git分支的使用</div><div class="line">    1、创建分支：git branch bugfix</div><div class="line">    2、切换分支：git checkout bugfix  (git checkout -b bugfix)</div><div class="line">    </div><div class="line">    分支合并时的冲突以及解决方法：</div><div class="line">    1、在bugfix上开发：提交到本地版本库；</div><div class="line">    2、切换到master上开发：提交到本地版本库；</div><div class="line">    3、将bugfig合并到master分支上：git merge bugfix(在主分支下操作)</div><div class="line">    4、出现冲突：编辑文件</div><div class="line">    5、删除分支：git branch -d bugfix</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/13/学习网站/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/13/学习网站/" itemprop="url">学习网站</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-13T00:00:00+08:00">
-                2017-02-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/基础/" itemprop="url" rel="index">
-                    <span itemprop="name">基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div></pre></td><td class="code"><pre><div class="line">1、Spring MVC入门（PDF）</div><div class="line">http://pan.baidu.com/s/1c1LI2oK</div><div class="line"></div><div class="line">2、搞定计算机专业毕业设计</div><div class="line">http://open.itcast.cn/java/14-62.html?1612sbkqun</div><div class="line">链接: http://pan.baidu.com/s/1mh9WQz2 密码: sqnc</div><div class="line"></div><div class="line">3、Java代码错误高级调试技术</div><div class="line">http://open.itcast.cn/java/14-63.html?1612sbkqun</div><div class="line">链接: http://pan.baidu.com/s/1jILg4OA 密码: 8a8x</div><div class="line"></div><div class="line">4、Js网页游戏开发实战篇</div><div class="line">2048+别踩白块http://open.itcast.cn/java/14-64.html?1612sbkqun</div><div class="line">链接: http://pan.baidu.com/s/1pKHYk4b 密码: 5xck</div><div class="line"></div><div class="line">5、3天教你搞定JavaWeb聊天室项目</div><div class="line">http://open.itcast.cn/java/14-65.html?1612sbkqun</div><div class="line">https://pan.baidu.com/s/1bpiMlfp</div><div class="line">链接:http://pan.baidu.com/s/1bXrM82 密码:h725</div><div class="line"></div><div class="line">6、JavaWeb图书管理系统项目</div><div class="line">http://open.itcast.cn/java/14-67.html?1612sbkqun</div><div class="line">链接: http://pan.baidu.com/s/1gfoI9zH 密码: m86q</div><div class="line"></div><div class="line">7、Linux系统开发基础入门</div><div class="line">http://open.itcast.cn/java/14-89.html?1612sbkqun</div><div class="line">链接: http://pan.baidu.com/s/1eS7b3oQ 密码: gfyu</div><div class="line"></div><div class="line">8、spring mvc 框架搭建及入门详解</div><div class="line">http://open.itcast.cn/java/14-78.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1c2mMOfu</div><div class="line">链接: http://pan.baidu.com/s/1eRPcl94 密码: vxac</div><div class="line"></div><div class="line">9、什么是MyBatis？揭秘持久层框架</div><div class="line">http://open.itcast.cn/java/14-80.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1geGS9UF</div><div class="line">链接: http://pan.baidu.com/s/1kV2N5un 密码: sani</div><div class="line"></div><div class="line">10、轻松搞定java基础第一季</div><div class="line">http://open.itcast.cn/java/14-110.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1o7QNKt8</div><div class="line">链接: http://pan.baidu.com/s/1jHQpTlG 密码: kdyp</div><div class="line"></div><div class="line">11、从零开始学习Linux编程 Shell编程快速入门</div><div class="line">http://open.itcast.cn/java/14-109.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1hsjWM0W</div><div class="line">链接: http://pan.baidu.com/s/1slAIMGP 密码: 2ry7</div><div class="line"></div><div class="line">12、大数据及hadoop是什么? 有什么用？</div><div class="line">http://open.itcast.cn/java/14-111.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1ntKDO5V</div><div class="line"></div><div class="line">13、Storm快速入门</div><div class="line">http://open.itcast.cn/java/14-112.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1gdhAG1P</div><div class="line">链接: http://pan.baidu.com/s/1pLcqYoV 密码: 1d57</div><div class="line"></div><div class="line">14、揭秘持久层框架：MyBatis入门详解</div><div class="line">http://open.itcast.cn/java/14-153.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1jGEEHAQ</div><div class="line">链接: https://pan.baidu.com/s/1nvhfnKX 密码: xdjh</div><div class="line"></div><div class="line">15、企业高并发的成熟解决方案</div><div class="line">http://open.itcast.cn/java/14-158.html?1612sbkqun</div><div class="line">https://pan.baidu.com/s/1jHEfg0m</div><div class="line">链接: https://pan.baidu.com/s/1nvhfnKX 密码: xdjh</div><div class="line"></div><div class="line">16、数据库高并发原理+演示+说明</div><div class="line">http://open.itcast.cn/java/14-159.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1hq5VsVE</div><div class="line">链接: http://pan.baidu.com/s/1gf19M4V 密码: k27j</div><div class="line"></div><div class="line">17、应届生的程序员之路超强就业指导震撼来袭</div><div class="line">http://open.itcast.cn/java/14-154.html?1612sbkqun</div><div class="line">链接: http://pan.baidu.com/s/1hrIm5fQ 密码: 7jrj</div><div class="line"></div><div class="line">18、软件生命周期之需求分析和软件设计详解</div><div class="line">http://open.itcast.cn/java/14-162.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1sjkEQlB</div><div class="line">链接: http://pan.baidu.com/s/1jIJeAP4 密码: gxfm</div><div class="line"></div><div class="line">19、奇思妙想的Java表达式</div><div class="line">http://open.itcast.cn/java/14-171.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1kT1gSYF</div><div class="line">链接: http://pan.baidu.com/s/1kU6Bcn9 密码: 6wrh</div><div class="line"></div><div class="line">20、奇思妙想的Java算法设计</div><div class="line">http://open.itcast.cn/java/14-172.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1eQjGjSm</div><div class="line">链接: http://pan.baidu.com/s/1pLxpG9t 密码: nugt</div><div class="line"></div><div class="line">21、JavaEE程序员职业规划</div><div class="line">http://open.itcast.cn/java/25-201.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1pLbAYZD</div><div class="line">链接: http://pan.baidu.com/s/1o8TfPA6 密码: bnxi</div><div class="line"></div><div class="line">22、【毕设项目】SSH网上商城</div><div class="line">http://pan.baidu.com/s/1jGvJKWY无</div><div class="line"></div><div class="line">23、【毕设项目】OA-报名与审核管理系统</div><div class="line">http://open.itcast.cn/java/25-174.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1eRgUjxo</div><div class="line">链接:http://pan.baidu.com/s/1boNMu9x 密码:ui2x</div><div class="line"></div><div class="line">24、【毕设项目】手机影音</div><div class="line">http://open.itcast.cn/java/25-175.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1gdy9y1P</div><div class="line"></div><div class="line">25、如何自己实现一个Struts2框架（两天完整）</div><div class="line">http://open.itcast.cn/java/14-225.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1ntN0NkH</div><div class="line">链接: http://pan.baidu.com/s/1hsBHiq4 密码: tfj6</div><div class="line"></div><div class="line">26、不求人，自己实现spring IOC框架1、2</div><div class="line">http://open.itcast.cn/java/14-262.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1hr8dfHa</div><div class="line">链接: http://pan.baidu.com/s/1mibblvM 密码: yeeb</div><div class="line"></div><div class="line">27、JavaEE程序员就业指南</div><div class="line">http://open.itcast.cn/java/26-239.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1mgsxRTY</div><div class="line"></div><div class="line">28、项目实战-基于Java的猜数字游戏（1、2、3全）</div><div class="line">http://open.itcast.cn/java/14-266.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1qW3gqBE</div><div class="line">链接: http://pan.baidu.com/s/1o82H0BS 密码: k63s</div><div class="line"></div><div class="line">29、三天玩转-基于Java的拼图游戏1、2、3</div><div class="line">http://open.itcast.cn/java/27-271.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1dDSe3Vr</div><div class="line">链接: http://pan.baidu.com/s/1kUGK7Zp 密码: 1pgw</div><div class="line"></div><div class="line">30、使用SolrCloud构建灵活稳健的搜索服务1、2</div><div class="line">http://open.itcast.cn/java/14-288.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1miIuCAW</div><div class="line">链接: http://pan.baidu.com/s/1pLMsr83 密码: c437</div><div class="line"></div><div class="line">31、新一代大数据分布式处理框架spark内核分析与应用</div><div class="line">http://open.itcast.cn/java/14-307.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1qW26J6W</div><div class="line">链接: http://pan.baidu.com/s/1dF2ZOxr 密码: xmq1</div><div class="line"></div><div class="line">32、JAVA-解密互联网验证码之谜</div><div class="line">http://open.itcast.cn/java/14-359.html?1612sbkqun	</div><div class="line">http://pan.baidu.com/s/1jIKzSCu	</div><div class="line">http://pan.baidu.com/s/1dECSvoX 密码: 9ry3</div><div class="line"></div><div class="line">33、响应式电子商城1-5全</div><div class="line">http://open.itcast.cn/java/14-392.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1bUAdpc</div><div class="line">链接: http://pan.baidu.com/s/1pLH89SZ 密码: wjia</div><div class="line"></div><div class="line">34、JAVA加密安全的艺术</div><div class="line">http://open.itcast.cn/java/14-376.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1c2Awl8G</div><div class="line">链接：http://pan.baidu.com/s/1boKXwSZ 密码：46c7</div><div class="line"></div><div class="line">35、Java高并发响应力-揭秘双十一大型电商网站不崩溃的秘密</div><div class="line">http://open.itcast.cn/java/14-425.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1qYeRrGg</div><div class="line">链接: http://pan.baidu.com/s/1boBBlKj 密码: 8q7c</div><div class="line"></div><div class="line">36、Java EE面试技术概览与机试题分析</div><div class="line">http://open.itcast.cn/java/15-451.html?1612sbkqun	</div><div class="line">http://pan.baidu.com/s/1o8xXfYi	 </div><div class="line">http://pan.baidu.com/s/1pL0CQoV 密码: sjxx</div><div class="line"></div><div class="line">36、互联网关键技术之缓存</div><div class="line">http://open.itcast.cn/java/14-481.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1c2kJNjy</div><div class="line">http://pan.baidu.com/s/1geCOlzX 密码: sia6</div><div class="line"></div><div class="line">37、移动支付</div><div class="line">http://open.itcast.cn/java/14-492.html?1612sbkqun</div><div class="line">视频： http://pan.baidu.com/s/1bpKEODT</div><div class="line">文件：链接:  http://pan.baidu.com/s/1nuIItU5 密码: 94ew </div><div class="line"></div><div class="line">38、使用JAVA技术完成二维码的制作</div><div class="line">http://open.itcast.cn/java/14-489.html?1612sbkqun</div><div class="line">http://pan.baidu.com/s/1jIhRto6</div><div class="line">源码链接: http://pan.baidu.com/s/1bpkh20n 密码: 7efx</div><div class="line"></div><div class="line">39<span class="tag">\</span>10.20淘宝被千万人上为什么还不挂？</div><div class="line">视频：http://pan.baidu.com/s/1o8ljoCy</div><div class="line">资料：链接：http://pan.baidu.com/s/1slriM4H 密码：ritb</div><div class="line"></div><div class="line">40<span class="tag">\</span>10月25日  揭秘酷炫的Java文件上传技术</div><div class="line">视频：http://pan.baidu.com/s/1jIjV2F8</div><div class="line">资料：链接：http://pan.baidu.com/s/1hrRI9H6 密码：l0a6</div><div class="line"></div><div class="line"></div><div class="line">安卓项目实战-金山卫士实战短信备份</div><div class="line">http://open.itcast.cn/java/15-276.html?1612sbkqun </div><div class="line">http://pan.baidu.com/s/1gdhKhiz</div><div class="line">资料链接: http://pan.baidu.com/s/1i5CvhRZ 密码: cvxh</div><div class="line"></div><div class="line">互联网技术-揭秘Java网络爬虫程序原理公开课下载</div><div class="line">视频：http://open.itcast.cn/java/14-519.html?1612sbkqun</div><div class="line">资料：链接: http://pan.baidu.com/s/1bo8WYHx 密码: pi47</div><div class="line"></div><div class="line">11月14日 互联网技术-揭秘Java网络爬虫程序原理</div><div class="line">视频http://pan.baidu.com/s/1o7AC2fC</div><div class="line">资料：链接：http://pan.baidu.com/s/1hr92It2 密码：in62</div></pre></td></tr></table></figure>
+            <h1 id="单人开发"><a href="#单人开发" class="headerlink" title="单人开发"></a>单人开发</h1><ul>
+<li>在计算机的任意盘符创建一个文件夹：d:/gitdemo/tangseng</li>
+<li>进入tangseng目录下进行初始化：git init</li>
+<li>在tangseng目录下创建一个test.java文件：touch test.java</li>
+<li>查看文件的状态：git status(查看所有的文件状态）  git status filename(查看指定的文件状态)<ul>
+<li>文件为红色：未被git管理<ul>
+<li>文件为绿色：已被git管理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>将文件提交到暂存态：git add test.java(指定的文件)  git add .(提交所有的文件)</li>
+<li>将文件提交到本地班级库：git commit -m “注释内容”</li>
+<li>查看操作记录：git log</li>
+</ul>
+<h1 id="通过git配置用户信息"><a href="#通过git配置用户信息" class="headerlink" title="通过git配置用户信息"></a>通过git配置用户信息</h1><p>1、配置局部的账号信息(.git/config文件)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config user.name <span class="string">"Your Name"</span></div><div class="line">git config user.email <span class="string">"your@example.cn"</span></div></pre></td></tr></table></figure>
+<p>2、配置全局的账号信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"Your Name"</span></div><div class="line">git config --global user.email <span class="string">"your@example.cn"</span></div></pre></td></tr></table></figure>
+<h1 id="git的别名的设置"><a href="#git的别名的设置" class="headerlink" title="git的别名的设置"></a>git的别名的设置</h1><p>1、设置增强版的日志信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></div></pre></td></tr></table></figure>
+<p>1-1、显示日志信息：有的一定样式<br>1-2、用户版本的回退</p>
+<p>2、配置其他的别名：git config –global alias.别名 “具体的命令+[参数]”   git config –global alias.ci “commit -m”</p>
+<h1 id="版本的回退与撤销"><a href="#版本的回退与撤销" class="headerlink" title="版本的回退与撤销"></a>版本的回退与撤销</h1><p>1、执行commit操作后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard 哈希值(前七位)</div></pre></td></tr></table></figure>
+<p>2、未执行commit操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard HEAD</div></pre></td></tr></table></figure>
+<h1 id="git分支的使用"><a href="#git分支的使用" class="headerlink" title="git分支的使用"></a>git分支的使用</h1><p>1、创建分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch bugfix</div></pre></td></tr></table></figure>
+<p>2、切换分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout bugfix  (git checkout -b bugfix)</div></pre></td></tr></table></figure>
+<p>分支合并时的冲突以及解决方法：<br>1、在bugfix上开发：提交到本地版本库；<br>2、切换到master上开发：提交到本地版本库；<br>3、将bugfig合并到master分支上：git merge bugfix(在主分支下操作)<br>4、出现冲突：编辑文件<br>5、删除分支：git branch -d bugfix</p>
 
           
         
@@ -773,7 +673,7 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置扫描器：扫描带有@Service注解的类并且交给spring的bean容器管理 --&gt;	</div><div class="line">	&lt;context:component-scan base-package="cn.itcast.babasport.service"/&gt;</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> </div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xmlns:task</span>=<span class="string">"http://www.springframework.org/schema/task"</span></div><div class="line">	<span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置扫描器：扫描带有@Service注解的类并且交给spring的bean容器管理 --&gt;</span>	</div><div class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"cn.itcast.babasport.service"</span>/&gt;</span></div><div class="line">		</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -907,7 +807,7 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 1、	加载外部资源文件； --&gt;</div><div class="line">	&lt;context:property-placeholder location="classpath:db.properties"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 2、	管理数据源； --&gt;</div><div class="line">	&lt;bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"&gt;</div><div class="line">		&lt;property name="driverClassName" value="$&#123;jdbc.driver&#125;"/&gt;</div><div class="line">		&lt;property name="url" value="$&#123;jdbc.url&#125;"/&gt;</div><div class="line">		&lt;property name="username" value="$&#123;jdbc.username&#125;"/&gt;</div><div class="line">		&lt;property name="password" value="$&#123;jdbc.password&#125;"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 3、	管理回话工厂：SqlSessionFactory； --&gt;</div><div class="line">	&lt;bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"&gt;</div><div class="line">		&lt;!-- 注入数据源 --&gt;</div><div class="line">		&lt;property name="dataSource" ref="dataSource"/&gt;</div><div class="line">		&lt;!-- 加载mybatis的核心配置文件 --&gt;</div><div class="line">		&lt;property name="configLocation" value="classpath:mybatis-config.xml"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 4、	批量代理对象的管理 --&gt;</div><div class="line">	&lt;bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"&gt;</div><div class="line">		&lt;property name="basePackage" value="cn.itcast.babasport.mapper"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">		</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> </div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xmlns:task</span>=<span class="string">"http://www.springframework.org/schema/task"</span></div><div class="line">	<span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 1、	加载外部资源文件； --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context:property-placeholder</span> <span class="attr">location</span>=<span class="string">"classpath:db.properties"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 2、	管理数据源； --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.alibaba.druid.pool.DruidDataSource"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driver&#125;"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.username&#125;"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.password&#125;"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 3、	管理回话工厂：SqlSessionFactory； --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.SqlSessionFactoryBean"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 注入数据源 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 加载mybatis的核心配置文件 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span> <span class="attr">value</span>=<span class="string">"classpath:mybatis-config.xml"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 4、	批量代理对象的管理 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basePackage"</span> <span class="attr">value</span>=<span class="string">"cn.itcast.babasport.mapper"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1041,141 +941,7 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置事务管理器 --&gt;	</div><div class="line">	&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</div><div class="line">		&lt;!-- 注入数据源 --&gt;</div><div class="line">		&lt;property name="dataSource" ref="dataSource"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置注解驱动 --&gt;</div><div class="line">	&lt;tx:annotation-driven transaction-manager="transactionManager"/&gt;</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/springmvc--controller层配置文件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cuidx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Big Elephant">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/06/24/springmvc--controller层配置文件/" itemprop="url">controller层配置文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-24T00:00:00+08:00">
-                2016-06-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/springmvc/" itemprop="url" rel="index">
-                    <span itemprop="name">springmvc</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 1、	扫描@Controller --&gt;</div><div class="line">	&lt;context:component-scan base-package="cn.itcast.babasport.controller"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 2、	配置处理器映射器：HandlerMapping --&gt;</div><div class="line">	&lt;!-- 3、	配置处理器适配器：HandlerAdapter --&gt;</div><div class="line">	&lt;!-- 加载json解析器、校验器、类型转换器 --&gt;</div><div class="line">	&lt;mvc:annotation-driven/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 4、	配置视图解析器：ViewResolver --&gt;</div><div class="line">	&lt;bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"&gt;</div><div class="line">		&lt;property name="prefix" value="/WEB-INF/console/"/&gt;</div><div class="line">		&lt;property name="suffix" value=".jsp"/&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 加载配置文件 --&gt;</div><div class="line">	&lt;import resource="classpath:consumer.xml"/&gt;</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> </div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xmlns:task</span>=<span class="string">"http://www.springframework.org/schema/task"</span></div><div class="line">	<span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置事务管理器 --&gt;</span>	</div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 注入数据源 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置注解驱动 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>/&gt;</span></div><div class="line">		</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1353,6 +1119,140 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/springmvc--controller层配置文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/24/springmvc--controller层配置文件/" itemprop="url">controller层配置文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-24T00:00:00+08:00">
+                2016-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/springmvc/" itemprop="url" rel="index">
+                    <span itemprop="name">springmvc</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> </div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xmlns:task</span>=<span class="string">"http://www.springframework.org/schema/task"</span></div><div class="line">	<span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 1、	扫描@Controller --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"cn.itcast.babasport.controller"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 2、	配置处理器映射器：HandlerMapping --&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 3、	配置处理器适配器：HandlerAdapter --&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 加载json解析器、校验器、类型转换器 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 4、	配置视图解析器：ViewResolver --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/console/"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 加载配置文件 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:consumer.xml"</span>/&gt;</span></div><div class="line">		</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/24/jdbc外部配置文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1487,6 +1387,140 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/16/dubbo服务提供方配置文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cuidx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Big Elephant">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/16/dubbo服务提供方配置文件/" itemprop="url">服务提供方配置文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-16T00:00:00+08:00">
+                2016-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dubbo/" itemprop="url" rel="index">
+                    <span itemprop="name">dubbo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> </div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xmlns:task</span>=<span class="string">"http://www.springframework.org/schema/task"</span></div><div class="line">	<span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置服务提供方名称 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"service-product"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置注册中心 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">protocol</span>=<span class="string">"zookeeper"</span> <span class="attr">address</span>=<span class="string">"192.168.200.128:2181"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置暴露的接口地址 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">ref</span>=<span class="string">"bbsTestService"</span> <span class="attr">interface</span>=<span class="string">"cn.itcast.babasport.service.test.BbsTestService"</span>/&gt;</span></div><div class="line">		</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/16/dubbo服务消费方配置文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1577,7 +1611,7 @@
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"</div><div class="line">	xmlns:context="http://www.springframework.org/schema/context"</div><div class="line">	xmlns:aop="http://www.springframework.org/schema/aop" </div><div class="line">	xmlns:tx="http://www.springframework.org/schema/tx"</div><div class="line">	xmlns:task="http://www.springframework.org/schema/task"</div><div class="line">	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans </div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置服务消费方名称 --&gt;</div><div class="line">	&lt;dubbo:application name="service-product"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置注册中心 --&gt;</div><div class="line">	&lt;dubbo:registry protocol="zookeeper" address="192.168.200.128:2181"/&gt;</div><div class="line">	</div><div class="line">	&lt;!-- 配置引用的服务 --&gt;</div><div class="line">	&lt;dubbo:reference id="bbsTestService" interface="cn.itcast.babasport.service.test.BbsTestService" timeout="6000000"/&gt;</div><div class="line">	</div><div class="line">		</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span> </div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xmlns:task</span>=<span class="string">"http://www.springframework.org/schema/task"</span></div><div class="line">	<span class="attr">xmlns:dubbo</span>=<span class="string">"http://code.alibabatech.com/schema/dubbo"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/mvc </div><div class="line">		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/context </div><div class="line">		http://www.springframework.org/schema/context/spring-context-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/aop </div><div class="line">		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd </div><div class="line">		http://www.springframework.org/schema/tx </div><div class="line">		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</div><div class="line">		http://www.springframework.org/schema/task</div><div class="line">   		http://www.springframework.org/schema/task/spring-task-4.0.xsd</div><div class="line">		http://code.alibabatech.com/schema/dubbo        </div><div class="line">		http://code.alibabatech.com/schema/dubbo/dubbo.xsd"&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置服务消费方名称 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"service-product"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置注册中心 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">protocol</span>=<span class="string">"zookeeper"</span> <span class="attr">address</span>=<span class="string">"192.168.200.128:2181"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!-- 配置引用的服务 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">dubbo:reference</span> <span class="attr">id</span>=<span class="string">"bbsTestService"</span> <span class="attr">interface</span>=<span class="string">"cn.itcast.babasport.service.test.BbsTestService"</span> <span class="attr">timeout</span>=<span class="string">"6000000"</span>/&gt;</span></div><div class="line">	</div><div class="line">		</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1616,7 +1650,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1661,7 +1695,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
